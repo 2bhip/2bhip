@@ -1,0 +1,128 @@
+2BHIP Website Designer Notes
+
+If you have any questions or if I might've missed a few things, e-mail ray.villaraza@gmail.com
+
+It may look like a lot of files, but it's just different views. Once you style the homepage's appViewTop and appViewBottom, you'd only be doing the "mainContentArea" of each page. :)
+
+PHOTOSHOP: Folders with starting with a "+" indicate that it's a toggle to access a different view of the PSD, i.e. Pop-ups or New States
+
+
+Fonts used: Google Fonts - Bangers and Open Sans
+
+Colors:
+- Blue #006099
+- Red #be0000
+- Orange #fb880d
+- Yellow #ffcc00
+- Black #000000
+- Grays are #eeeeee, #cccccc
+
+Animations: jQuery default setting for drop-downs, fades and slides, I believe it is called "swing". When products slide left/right as seen on the Main Banner or product groups, just use the "swing" animation.
+
+Link Highlight/Hover specified in design, but button hover isn't. Buttons will start at a 90% transparency (still looks like it's in full-color), but goes up to 100% (vibrant) on hover. It's subtle, but should do.
+
+Layout: Top bar and footer sections span 100% of browser width, the rest stay within a 960-grid.
+
+Global Messaging resides in a Pop-up, pop-up template is in the PSDs, layer titled so.
+
+
+*** Loading Page ***
+- I've attached the ajax-loader.gif that goes with this page. Pretty straight forward, page should appear whenever the site is loading something.
+
+
+*** Home Page ***
+- Pretty straight forward as well, standard site framework.
+
+- Main navigation (yellow-orange background) doesn't have a drop-down, it directs to "webDesign_2bhip_17-mainNavIndex_v2.jpg"
+
+- Blue Navigation bar has a drop-down, can be accessed via "+" folder in the PSD
+
+- Carousels will animated using standard jQuery "swing"
+
+- Product Sizes buttons are interactive. When the user clicks on "S" or "M", he/she is taken to the Product Detail page of that selected size, i.e. have the size already pre-selected on entry to view the Product's Detail page.
+
+- Added 2 "wait" gifs. To be placed on the button itself or next to (after or below) the buttons if there will be a significant loading time.
+
+
+*** Categories Page ***
+- Live sorting box on the left
+- When updating the content delivered after using a a sort function, jQuery's fade in/out animation still using "swing"
+
+
+*** Products Listings Page ***
+- Live sorting box on the left
+- When updating the content delivered after using a a sort function, jQuery's fade in/out animation still using "swing"
+
+
+*** Product Detail Page ***
+- Carousel function underneath the Product Image, clicking on the thumbnails enlarges it to the main panel (currently a red AC/DC shirt). Clicking on the main panel, enlarges the currently loaded image via lightbox to fit 80% screen width / height.
+
+- [+]Read Reviews is a toggle to different pane, [+]Write Reviews toggles the pop-up to enter a review
+
+
+*** Shopping Cart ***
+- The size of the product should be what the user has selected but they can change it here.
+- Quantity is a left/right selector, user can adjust quantities this way.
+
+- Entering a discount code, should update the total after hitting "Apply"
+
+- Adjusting the "Shipping" options should reflect on the price change as well, if the user is logged in. If the user is logged out, the Shipping Option will be grayed out.
+
+- [+] Save For Later Pop-Up toggle
+
+
+*** Billing Confirmation ***
+- "Same As Account Information" is a toggle to auto-load the current users information, if logged in. If logged out, this checkbox will be grayed out
+
+- Entering the discount code or adjusting the shipping options should update the total after hitting "Update Cart"
+
+
+*** Confirmation Page ***
+- Print and Share functionality, Share just pops up a white box with the social media icons in the PSD file. The user then chooses the social media to use, then follows it through
+
+
+*** About Us ***
+- Informational Page with links, photo gallery will have "lightbox" style enlargement and pop-up after click.
+
+
+*** Contact Us ***
+- Informational Page with live contact form.
+
+
+*** Create An Account ***
+- Users can use the social media icons to sign-up or log-in
+- Auto-check "Stay up-to-date with our newsletter" on page entry
+- [+] Forgot username/password pop-up functionality
+
+
+*** Wishlist Page ***
+- Similar to Checkout Page except for the functionality to move items into cart, then checkout from there.
+
+
+*** Search Results ***
+- Displays both product results, page results and blog results with live sorting.
+
+
+*** Order Tracking ***
+- Information page with live form for tracking orders, the status updates are displayed below the form box. Form box remains should the user want to track multiple orders.
+
+
+*** Update Account ***
+- Standard Update Account Forms
+
+
+*** Order List ***
+- Displays recent orders, filter box on upper left currently on "Most Recent"
+
+
+*** Static Content ***
+- What an informational/static page may look like
+
+
+*** Main Nav Index ***
+- The page that displays after the user clicks on the Yellow-Orange Main Nav Links
+- Each time a letter is selected, the page re-populates with the correct alphabetical content.
+
+
+
+That should do it! Again, if you have any questions or concerns - e-mail me at ray.villaraza@gmail.com
