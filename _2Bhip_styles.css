@@ -16,14 +16,14 @@ body {
 	border: 2px solid #000;	
 }
 
-.font {
-	color: white;
+.bangersFont {
+	color: #ffffff;
 	font-family: Bangers;
 	font-size: 15px;
 }
 
-.bigFont {
-	color: white;
+.bangersBigFont {
+	color: #ffffff;
 	font-family: Bangers;
 	font-size: 36px;
 	text-shadow: 
@@ -32,6 +32,12 @@ body {
    		-1px 4px 0 #000,
     	1px 1px 0 #000;  
 	text-align: center;
+}
+
+.openSansFont {
+	color: #000;
+	font-family: "Open Sans";	
+	font-size: 15px;
 }
 
 /****************************************
@@ -124,18 +130,27 @@ HEADER
 }
 
 .mainNavBarContainer {
+	position: relative;
 	height: 100px;
 	width: 940px;	
 	background-color: #ffcc00;
 	margin: auto;
 }
 
+.mainNavBarContainer img {
+	position: absolute;
+	z-index: 1;	
+}
+
 .mainNavBarLinksContainer {
-	height: 90px;
-	width: 850px;		
+	position: absolute;
+	height: 100px;
+	width: 940px;
+	z-index: 2;		
 }
 
 .mainNavBarLinks {
+	z-index: 3;
 	height: 90px;
 	width: 155px;
 	margin-top: 33px;
@@ -177,7 +192,101 @@ HEADER
 }
 
 
+/*************************************************************************************
+
+FOOTER 540PX
+
+*************************************************************************************/
+
+
+/*FOOTER LINKS*********************************************/
+
+.footerLinksContainer {
+	height: 350px;
+	width: 1020px;
+	border-top: 2px solid #000;
+	border-bottom: 2px solid #000;
+	background-color: #006099;	
+}
+
+.footerLinks {
+	height: 325px;
+	width: 237px;
+	margin-left: 18px;
+	float: left;	
+}
+
+.catagories {
+	margin-left: 25px;	
+}
+
+.footerLinks ul {
+	list-style: none;
+}
+
+.footerLinkHead {
+	margin-top: 20px;	
+	margin-bottom: 10px;	
+	font-size: 22px;
+	text-align: left;
+}
+
+.footerLinkListItem {
+	margin-bottom: 5px;	
+	color: #ffffff;
+	font-size: 14px;
 	
+}
+
+
+/*FOOTER INFO BAR*********************************************/
+.footerInfoContainer {
+	position: relative;
+	height: 60px;
+	width: 1020px;
+	background-color: #000;
+}
+
+.creditContainer {
+	position: absolute;
+	top: 1px;
+	left: 50%;
+	height: 50px;
+	width: 196px;
+	margin-left: -98px;	
+}
+
+.creditCards {
+	height: 29px;
+	width: 55px;
+	margin-top: 14px;
+	float: left;
+}
+
+.amex {
+	width: 30px;
+}
+
+.mcaffeContainer {
+	height: 23px;
+	width: 96px;
+	margin-top: 19px;
+	margin-right: 40px;
+	background-image: url(images/McAfeeLogo.png);
+	float: right;	
+}
+
+
+.copyright {
+	height: 62px;
+	width: 1020px;
+	padding-top: 25px;
+	text-align: center;	
+}
+
+
+
+
 
 
 
