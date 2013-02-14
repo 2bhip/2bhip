@@ -101,22 +101,23 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
     
 <div class='topNavContainer bangersFont'>
 	<div class='topNavLeft'>
-    	<div class='topNavLink'>MY ACCOUNT</div>
-        <div class='topNavLink'>CONTACT US</div>
+    	<div class='topNavLink pointer' onClick="return showContent('customer',{'show':'myaccount'});">MY ACCOUNT</div>
+        <div class='topNavLink pointer' onClick="return showContent('company',{'show':'contact'});">CONTACT US</div>
         <div class='topNavLink'>VISIT OUR BLOG</div>
     </div>
     <div class='topNavRight'>
-    	<div  class='topNavLink' class='itemsInCart'>ITEM(S) LOADED &nbsp&nbsp  |  &nbsp </div>
-        <div class='topNavLink' id='yellowShopping'>VIEW SHOPPING CART</div>
+    	<div class='topNavLink pointer cartItemCount'></div>
+    	<div class='topNavLink pointer' onClick="return showContent('cart',{});">ITEM(S) LOADED &nbsp&nbsp  |  &nbsp </div>
+        <div class='topNavLink pointer' id='yellowShopping' onClick="return showContent('cart',{});">VIEW SHOPPING CART</div>
     </div>
 </div>
 
-
+	
 <div class='headerBrandingContainer'>
-	<div class='headerBranding'><img src='images/Logo.png'></div>
+	<div class='headerBranding'><img src='images/Logo.png' onClick="return showContent('homepage',{});" class='pointer'></div>
     <div class='headerBranding'>
     	<form name='headerSearchFrm' action='#' class='productSearchForm' method="get" id="searchFunc">
-			<input type='search' name='KEYWORDS' class="productSearchKeyword handleDefault form headerSearchBar borderLeft" placeholder="Find it here..." />
+			<input type='search' name='KEYWORDS' class="productSearchKeyword handleDefault form headerSearchBar borderLeft" placeholder="  Find it here..." />
 			<input class="search pointer button headerSearchButton borderRight bangersMedFont" type="submit" value="GO!" />
    		</form>
     </div>
@@ -161,7 +162,7 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
             }
         </script>
         <div id="navBar">
-            <div class="nav" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
+            <div class="nav openSansXBoldFont" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
                 COMICS
                 <div class="dropdown leftAlign">
                     <ul>
@@ -193,7 +194,7 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
                     </ul>
                 </div>
             </div>
-            <div class="nav"onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
+            <div class="nav openSansXBoldFont"onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
             	CARTOONS
                 <div class="dropdown leftAlign">
                     <ul>
@@ -206,14 +207,14 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
                     </ul>
                 </div>
             </div>
-            <div class="nav"onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
+            <div class="nav openSansXBoldFont"onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
                 MOVIES
                 <div class="dropdown leftAlign">
                     <div>abc</div>
                     <div>abc</div>
                 </div>
             </div>
-            <div class="nav tooNarrow"onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
+            <div class="nav tooNarrow openSansXBoldFont"onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
                 TV
                 <div class="dropdown rightAlign">
                     <ul>
@@ -231,7 +232,7 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
                     </ul>
                 </div>
             </div>
-            <div class="nav tooWide"onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
+            <div class="nav tooWide openSansXBoldFont"onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
                 VIDEO GAMES
                 <div class="dropdown rightAlign">
                     <ul>
@@ -258,7 +259,7 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
                     </ul>
                 </div>
             </div>
-            <div class="nav" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
+            <div class="nav openSansXBoldFont" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
                 MUSIC
                 <div class="dropdown leftAlign">
                     <ul>
@@ -266,7 +267,7 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
                     </ul>
                 </div>
             </div>
-            <div class="nav tooWide" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
+            <div class="nav tooWide openSansXBoldFont" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
                 BEER/ALCOHOL
                 <div class="dropdown leftAlign">
                     <ul>
@@ -274,7 +275,7 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
                     </ul>
                 </div>
             </div>
-            <div class="nav" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
+            <div class="nav openSansXBoldFont" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
                 SPORTS
                 <div class="dropdown leftAlign">
                     <ul>
@@ -282,7 +283,7 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
                     </ul>
                 </div>
             </div>
-            <div class="nav" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
+            <div class="nav openSansXBoldFont" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
                 FUNNY
                 <div class="dropdown leftAlign">
                     <ul>
@@ -290,7 +291,7 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
                     </ul>
                 </div>
             </div>
-            <div class="nav" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
+            <div class="nav openSansXBoldFont" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
                 BRANDS
                 <div class="dropdown leftAlign">
                     <ul>
@@ -298,7 +299,7 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
                     </ul>
                 </div>
             </div>
-            <div class="nav tooWide" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
+            <div class="nav tooWide openSansXBoldFont" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
                 JUNK FOOD
                 <div class="dropdown leftAlign">
                     <ul>
@@ -312,8 +313,8 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
 
 
 <div class='freeShippingBarContainer'>
-   	<div class='freeShipping bangersBigFont'>FREE SHIPPING ON ALL DOMESTIC ORDERS!</div>
-    <div class='learnMore bangersFont'>LEARN MORE</div>    
+   	<div class='freeShipping bangersBigFont pointer' onClick="return showContent('company',{'show':'shipping'});"><img src='images/FreeShipping.png'></div>
+    <div class='learnMore bangersFont pointer' onClick="return showContent('company',{'show':'shipping'});">LEARN MORE</div>    
 </div>
 
 
@@ -337,10 +338,10 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
         <div class='stayUpdated bangersMedFont'>STAY UPDATED!</div>
 	    <div class='footerNameBar'>
         	<form action='#' class='footerFormFrm' id='subscribeFrm' name='subscribeFrm' onSubmit="app.ext.store_crm.u.handleSubscribe('subscribeFrm'); return false">
-				<input type='text'  maxlength='50' size='30' name='fullname' class='border form' placeholder='Full Name' />
+				<input type='text'  maxlength='50' size='30' name='fullname' class='border form' placeholder='  Full Name' />
 		</div>
           <div class='footerEmailBar'>
-              <input type='email'  maxlength='50' size='30' name='login' class='borderLeft form' placeholder='E-mail Address' />
+              <input type='email'  maxlength='50' size='30' name='login' class='borderLeft form' placeholder='  E-mail Address' />
           </div>
           <div class='footerButtonContainer'>
               <input type='submit' value='GO!' class='borderRight button bangersMedFont'>
@@ -361,12 +362,12 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
 	<div class='footerLinks'>
     	<ul>
         	<li class='bangersBigFont footerLinkHead'>NEED HELP?</li>
-            <li class='openSansFont footerLinkListItem'>Home</li>
-            <li class='openSansFont footerLinkListItem'>About 2BHIP</li>
-            <li class='openSansFont footerLinkListItem'>Contact Us</li>
-            <li class='openSansFont footerLinkListItem'>Exchange and Return Policy</li>
-            <li class='openSansFont footerLinkListItem'>Shipping Policy</li>
-            <li class='openSansFont footerLinkListItem'>Frequently Asked Questions</li>
+            <li class='openSansFont footerLinkListItem pointer' onClick="return showContent('homepage',{});">Home</li>
+            <li class='openSansFont footerLinkListItem pointer' onClick="return showContent('company',{'show':'about'});">About 2BHIP</li>
+            <li class='openSansFont footerLinkListItem pointer' onClick="return showContent('company',{'show':'contact'});">Contact Us</li>
+            <li class='openSansFont footerLinkListItem pointer' onClick="return showContent('company',{'show':'return'});">Exchange and Return Policy</li>
+            <li class='openSansFont footerLinkListItem pointer' onClick="return showContent('company',{'show':'shipping'});">Shipping Policy</li>
+            <li class='openSansFont footerLinkListItem pointer' onClick="return showContent('company',{'show':'faq'});">Frequently Asked Questions</li>
             <li class='openSansFont footerLinkListItem'>Blog</li>
             <li class='openSansFont footerLinkListItem'>News</li>
             <li class='openSansFont footerLinkListItem'>Testimonials</li>
@@ -375,14 +376,14 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
     <div class='footerLinks'>    
         <ul>
         	<li class='bangersBigFont footerLinkHead'>ACCOUNT SERVICES</li>
-            <li class='openSansFont footerLinkListItem'>My Account</li>
-            <li class='openSansFont footerLinkListItem'>Shopping Cart</li>
-            <li class='openSansFont footerLinkListItem'>Log-in / Sign-Up</li>
+            <li class='openSansFont footerLinkListItem pointer' onClick="return showContent('customer',{'show':'myaccount'});">My Account</li>
+            <li class='openSansFont footerLinkListItem pointer' onClick="return showContent('cart',{});">Shopping Cart</li>
+            <li class='openSansFont footerLinkListItem pointer' onClick="return showContent('customer',{'show':'newsletter'});">Log-in / Sign-Up</li>
             <li class='openSansFont footerLinkListItem'>Sign Out</li>
             <li class='openSansFont footerLinkListItem'>Wishlist</li>
-            <li class='openSansFont footerLinkListItem'>Recent Orders</li>
+            <li class='openSansFont footerLinkListItem pointer' onClick="return showContent('customer',{'show':'orders'});">Recent Orders</li>
             <li class='openSansFont footerLinkListItem'>Previously Viewed Products</li>
-            <li class='openSansFont footerLinkListItem'>Join Our Newsletter</li>
+            <li class='openSansFont footerLinkListItem pointer' onClick="return showContent('customer',{'show':'newsletter'});">Join Our Newsletter</li>
             <li class='openSansFont footerLinkListItem'>Store Locations</li>
             <li class='openSansFont footerLinkListItem'>Wholesale</li>
 		</ul>        

@@ -66,6 +66,14 @@ body {
 	color: #000;
 	font-family: "Open Sans";	
 	font-size: 15px;
+	font-weight: bold;
+}
+
+.openSansXBoldFont {
+	color: #000;
+	font-family: "Open Sans";	
+	font-size: 15px;
+	font-weight: 900;
 }
 
 .textShadow {
@@ -80,6 +88,7 @@ body {
 	height: 29px;
 	width: 196px;
 	font-family: "Open Sans";
+	font-weight: bold;
 	font-size: 15px;
 	color: #000;
 }
@@ -101,13 +110,13 @@ body {
 
 .blueGradient {
 	background: #00b7f5; /* Old browsers */
-		background: -moz-linear-gradient(top, #00b7f5 0%, #00093d 100%); /* FF3.6+ */
-		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#00b7f5), color-stop(100%,#00093d)); /* Chrome,Safari4+ */
-		background: -webkit-linear-gradient(top, #00b7f5 0%,#00093d 100%); /* Chrome10+,Safari5.1+ */
-		background: -o-linear-gradient(top, #00b7f5 0%,#00093d 100%); /* Opera 11.10+ */
-		background: -ms-linear-gradient(top, #00b7f5 0%,#00093d 100%); /* IE10+ */
-		background: linear-gradient(to bottom, #00b7f5 0%,#00093d 100%); /* W3C */
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b7f5', endColorstr='#00093d',GradientType=0 ); /* IE6-9 */;
+	background: -moz-linear-gradient(top, #00b7f5 0%, #00093d 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#00b7f5), color-stop(100%,#00093d)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #00b7f5 0%,#00093d 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #00b7f5 0%,#00093d 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #00b7f5 0%,#00093d 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #00b7f5 0%,#00093d 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b7f5', endColorstr='#00093d',GradientType=0 ); /* IE6-9 */;
 }
 
 /****************************************
@@ -257,13 +266,11 @@ HEADER
 
 .nav {
 	width: 85px;
-	background: red;
 	color: white;
 	float: left;
 	position:relative;
 	height: 20px;
 	overflow: show;
-	font-family: "Open Sans";
 	font-size: 13px;
 	text-align: center;
 }
@@ -284,6 +291,7 @@ HEADER
 	overflow: hidden;
 	font-family: "Open Sans";
 	font-size: 14px;
+	font-weight: bold;
 	text-align: center;
 }
 
@@ -329,16 +337,16 @@ HEADER
 }
 
 .freeShipping {
-	width: 790px;
-	margin-top: 5px;
-	padding-left: 70px;
+	width: 740px;
+	margin-top: 9px;
+	padding-left: 110px;
 	float: left;	
 }
 
 .learnMore {
 	height: 30px;
 	width: 80px;
-	margin-top: 17px;
+	margin-top: 14px;
 	float: right;
 }
 
@@ -356,7 +364,7 @@ FOOTER 540PX
 .footerInteractionContainer {
 	position: relative;
 	height: 70px;
-	width: 1020;
+	width: 1020px;
 	border-top: 2px solid #000;
 	border-bottom: 2px solid #000;
 }
