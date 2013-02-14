@@ -20,7 +20,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130213054900",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130214122400",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"httpsURL":"https://ssl.zoovy.com/s=www.toynk.zoovy.com/",
@@ -116,8 +116,8 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
 	<div class='headerBranding'><img src='images/Logo.png'></div>
     <div class='headerBranding'>
     	<form name='headerSearchFrm' action='#' class='productSearchForm' method="get" id="searchFunc">
-			<input type='search' name='KEYWORDS' class="productSearchKeyword handleDefault" placeholder="Find it here..." id="searchBar"/>
-			<input class="search pointer" type="submit" value="GO!" id="searchButton" />
+			<input type='search' name='KEYWORDS' class="productSearchKeyword handleDefault form headerSearchBar borderLeft" placeholder="Find it here..." />
+			<input class="search pointer button headerSearchButton borderRight bangersMedFont" type="submit" value="GO!" />
    		</form>
     </div>
     <div class='headerBranding'>
@@ -144,9 +144,171 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
 </div>
 
 
-<div class='navBarContainer border'>
-	
-</div>
+<div class='navBarContainer border blueGradient'>
+    <div id="main">
+        <script type="text/javascript">
+            var showDropdown = function ($tag) {
+                var $dropdown = $(".dropdown", $tag);
+                var height = 0;
+                $dropdown.children().each(function(){
+                    height += $(this).outerHeight(true);
+                });
+                $dropdown.stop().animate({"height":height+"px"}, 1000);
+            }
+            
+            var hideDropdown = function ($tag) {
+                $(".dropdown", $tag).stop().animate({"height":"0px"}, 1000);
+            }
+        </script>
+        <div id="navBar">
+            <div class="nav" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
+                COMICS
+                <div class="dropdown leftAlign">
+                    <ul>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                    </ul>
+                    <ul>
+                        <li>xyz</li>
+                        <li>xyz</li>
+                        <li>xyz</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="nav"onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
+            	CARTOONS
+                <div class="dropdown leftAlign">
+                    <ul>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="nav"onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
+                MOVIES
+                <div class="dropdown leftAlign">
+                    <div>abc</div>
+                    <div>abc</div>
+                </div>
+            </div>
+            <div class="nav tooNarrow"onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
+                TV
+                <div class="dropdown rightAlign">
+                    <ul>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="nav tooWide"onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
+                VIDEO GAMES
+                <div class="dropdown rightAlign">
+                    <ul>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                        <li>abc</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="nav" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
+                MUSIC
+                <div class="dropdown leftAlign">
+                    <ul>
+                        <li>abc</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="nav tooWide" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
+                BEER/ALCOHOL
+                <div class="dropdown leftAlign">
+                    <ul>
+                        <li>abc</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="nav" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
+                SPORTS
+                <div class="dropdown leftAlign">
+                    <ul>
+                        <li>abc</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="nav" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
+                FUNNY
+                <div class="dropdown leftAlign">
+                    <ul>
+                        <li>abc</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="nav" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
+                BRANDS
+                <div class="dropdown leftAlign">
+                    <ul>
+                        <li>abc</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="nav tooWide" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
+                JUNK FOOD
+                <div class="dropdown leftAlign">
+                    <ul>
+                        <li>abc</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!--END NAV BAR CONTAINER -->
 
 
 <div class='freeShippingBarContainer'>
@@ -170,17 +332,19 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
 
 
 <div class='footerInteractionContainer footerGradient'>
-	<div class='stayUpdated'>
+	<div class='stayUpdatedContainer'>
+    	
+        <div class='stayUpdated bangersMedFont'>STAY UPDATED!</div>
 	    <div class='footerNameBar'>
-    		<form action='#' class='footerFormFrm' id='subscribeFrm' name='subscribeFrm' onSubmit="app.ext.store_crm.u.handleSubscribe('subscribeFrm'); return false">
+        	<form action='#' class='footerFormFrm' id='subscribeFrm' name='subscribeFrm' onSubmit="app.ext.store_crm.u.handleSubscribe('subscribeFrm'); return false">
 				<input type='text'  maxlength='50' size='30' name='fullname' class='border form' placeholder='Full Name' />
 		</div>
-		<div class='footerEmailBar'>
-        	<input type='email'  maxlength='50' size='30' name='login' class='border form' placeholder='E-mail Address' />
-		</div>
-        <div class='footerButtonContainer'>
-			<input type='submit' value='SIGN UP!' id='footerSignUpButton'>
-        </div>
+          <div class='footerEmailBar'>
+              <input type='email'  maxlength='50' size='30' name='login' class='borderLeft form' placeholder='E-mail Address' />
+          </div>
+          <div class='footerButtonContainer'>
+              <input type='submit' value='GO!' class='borderRight button bangersMedFont'>
+          </div>
 			</form>
     </div>
     
