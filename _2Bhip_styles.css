@@ -40,6 +40,19 @@ body {
 	font-size: 15px;
 }
 
+.textShadow {
+	text-shadow: 
+		-1px -1px 0 #000,
+    	1px -1px 0 #000,
+   		-1px 3px 0 #000,
+    	1px 1px 0 #000;  	
+}
+
+.form {
+	height: 29px;
+	width: 196px;
+}
+
 /****************************************
 
 PERSISTENT CONTENT
@@ -197,6 +210,83 @@ HEADER
 FOOTER 540PX
 
 *************************************************************************************/
+
+
+
+/*FOOTER INTERACTION*********************************************/
+
+.footerInteractionContainer {
+	position: relative;
+	height: 70px;
+	width: 1020;
+	border-top: 2px solid #000;
+	border-bottom: 2px solid #000;
+}
+
+.footerGradient {
+	background: #575757; /* Old browsers */
+	background: -moz-linear-gradient(top, #575757 0%, #1c1c1c 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#575757), color-stop(100%,#1c1c1c)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #575757 0%,#1c1c1c 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #575757 0%,#1c1c1c 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #575757 0%,#1c1c1c 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #575757 0%,#1c1c1c 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#575757', endColorstr='#1c1c1c',GradientType=0 ); /* IE6-9 */
+}
+
+.stayUpdated {
+	position: absolute;
+	left: 37px;
+	top: 11px;
+	height: 40px;
+	width: 533px;
+	background-color: #0F6;	
+}
+
+.footerNameBar{
+	height: 40px;
+	width: 200px;	
+	float: left;
+}
+
+.footerEmailBar{
+	height: 40px;
+	width: 200px;
+	float: left;	
+}
+
+.footerButtonContainer {
+	margin-top: 16px;
+	float: left;
+	width: 80px;	
+}
+
+#footerSignUpButton {
+	height: 35px;
+	width: 70px;
+	text-align: center;
+	background: #a3033d;
+	border: 0 none;
+	color: white;
+	margin-top: 0px;
+	margin-right: 10px;
+	float: right;
+}
+
+.getSocial {
+	position: absolute;
+	left: 630px;
+	top: 27px;
+	height: 50px;
+	width: 122px;	
+}
+
+.footerSocialIconContainer {
+	position: absolute;
+	left: 733px;
+	top: 11px;
+	width: 263px;	
+}
 
 
 /*FOOTER LINKS*********************************************/

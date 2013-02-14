@@ -20,7 +20,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130209100600",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130213054900",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"httpsURL":"https://ssl.zoovy.com/s=www.toynk.zoovy.com/",
@@ -169,8 +169,28 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
 
 
 
-<div class='footerInteraction'>
-	
+<div class='footerInteractionContainer footerGradient'>
+	<div class='stayUpdated'>
+	    <div class='footerNameBar'>
+    		<form action='#' class='footerFormFrm' id='subscribeFrm' name='subscribeFrm' onSubmit="app.ext.store_crm.u.handleSubscribe('subscribeFrm'); return false">
+				<input type='text'  maxlength='50' size='30' name='fullname' class='border form' placeholder='Full Name' />
+		</div>
+		<div class='footerEmailBar'>
+        	<input type='email'  maxlength='50' size='30' name='login' class='border form' placeholder='E-mail Address' />
+		</div>
+        <div class='footerButtonContainer'>
+			<input type='submit' value='SIGN UP!' id='footerSignUpButton'>
+        </div>
+			</form>
+    </div>
+    
+    <div class='getSocial bangersFont textShadow'>GET SOCIAL WITH US!</div>
+	<div class='footerSocialIconContainer'>
+	    <div class='socialIcons'></div>
+        <div class='socialIcons'></div>
+        <div class='socialIcons'></div>
+        <div class='socialIcons'></div>
+    </div>
 </div>
 
 <div class='footerLinksContainer'>
