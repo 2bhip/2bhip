@@ -17,6 +17,10 @@ a {
 }
 
 .border {
+	border: 2px solid #000;	
+}
+
+.borderRound {
 	border-radius: 5px;
 	border: 2px solid #000;	
 }
@@ -409,7 +413,7 @@ HEADER
 
 /*************************************************************************************
 
-FOOTER 540PX
+FOOTER
 
 *************************************************************************************/
 
@@ -580,12 +584,131 @@ FOOTER 540PX
 }
 
 
+/*************************************************************************************
+
+FOOTER
+
+*************************************************************************************/
+
+
+.mainBannerContainer {
+	height: 300px;
+	width: 936px;
+	margin: auto;
+	background-color: #09F;
+}
+
+.relativeMainBannerContainer {
+	position: relative;
+	height: 300px;
+	width: 936px;
+	margin: auto;
+	background-color: #90C;
+	z-index: 0;
+}
+
+.carouselButtonLeft {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 300px;
+	width: 60px;
+	background-color: #F00;
+	z-index: 1;
+}
+
+.carouselBlackButtonLeft {
+	position: absolute;
+	top: 250px;
+	left: 0px;
+	height: 50px;
+	width: 110px;
+	background-color: #000;
+	z-index: 2;
+}
+
+.carouselYellowButton {
+	position: absolute;
+	top: 170px;
+	left: 560px;
+	height: 50px;
+	width: 220px;
+	background-color: #FF0;
+	z-index: 1;
+}
+
+.carouselBlackButtonRight {
+	position: absolute;
+	top: 250px;
+	left: 826px;
+	height: 50px;
+	width: 110px;
+	background-color: #000;
+	z-index: 2;
+}
+
+.carouselButtonRight {
+	position: absolute;
+	top: 0px;
+	left: 876px;
+	height: 300px;
+	width: 60px;
+	background-color: #F00;
+	z-index: 1;
+}
+
+
+
+.mainCarouselContainer {
+	height: 160px;
+	width: 960px;
+	margin: auto;
+	background-color: #090;
+}
+
+.carouselButton {
+	height: 160px;
+	width: 40px;
+	background-color: #F00;
+	float: left;
+}
+
+
+.carouselCatagories {
+	height: 160px;
+	width: 293.33px;
+	background-color: #FF0;
+	float: left;
+}
 
 
 
 
 
 
+
+
+.miscInfoContainer {
+	height: 500px;
+	width: 940px;
+	margin: auto;
+	background-color: #F3F;}
+
+.miscLeft {
+	height: 500px;
+	width: 430px;
+	margin-top: 20px;
+	background-color: #666;
+	float: left;
+}
+        	
+.miscRight {
+	height: 230px;
+	width: 450px;
+	background-color: #999;
+	margin-top: 20px;
+	float: right;
+}
 
 
 
