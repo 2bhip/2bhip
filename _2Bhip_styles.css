@@ -119,6 +119,18 @@ body {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b7f5', endColorstr='#00093d',GradientType=0 ); /* IE6-9 */;
 }
 
+.reverseBlueGradient {
+	background: #00b7f5; /* Old browsers */
+	background: -moz-linear-gradient(top, #00093d 0%, #00b7f5 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#00093d), color-stop(100%,#00b7f5)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #00093d 0%,#00b7f5 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #00093d 0%,#00b7f5 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #00093d 0%,#00b7f5 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #00093d 0%,#00b7f5 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00093d', endColorstr='#00b7f5',GradientType=0 ); /* IE6-9 */;
+}
+
+
 /****************************************
 
 PERSISTENT CONTENT
@@ -269,10 +281,22 @@ HEADER
 	color: white;
 	float: left;
 	position:relative;
-	height: 20px;
+	height: 48px;
 	overflow: show;
 	font-size: 13px;
 	text-align: center;
+}
+
+.nav:hover {
+	border: 2px solid #000;	
+	background-color: background: #00b7f5; /* Old browsers */
+	background: -moz-linear-gradient(top, #00093d 0%, #00b7f5 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#00093d), color-stop(100%,#00b7f5)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #00093d 0%,#00b7f5 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #00093d 0%,#00b7f5 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #00093d 0%,#00b7f5 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #00093d 0%,#00b7f5 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00093d', endColorstr='#00b7f5',GradientType=0 ); /* IE6-9 */;
 }
 
 .tooNarrow {
@@ -288,11 +312,14 @@ HEADER
 	position:absolute;
 	background: green;
 	top: 20px;
+	margin-top: 31px;
 	overflow: hidden;
 	font-family: "Open Sans";
 	font-size: 14px;
 	font-weight: bold;
 	text-align: center;
+}
+
 }
 
 .dropdown.leftAlign {
@@ -323,7 +350,7 @@ HEADER
 #main {
 	height: 40px;
 	width: 960px;
-	margin-top: 14px;
+	line-height: 48px;
 	margin-left: 5px;
 }
 
