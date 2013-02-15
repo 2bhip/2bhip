@@ -103,7 +103,7 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
 	<div class='topNavLeft'>
     	<div class='topNavLink pointer' onClick="return showContent('customer',{'show':'myaccount'});">MY ACCOUNT</div>
         <div class='topNavLink pointer' onClick="return showContent('company',{'show':'contact'});">CONTACT US</div>
-        <div class='topNavLink'>VISIT OUR BLOG</div>
+        <a href='http://blog.2bhip.com/' target='_blank'><div class='topNavLink'>VISIT OUR BLOG</div></a>
     </div>
     <div class='topNavRight'>
     	<div class='topNavLink pointer cartItemCount'></div>
@@ -114,7 +114,7 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
 
 	
 <div class='headerBrandingContainer'>
-	<div class='headerBranding'><img src='images/Logo.png' onClick="return showContent('homepage',{});" class='pointer'></div>
+	<div class='headerBranding'><img src='images/Logo.png' onClick="return showContent('homepage',{});" class='pointer 2bhipLogo'></div>
     <div class='headerBranding'>
     	<form name='headerSearchFrm' action='#' class='productSearchForm' method="get" id="searchFunc">
 			<input type='search' name='KEYWORDS' class="productSearchKeyword handleDefault form headerSearchBar borderLeft" placeholder="  Find it here..." />
@@ -124,10 +124,10 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
     <div class='headerBranding'>
     	<div class='bangersBigFont' id='headerPhone'>(610) 421-4447&nbsp </div>
         <div class='socialIconContainer'>
-        	<div class='socialIcons'> </div>
-            <div class='socialIcons'> </div>
-            <div class='socialIcons'> </div>
-            <div class='socialIcons'> </div>
+        	<div class='socialIcons'><a href="https://www.facebook.com/coolgifts" target='_blank'><img src='images/FacebookIcon.png'></div></a>
+            <div class='socialIcons'><a href="https://twitter.com/2Bhip" target='_blank'><img src="images/TwitterIcon.png"></div></a>
+            <div class='socialIcons'><a href="https://pinterest.com/2bhip/" target='_blank'><img src="images/PintrestIcon.png"></div></a>
+            <div class='socialIcons'><a href="https://www.youtube.com/user/2beltbuckles" target='_blank'><img src="images/YouTubeIcon.png"></div></a>
         </div>
     </div>    
 </div>
@@ -150,9 +150,9 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
         <script type="text/javascript">
             var showDropdown = function ($tag) {
                 var $dropdown = $(".dropdown", $tag);
-                var height = 0;
+                var height = 294;
                 $dropdown.children().each(function(){
-                    height += $(this).outerHeight(true);
+                    $(this).outerHeight(true);
                 });
                 $dropdown.stop().animate({"height":height+"px"}, 1000);
             }
@@ -166,7 +166,7 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
                 COMICS
                 <div class="dropdown leftAlign">
                     <ul>
-                        <li>abc</li>
+                        <li class='ddListHead bangersFont'>abc</li>
                         <li>abc</li>
                         <li>abc</li>
                         <li>abc</li>
@@ -187,18 +187,14 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
                         <li>abc</li>
                         <li>abc</li>
                     </ul>
-                    <ul>
-                        <li>xyz</li>
-                        <li>xyz</li>
-                        <li>xyz</li>
-                    </ul>
+
                 </div>
             </div>
             <div class="nav openSansXBoldFont"onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
             	CARTOONS
                 <div class="dropdown leftAlign">
                     <ul>
-                        <li>abc</li>
+                        <li class='ddListHead bangersFont'>abc</li>
                         <li>abc</li>
                         <li>abc</li>
                         <li>abc</li>
@@ -210,15 +206,15 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
             <div class="nav openSansXBoldFont"onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
                 MOVIES
                 <div class="dropdown leftAlign">
-                    <div>abc</div>
+                    <div class='ddListHead bangersFont'>abc</div>
                     <div>abc</div>
                 </div>
             </div>
             <div class="nav tooNarrow openSansXBoldFont"onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
                 TV
-                <div class="dropdown rightAlign">
+                <div class="dropdown leftAlign">
                     <ul>
-                        <li>abc</li>
+                        <li class='ddListHead bangersFont'>abc</li>
                         <li>abc</li>
                         <li>abc</li>
                         <li>abc</li>
@@ -234,9 +230,9 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
             </div>
             <div class="nav tooWide openSansXBoldFont"onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
                 VIDEO GAMES
-                <div class="dropdown rightAlign">
+                <div class="dropdown leftAlign">
                     <ul>
-                        <li>abc</li>
+                        <li class='ddListHead bangersFont'>abc</li>
                         <li>abc</li>
                         <li>abc</li>
                         <li>abc</li>
@@ -263,47 +259,47 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
                 MUSIC
                 <div class="dropdown leftAlign">
                     <ul>
-                        <li>abc</li>
+                        <li class='ddListHead bangersFont'>abc</li>
                     </ul>
                 </div>
             </div>
             <div class="nav tooWide openSansXBoldFont" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
                 BEER/ALCOHOL
-                <div class="dropdown leftAlign">
+                <div class="dropdown rightAlign">
                     <ul>
-                        <li>abc</li>
+                        <li class='ddListHead bangersFont'>abc</li>
                     </ul>
                 </div>
             </div>
             <div class="nav openSansXBoldFont" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
                 SPORTS
-                <div class="dropdown leftAlign">
+                <div class="dropdown rightAlign">
                     <ul>
-                        <li>abc</li>
+                        <li class='ddListHead bangersFont'>abc</li>
                     </ul>
                 </div>
             </div>
             <div class="nav openSansXBoldFont" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
                 FUNNY
-                <div class="dropdown leftAlign">
+                <div class="dropdown rightAlign">
                     <ul>
-                        <li>abc</li>
+                        <li class='ddListHead bangersFont'>abc</li>
                     </ul>
                 </div>
             </div>
             <div class="nav openSansXBoldFont" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
                 BRANDS
-                <div class="dropdown leftAlign">
+                <div class="dropdown rightAlign">
                     <ul>
-                        <li>abc</li>
+                        <li class='ddListHead bangersFont'>abc</li>
                     </ul>
                 </div>
             </div>
             <div class="nav tooWide openSansXBoldFont" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
                 JUNK FOOD
-                <div class="dropdown leftAlign">
+                <div class="dropdown rightAlign">
                     <ul>
-                        <li>abc</li>
+                        <li class='ddListHead bangersFont'>abc</li>
                     </ul>
                 </div>
             </div>
@@ -351,10 +347,10 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
     
     <div class='getSocial bangersFont textShadow'>GET SOCIAL WITH US!</div>
 	<div class='footerSocialIconContainer'>
-	    <div class='socialIcons'></div>
-        <div class='socialIcons'></div>
-        <div class='socialIcons'></div>
-        <div class='socialIcons'></div>
+	    <div class='socialIcons'><a href="https://www.facebook.com/coolgifts" target='_blank'><img src='images/FacebookIcon.png'></div></a>
+            <div class='socialIcons'><a href="https://twitter.com/2Bhip" target='_blank'><img src="images/TwitterIcon.png"></div></a>
+            <div class='socialIcons'><a href="https://pinterest.com/2bhip/" target='_blank'><img src="images/PintrestIcon.png"></div></a>
+            <div class='socialIcons'><a href="https://www.youtube.com/user/2beltbuckles" target='_blank'><img src="images/YouTubeIcon.png"></div></a>
     </div>
 </div>
 
@@ -414,12 +410,13 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
             <li class='openSansFont footerLinkListItem'>Clearance</li>
             <li class='bangersFont footerLinkHead'></li>
             <li class='bangersBigFont footerLinkHead'>STAY CONNECTED</li>
-            <li class='openSansFont footerLinkListItem'>Facebook</li>
-            <li class='openSansFont footerLinkListItem'>Twitter</li>
-            <li class='openSansFont footerLinkListItem'>YouTube</li>
+            <a href="https://www.facebook.com/coolgifts" target'_blank'><li class='openSansFont footerLinkListItem'>Facebook</li></a>
+            <a href="https://twitter.com/2Bhip" target='_blank'><li class='openSansFont footerLinkListItem'>Twitter</li></a>
+            <a href="https://www.youtube.com/user/2beltbuckles" target='_blank'><li class='openSansFont footerLinkListItem'>YouTube</li></a>
         </ul>
 	</div>
 </div>
+
 
 <div class='footerInfoContainer'> 
 	<div class='creditContainer'> 

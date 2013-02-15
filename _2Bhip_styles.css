@@ -11,6 +11,11 @@ body {
 	width: 1020px;	
 }
 
+a {
+	color: #ffffff;
+	text-decoration: none;
+}
+
 .border {
 	border-radius: 5px;
 	border: 2px solid #000;	
@@ -190,7 +195,7 @@ HEADER
 	width: 313px;
 }
 
-.headerBranding img {
+.headerBranding 2bhipLogo {
 	margin-top: 10px;
 	margin-left: 25px;	
 }
@@ -220,8 +225,7 @@ HEADER
 	left: 830px;
 	height: 50px;
 	width: 263px;
-	margin-left: 25px;
-	background-color: #000;	
+	margin-left: 25px;	
 }
 
 .socialIcons {
@@ -229,8 +233,11 @@ HEADER
 	width: 20%;
 	margin-top: 4px;
 	margin-left: 10px;
-	background-color: red;
 	float: left;	
+}
+
+.socialIcons img {
+	margin-left: 9px;
 }
 
 .mainNavBarContainer {
@@ -283,7 +290,7 @@ HEADER
 
 .nav {
 	width: 85px;
-	color: white;
+	color: #fff;
 	float: left;
 	position:relative;
 	height: 48px;
@@ -309,20 +316,21 @@ HEADER
 }
 
 .tooWide {
-	width: 105px;}
+	width: 105px;
+}
 	
 .dropdown {
 	height: 0px;
-	width: 300px;
+	width: 707px;
 	position:absolute;
-	background: green;
+	background-image: url(images/DropdownImage.png);
 	top: 20px;
 	margin-top: 31px;
 	overflow: hidden;
 	font-family: "Open Sans";
 	font-size: 14px;
 	font-weight: bold;
-	text-align: center;
+	text-align: left;
 }
 
 .dropdown.leftAlign {
@@ -333,13 +341,27 @@ HEADER
 	right: 0px;
 }
 
+.ddListHead {
+	color: #000;
+	font-size: 18px;
+	line-height: 30px;
+}
+
+.dropdown ul {
+	color: #006099;
+	font-family: "Open Sans";
+	list-style: none;
+	line-height: 20px;
+}
+
 .dropdown li {
-	margin: 10px 0px;
+	margin: 0px 0px;
 }
 
 .dropdown div:first-of-type {
-	margin-top: 10px;
+	margin-top: 0px;
 }
+
 .dropdown div {
 	margin-bottom: 10px;
 }
@@ -347,9 +369,11 @@ HEADER
 #navBar {
 	width: 100%;
 }
+
 .clear {
 	clear: both;
 }
+
 #main {
 	height: 40px;
 	width: 960px;
