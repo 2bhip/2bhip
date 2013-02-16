@@ -20,7 +20,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130215025900",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130215035800",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"httpsURL":"https://ssl.zoovy.com/s=www.toynk.zoovy.com/",
@@ -478,12 +478,13 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 -->
 <div id='homepageTemplate' class='homeTemplate'>
 	
+<!--CAROUSEL BANNER @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->  
 	<div class='mainBannerContainer border'>
     	<div class='relativeMainBannerContainer'>
         	<div class='carouselButtonLeft'></div>
-            <div class='carouselBlackButtonLeft'>PREVIOUSLY</div>
-            <div class='carouselYellowButton borderRound'>MORE DETAILS...</div>
-            <div class='carouselBlackButtonRight'>NEXT UP</div>
+            <div class='carouselBlackButtonLeft bangersFont'>PREVIOUSLY</div>
+            <div class='carouselYellowButton borderRound bangersFont'>MORE DETAILS...</div>
+            <div class='carouselBlackButtonRight bangersFont'>NEXT UP</div>
             <div class='carouselButtonRight'></div>
         </div>
     </div>
@@ -496,7 +497,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
         <div class='carouselButton'></div>
     </div>	
 
-
+<!--END CAROUSEL BANNER @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
 
     <ul id="wideSlideshow" class="pics slideshow">
     	<img src='images/blank.gif' width='712' height='400' data-bind="var: category(%page.banner_slideshow1); format: banner; extension:myRIA; editor:banner; wrap:<li>;" />
@@ -524,6 +525,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
         <ul data-bind="var: list($models.@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
 	</div>
 
+<!--STATIC BOTTOM SECTION @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
 
     <div class='miscInfoContainer'>
         <div class='miscLeft'>
@@ -538,6 +540,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
        
     </div>
 
+<!-- END STATIC BOTTOM SECTION @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
 
 </div>
 
@@ -615,11 +618,14 @@ remember to NOT put the button inside the 'onclick' container or two events will
 		<div class='prodThumbContainer' data-bind='var:product(pid); format:addPicSlider; extension:myRIA;'>
 		<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='120' height='120' />
 		</div>
+		
+<div class='productDesc openSansFont'>
+    <h5 data-bind='var: product(zoovy:prod_name); format:text;'></h5>
+</div>
 
-		<h5 data-bind='var: product(zoovy:prod_name); format:text;'></h5>
-
-		<h6 data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>
-
+<div class='productPrice bangersFont'>
+    <h6 data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>
+</div>
 
 		<span data-bind='var: reviews(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>
 <!-- 	<span data-bind='var: reviews(reviews.total); format:text; pretext: from ;posttext: reviews; className:numReviews;'></span> -->
