@@ -45,6 +45,7 @@ app.rq.push(['script',1,app.vars.baseURL+'jeditable.js']); //used for making tex
 app.rq.push(['script',0,app.vars.baseURL+'controller.js']);
 
 app.rq.push(['script',0,app.vars.baseURL+'anytabs.js']); //in zero pass in case product page is first page.
+app.rq.push(['script',0,app.vars.baseURL+'carouFredSel-6.2.0/jquery.carouFredSel-6.2.0-packed.js']);
 
 //sample of an onDeparts. executed any time a user leaves this page/template type.
 app.rq.push(['templateFunction','homepageTemplate','onDeparts',function(P) {app.u.dump("just left the homepage")}]);
@@ -65,6 +66,22 @@ Having a placeholder allows us to always reference the same messaging function, 
 app.u.throwMessage = function(m)	{
 	alert(m); 
 	}
+	
+	
+app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) 
+ {//Carousel horizontal sliders
+ var carousel1;
+ function foo1(){ $(".subCarouselCatagoryContainer").carouFredSel({
+  width   : 880,
+  height : 160,
+     items   : 3,
+  scroll: 1,
+  auto : false,
+    prev : "#subButtonPrev",
+    next : "#subButtonNext"
+ });}
+ carousel1 = foo1;
+ setTimeout(carousel1, 1000);  }]);
 
 app.u.howManyPassZeroResourcesAreLoaded = function(debug)	{
 	var L = app.vars.rq.length;

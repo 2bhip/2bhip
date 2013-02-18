@@ -53,6 +53,7 @@ css files should be included before any .js file to ensure they are downloaded i
 
 
 
+
 <script type="text/javascript">
 app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
 </script>
@@ -489,13 +490,18 @@ the homepageTemplate template is loaded into mainContentArea by default when the
         </div>
     </div>
     
-    <div class='mainCarouselContainer'>
-    	<div class='carouselButton'></div>
-        <div class='carouselCatagories'></div>
-        <div class='carouselCatagories'></div>
-        <div class='carouselCatagories'></div>
-        <div class='carouselButton'></div>
-    </div>	
+    <div class='subCarouselContainer'>
+      <div class='subCarouselButton pointer' id='subButtonPrev'>prev</div>
+          <div class='subCarouselCatagoryContainer'>
+              <div class='subCarouselCatagories'><img src='images/SubCat-ForBabies.jpg'></div>
+              <div class='subCarouselCatagories'><img src='images/SubCat-BeltBuckles.jpg'></div>
+              <div class='subCarouselCatagories'><img src='images/SubCat-Hats.jpg'></div>
+              <div class='subCarouselCatagories'><img src='images/SubCat-ForBabies.jpg'></div>
+              <div class='subCarouselCatagories'><img src='images/SubCat-BeltBuckles.jpg'></div>
+              <div class='subCarouselCatagories'><img src='images/SubCat-Hats.jpg'></div>
+          </div>
+           <div class='subCarouselButton pointer' id='subButtonNext'>Next</div>
+    </div>
 
 <!--END CAROUSEL BANNER @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
 
