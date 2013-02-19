@@ -20,7 +20,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130218041500",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130219094400",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"httpsURL":"https://ssl.zoovy.com/s=www.toynk.zoovy.com/",
@@ -489,7 +489,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
         	</div>
         	<div class='carouselButtonPrev pointer' id='mainBannerCarouselButtonPrev'><img src="images/SingleArrowPrev.png"></div>
             <div class='carouselBlackButtonPrev bangersFont pointer' id='mainBannerBlackButtonPrev'>PREVIOUSLY</div>
-            <div class='carouselYellowButton borderRound bangersFont'>MORE DETAILS...</div>
+            <div class='carouselYellowButton borderRound bangersFont yellowGradient'>MORE DETAILS...</div>
             <div class='carouselBlackButtonNext bangersFont pointer' id='mainBannerBlackButtonNext'>NEXT UP</div>
             <div class='carouselButtonNext pointer' id='mainBannerCarouselButtonNext'><img src="images/SingleArrowNext.png"></div>
         </div>
@@ -542,16 +542,44 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 
     <div class='miscInfoContainer'>
         <div class='miscLeft'>
-        	ABOUT 2BHIP
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eros nisi, interdum in tincidunt eu, rutrum pellentesque quam. Quisque facilisis, ante ut iaculis ullamcorper, nulla tellus dapibus orci, quis venenatis felis elit et ante. Donec egestas commodo nibh sed fermentum. Ut tempor nibh non urna vulputate pellentesque. Nullam ac lacus nibh. Quisque ut tellus et nibh placerat varius. Maecenas vel lorem risus. 
-			Donec egestas commodo nibh sed fermentum. Ut tempor nibh non urna vulputate pellentesque. Nullam ac lacus nibh. Quisque ut et nibh placerat varius. Maecenas vel lorem risus. Nullam ac lacus nibh. Quisque ut et nibh placerat varius. Maecenas vel lorem risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eros nisi, interdum in tincidunt eu, rutrum pellentesque quam. Quisque facilisis, ante ut iaculis ullamcorper, nulla tellus dapibus orci, quis venenatis felis elit et ante. Donec egestas commodo nibh sed fermentum. Ut tempor nibh non urna vulputate pellentesque. Nullam ac lacus nibh. Quisque ut tellus et nibh placerat varius. Maecenas vel lorem risus. 
-			Donec egestas commodo nibh sed fermentum. Ut tempor nibh non urna vulputate pellentesque. Nullam ac lacus nibh. Quisque ut et nibh placerat varius. Maecenas vel lorem risus. Nullam ac lacus nibh. Quisque ut et nibh placerat varius. Maecenas vel lorem risus.  Maecenas vel lorem risus. 
+        	<H2 class='bangersFont'>ABOUT 2BHIP</H2>
+			<p class='openSansFont'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eros nisi, interdum in tincidunt eu, rutrum pellentesque quam. Quisque facilisis, ante ut iaculis ullamcorper, nulla tellus dapibus orci, quis venenatis felis elit et ante. Donec egestas commodo nibh sed fermentum. Ut tempor nibh non urna vulputate pellentesque. Nullam ac lacus nibh. Quisque ut tellus et nibh placerat varius. Maecenas vel lorem risus.<br><br>
+			Donec egestas commodo nibh sed fermentum. Ut tempor nibh non urna vulputate pellentesque. Nullam ac lacus nibh. Quisque ut et nibh placerat varius. Maecenas vel lorem risus. Nullam ac lacus nibh. Quisque ut et nibh placerat varius. Maecenas vel lorem risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eros nisi, interdum in tincidunt eu, rutrum pellentesque quam. Quisque facilisis, ante ut iaculis ullamcorper, nulla tellus dapibus orci, quis venenatis felis elit et ante. Donec egestas commodo nibh sed fermentum. Ut tempor nibh non urna vulputate pellentesque. Nullam ac lacus nibh. Quisque ut tellus et nibh placerat varius. Maecenas vel lorem risus.<br><br>
+			Donec egestas commodo nibh sed fermentum. Ut tempor nibh non urna vulputate pellentesque. Nullam ac lacus nibh. Quisque ut et nibh placerat varius. Maecenas vel lorem risus. Nullam ac lacus nibh. Quisque ut et nibh placerat varius. Maecenas vel lorem risus.  Maecenas vel lorem risus.</p>       </div>
+        <div class='miscRight'>
+        	<H2 class='bangersFont'>TOP SELLING BRANDS</H2>
+            <div class='miscTopSelling border'>
+                <div>
+                    <ul class='miscList openSansFont'>
+                        <li>Marvel Comics</li>
+                        <li>DC Comics</li>
+                        <li>Dark Horse</li>
+                        <li>Image</li>
+                        <li>Some Company</li>
+                        <li>Manga</li>
+                        <li></li>	
+                    </ul>
+                    <ul class='miscList miscListRight openSansFont'>
+                        <li>Marvel Comics</li>
+                        <li>DC Comics</li>
+                        <li>Dark Horse</li>
+                        <li>Image</li>
+                    </ul>
+                    <div class='miscListButton borderRound bangersFont yellowGradient'>VIEW ALL BRANDS</div>	
+                </div>
+                
+            </div>
         </div>
         <div class='miscRight'>
-        	
-        </div>
-        <div class='miscRight'>
-        	
+        	<H3 class='bangersFont'>CUSTOMER REVIEWS</H3>
+            <div class='miscCustReviews'>
+            	<div class='miscCustReviewText openSansFont'><br><br>
+                	"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eros nisi, interdum in tincidunt eu, rutrum pellentesque quam. Quisque facilisis, ante ut iaculis ullamcorper, nulla tellus dapibus orci, quis venenatis felis elit et ante. Donec egestas commodo nibh sed fermentum. Ut tempor nibh non urna vulputate pellentesque. Nullam ac lacus nibh. Quisque ut tellus et nibh placerat varius. Maecenas vel lorem risus.
+					Donec egestas commodo<br><br>
+            		Nullam ac lacus nibh. Quisque ut tellus et nibh placerat varius. Maecenas vel lorem risus.”<br>
+					<p align='right'>- Soandso Whatshisface</p>
+            	</div>
+            </div>
         </div>
        
     </div>

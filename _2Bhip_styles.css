@@ -139,6 +139,17 @@ a {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00093d', endColorstr='#00b7f5',GradientType=0 ); /* IE6-9 */;
 }
 
+.yellowGradient {
+	background: #ffff00; /* Old browsers */
+	background: -moz-linear-gradient(top, #ffff00 0%, #ff9a00 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffff00), color-stop(100%,#ff9a00)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #ffff00 0%,#ff9a00 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #ffff00 0%,#ff9a00 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #ffff00 0%,#ff9a00 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #ffff00 0%,#ff9a00 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffff00', endColorstr='#ff9a00',GradientType=0 ); /* IE6-9 */
+}
+
 
 /****************************************
 
@@ -678,7 +689,6 @@ HOME PAGE
 	color: #000;
 	text-align: center;
 	font-size: 30px;
-	background-color: #FF0;
 	z-index: 1;
 }
 
@@ -756,28 +766,98 @@ HOME PAGE
 
 
 
-
+/*BOTTOM HOME PAGE**********************************/
 
 .miscInfoContainer {
-	height: 500px;
+	height: 660px;
 	width: 940px;
 	margin: auto;
-	background-color: #F3F;}
+}
 
 .miscLeft {
-	height: 500px;
-	width: 430px;
+	height: 640px;
+	width: 450px;
 	margin-top: 20px;
-	background-color: #666;
 	float: left;
 }
-        	
+
+.miscLeft H2 {
+	color: #000;
+	font-size: 32px;
+	margin-bottom: 8px;
+}
+
+.miscLeft p {
+	font-size: 15px;
+}
+     	
 .miscRight {
-	height: 230px;
-	width: 450px;
-	background-color: #999;
+	height: 310px;
+	width: 464px;
 	margin-top: 20px;
 	float: right;
+}
+
+.miscRight H2 {
+	color: #000;
+	font-size: 32px;
+	margin-bottom: 8px;
+	text-align: center;
+}
+
+.miscTopSelling {
+	height: 260px;
+	width: 460px;
+	background-image:url(images/MiscTopSellingBkgrnd.jpg);
+}
+
+
+.miscList {
+	list-style: none;
+	height: 250px;
+	width: 190px;
+	font-size: 18px;
+	color: #fff;
+	float: left;
+	margin: 0px;
+}
+
+.miscListRight {
+	height: 180px;
+}
+
+.miscList li {
+	margin: 15px 0px 15px 0px;
+}
+
+.miscListButton {
+	height: 50px;
+	width: 200px;
+	line-height: 50px;
+	color: #000;
+	text-align: center;
+	font-size: 30px;
+	background-color: #FF0; 
+	float: left;
+}
+
+.miscRight H3 {
+	margin-top: 20px;
+	color: #000;
+	font-size: 32px;
+}
+
+.miscCustReviews {
+	position: relative;
+	height: 248px;
+	width: 464px;
+	background-image:url(images/MiscCustReviewBkgrnd.png);
+}
+
+.miscCustReviewText{
+	font-style: italic;
+	font-size: 12px;
+	margin: 0px 13px 0px 13px;
 }
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
