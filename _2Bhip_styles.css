@@ -197,6 +197,8 @@ HEADER
 .headerBranding {
 	float: left;
 	width: 313px;
+	margin-left: 25px;
+	margin-top: 10px;
 }
 
 .headerBranding 2bhipLogo {
@@ -207,26 +209,26 @@ HEADER
 .headerSearchBar {
 	position: absolute;
 	top: 85px;
-	left: 525px;
+	left: 580px;
 }
 
 .headerSearchButton {
 	position: absolute;
 	top: 85px;
-	left: 723px;
+	left: 778px;
 }
 
 #headerPhone {
 	position: absolute;
 	top: 50px;
-	left: 885px;
+	left: 940px;
 	margin-bottom: 10px;
 }
 
 .socialIconContainer {
 	position: absolute;
 	top: 100px;
-	left: 830px;
+	left: 885px;
 	height: 50px;
 	width: 263px;
 	margin-left: 25px;	
@@ -638,17 +640,22 @@ HOME PAGE
 	z-index: 0;
 }
 
-.carouselButtonLeft {
+.mainBannerCarouselCatagories {
+	float: left;
+	width: 936;
+	height: 300;
+}
+
+.carouselButtonPrev {
 	position: absolute;
 	top: 0px;
 	left: 0px;
 	height: 300px;
 	width: 60px;
-	background-color: #F00;
 	z-index: 1;
 }
 
-.carouselBlackButtonLeft {
+.carouselBlackButtonPrev {
 	position: absolute;
 	top: 250px;
 	left: 0px;
@@ -675,7 +682,7 @@ HOME PAGE
 	z-index: 1;
 }
 
-.carouselBlackButtonRight {
+.carouselBlackButtonNext {
 	position: absolute;
 	top: 250px;
 	left: 826px;
@@ -688,13 +695,12 @@ HOME PAGE
 	z-index: 2;
 }
 
-.carouselButtonRight {
+.carouselButtonNext {
 	position: absolute;
 	top: 0px;
 	left: 876px;
 	height: 300px;
 	width: 60px;
-	background-color: #F00;
 	z-index: 1;
 }
 
@@ -704,7 +710,6 @@ HOME PAGE
 	height: 160px;
 	width: 960px;
 	margin: auto;
-	background-color: #090;
 	position: relative;
 }
 
@@ -719,7 +724,6 @@ HOME PAGE
 	position: absolute;
 	height: 160px;
 	width: 40px;
-	background-color: #F00;
 	z-index: 2;
 }
 
@@ -739,9 +743,10 @@ HOME PAGE
 
 .subCarouselCatagories {
 	height: 160px;
-	width: 293.33px;
-	margin: 0;
-	background-color: #FF0;
+	width: 290px;
+	margin: 0px;
+	padding-top: 25px;
+	padding-left: 8.5px;
 	float: left;
 	z-index: 1;
 }

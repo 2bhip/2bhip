@@ -49,7 +49,7 @@ app.rq.push(['script',0,app.vars.baseURL+'carouFredSel-6.2.0/jquery.carouFredSel
 
 //sample of an onDeparts. executed any time a user leaves this page/template type.
 app.rq.push(['templateFunction','homepageTemplate','onDeparts',function(P) {app.u.dump("just left the homepage")}]);
-
+app.rq.push(['templateFunction','homepageTemplate','onDeparts',function(q) {app.u.dump("just left the homepage")}]);
 
 
 
@@ -68,9 +68,25 @@ app.u.throwMessage = function(m)	{
 	}
 	
 	
-app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P) 
- {//Carousel horizontal sliders
- var carousel1;
+app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){ 
+	//Carousel horizontal sliders
+	var mainBannerCarousel;
+		function foo(){ $(".mainBannerCarousel").carouFredSel({
+		width   : 936,
+		height : 300,
+			items   : 1,
+	scroll: 1,
+	auto : false,
+		prev : "#mainBannerCarouselButtonPrev",
+		next : "#mainBannerCarouselButtonNext"
+	});
+}
+ mainBannerCarousel = foo;
+ setTimeout(mainBannerCarousel, 1000); }]);
+ 
+ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(q){
+	 //Carousel horizontal sliders
+ var carousel2;
  function foo1(){ $(".subCarouselCatagoryContainer").carouFredSel({
   width   : 880,
   height : 160,
@@ -80,8 +96,8 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(P)
     prev : "#subButtonPrev",
     next : "#subButtonNext"
  });}
- carousel1 = foo1;
- setTimeout(carousel1, 1000);  }]);
+ carousel2 = foo1;
+ setTimeout(carousel2, 1000);  }]);
 
 app.u.howManyPassZeroResourcesAreLoaded = function(debug)	{
 	var L = app.vars.rq.length;

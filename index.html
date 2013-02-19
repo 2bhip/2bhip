@@ -20,7 +20,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130215035800",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130218123100",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"httpsURL":"https://ssl.zoovy.com/s=www.toynk.zoovy.com/",
@@ -482,16 +482,21 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 <!--CAROUSEL BANNER @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->  
 	<div class='mainBannerContainer border'>
     	<div class='relativeMainBannerContainer'>
-        	<div class='carouselButtonLeft'></div>
-            <div class='carouselBlackButtonLeft bangersFont'>PREVIOUSLY</div>
+	        <div class='mainBannerCarousel'>
+        		<div class='mainBannerCarouselCatagories'><img src="images/SpidermanBannerImage.jpg"></div>
+                <div class='mainBannerCarouselCatagories'><img src="images/SpidermanBannerImage.jpg"></div>
+                <div class='mainBannerCarouselCatagories'><img src="images/SpidermanBannerImage.jpg"></div>
+        	</div>
+        	<div class='carouselButtonPrev pointer' id='mainBannerCarouselButtonPrev'><img src="images/SingleArrowPrev.png"></div>
+            <div class='carouselBlackButtonPrev bangersFont pointer' id='mainBannerBlackButtonPrev'>PREVIOUSLY</div>
             <div class='carouselYellowButton borderRound bangersFont'>MORE DETAILS...</div>
-            <div class='carouselBlackButtonRight bangersFont'>NEXT UP</div>
-            <div class='carouselButtonRight'></div>
+            <div class='carouselBlackButtonNext bangersFont pointer' id='mainBannerBlackButtonNext'>NEXT UP</div>
+            <div class='carouselButtonNext pointer' id='mainBannerCarouselButtonNext'><img src="images/SingleArrowNext.png"></div>
         </div>
     </div>
     
     <div class='subCarouselContainer'>
-      <div class='subCarouselButton pointer' id='subButtonPrev'>prev</div>
+      <div class='subCarouselButton pointer' id='subButtonPrev'><img src='images/DoubleArrowPrev.jpg'></div>
           <div class='subCarouselCatagoryContainer'>
               <div class='subCarouselCatagories'><img src='images/SubCat-ForBabies.jpg'></div>
               <div class='subCarouselCatagories'><img src='images/SubCat-BeltBuckles.jpg'></div>
@@ -500,7 +505,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
               <div class='subCarouselCatagories'><img src='images/SubCat-BeltBuckles.jpg'></div>
               <div class='subCarouselCatagories'><img src='images/SubCat-Hats.jpg'></div>
           </div>
-           <div class='subCarouselButton pointer' id='subButtonNext'>Next</div>
+           <div class='subCarouselButton pointer' id='subButtonNext'><img src='images/DoubleArrowNext.jpg'></div>
     </div>
 
 <!--END CAROUSEL BANNER @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
