@@ -106,20 +106,22 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
   			width    : 960,
   			height 	 : 305,
      		items    : 4,
-  			scroll   : 1,
+  			scroll   : 4,
   			/*auto     : {
 						delay : 1,
 						items : 4,
 						duration : 9
 			}*/
 			auto	 : false,
-			prev : "#prodListButtonPrev",
-			next : "#prodListButtonNext",
-			pagination: {
-        		container: ".prodListCarouselButtonContainer",
-        		keys: true,
-		        pauseOnHover: false
-   			}
+			prev : {
+				button : "#prodListButtonPrev",
+				key    : "left"
+			},
+			next : {
+				button : "#prodListButtonNext",
+				key	   : "right"
+			},
+			pagination: ".prodListCarouselButtonContainer"
  		});
 	}
  	carousel3 = foo3;
