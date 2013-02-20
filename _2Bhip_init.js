@@ -49,8 +49,6 @@ app.rq.push(['script',0,app.vars.baseURL+'carouFredSel-6.2.0/jquery.carouFredSel
 
 //sample of an onDeparts. executed any time a user leaves this page/template type.
 app.rq.push(['templateFunction','homepageTemplate','onDeparts',function(P) {app.u.dump("just left the homepage")}]);
-app.rq.push(['templateFunction','homepageTemplate','onDeparts',function(q) {app.u.dump("just left the homepage")}]);
-app.rq.push(['templateFunction','homepageTemplate','onDeparts',function(r) {app.u.dump("just left the homepage")}]);
 
 
 
@@ -67,14 +65,14 @@ Having a placeholder allows us to always reference the same messaging function, 
 app.u.throwMessage = function(m)	{
 	alert(m); 
 	}
-	
-	
-app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){ 
+ 
+ 
+app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
 	//mainBanner Carousel horizontal sliders
 	var mainBannerCarousel;
 		function foo(){ $(".mainBannerCarousel").carouFredSel({
 		width   : 936,
-		height : 300,
+		height  : 300,
 			items   : 1,
 	scroll: 1,
 	auto : false,
@@ -84,15 +82,13 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
 	}
  	mainBannerCarousel = foo;
  	setTimeout(mainBannerCarousel, 1000);
-}]);
- 
- 
-app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(q){
+	
+	
 	//subcatagories Carousel horizontal sliders
  	var carousel2;
 		function foo2(){ $(".subCarouselCatagoryContainer").carouFredSel({
   		width   : 880,
-  		height : 160,
+  		height  : 160,
      		items   : 3,
   	scroll: 1,
   	auto : false,
@@ -102,26 +98,34 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(q){
 	}
 	carousel2 = foo2;
  	setTimeout(carousel2, 1000); 
-}]);
- 
- 
-app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(r){
+	
+	
 	//Carousel horizontal sliders
  	var carousel3;
 		function foo3(){ $(".prodListTempCarousel").carouFredSel({
-  		width   : 880,
-  		height : 160,
-     		items   : 4,
-  	scroll: 1,
-  	auto : false,
-    	prev : "# ",/*!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-		next : "# "
+  			width    : 960,
+  			height 	 : 305,
+     		items    : 4,
+  			scroll   : 1,
+  			/*auto     : {
+						delay : 1,
+						items : 4,
+						duration : 9
+			}*/
+			auto	 : false,
+			prev : "#prodListButtonPrev",
+			next : "#prodListButtonNext",
+			pagination: {
+        		container: ".prodListCarouselButtonContainer",
+        		keys: true,
+		        pauseOnHover: false
+   			}
  		});
 	}
  	carousel3 = foo3;
-	setTimeout(carousel3, 1000);  
+	setTimeout(carousel3, 1000); 	
 }]);
-  
+ 
 
 app.u.howManyPassZeroResourcesAreLoaded = function(debug)	{
 	var L = app.vars.rq.length;

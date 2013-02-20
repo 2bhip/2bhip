@@ -20,7 +20,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130219094400",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130219124900",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"httpsURL":"https://ssl.zoovy.com/s=www.toynk.zoovy.com/",
@@ -514,26 +514,35 @@ the homepageTemplate template is loaded into mainContentArea by default when the
     	<img src='images/blank.gif' width='712' height='400' data-bind="var: category(%page.banner_slideshow1); format: banner; extension:myRIA; editor:banner; wrap:<li>;" />
     </ul>
     
-    <div class='border'>
+    <div>
         <ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul>
     </div>
     
-
-    <div class='prodListTempCarousel border'>
-        <ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; hide_summary:1; before:<h2>Featured Items</h2>; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+<!--prodListTempCarousel-->
+	<div class='templateHeadContainer'>
+    	<div class='templateHeadDesc border bangersMedFont'>BEST SELLING ITEMS</div>
+        <div class='prodListCarouselButtonContainer'>
+            <div class='prodListButtons pointer' id='prodListButtonPrev'></div>
+            <div class='prodListButtons pointer' id='prodListButtonNext'></div>
+        </div>
+        <div class='templateHeadAllProds border bangersMedFont'>VIEW ALL PRODUCTS</div>
     </div>
-
+    <div class='templateCarouselContainer border'>
+        <div>
+            <ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplateCustom; hide_summary:1; withReviews:1;" class='prodListTempCarousel listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+        </div>
+	</div>
     
-    <div class='border'>
+    <div>
         <p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
     </div>
     
-    <div class='border'>
+    <div>
     <!-- a sample of how to format an elastic native search in a data-bind -->
         <ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults; before:<h2>Best Sellers</h2>;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
     </div>
     
-    <div class='border'>
+    <div>
     <!-- a sample of how to get a 'list' src onto the page. -->
         <ul data-bind="var: list($models.@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
 	</div>
@@ -678,6 +687,30 @@ remember to NOT put the button inside the 'onclick' container or two events will
 <!-- 	<span data-bind='var: reviews(reviews.total); format:text; pretext: from ;posttext: reviews; className:numReviews;'></span> -->
 	</div>
 </li>
+
+
+    <li id='productListTemplateCustom' class='loadingBG' onMouseOver="$('.quickView',$(this)).show();" onMouseOut="$('.quickView').hide();" >
+    
+        <button class='floatRight pointer quickView displayNone' onClick="quickView('product',{'templateID':'productTemplateQuickView','pid':$(this).closest('[data-pid]').attr('data-pid')});">Quickview</button>
+    
+        <div onClick="showContent('product',{'pid':$(this).attr('data-pid')})" data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='pointer'>
+            <div class='prodThumbContainer' data-bind='var:product(pid); format:addPicSlider; extension:myRIA;'>
+            <img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='190' height='100' />
+            </div>
+    
+            
+    <div class='productDesc openSansFont'>
+        <h5 data-bind='var: product(zoovy:prod_name); format:text;'></h5>
+    </div>
+    
+    <div class='productPrice bangersFont'>
+        <h6 data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>
+    </div>
+    
+            <span data-bind='var: reviews(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>
+    <!-- 	<span data-bind='var: reviews(reviews.total); format:text; pretext: from ;posttext: reviews; className:numReviews;'></span> -->
+        </div>
+    </li><!--END PRODLISTCAROUSEL-->
 
 
 <!--
