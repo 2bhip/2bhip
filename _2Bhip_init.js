@@ -105,8 +105,8 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
 		function foo3(){ $(".prodListTempCarousel").carouFredSel({
   			width    : 960,
   			height 	 : 305,
-     		items    : 4,
-  			scroll   : 4,
+     		items    : 2,
+  			scroll   : 1,
   			/*auto     : {
 						delay : 1,
 						items : 4,

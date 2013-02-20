@@ -20,11 +20,11 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130219124900",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130220083900",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
-	"httpsURL":"https://ssl.zoovy.com/s=www.toynk.zoovy.com/",
-	"httpURL":"http://www.toynk.com/"
+	"httpsURL":"https://ssl.zoovy.com/s=www.97638a9e.pop.zoovy.net/",
+	"httpURL":"http://www.97638a9e.pop.zoovy.net/"
 	},u:{},rq:[]};
 
 //set base url so images, css, js, etc all load from appropriate location once deployed.
@@ -518,7 +518,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
         <ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul>
     </div>
     
-<!--prodListTempCarousel-->
+<!--FEATURED ITEMS
 	<div class='templateHeadContainer'>
     	<div class='templateHeadDesc border bangersMedFont'>BEST SELLING ITEMS...</div>
         <div class='templateMiddleContainer'>
@@ -532,15 +532,27 @@ the homepageTemplate template is loaded into mainContentArea by default when the
         <div>
             <ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplateCustom; hide_summary:1; withReviews:1;" class='prodListTempCarousel listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
         </div>
-	</div>
+	</div>-->
     
     <div>
         <p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
     </div>
     
-    <div>
-    <!-- a sample of how to format an elastic native search in a data-bind -->
-        <ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults; before:<h2>Best Sellers</h2>;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+<!--BEST SELLERS-->
+    <div class='templateHeadContainer'>
+    	<div class='templateHeadDesc border bangersMedFont'>BEST SELLING ITEMS...</div>
+        <div class='templateMiddleContainer'>
+            <div class='prodListButtons pointer' id='prodListButtonPrev'><img src="images/TemplateArrowPrev.png"></div>
+            <div class='prodListCarouselButtonContainer'></div>
+            <div class='prodListButtons pointer' id='prodListButtonNext'><img src="images/TemplateArrowNext.png"></div>
+        </div>
+        <div class='templateHeadAllProds border bangersMedFont'>VIEW ALL PRODUCTS</div>
+    </div>
+        <div class='templateCarouselContainer border'>
+        <div>
+        <!-- a sample of how to format an elastic native search in a data-bind -->
+            <ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResultsCustom;' class='prodListTempCarousel listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+        </div>
     </div>
     
     <div>
@@ -710,7 +722,7 @@ remember to NOT put the button inside the 'onclick' container or two events will
     
             <span data-bind='var: reviews(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>
     <!-- 	<span data-bind='var: reviews(reviews.total); format:text; pretext: from ;posttext: reviews; className:numReviews;'></span> -->
-        </div>
+        
     </li><!--END PRODLISTCAROUSEL-->
 
 
@@ -793,8 +805,8 @@ container ul should have lineItemProdlist class on it instead of productList
 <!--
 Used for the product in a product list (prodlist), usually in the body of a category or the homepage.
 the loadingBG class is removed (must be that classname) when the template is translated.
-remember to NOT put the button inside the 'onclick' container or two events will occur onclick.
--->
+remember to NOT put the button inside the 'onclick' container or two events will occur onclick.-->
+
 <li id='productListTemplateResults' class='loadingBG  ' >
 	<div onClick="app.ext.myRIA.a.handleProdPreview($(this).parent().attr('data-pid'));" class='pointer'>
 		<div class='prodThumbContainer'>
@@ -804,6 +816,39 @@ remember to NOT put the button inside the 'onclick' container or two events will
 		<h5 data-bind='var: product(prod_name); format:text;'></h5>
 
 		<h6 data-bind='var: product(base_price); format:money; isElastic:1; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>
+	</div>
+	<div class='pointer moreDetails' onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});">more details</div>
+</li>
+</ul>
+
+<ul>
+<!--CUSTOM VERSION OF ABOVE TEMPLATE
+Used for the product in a product list (prodlist), usually in the body of a category or the homepage.
+the loadingBG class is removed (must be that classname) when the template is translated.
+remember to NOT put the button inside the 'onclick' container or two events will occur onclick.
+-->
+<li id='productListTemplateResultsCustom' class='loadingBG  ' >
+	<div onClick="app.ext.myRIA.a.handleProdPreview($(this).parent().attr('data-pid'));" class='pointer'>
+		<div class='prodThumbContainer'>
+		<img src='blank.gif' class='prodThumb' data-bind='var: product(images); format:imageURL;isElastic:1;bgcolor:ffffff;' width='236' height='100' />
+		</div>
+
+		<div class='productDesc openSansFont'>
+            <h5 data-bind='var: product(prod_name); format:text;'></h5>
+        </div>
+
+		<div class='productPrice bangersFont'>
+            <h6 data-bind='var: product(base_price); format:money; isElastic:1; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>
+        </div>
+        
+        <div class='productSizeContainer'> 
+    		<div class='productSize borderRound bangersFont greyGradient'>S</div>
+        	<div class='productSize borderRound bangersFont greyGradient'>M</div>
+            <div class='productSize borderRound bangersFont greyGradient'>L</div>
+            <div class='productSize borderRound bangersFont greyGradient'>XL</div>
+            <div class='productSize borderRound bangersFont greyGradient'>XXL</div>	
+    	</div>
+        
 	</div>
 	<div class='pointer moreDetails' onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});">more details</div>
 </li>

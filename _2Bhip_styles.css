@@ -150,6 +150,17 @@ a {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffff00', endColorstr='#ff9a00',GradientType=0 ); /* IE6-9 */
 }
 
+.greyGradient {
+	background: #ffffff; /* Old browsers */
+	background: -moz-linear-gradient(top, #ffffff 0%, #9b9b9b 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#9b9b9b)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #ffffff 0%,#9b9b9b 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #ffffff 0%,#9b9b9b 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #ffffff 0%,#9b9b9b 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #ffffff 0%,#9b9b9b 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#9b9b9b',GradientType=0 ); /* IE6-9 */
+}
+
 
 /****************************************
 
@@ -900,6 +911,7 @@ PRODUCT STYLES
 .templateHeadDesc {
 	height: 26px;
 	width: 226px;
+	line-height: 27px;
 	background-color: #000;
 	float: left;
 	text-align: center;
@@ -939,6 +951,7 @@ PRODUCT STYLES
 .templateHeadAllProds {
 	height: 26px;
 	width: 226px;
+	line-height: 27px;
 	background-color: #BE0000;
 	float: right;
 	text-align: center;
@@ -948,14 +961,26 @@ PRODUCT STYLES
 .productList li { 
 	float: left;
 	height: 300px;
-	width: 208px;
-	margin: 20px;
+	width: 236px;
+	margin: 15px;
+}
+
+.productList h5 {
+	font-size: 12px;
+}
+
+.productList h6 {
+	font-size: 24px;
 }
 
 .prodThumbContainer {
 	height: 120px;
 	margin-left: auto;	
 	margin-right: auto;
+}
+
+.prodThumbContainer img {
+	margin: 10px;	
 }
 
 .productDesc {
@@ -967,11 +992,26 @@ PRODUCT STYLES
 .productPrice {
 	margin-top: 10px;
 	text-align: center;
-	font-size: 18px;
+	font-size: 32px;
 	color: #000;
 }
 
+.productSizeContainer {
+	height: 70px;
+	width: 240px;
+}
 
+.productSize {
+	height: 34px;
+	width: 34px;
+	margin: 16px 5px 16px 5px;
+	font-size: 18px; 
+	text-align: center;
+	color: #000;
+	line-height: 34px;
+	background-color: #666;
+	float: left;
+}
 
 
 
