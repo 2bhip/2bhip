@@ -20,7 +20,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130221123700",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130221013100",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"httpsURL":"https://ssl.zoovy.com/s=www.97638a9e.pop.zoovy.net/",
@@ -513,20 +513,22 @@ the homepageTemplate template is loaded into mainContentArea by default when the
         <p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
     </div>
     
-<!-- BEST SELLING ITEMS CAROUSEL -->
+<!-- BEST SELLING ITEMS CAROUSEL 
+	To copy this carousel and use it else where in the app, incremnet id's for the 3 divs under templateMiddleConainer,
+    the class homePageTempCarousel and the id homeProdSearchBestSellers in the elastic native search ul -->
     <div class='templateHeadContainer'>
     	<div class='templateHeadDesc border bangersMedFont'>BEST SELLING ITEMS...</div>
         <div class='templateMiddleContainer'>
-            <div class='prodListButtons pointer' id='bestSellerButtonPrev'><img src="images/TemplateArrowPrev.png"></div>
-            <div class='prodListCarouselButtonContainer' id='bestSeller'></div>
-            <div class='prodListButtons pointer' id='bestSellerButtonNext'><img src="images/TemplateArrowNext.png"></div>
+            <div class='prodListButtons pointer' id='homeCarButtonPrev1'><img src="images/TemplateArrowPrev.png"></div>
+            <div class='prodListCarouselButtonContainer' id='homePaginationContainer1'></div>
+            <div class='prodListButtons pointer' id='homeCarButtonNext1'><img src="images/TemplateArrowNext.png"></div>
         </div>
         <div class='templateHeadAllProds border bangersMedFont'>VIEW ALL PRODUCTS</div>
     </div>
         <div class='templateCarouselContainer border'>
         <div>
         <!-- a sample of how to format an elastic native search in a data-bind -->
-            <ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch imageURL; extension: myRIA; loadsTemplate: productListTemplateResultsCustom;' class='bestSellersTempCarousel listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+            <ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch imageURL; extension: myRIA; loadsTemplate: productListTemplateResultsCustom;' class='homePageTempCarousel1 listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
         </div>
     </div>
     
@@ -537,20 +539,46 @@ the homepageTemplate template is loaded into mainContentArea by default when the
     
     <div class='seperator'></div>    
     
-    <!-- THIS JUST IN! NEW ARRIVALS! CAROUSEL -->
+<!-- THIS JUST IN! NEW ARRIVALS! CAROUSEL -->
     <div class='templateHeadContainer'>
     	<div class='templateHeadDesc border bangersMedFont'>THIS JUST IN! NEW ARRIVALS!</div>
         <div class='templateMiddleContainer'>
-            <div class='prodListButtons pointer' id='newArrivalsButtonPrev'><img src="images/TemplateArrowPrev.png"></div>
-            <div class='prodListCarouselButtonContainer' id='newArrival'></div>
-            <div class='prodListButtons pointer' id='newArrivalsButtonNext'><img src="images/TemplateArrowNext.png"></div>
+            <div class='prodListButtons pointer' id='homeCarButtonPrev2'><img src="images/TemplateArrowPrev.png"></div>
+            <div class='prodListCarouselButtonContainer' id='homePaginationContainer2'></div>
+            <div class='prodListButtons pointer' id='homeCarButtonNext2'><img src="images/TemplateArrowNext.png"></div>
         </div>
         <div class='templateHeadAllProds border bangersMedFont'>VIEW ALL PRODUCTS</div>
     </div>
         <div class='templateCarouselContainer border'>
         <div>
         <!-- a sample of how to format an elastic native search in a data-bind -->
-            <ul id='homeProdSearchBestSellers2' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResultsCustom;' class='newArrivalsTempCarousel listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+            <ul id='homeProdSearchBestSellers2' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResultsCustom;' class='homePageTempCarousel12 listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+        </div>
+    </div>
+    
+    <div>
+    <!-- a sample of how to get a 'list' src onto the page. -->
+        <ul data-bind="var: list($models.@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+	</div>
+    
+    
+    <div class='seperator'></div>
+    
+    
+<!-- BATMAN CAROUSEL -->
+    <div class='templateHeadContainer'>
+    	<div class='templateHeadDesc border bangersMedFont'>BATMAN</div>
+        <div class='templateMiddleContainer'>
+            <div class='prodListButtons pointer' id='homeCarButtonPrev3'><img src="images/TemplateArrowPrev.png"></div>
+            <div class='prodListCarouselButtonContainer' id='homePaginationContainer3'></div>
+            <div class='prodListButtons pointer' id='homeCarButtonNext3'><img src="images/TemplateArrowNext.png"></div>
+        </div>
+        <div class='templateHeadAllProds border bangersMedFont'>VIEW ALL PRODUCTS</div>
+    </div>
+        <div class='templateCarouselContainer border'>
+        <div>
+        <!-- a sample of how to format an elastic native search in a data-bind -->
+            <ul id='homeProdSearchBestSellers3' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResultsCustom;' class='homePageTempCarousel13 listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
         </div>
     </div>
     
@@ -663,7 +691,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='subCarouselCatagories border pointer'>
 		<div class='bangersMedFont catName white2LGray'><span data-bind='var: category(pretty); format:catText; extension: myRIA;'></span></div>	
         <div class='subMoreDetailsButton bangersFont'>MORE DETAILS...</div>	
-        <div class='thumbContainer'><img src='blank.gif' class='catThumb' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='120' height='108' /></div>
+        <div class='thumbContainer'><img src='blank.gif' class='catThumb' data-bind='var: category(%meta.CAT_THUMB); format:imageURL; bgcolor:tttttt;' width='120' height='108' /></div>
 	</div>
 </li>
 
@@ -837,6 +865,7 @@ remember to NOT put the button inside the 'onclick' container or two events will
 -->
 <!-- BEST SELLING ITEMS CAROUSEL -->
 <li id='productListTemplateResultsCustom' class='loadingBG  ' >
+	<div class='pointer moreDetails productBubble' onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});">more details</div>
 	<div onClick="app.ext.myRIA.a.handleProdPreview($(this).parent().attr('data-pid'));" class='pointer'>
 		<div class='prodThumbContainer'>
 		<img src='blank.gif' class='prodThumb' data-bind='var: product(images); format:imageURL;isElastic:1;bgcolor:ffffff;' width='220' height='100' />
@@ -859,7 +888,7 @@ remember to NOT put the button inside the 'onclick' container or two events will
     	</div>
         
 	</div>
-	<div class='pointer moreDetails' onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});">more details</div>
+	
 </li>
 
 </ul>

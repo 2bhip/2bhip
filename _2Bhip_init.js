@@ -102,7 +102,7 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
 	
 	//Best Selling Items Carousel horizontal sliders
  	var carousel3;
-		function foo3(){ $(".bestSellersTempCarousel").carouFredSel({
+		function foo3(){ $(".homePageTempCarousel1").carouFredSel({
   			width    : 960,
   			height 	 : 305,
      		items    : 2,
@@ -114,14 +114,14 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
 			}*/
 			auto	 : false,
 			prev : {
-				button : "#bestSellerButtonPrev",
+				button : "#homeCarButtonPrev1",
 				key    : "left"
 			},
 			next : {
-				button : "#bestSellerButtonNext",
+				button : "#homeCarButtonNext1",
 				key	   : "right"
 			},
-			pagination: "#bestSeller"
+			pagination: "#homePaginationContainer1"
  		});
 	}
  	carousel3 = foo3;
@@ -130,25 +130,48 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
 	
 	//New Arrivals Carousel horizontal sliders
 	var carousel4;
-		function foo4(){ $(".newArrivalsTempCarousel").carouFredSel({
+		function foo4(){ $(".homePageTempCarousel12").carouFredSel({
   			width    : 960,
   			height 	 : 305,
      		items    : 2,
   			scroll   : 1,
 			auto	 : false,
 			prev : {
-				button : "#newArrivalsButtonPrev",
+				button : "#homeCarButtonPrev2",
 				key    : "left"
 			},
 			next : {
-				button : "#newArrivalsButtonNext",
+				button : "#homeCarButtonNext2",
 				key	   : "right"
 			},
-			pagination: "#newArrival"
+			pagination: "#homePaginationContainer2"
  		});
 	}
  	carousel4 = foo4;
-	setTimeout(carousel4, 1000); 	
+	setTimeout(carousel4, 1000); 
+	
+	
+	//BATMAN Carousel horizontal sliders
+	var carousel5;
+		function foo5(){ $(".homePageTempCarousel13").carouFredSel({
+  			width    : 960,
+  			height 	 : 305,
+     		items    : 2,
+  			scroll   : 1,
+			auto	 : false,
+			prev : {
+				button : "#homeCarButtonPrev3",
+				key    : "left"
+			},
+			next : {
+				button : "#homeCarButtonNext3",
+				key	   : "right"
+			},
+			pagination: "#homePaginationContainer3"
+ 		});
+	}
+ 	carousel5 = foo5;
+	setTimeout(carousel5, 1000); 	
 }]);
  
 
