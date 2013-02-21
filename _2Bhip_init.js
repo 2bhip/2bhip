@@ -100,7 +100,7 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
  	setTimeout(carousel2, 1000); 
 	
 	
-	//Carousel horizontal sliders
+	//Best Selling Items Carousel horizontal sliders
  	var carousel3;
 		function foo3(){ $(".prodListTempCarousel").carouFredSel({
   			width    : 960,
@@ -128,7 +128,7 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
 	setTimeout(carousel3, 1000); 	
 	
 	
-	
+	//New Arrivals Carousel horizontal sliders
 	var carousel4;
 		function foo4(){ $(".prodListTempCarousel").carouFredSel({
   			width    : 960,

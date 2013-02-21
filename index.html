@@ -20,7 +20,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130220013800",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130220071700",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"httpsURL":"https://ssl.zoovy.com/s=www.97638a9e.pop.zoovy.net/",
@@ -493,22 +493,9 @@ the homepageTemplate template is loaded into mainContentArea by default when the
             <div class='carouselBlackButtonNext bangersFont pointer' id='mainBannerBlackButtonNext'>NEXT UP</div>
             <div class='carouselButtonNext pointer' id='mainBannerCarouselButtonNext'><img src="images/SingleArrowNext.png"></div>
         </div>
-    </div>
-    
-   <!-- <div class='subCarouselContainer'>
-      <div class='subCarouselButton pointer' id='subButtonPrev'><img src='images/DoubleArrowPrev.jpg'></div>
-          <div class='subCarouselCatagoryContainer'>
-              <div class='subCarouselCatagories'><img src='images/SubCat-ForBabies.jpg'></div>
-              <div class='subCarouselCatagories'><img src='images/SubCat-BeltBuckles.jpg'></div>
-              <div class='subCarouselCatagories'><img src='images/SubCat-Hats.jpg'></div>
-              <div class='subCarouselCatagories'><img src='images/SubCat-ForBabies.jpg'></div>
-              <div class='subCarouselCatagories'><img src='images/SubCat-BeltBuckles.jpg'></div>
-              <div class='subCarouselCatagories'><img src='images/SubCat-Hats.jpg'></div>
-          </div>
-           <div class='subCarouselButton pointer' id='subButtonNext'><img src='images/DoubleArrowNext.jpg'></div>
-    </div>-->
+    </div><!--END CAROUSEL BANNER @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
 
-<!--END CAROUSEL BANNER @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+
 
 <!-- SUB CATAGORY CAROUSEL DATABIND -->
     <ul id="wideSlideshow" class="pics slideshow">
@@ -521,23 +508,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
     		</div>
     	<div class='subCarouselButton pointer' id='subButtonNext'><img src='images/DoubleArrowNext.jpg'></div>
     </div>
-    
-<!--FEATURED ITEMS
-	<div class='templateHeadContainer'>
-    	<div class='templateHeadDesc border bangersMedFont'>BEST SELLING ITEMS...</div>
-        <div class='templateMiddleContainer'>
-            <div class='prodListButtons pointer' id='prodListButtonPrev'><img src="images/TemplateArrowPrev.png"></div>
-            <div class='prodListCarouselButtonContainer'></div>
-            <div class='prodListButtons pointer' id='prodListButtonNext'><img src="images/TemplateArrowNext.png"></div>
-        </div>
-        <div class='templateHeadAllProds border bangersMedFont'>VIEW ALL PRODUCTS</div>
-    </div>
-    <div class='templateCarouselContainer border'>
-        <div>
-            <ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplateCustom; hide_summary:1; withReviews:1;" class='prodListTempCarousel listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
-        </div>
-	</div>-->
-    
+        
     <div>
         <p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
     </div>
@@ -564,6 +535,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
         <ul data-bind="var: list($models.@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
 	</div>
     
+    <div class='seperator'></div>    
     
     <!-- THIS JUST IN! NEW ARRIVALS! CAROUSEL -->
     <div class='templateHeadContainer'>
@@ -578,7 +550,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
         <div class='templateCarouselContainer border'>
         <div>
         <!-- a sample of how to format an elastic native search in a data-bind -->
-            <ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResultsCustom;' class='prodListTempCarousel listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+            <ul id='homeProdSearchBestSellers2' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResultsCustom;' class='prodListTempCarousel listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
         </div>
     </div>
     
@@ -881,34 +853,6 @@ remember to NOT put the button inside the 'onclick' container or two events will
 	</div>
 	<div class='pointer moreDetails' onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});">more details</div>
 </li>
-
-<!-- THIS JUST IN! NEW ARRIVALS! CAROUSEL 
-<li id='productListTemplateResultsCustom' class='loadingBG  ' >
-	<div onClick="app.ext.myRIA.a.handleProdPreview($(this).parent().attr('data-pid'));" class='pointer'>
-		<div class='prodThumbContainer'>
-		<img src='blank.gif' class='prodThumb' data-bind='var: product(images); format:imageURL;isElastic:1;bgcolor:ffffff;' width='220' height='100' />
-		</div>
-
-		<div class='productDesc openSansFont'>
-            <h5 data-bind='var: product(prod_name); format:text;'></h5>
-        </div>
-
-		<div class='productPrice bangersFont'>
-            <h6 data-bind='var: product(base_price); format:money; isElastic:1; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>
-        </div>
-        
-        <div class='productSizeContainer'> 
-    		<div class='productSize borderRound bangersFont greyGradient'>S</div>
-        	<div class='productSize borderRound bangersFont greyGradient'>M</div>
-            <div class='productSize borderRound bangersFont greyGradient'>L</div>
-            <div class='productSize borderRound bangersFont greyGradient'>XL</div>
-            <div class='productSize borderRound bangersFont greyGradient'>XXL</div>	
-    	</div>
-        
-	</div>
-	<div class='pointer moreDetails' onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});">more details</div>
-</li>-->
-
 
 </ul>
 

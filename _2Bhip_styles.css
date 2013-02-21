@@ -982,6 +982,11 @@ PRODUCT STYLES
 	text-align: center;
 }
 
+.seperator {
+	height: 25px;
+	width: 100%
+}
+
 /*PRODUCT LIST FORMATING*/
 .productList li { 
 	float: left;
