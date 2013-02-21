@@ -102,7 +102,7 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
 	
 	//Best Selling Items Carousel horizontal sliders
  	var carousel3;
-		function foo3(){ $(".prodListTempCarousel").carouFredSel({
+		function foo3(){ $(".bestSellersTempCarousel").carouFredSel({
   			width    : 960,
   			height 	 : 305,
      		items    : 2,
@@ -114,14 +114,14 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
 			}*/
 			auto	 : false,
 			prev : {
-				button : "#prodListButtonPrev",
+				button : "#bestSellerButtonPrev",
 				key    : "left"
 			},
 			next : {
-				button : "#prodListButtonNext",
+				button : "#bestSellerButtonNext",
 				key	   : "right"
 			},
-			pagination: ".prodListCarouselButtonContainer"
+			pagination: "#bestSeller"
  		});
 	}
  	carousel3 = foo3;
@@ -130,21 +130,21 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
 	
 	//New Arrivals Carousel horizontal sliders
 	var carousel4;
-		function foo4(){ $(".prodListTempCarousel").carouFredSel({
+		function foo4(){ $(".newArrivalsTempCarousel").carouFredSel({
   			width    : 960,
   			height 	 : 305,
      		items    : 2,
   			scroll   : 1,
 			auto	 : false,
 			prev : {
-				button : "#newArrivalsListButtonPrev",
+				button : "#newArrivalsButtonPrev",
 				key    : "left"
 			},
 			next : {
-				button : "#newArrivalsListButtonNext",
+				button : "#newArrivalsButtonNext",
 				key	   : "right"
 			},
-			pagination: ".prodListCarouselButtonContainer"
+			pagination: "#newArrival"
  		});
 	}
  	carousel4 = foo4;

@@ -919,7 +919,15 @@ PRODUCT STYLES
 	z-index: 0;
 }
 
-.prodListTempCarousel {
+.bestSellersTempCarousel { 
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	position: relative;
+	z-index: 0;
+}
+
+.newArrivalsTempCarousel { 
 	position: absolute;
 	top: 0px;
 	left: 0px;

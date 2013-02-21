@@ -20,7 +20,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130220071700",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130221123700",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"httpsURL":"https://ssl.zoovy.com/s=www.97638a9e.pop.zoovy.net/",
@@ -504,7 +504,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
     <div class='subCarouselContainer'>
       	<div class='subCarouselButton pointer' id='subButtonPrev'><img src='images/DoubleArrowPrev.jpg'></div>
     		<div>
-        		<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='subCarouselCatagoryContainer listStyleNone fluidList clearfix noPadOrMargin'></ul>
+        		<ul data-bind="var: category(@subcategoryDetail); format: categoryList; bgcolor: TTTTTT; extension: store_navcats; loadsTemplate: categoryListTemplateCustom; detail:max;" class='subCarouselCatagoryContainer listStyleNone fluidList clearfix noPadOrMargin'></ul>
     		</div>
     	<div class='subCarouselButton pointer' id='subButtonNext'><img src='images/DoubleArrowNext.jpg'></div>
     </div>
@@ -517,16 +517,16 @@ the homepageTemplate template is loaded into mainContentArea by default when the
     <div class='templateHeadContainer'>
     	<div class='templateHeadDesc border bangersMedFont'>BEST SELLING ITEMS...</div>
         <div class='templateMiddleContainer'>
-            <div class='prodListButtons pointer' id='prodListButtonPrev'><img src="images/TemplateArrowPrev.png"></div>
-            <div class='prodListCarouselButtonContainer'></div>
-            <div class='prodListButtons pointer' id='prodListButtonNext'><img src="images/TemplateArrowNext.png"></div>
+            <div class='prodListButtons pointer' id='bestSellerButtonPrev'><img src="images/TemplateArrowPrev.png"></div>
+            <div class='prodListCarouselButtonContainer' id='bestSeller'></div>
+            <div class='prodListButtons pointer' id='bestSellerButtonNext'><img src="images/TemplateArrowNext.png"></div>
         </div>
         <div class='templateHeadAllProds border bangersMedFont'>VIEW ALL PRODUCTS</div>
     </div>
         <div class='templateCarouselContainer border'>
         <div>
         <!-- a sample of how to format an elastic native search in a data-bind -->
-            <ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResultsCustom;' class='prodListTempCarousel listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+            <ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch imageURL; extension: myRIA; loadsTemplate: productListTemplateResultsCustom;' class='bestSellersTempCarousel listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
         </div>
     </div>
     
@@ -541,16 +541,16 @@ the homepageTemplate template is loaded into mainContentArea by default when the
     <div class='templateHeadContainer'>
     	<div class='templateHeadDesc border bangersMedFont'>THIS JUST IN! NEW ARRIVALS!</div>
         <div class='templateMiddleContainer'>
-            <div class='prodListButtons pointer' id='newArrivalsListButtonPrev'><img src="images/TemplateArrowPrev.png"></div>
-            <div class='prodListCarouselButtonContainer'></div>
-            <div class='prodListButtons pointer' id='newArrivalsListButtonNext'><img src="images/TemplateArrowNext.png"></div>
+            <div class='prodListButtons pointer' id='newArrivalsButtonPrev'><img src="images/TemplateArrowPrev.png"></div>
+            <div class='prodListCarouselButtonContainer' id='newArrival'></div>
+            <div class='prodListButtons pointer' id='newArrivalsButtonNext'><img src="images/TemplateArrowNext.png"></div>
         </div>
         <div class='templateHeadAllProds border bangersMedFont'>VIEW ALL PRODUCTS</div>
     </div>
         <div class='templateCarouselContainer border'>
         <div>
         <!-- a sample of how to format an elastic native search in a data-bind -->
-            <ul id='homeProdSearchBestSellers2' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResultsCustom;' class='prodListTempCarousel listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+            <ul id='homeProdSearchBestSellers2' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResultsCustom;' class='newArrivalsTempCarousel listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
         </div>
     </div>
     
@@ -650,8 +650,16 @@ don't modify the 'data-templateid' unless you are changing template names and up
 
 <!-- used to display a category within a 'list', usually in the body of a category or the homepage. -->
 <ul>
-<!-- CATAGORY CAROUSEL -->
 <li id='categoryListTemplate'>
+	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='pointer'>
+		<div class='catName white2LGray'><span data-bind='var: category(pretty); format:catText; extension: myRIA;'></span></div>
+        <div class='thumbContainer'><img src='blank.gif' class='catThumb' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='120' height='70' /></div>	
+	</div>
+</li>
+
+
+<!-- CATAGORY CAROUSEL -->
+<li id='categoryListTemplateCustom'>
 	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='subCarouselCatagories border pointer'>
 		<div class='bangersMedFont catName white2LGray'><span data-bind='var: category(pretty); format:catText; extension: myRIA;'></span></div>	
         <div class='subMoreDetailsButton bangersFont'>MORE DETAILS...</div>	
@@ -763,7 +771,7 @@ container ul should have lineItemProdlist class on it instead of productList
 
 		<div class='prodThumbContainer floatLeft'>
 			<div class='ui-widget ui-widget-content ui-corner-all'>
-				<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='160' height='160' />
+				<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;'; width='160' height='160' />
 				<div class='buttonList ui-widget ui-widget-header ui-corner-all alignCenter'>
 
 <button class='ui-state-default ui-corner-all' title='add item to cart' onClick="showContent('product',{'pid':$(this).closest('[data-pid]').attr('data-pid')});">
