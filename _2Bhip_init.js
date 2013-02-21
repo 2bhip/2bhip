@@ -126,6 +126,29 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
 	}
  	carousel3 = foo3;
 	setTimeout(carousel3, 1000); 	
+	
+	
+	
+	var carousel4;
+		function foo4(){ $(".prodListTempCarousel").carouFredSel({
+  			width    : 960,
+  			height 	 : 305,
+     		items    : 2,
+  			scroll   : 1,
+			auto	 : false,
+			prev : {
+				button : "#newArrivalsListButtonPrev",
+				key    : "left"
+			},
+			next : {
+				button : "#newArrivalsListButtonNext",
+				key	   : "right"
+			},
+			pagination: ".prodListCarouselButtonContainer"
+ 		});
+	}
+ 	carousel4 = foo4;
+	setTimeout(carousel4, 1000); 	
 }]);
  
 
