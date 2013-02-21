@@ -20,7 +20,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130221013100",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130221031900",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"httpsURL":"https://ssl.zoovy.com/s=www.97638a9e.pop.zoovy.net/",
@@ -864,11 +864,11 @@ the loadingBG class is removed (must be that classname) when the template is tra
 remember to NOT put the button inside the 'onclick' container or two events will occur onclick.
 -->
 <!-- BEST SELLING ITEMS CAROUSEL -->
-<li id='productListTemplateResultsCustom' class='loadingBG  ' >
-	<div class='pointer moreDetails productBubble' onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});">more details</div>
+<li id='productListTemplateResultsCustom' class='loadingBG'>
+	
 	<div onClick="app.ext.myRIA.a.handleProdPreview($(this).parent().attr('data-pid'));" class='pointer'>
-		<div class='prodThumbContainer'>
-		<img src='blank.gif' class='prodThumb' data-bind='var: product(images); format:imageURL;isElastic:1;bgcolor:ffffff;' width='220' height='100' />
+        <div class='prodThumbContainer'>
+		<img src='blank.gif' class='prodThumb' data-bind='var: product(images); format:imageURL;isElastic:1;bgcolor:ffffff;' width='208' height='100' />
 		</div>
 
 		<div class='productDesc openSansFont'>
@@ -886,7 +886,7 @@ remember to NOT put the button inside the 'onclick' container or two events will
             <div class='productSize borderRound bangersFont greyGradient'>XL</div>
             <div class='productSize borderRound bangersFont greyGradient'>XXL</div>	
     	</div>
-        
+        <div class='pointer productBubble bangersMedFont' onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});">CLEARANCE</div>
 	</div>
 	
 </li>

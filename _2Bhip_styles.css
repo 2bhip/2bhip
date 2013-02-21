@@ -1006,13 +1006,23 @@ PRODUCT STYLES
 /*PRODUCT LIST FORMATING*/
 .productList li { 
 	float: left;
-	height: 300px;
-	width: 236px;
+	height: 275px;
+	width: 206px;
 	margin: 15px;
 }
 
 .productBubble {
-
+	position: absolute;
+	top: 0px;
+	left: 127px;
+	height: 47px;
+	width: 90px;
+	color: #fff;
+	text-align: center;
+	font-size: 19px;
+	line-height: 36px;
+	background-image: url(images/BubbleRed.png);
+	z-index: 2;
 }
 
 .productList h5 {
@@ -1030,7 +1040,7 @@ PRODUCT STYLES
 }
 
 .prodThumbContainer img {
-	margin: 10px;	
+	margin-top: 10px;	
 }
 
 .productDesc {
@@ -1040,6 +1050,9 @@ PRODUCT STYLES
 }
 
 .productPrice {
+	position: absolute;
+	top: 189px;
+	left: 20px;
 	margin-top: 10px;
 	text-align: center;
 	font-size: 32px;
@@ -1047,18 +1060,21 @@ PRODUCT STYLES
 }
 
 .productSizeContainer {
+	position: absolute;
+	top: 225px;
+	left: -2px;
 	height: 70px;
-	width: 240px;
+	width: 211px;
 }
 
 .productSize {
-	height: 34px;
-	width: 34px;
+	height: 28px;
+	width: 28px;
 	margin: 16px 5px 16px 5px;
 	font-size: 18px; 
 	text-align: center;
 	color: #000;
-	line-height: 34px;
+	line-height: 28px;
 	background-color: #666;
 	float: left;
 }

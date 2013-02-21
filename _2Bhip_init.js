@@ -103,9 +103,9 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
 	//Best Selling Items Carousel horizontal sliders
  	var carousel3;
 		function foo3(){ $(".homePageTempCarousel1").carouFredSel({
-  			width    : 960,
+  			width    : 956,
   			height 	 : 305,
-     		items    : 2,
+     		items    : 4,
   			scroll   : 1,
   			/*auto     : {
 						delay : 1,
