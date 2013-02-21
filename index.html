@@ -20,7 +20,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130220083900",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130220013800",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"httpsURL":"https://ssl.zoovy.com/s=www.97638a9e.pop.zoovy.net/",
@@ -495,7 +495,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
         </div>
     </div>
     
-    <div class='subCarouselContainer'>
+   <!-- <div class='subCarouselContainer'>
       <div class='subCarouselButton pointer' id='subButtonPrev'><img src='images/DoubleArrowPrev.jpg'></div>
           <div class='subCarouselCatagoryContainer'>
               <div class='subCarouselCatagories'><img src='images/SubCat-ForBabies.jpg'></div>
@@ -506,16 +506,20 @@ the homepageTemplate template is loaded into mainContentArea by default when the
               <div class='subCarouselCatagories'><img src='images/SubCat-Hats.jpg'></div>
           </div>
            <div class='subCarouselButton pointer' id='subButtonNext'><img src='images/DoubleArrowNext.jpg'></div>
-    </div>
+    </div>-->
 
 <!--END CAROUSEL BANNER @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
 
+<!-- SUB CATAGORY CAROUSEL DATABIND -->
     <ul id="wideSlideshow" class="pics slideshow">
     	<img src='images/blank.gif' width='712' height='400' data-bind="var: category(%page.banner_slideshow1); format: banner; extension:myRIA; editor:banner; wrap:<li>;" />
     </ul>
-    
-    <div>
-        <ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul>
+    <div class='subCarouselContainer'>
+      	<div class='subCarouselButton pointer' id='subButtonPrev'><img src='images/DoubleArrowPrev.jpg'></div>
+    		<div>
+        		<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='subCarouselCatagoryContainer listStyleNone fluidList clearfix noPadOrMargin'></ul>
+    		</div>
+    	<div class='subCarouselButton pointer' id='subButtonNext'><img src='images/DoubleArrowNext.jpg'></div>
     </div>
     
 <!--FEATURED ITEMS
@@ -652,9 +656,10 @@ don't modify the 'data-templateid' unless you are changing template names and up
 <!-- used to display a category within a 'list', usually in the body of a category or the homepage. -->
 <ul>
 <li id='categoryListTemplate'>
-	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='pointer'>
-		<div class='thumbContainer'><img src='blank.gif' class='catThumb' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='120' height='120' /></div>
-		<div class='catName white2LGray'><span data-bind='var: category(pretty); format:catText; extension: myRIA;'></span></div>
+	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='subCarouselCatagories border pointer'>
+		<div class='bangersMedFont catName white2LGray'><span data-bind='var: category(pretty); format:catText; extension: myRIA;'></span></div>	
+        <div class='subMoreDetailsButton bangersFont'>MORE DETAILS...</div>	
+        <div class='thumbContainer'><img src='blank.gif' class='catThumb' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='120' height='108' /></div>
 	</div>
 </li>
 
@@ -830,7 +835,7 @@ remember to NOT put the button inside the 'onclick' container or two events will
 <li id='productListTemplateResultsCustom' class='loadingBG  ' >
 	<div onClick="app.ext.myRIA.a.handleProdPreview($(this).parent().attr('data-pid'));" class='pointer'>
 		<div class='prodThumbContainer'>
-		<img src='blank.gif' class='prodThumb' data-bind='var: product(images); format:imageURL;isElastic:1;bgcolor:ffffff;' width='236' height='100' />
+		<img src='blank.gif' class='prodThumb' data-bind='var: product(images); format:imageURL;isElastic:1;bgcolor:ffffff;' width='220' height='100' />
 		</div>
 
 		<div class='productDesc openSansFont'>

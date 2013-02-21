@@ -658,7 +658,6 @@ HOME PAGE
 	height: 300px;
 	width: 936px;
 	margin: auto;
-	background-color: #90C;
 	z-index: 0;
 }
 
@@ -740,6 +739,10 @@ HOME PAGE
 	top: 0px;
 	z-index: 1;
 }
+/*
+.subCarouselCatagoryContainer li {
+	margin: 0px;	
+}*/
 
 .subCarouselButton {
 	position: absolute;
@@ -763,13 +766,35 @@ HOME PAGE
 }
 
 .subCarouselCatagories {
-	height: 160px;
-	width: 290px;
+	position: relative;
+	height: 108px;
+	width: 270px;
 	margin: 0px;
-	padding-top: 25px;
-	padding-left: 8.5px;
 	float: left;
 	z-index: 1;
+	background-image: url(images/SubCatBkgrnd.jpg);
+}
+
+.subMoreDetailsButton {
+	height: 26px;
+	width: 96px;
+	background-color: #006099;
+	text-align: center;
+	line-height: 26px;
+	border-top: 2px solid #000;
+	border-bottom: 2px solid #000;
+	border-left: 2px solid #000;
+	float: right;	
+	margin-top: 80px;
+	z-index: 3;
+}	
+
+.catName {
+	position: absolute;
+	top: 10px;
+	left: 70px;
+	z-index: 3;
+	color: #ffcc00;
 }
 
 

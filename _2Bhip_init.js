@@ -87,7 +87,7 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
 	//subcatagories Carousel horizontal sliders
  	var carousel2;
 		function foo2(){ $(".subCarouselCatagoryContainer").carouFredSel({
-  		width   : 880,
+  		width   : 870,
   		height  : 160,
      		items   : 3,
   	scroll: 1,
