@@ -20,7 +20,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130221031900",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130221094700",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"httpsURL":"https://ssl.zoovy.com/s=www.97638a9e.pop.zoovy.net/",
@@ -137,7 +137,7 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
 <div class='mainNavBarContainer borderRound'>
 	<img src='images/mainNavBackground.png'>
     <div class='mainNavBarLinksContainer'>	
-        <div class='mainNavBarLinks bangersBigFont'>SHOP BY TYPE</div>
+        <div class='mainNavBarLinks bangersBigFont pointer' onClick="showContent('category',{'navcat':''});">SHOP BY TYPE</div>
         <div class='mainNavBarLinks bangersBigFont' id='characters'>CHARACTERS & TITLES</div>
         <div class='mainNavBarLinks bangersBigFont'>BEST SELLERS</div>
         <div class='mainNavBarLinks bangersBigFont'>NEW ARRIVALS</div>
@@ -653,21 +653,29 @@ don't modify the 'data-templateid' unless you are changing template names and up
 -->
 <div id='categoryTemplate' class='loadingBG categoryTemplate'>
 
-	<ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
-
-	<img data-bind="var: category(%page.banner1); format: banner; editor: banner; height:250; width:750; extension: myRIA;" />
-
-	<h2 data-bind="var: category(%page.header); format: text; editor: text;"></h2>
-
-	<p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
-
-	<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul><!-- outputs a list of subcategories -->
-
-	<ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
-
-	<p data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
-
-
+	<ul class='breadcrumb clearfix noPadOrMargin fluidList bangersMedFont' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
+	<div class='catPageContainer'>
+        <div class='filterSearchContainerPlaceholder borderRound'>
+        	<div class='sortPrice'></div>
+            <div class='sortTheme'></div>
+            <div class='sortSize'></div>
+            <div class='sortType'></div>
+        </div>
+        <div class='catContentContainer'>
+                <img data-bind="var: category(%page.banner1); format: banner; editor: banner; height:250; width:750; extension: myRIA;" />
+                
+                <h2 data-bind="var: category(%page.header); format: text; editor: text;"></h2>
+            
+                <p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
+            
+                <ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul><!-- outputs a list of subcategories -->
+            
+                <ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
+            
+                <p data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
+            </div>
+        </div>
+    </div>
 </div>
 
 
