@@ -448,7 +448,10 @@ FOOTER
 
 *************************************************************************************/
 
-
+.footerContainer {
+	height: 576px;
+	width: 1020px;
+}
 
 /*FOOTER INTERACTION*********************************************/
 
@@ -623,7 +626,7 @@ FOOTER
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-FOOTER
+END FOOTER
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
@@ -1093,7 +1096,7 @@ CATAGORY PAGE
 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
 
 .catPageContainer {
-	height: 800px;
+	height: 784px;
 	width: 940px;
 	margin: auto;
 	background-color: #fff;
@@ -1101,9 +1104,28 @@ CATAGORY PAGE
 
 .filterSearchContainerPlaceholder {
 	height: 780px;
-	width: 220px;
+	width: 218px;
 	background-color: #000;
 	float: left;
+	line-height: 30px;
+}
+
+.filterSearchContainerPlaceholder h2 {
+	height: 30px;
+	width: 100%;
+	color: #fff;
+	background-color: #000;
+}
+
+.filterSearchContainerPlaceholder h3 {
+	height: 20px;
+	width: 100%;
+	color: #fff;
+	background-color: #000;
+}
+
+.filterSearchContainerPlaceholder p {
+	
 }
 
 .filterSearchContainer {
@@ -1139,20 +1161,38 @@ CATAGORY PAGE
 
 
 .catContentContainer {
-	height: 700px;
-	width: 702px;
+	height: 784px;
+	width: 716px;
 	background-color: #C09;
 	float: right;
+}
+
+.catContentContainer h1 {
+	margin-left: 14px;
+	margin-bottom: 11px;
+	color: #000;
+	font-size: 30px;	
+}
+
+.catContentContainer p {
+	margin-left: 8px;
+	line-height: 27px;
 }
 
 .catContentContainer li {
 	height: 110px;
 	width: 220px;
-	margin: 0px 14px 14px 0px;
+	margin: 0px 0px 14px 14px;
 }
 
 .categoryCatagories {
 	width: 216px;
+}
+
+.categoryTemplate {
+	height: 1000px;
+	width: 940px;
+	margin: auto;
 }
 
 
