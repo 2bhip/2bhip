@@ -733,14 +733,14 @@ HOME PAGE
 	position: relative;
 }
 
-.subCarouselCatagoryContainer {
+.subCarouselCategoryContainer {
 	position: absolute;
 	left: 40px;
 	top: 0px;
 	z-index: 1;
 }
 /*
-.subCarouselCatagoryContainer li {
+.subCarouselCategoryContainer li {
 	margin: 0px;	
 }*/
 
@@ -1140,9 +1140,19 @@ CATAGORY PAGE
 
 .catContentContainer {
 	height: 700px;
-	width: 700px;
+	width: 702px;
 	background-color: #C09;
 	float: right;
+}
+
+.catContentContainer li {
+	height: 110px;
+	width: 220px;
+	margin: 0px 14px 14px 0px;
+}
+
+.categoryCatagories {
+	width: 216px;
 }
 
 

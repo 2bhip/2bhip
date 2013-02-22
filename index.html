@@ -497,14 +497,14 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 
 
 
-<!-- SUB CATAGORY CAROUSEL DATABIND -->
+<!-- SUB CATEGORY CAROUSEL DATABIND -->
     <ul id="wideSlideshow" class="pics slideshow">
     	<img src='images/blank.gif' width='712' height='400' data-bind="var: category(%page.banner_slideshow1); format: banner; extension:myRIA; editor:banner; wrap:<li>;" />
     </ul>
     <div class='subCarouselContainer'>
       	<div class='subCarouselButton pointer' id='subButtonPrev'><img src='images/DoubleArrowPrev.jpg'></div>
     		<div>
-        		<ul data-bind="var: category(@subcategoryDetail); format: categoryList; bgcolor: TTTTTT; extension: store_navcats; loadsTemplate: categoryListTemplateCustom; detail:max;" class='subCarouselCatagoryContainer listStyleNone fluidList clearfix noPadOrMargin'></ul>
+        		<ul data-bind="var: category(@subcategoryDetail); format: categoryList; bgcolor: TTTTTT; extension: store_navcats; loadsTemplate: categoryListTemplateCarousel; detail:max;" class='subCarouselCategoryContainer listStyleNone fluidList clearfix noPadOrMargin'></ul>
     		</div>
     	<div class='subCarouselButton pointer' id='subButtonNext'><img src='images/DoubleArrowNext.jpg'></div>
     </div>
@@ -668,11 +668,11 @@ don't modify the 'data-templateid' unless you are changing template names and up
             
                 <p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
             
-                <ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul><!-- outputs a list of subcategories -->
+                <ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplateCustom; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul><!-- outputs a list of subcategories -->
             
-                <ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
+<!--            <ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
             
-                <p data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
+<!--            <p data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>-->
             </div>
         </div>
     </div>
@@ -694,8 +694,18 @@ don't modify the 'data-templateid' unless you are changing template names and up
 </li>
 
 
-<!-- CATAGORY CAROUSEL -->
+<!-- CATEGORY PAGE -->
 <li id='categoryListTemplateCustom'>
+	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='subCarouselCatagories categoryCatagories border pointer'>
+		<div class='bangersMedFont catName white2LGray'><span data-bind='var: category(pretty); format:catText; extension: myRIA;'></span></div>	
+        <div class='subMoreDetailsButton bangersFont'>MORE DETAILS...</div>	
+        <div class='thumbContainer'><img src='blank.gif' class='catThumb' data-bind='var: category(%meta.CAT_THUMB); format:imageURL; bgcolor:tttttt;' width='100' height='100' /></div>
+	</div>
+</li>
+
+
+<!-- CATEGORY CAROUSEL -->
+<li id='categoryListTemplateCarousel'>
 	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='subCarouselCatagories border pointer'>
 		<div class='bangersMedFont catName white2LGray'><span data-bind='var: category(pretty); format:catText; extension: myRIA;'></span></div>	
         <div class='subMoreDetailsButton bangersFont'>MORE DETAILS...</div>	
