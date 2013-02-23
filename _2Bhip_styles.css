@@ -448,10 +448,7 @@ FOOTER
 
 *************************************************************************************/
 
-.footerContainer {
-	height: 576px;
-	width: 1020px;
-}
+
 
 /*FOOTER INTERACTION*********************************************/
 
@@ -1105,7 +1102,7 @@ CATAGORY PAGE
 .filterSearchContainerPlaceholder {
 	height: 780px;
 	width: 218px;
-	background-color: #000;
+	background-color: #fff;
 	float: left;
 	line-height: 30px;
 }
@@ -1114,6 +1111,7 @@ CATAGORY PAGE
 	height: 30px;
 	width: 100%;
 	color: #fff;
+	text-indent: 7px;
 	background-color: #000;
 }
 
@@ -1124,45 +1122,53 @@ CATAGORY PAGE
 	background-color: #000;
 }
 
-.filterSearchContainerPlaceholder p {
-	
+.filterSearchContainerPlaceholder ul {
+	list-style: none;
+	margin: 15px 0px 15px -21px;
+}
+
+.filterSearchContainerPlaceholder input {
+	width: 21px;
+    height: 21px;
+	border: solid #000 2px;
+    padding: 0;
+    margin: 0px 10px 0px 0px;
+	top: -5px;
+    vertical-align: bottom;
+    position: relative;
+    *overflow: hidden;
 }
 
 .filterSearchContainer {
 	width: 220px;
-	background-color: #999;
+	background-color: #fff;
 	float: left;
+}
+
+.allFilterSearchBoxes {
+	width: 218px;
+	background-color: #eeeeee;
 }
 
 .sortPrice {
 	height: 100px;
-	width: 218px;
-	background-color: #063;
 }
 
 .sortTheme {
 	height: 270px;
-	width: 218px;
-	background-color: #900;
 }
 
 .sortSize {
 	height: 210px;
-	width: 218px;
-	background-color: #09F;
 }
 
 .sortType {
 	height: 199px;
-	width: 218px;
-	background-color: #C90;
 }
-
-
 
 .catContentContainer {
 	height: 784px;
-	width: 716px;
+	width: 718px;
 	background-color: #C09;
 	float: right;
 }
@@ -1179,10 +1185,17 @@ CATAGORY PAGE
 	line-height: 27px;
 }
 
+.categoriesContainer {
+	position: relative;
+	height: auto;
+	width: 718px;
+	vertical-align: bottom;
+}
+
 .catContentContainer li {
 	height: 110px;
 	width: 220px;
-	margin: 0px 0px 14px 14px;
+	margin: 0px 0px 14px 15px;
 }
 
 .categoryCatagories {
@@ -1190,19 +1203,31 @@ CATAGORY PAGE
 }
 
 .categoryTemplate {
-	height: 1000px;
+	height: auto;
 	width: 940px;
 	margin: auto;
 }
 
 
+/*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+END CATAGORY PAGE
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
 
 
+/*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+PRODUCT PAGE
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
 
 
-
-
-
+.blah {
+	width: 900px;
+	height: 200px;
+	background-color: #093;
+}
 
 
 

@@ -20,7 +20,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130221094700",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130222051500",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"httpsURL":"https://ssl.zoovy.com/s=www.97638a9e.pop.zoovy.net/",
@@ -42,7 +42,8 @@ css files should be included before any .js file to ensure they are downloaded i
 -->
 <link rel="stylesheet" type="text/css" href="qs_styles.css" />
 <link rel="stylesheet" type="text/css" href="_2Bhip_styles.css" />
-<link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" />
+<link rel="stylesheet" type="text/css" href="jquery-ui-1.10.1.custom.css" />
+<!--<link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" />-->
 <link href='http://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
@@ -137,7 +138,7 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
 <div class='mainNavBarContainer borderRound'>
 	<img src='images/mainNavBackground.png'>
     <div class='mainNavBarLinksContainer'>	
-        <div class='mainNavBarLinks bangersBigFont pointer' onClick="showContent('category',{'navcat':''});">SHOP BY TYPE</div>
+        <div class='mainNavBarLinks bangersBigFont pointer'>SHOP BY TYPE</div>                     <!--onClick="showContent('category',{'navcat':''});"-->
         <div class='mainNavBarLinks bangersBigFont' id='characters'>CHARACTERS & TITLES</div>
         <div class='mainNavBarLinks bangersBigFont'>BEST SELLERS</div>
         <div class='mainNavBarLinks bangersBigFont'>NEW ARRIVALS</div>
@@ -328,7 +329,7 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
 <div id='mainContentArea'></div><!-- DO NOT REMOVE - this is where the specific page (ex: homepage, product, category) content is going to go -->
 
 
-<div class='footerContainer'>
+
 <div class='footerInteractionContainer footerGradient'>
 	<div class='stayUpdatedContainer'>
     	
@@ -431,7 +432,7 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
 
 <div class='copyright openSansFont'>
 	Copyright &copy 2012. 2Bhip is a Trademark of 2Bhip Inc. E-Commerce solution provided by Zoovy.
-</div>
+
 </div>
 
 
@@ -660,58 +661,56 @@ don't modify the 'data-templateid' unless you are changing template names and up
 	<ul class='breadcrumb clearfix noPadOrMargin fluidList bangersMedFont' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
 	<div class='catPageContainer'>
         <div class='filterSearchContainerPlaceholder borderRound'>
-        	<div class='sortPrice'>
-            	<h2 class='openSansXBoldFont'> &nbsp SORT BY PRICE</h2>
-                
+        	<div class='allFilterSearchBoxes sortPrice'>
+            	<h2 class='openSansXBoldFont'>SORT BY PRICE</h2>
             </div>
-            <div class='sortTheme'>
-            	<h2 class='openSansXBoldFont'> &nbsp SORT BY THEME</h2>
+            <div class='allFilterSearchBoxes sortTheme'>
+            	<h2 class='openSansXBoldFont'>SORT BY THEME</h2>
                 <ul class='openSansFont'>
-                	<li> Star Wars</li>
-                    <li> Superman</li>
-                    <li> Batman</li>
-                    <li> Marvel Comics</li>
-                    <li> DC Comics</li>
-                    <li> Image Comics</li>
-                    <li> Dark Horse Comics</li>
+                	<li><label><input type='checkbox'/> Star Wars</label></li>
+                    <li><label><input type='checkbox'/> Superman</label></li>
+                    <li><label><input type='checkbox'/> Batman</label></li>
+                    <li><label><input type='checkbox'/> Marvel Comics</label></li>
+                    <li><label><input type='checkbox'/> DC Comics</label></li>
+                    <li><label><input type='checkbox'/> Image Comics</label></li>
+                    <li><label><input type='checkbox'/> Dark Horse Comics</label></li>
                 </ul>
             </div>
-            <div class='sortSize'>
-            	<h2 class='openSansXBoldFont'> &nbsp SORT BY SIZE</h2>
+            <div class='allFilterSearchBoxes sortSize'>
+            	<h2 class='openSansXBoldFont'>SORT BY SIZE</h2>
                 <ul class='openSansFont'>
-                	<li> X-Small</li>
-                    <li> Small</li>
-                    <li> Medium</li>
-                    <li> Large</li>
-                    <li> X-Large</li>
+                	<li><label><input type='checkbox'/> X-Small</label></li>
+                    <li><label><input type='checkbox'/> Small</label></li>
+                    <li><label><input type='checkbox'/> Medium</label></li>
+                    <li><label><input type='checkbox'/> Large</label></li>
+                    <li><label><input type='checkbox'/> X-Large</label></li>
                 </ul>
             </div>
-            <div class='sortType'>
-            	<h2 class='openSansXBoldFont'> &nbsp SORT BY TYPE</h2>
+            <div class='allFilterSearchBoxes sortType'>
+            	<h2 class='openSansXBoldFont'>SORT BY TYPE</h2>
                 <ul class='openSansFont'>
-                	<li> Apparel</li>
-                    <li> Collectibles</li>
-                    <li> Toys</li>
-                    <li> Electronics</li>
+                	<li><label><input type='checkbox'/> Apparel</label></li>
+                    <li><label><input type='checkbox'/> Collectibles</label></li>
+                    <li><label><input type='checkbox'/> Toys</label></li>
+                    <li><label><input type='checkbox'/> Electronics</label></li>
                 </ul>
                 <h3></h3>
             </div>
         </div>
         <div class='catContentContainer'>
-                <img data-bind="var: category(%page.banner1); format: banner; editor: banner; height:250; width:750; extension: myRIA;" />
-                
-	            <h2 data-bind="var: category(%page.header); format: text; editor: text;"></h2>
-            	
-                <h1 class='bangersFont'>CATEGORIES</h1>
-                
-                <p class='openSansFont' data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
+            <img data-bind="var: category(%page.banner1); format: banner; editor: banner; height:250; width:750; extension: myRIA;" />
             
-                <ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplateCustom; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul><!-- outputs a list of subcategories -->
+            <h2 data-bind="var: category(%page.header); format: text; editor: text;"></h2>
             
-<!--            <ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
+            <h1 class='bangersFont'>CATEGORIES</h1>
             
-<!--            <p data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>-->
-            </div>
+            <p class='openSansFont' data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
+        
+            <ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplateCustom; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul><!-- outputs a list of subcategories -->
+            
+            <ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
+            
+            <p data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p><!---->
         </div>
     </div>
 </div>
@@ -979,6 +978,8 @@ this will likely become more flexible in the future. ###
 
 
 <div id='productTemplate'>
+
+<div class='blah'> </div>
 
 <ul class='clearfix noPadOrMargin fluidList breadcrumb' data-bind='var: session(session.recentCategories.0); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
 
