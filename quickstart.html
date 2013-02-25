@@ -20,11 +20,11 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130225121800",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130220095400",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
-	"httpsURL":"https://ssl.zoovy.com/s=www.97638a9e.pop.zoovy.net/",
-	"httpURL":"http://www.97638a9e.pop.zoovy.net/"
+	"httpsURL":"https://ssl.zoovy.com/s=www.toynk.zoovy.com/",
+	"httpURL":"http://www.zephyrsports.com/"
 	},u:{},rq:[]};
 
 //set base url so images, css, js, etc all load from appropriate location once deployed.
@@ -41,11 +41,7 @@ all css includes need to be after the js that changes the base url.
 css files should be included before any .js file to ensure they are downloaded in parallel
 -->
 <link rel="stylesheet" type="text/css" href="qs_styles.css" />
-<link rel="stylesheet" type="text/css" href="_2Bhip_styles.css" />
-<link rel="stylesheet" type="text/css" href="jquery-ui-1.10.1.custom.css" />
-<!--<link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" />-->
-<link href='http://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/themes/base/jquery-ui.css" />
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script src="jquery.ui.widget.min.js"></script>
@@ -54,15 +50,22 @@ css files should be included before any .js file to ensure they are downloaded i
 
 
 
-
 <script type="text/javascript">
-app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
+app.u.loadScript(app.vars.baseURL+"init.js");
 </script>
 
 
 </head>
 
 <body>
+<!-- DELETE THIS WHEN YOU GET STARTED -->
+<h1>WELCOME TO QUICKSTART</h1>
+This file is intended to go along with the 10-step tutorial at:
+<a href="https://github.com/zoovy/AnyCommerce-Development/wiki/quickstart">https://github.com/zoovy/AnyCommerce-Development/wiki/quickstart</a>
+<!-- /DELETE THIS WHEN YOU GET STARTED -->
+
+
+
 
 <!-- what is displayed onLoad until the view is loaded -->
 <div id='appPreView'>
@@ -99,223 +102,7 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
 	** REMINDER : DO NOT PUT ANY GRAPHICS/CONTENT THAT SHOULD NOT APPEAR ON EVERY PAGE IN THE VIEW (HERE)
 	**				  INSTEAD PUT THEM INTO <div id="homepageTemplate"></div>
 	-->
-    
-    
-<div class='topNavContainer bangersFont'>
-	<div class='topNavLeft'>
-    	<div class='topNavLink pointer' onClick="return showContent('customer',{'show':'myaccount'});">MY ACCOUNT</div>
-        <div class='topNavLink pointer' onClick="return showContent('company',{'show':'contact'});">CONTACT US</div>
-        <a href='http://blog.2bhip.com/' target='_blank'><div class='topNavLink'>VISIT OUR BLOG</div></a>
-    </div>
-    <div class='topNavRight'>
-    	<div class='topNavLink pointer cartItemCount'></div>
-    	<div class='topNavLink pointer' onClick="return showContent('cart',{});">ITEM(S) LOADED &nbsp&nbsp  |  &nbsp </div>
-        <div class='topNavLink pointer' id='yellowShopping' onClick="return showContent('cart',{});">VIEW SHOPPING CART</div>
-    </div>
-</div>
-
 	
-<div class='headerBrandingContainer'>
-	<div class='headerBranding'><img src='images/Logo.png' onClick="return showContent('homepage',{});" class='pointer 2bhipLogo'></div>
-    <div class='headerBranding'>
-    	<form name='headerSearchFrm' action='#' class='productSearchForm' method="get" id="searchFunc">
-			<input type='search' name='KEYWORDS' class="productSearchKeyword handleDefault form headerSearchBar borderLeft" placeholder="  Find it here..." />
-			<input class="search pointer button headerSearchButton borderRight bangersMedFont" type="submit" value="GO!" />
-   		</form>
-    </div>
-    <div class='headerBranding'>
-    	<div class='bangersBigFont' id='headerPhone'>(610) 421-4447&nbsp </div>
-        <div class='socialIconContainer'>
-        	<div class='socialIcons'><a href="https://www.facebook.com/coolgifts" target='_blank'><img src='images/FacebookIcon.png'></div></a>
-            <div class='socialIcons'><a href="https://twitter.com/2Bhip" target='_blank'><img src="images/TwitterIcon.png"></div></a>
-            <div class='socialIcons'><a href="https://pinterest.com/2bhip/" target='_blank'><img src="images/PintrestIcon.png"></div></a>
-            <div class='socialIcons'><a href="https://www.youtube.com/user/2beltbuckles" target='_blank'><img src="images/YouTubeIcon.png"></div></a>
-        </div>
-    </div>    
-</div>
-
-
-<div class='mainNavBarContainer borderRound'>
-	<img src='images/mainNavBackground.png'>
-    <div class='mainNavBarLinksContainer'>	
-        <div class='mainNavBarLinks bangersBigFont pointer'>SHOP BY TYPE</div>                     <!--onClick="showContent('category',{'navcat':''});"-->
-        <div class='mainNavBarLinks bangersBigFont' id='characters'>CHARACTERS & TITLES</div>
-        <div class='mainNavBarLinks bangersBigFont'>BEST SELLERS</div>
-        <div class='mainNavBarLinks bangersBigFont'>NEW ARRIVALS</div>
-        <div class='mainNavBarLinks bangersBigFont'>CLEARANCE</div>
-    </div>
-</div>
-
-
-<div class='navBarContainer borderRound blueGradient'>
-    <div id="main">
-        <script type="text/javascript">
-            var showDropdown = function ($tag) {
-                var $dropdown = $(".dropdown", $tag);
-                var height = 294;
-                $dropdown.children().each(function(){
-                    $(this).outerHeight(true);
-                });
-                $dropdown.stop().animate({"height":height+"px"}, 1000);
-            }
-            
-            var hideDropdown = function ($tag) {
-                $(".dropdown", $tag).stop().animate({"height":"0px"}, 1000);
-            }
-        </script>
-        <div id="navBar">
-            <div class="nav openSansXBoldFont" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
-                COMICS
-                <div class="dropdown leftAlign">
-                    <ul>
-                        <li class='ddListHead bangersFont'>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                    </ul>
-
-                </div>
-            </div>
-            <div class="nav openSansXBoldFont"onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
-            	CARTOONS
-                <div class="dropdown leftAlign">
-                    <ul>
-                        <li class='ddListHead bangersFont'>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="nav openSansXBoldFont"onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
-                MOVIES
-                <div class="dropdown leftAlign">
-                    <div class='ddListHead bangersFont'>abc</div>
-                    <div>abc</div>
-                </div>
-            </div>
-            <div class="nav tooNarrow openSansXBoldFont"onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
-                TV
-                <div class="dropdown leftAlign">
-                    <ul>
-                        <li class='ddListHead bangersFont'>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="nav tooWide openSansXBoldFont"onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
-                VIDEO GAMES
-                <div class="dropdown leftAlign">
-                    <ul>
-                        <li class='ddListHead bangersFont'>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="nav openSansXBoldFont" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
-                MUSIC
-                <div class="dropdown leftAlign">
-                    <ul>
-                        <li class='ddListHead bangersFont'>abc</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="nav tooWide openSansXBoldFont" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
-                BEER/ALCOHOL
-                <div class="dropdown rightAlign">
-                    <ul>
-                        <li class='ddListHead bangersFont'>abc</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="nav openSansXBoldFont" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
-                SPORTS
-                <div class="dropdown rightAlign">
-                    <ul>
-                        <li class='ddListHead bangersFont'>abc</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="nav openSansXBoldFont" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
-                FUNNY
-                <div class="dropdown rightAlign">
-                    <ul>
-                        <li class='ddListHead bangersFont'>abc</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="nav openSansXBoldFont" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
-                BRANDS
-                <div class="dropdown rightAlign">
-                    <ul>
-                        <li class='ddListHead bangersFont'>abc</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="nav tooWide openSansXBoldFont" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
-                JUNK FOOD
-                <div class="dropdown rightAlign">
-                    <ul>
-                        <li class='ddListHead bangersFont'>abc</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> <!--END NAV BAR CONTAINER -->
-
-
-<div class='freeShippingBarContainer'>
-   	<div class='freeShipping bangersBigFont pointer' onClick="return showContent('company',{'show':'shipping'});"><img src='images/FreeShipping.png'></div>
-    <div class='learnMore bangersFont pointer' onClick="return showContent('company',{'show':'shipping'});">LEARN MORE</div>    
-</div>
-
-
 <div id='globalMessaging' class='appMessaging'></div><!-- DO NOT REMOVE - used for some high level error handling (usually appears below breadcrumb nav or top bar) -->
 
 <!-- These add specific functionality for the app. In most cases, you want to leave them alone. -->
@@ -324,119 +111,7 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
 	<button class='displayNone prodDetailPrevItemButton' data-app-role='prodDetailPrevItemButton'>Previous</button>
 </div>
 
-<!-- ***************************************END HEADER***************************************************-->
-
 <div id='mainContentArea'></div><!-- DO NOT REMOVE - this is where the specific page (ex: homepage, product, category) content is going to go -->
-
-
-
-<div class='footerInteractionContainer footerGradient'>
-	<div class='stayUpdatedContainer'>
-    	
-        <div class='stayUpdated bangersMedFont'>STAY UPDATED!</div>
-	    <div class='footerNameBar'>
-        	<form action='#' class='footerFormFrm' id='subscribeFrm' name='subscribeFrm' onSubmit="app.ext.store_crm.u.handleSubscribe('subscribeFrm'); return false">
-				<input type='text'  maxlength='50' size='30' name='fullname' class='borderRound form' placeholder='  Full Name' />
-		</div>
-          <div class='footerEmailBar'>
-              <input type='email'  maxlength='50' size='30' name='login' class='borderLeft form' placeholder='  E-mail Address' />
-          </div>
-          <div class='footerButtonContainer'>
-              <input type='submit' value='GO!' class='borderRight button bangersMedFont'>
-          </div>
-			</form>
-    </div>
-    
-    <div class='getSocial bangersFont textShadow'>GET SOCIAL WITH US!</div>
-	<div class='footerSocialIconContainer'>
-	    <div class='socialIcons'><a href="https://www.facebook.com/coolgifts" target='_blank'><img src='images/FacebookIcon.png'></div></a>
-            <div class='socialIcons'><a href="https://twitter.com/2Bhip" target='_blank'><img src="images/TwitterIcon.png"></div></a>
-            <div class='socialIcons'><a href="https://pinterest.com/2bhip/" target='_blank'><img src="images/PintrestIcon.png"></div></a>
-            <div class='socialIcons'><a href="https://www.youtube.com/user/2beltbuckles" target='_blank'><img src="images/YouTubeIcon.png"></div></a>
-    </div>
-</div>
-
-<div class='footerLinksContainer'>
-	<div class='footerLinks'>
-    	<ul>
-        	<li class='bangersBigFont footerLinkHead'>NEED HELP?</li>
-            <li class='openSansFont footerLinkListItem pointer' onClick="return showContent('homepage',{});">Home</li>
-            <li class='openSansFont footerLinkListItem pointer' onClick="return showContent('company',{'show':'about'});">About 2BHIP</li>
-            <li class='openSansFont footerLinkListItem pointer' onClick="return showContent('company',{'show':'contact'});">Contact Us</li>
-            <li class='openSansFont footerLinkListItem pointer' onClick="return showContent('company',{'show':'return'});">Exchange and Return Policy</li>
-            <li class='openSansFont footerLinkListItem pointer' onClick="return showContent('company',{'show':'shipping'});">Shipping Policy</li>
-            <li class='openSansFont footerLinkListItem pointer' onClick="return showContent('company',{'show':'faq'});">Frequently Asked Questions</li>
-            <li class='openSansFont footerLinkListItem'>Blog</li>
-            <li class='openSansFont footerLinkListItem'>News</li>
-            <li class='openSansFont footerLinkListItem'>Testimonials</li>
-		</ul>
-    </div>
-    <div class='footerLinks'>    
-        <ul>
-        	<li class='bangersBigFont footerLinkHead'>ACCOUNT SERVICES</li>
-            <li class='openSansFont footerLinkListItem pointer' onClick="return showContent('customer',{'show':'myaccount'});">My Account</li>
-            <li class='openSansFont footerLinkListItem pointer' onClick="return showContent('cart',{});">Shopping Cart</li>
-            <li class='openSansFont footerLinkListItem pointer' onClick="return showContent('customer',{'show':'newsletter'});">Log-in / Sign-Up</li>
-            <li class='openSansFont footerLinkListItem'>Sign Out</li>
-            <li class='openSansFont footerLinkListItem'>Wishlist</li>
-            <li class='openSansFont footerLinkListItem pointer' onClick="return showContent('customer',{'show':'orders'});">Recent Orders</li>
-            <li class='openSansFont footerLinkListItem'>Previously Viewed Products</li>
-            <li class='openSansFont footerLinkListItem pointer' onClick="return showContent('customer',{'show':'newsletter'});">Join Our Newsletter</li>
-            <li class='openSansFont footerLinkListItem'>Store Locations</li>
-            <li class='openSansFont footerLinkListItem'>Wholesale</li>
-		</ul>        
-    </div>   
-   	<div class='footerLinks'> 
-        <ul class='catagories'>
-        	<li class='bangersBigFont footerLinkHead'>CATEGORIES</li>
-            <li class='openSansFont footerLinkListItem'>Comics</li>
-            <li class='openSansFont footerLinkListItem'>Cartoons</li>
-            <li class='openSansFont footerLinkListItem'>Movies</li>
-            <li class='openSansFont footerLinkListItem'>TV Shows</li>
-            <li class='openSansFont footerLinkListItem'>Video Games</li>
-            <li class='openSansFont footerLinkListItem'>Music</li>
-            <li class='openSansFont footerLinkListItem'>Beer / Alcohol</li>
-            <li class='openSansFont footerLinkListItem'>Sports</li>
-            <li class='openSansFont footerLinkListItem'>Funny</li>
-            <li class='openSansFont footerLinkListItem'>Brands</li>
-            <li class='openSansFont footerLinkListItem'>Junk Food</li>
-		</ul>
-	</div>
-   	<div class='footerLinks'>                
-        <ul>
-        	<li class='bangersBigFont footerLinkHead'>SHOP 2BHIP.COM</li>
-            <li class='openSansFont footerLinkListItem'>Shop By Type</li>
-            <li class='openSansFont footerLinkListItem'>Characters & Titles</li>
-            <li class='openSansFont footerLinkListItem'>Best Sellers</li>
-            <li class='openSansFont footerLinkListItem'>New Arrivals</li>
-            <li class='openSansFont footerLinkListItem'>Clearance</li>
-            <li class='bangersFont footerLinkHead'></li>
-            <li class='bangersBigFont footerLinkHead'>STAY CONNECTED</li>
-            <a href="https://www.facebook.com/coolgifts" target'_blank'><li class='openSansFont footerLinkListItem'>Facebook</li></a>
-            <a href="https://twitter.com/2Bhip" target='_blank'><li class='openSansFont footerLinkListItem'>Twitter</li></a>
-            <a href="https://www.youtube.com/user/2beltbuckles" target='_blank'><li class='openSansFont footerLinkListItem'>YouTube</li></a>
-        </ul>
-	</div>
-</div>
-
-
-<div class='footerInfoContainer'> 
-	<div class='creditContainer'> 
-    	<div class='creditCards'><img src='images/VisaLogo.png'></div>
-  		<div class='creditCards'><img src='images/MasterCardLogo.png'></div>
-        <div class='creditCards'><img src='images/DiscoverLogo.png'></div>
-        <div class='creditCards amex'><img src='images/AmexLogo.png'></div>
-    </div>
-    <div class='mcaffeContainer'> </div>
-</div>
-
-<div class='copyright openSansFont'>
-	Copyright &copy 2012. 2Bhip is a Trademark of 2Bhip Inc. E-Commerce solution provided by Zoovy.
-
-</div>
-
-
-<!-- END FOOTER -->
 
 
 <!-- ... your html ends -->
@@ -483,162 +158,21 @@ COMMONLY EDITED TEMPLATES
 the homepageTemplate template is loaded into mainContentArea by default when the application loads
 -->
 <div id='homepageTemplate' class='homeTemplate'>
+<ul id="wideSlideshow" class="pics slideshow">
+		<img src='images/blank.gif' width='712' height='400' data-bind="var: category(%page.banner_slideshow1); format: banner; extension:myRIA; editor:banner; wrap:<li>;" />
+	</ul>
 	
-<!--CAROUSEL BANNER @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->  
-	<div class='mainBannerContainer border'>
-    	<div class='relativeMainBannerContainer'>
-	        <div class='mainBannerCarousel'>
-        		<div class='mainBannerCarouselCatagories'><img src="images/SpidermanBannerImage.jpg"></div>
-                <div class='mainBannerCarouselCatagories'><img src="images/SpidermanBannerImage.jpg"></div>
-                <div class='mainBannerCarouselCatagories'><img src="images/SpidermanBannerImage.jpg"></div>
-        	</div>
-        	<div class='carouselButtonPrev pointer' id='mainBannerCarouselButtonPrev'><img src="images/SingleArrowPrev.png"></div>
-            <div class='carouselBlackButtonPrev bangersFont pointer' id='mainBannerBlackButtonPrev'>PREVIOUSLY</div>
-            <div class='carouselYellowButton borderRound bangersFont yellowGradient'>MORE DETAILS...</div>
-            <div class='carouselBlackButtonNext bangersFont pointer' id='mainBannerBlackButtonNext'>NEXT UP</div>
-            <div class='carouselButtonNext pointer' id='mainBannerCarouselButtonNext'><img src="images/SingleArrowNext.png"></div>
-        </div>
-    </div><!--END CAROUSEL BANNER @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+	<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul>
 
+	<ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; hide_summary:1; before:<h2>Featured Items</h2>; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+	<p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
 
+<!-- a sample of how to format an elastic native search in a data-bind -->
+	<ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults; before:<h2>Best Sellers</h2>;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
 
-<!-- SUB CATEGORY CAROUSEL DATABIND -->
-    <ul id="wideSlideshow" class="pics slideshow">
-    	<img src='images/blank.gif' width='712' height='400' data-bind="var: category(%page.banner_slideshow1); format: banner; extension:myRIA; editor:banner; wrap:<li>;" />
-    </ul>
-    <div class='subCarouselContainer'>
-      	<div class='subCarouselButton pointer' id='subButtonPrev'><img src='images/DoubleArrowPrev.jpg'></div>
-    		<div>
-        		<ul data-bind="var: category(@subcategoryDetail); format: categoryList; bgcolor: TTTTTT; extension: store_navcats; loadsTemplate: categoryListTemplateCarousel; detail:max;" class='subCarouselCategoryContainer listStyleNone fluidList clearfix noPadOrMargin'></ul>
-    		</div>
-    	<div class='subCarouselButton pointer' id='subButtonNext'><img src='images/DoubleArrowNext.jpg'></div>
-    </div>
-        
-    <div>
-        <p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
-    </div>
-    
-<!-- BEST SELLING ITEMS CAROUSEL 
-	To copy this carousel and use it else where in the app, incremnet id's for the 3 divs under templateMiddleConainer,
-    the class homePageTempCarousel and the id homeProdSearchBestSellers in the elastic native search ul -->
-    <div class='templateHeadContainer'>
-    	<div class='templateHeadDesc border bangersMedFont'>BEST SELLING ITEMS...</div>
-        <div class='templateMiddleContainer'>
-            <div class='prodListButtons pointer' id='homeCarButtonPrev1'><img src="images/TemplateArrowPrev.png"></div>
-            <div class='prodListCarouselButtonContainer' id='homePaginationContainer1'></div>
-            <div class='prodListButtons pointer' id='homeCarButtonNext1'><img src="images/TemplateArrowNext.png"></div>
-        </div>
-        <div class='templateHeadAllProds border bangersMedFont'>VIEW ALL PRODUCTS</div>
-    </div>
-        <div class='templateCarouselContainer border'>
-        <div>
-        <!-- a sample of how to format an elastic native search in a data-bind -->
-            <ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch imageURL; extension: myRIA; loadsTemplate: productListTemplateResultsCustom;' class='homePageTempCarousel1 listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
-        </div>
-    </div>
-    
-    <div>
-    <!-- a sample of how to get a 'list' src onto the page. -->
-        <ul data-bind="var: list($models.@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
-	</div>
-    
-    <div class='seperator'></div>    
-    
-<!-- THIS JUST IN! NEW ARRIVALS! CAROUSEL -->
-    <div class='templateHeadContainer'>
-    	<div class='templateHeadDesc border bangersMedFont'>THIS JUST IN! NEW ARRIVALS!</div>
-        <div class='templateMiddleContainer'>
-            <div class='prodListButtons pointer' id='homeCarButtonPrev2'><img src="images/TemplateArrowPrev.png"></div>
-            <div class='prodListCarouselButtonContainer' id='homePaginationContainer2'></div>
-            <div class='prodListButtons pointer' id='homeCarButtonNext2'><img src="images/TemplateArrowNext.png"></div>
-        </div>
-        <div class='templateHeadAllProds border bangersMedFont'>VIEW ALL PRODUCTS</div>
-    </div>
-        <div class='templateCarouselContainer border'>
-        <div>
-        <!-- a sample of how to format an elastic native search in a data-bind -->
-            <ul id='homeProdSearchBestSellers2' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResultsCustom;' class='homePageTempCarousel12 listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
-        </div>
-    </div>
-    
-    <div>
-    <!-- a sample of how to get a 'list' src onto the page. -->
-        <ul data-bind="var: list($models.@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
-	</div>
-    
-    
-    <div class='seperator'></div>
-    
-    
-<!-- BATMAN CAROUSEL -->
-    <div class='templateHeadContainer'>
-    	<div class='templateHeadDesc border bangersMedFont'>BATMAN</div>
-        <div class='templateMiddleContainer'>
-            <div class='prodListButtons pointer' id='homeCarButtonPrev3'><img src="images/TemplateArrowPrev.png"></div>
-            <div class='prodListCarouselButtonContainer' id='homePaginationContainer3'></div>
-            <div class='prodListButtons pointer' id='homeCarButtonNext3'><img src="images/TemplateArrowNext.png"></div>
-        </div>
-        <div class='templateHeadAllProds border bangersMedFont'>VIEW ALL PRODUCTS</div>
-    </div>
-        <div class='templateCarouselContainer border'>
-        <div>
-        <!-- a sample of how to format an elastic native search in a data-bind -->
-            <ul id='homeProdSearchBestSellers3' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResultsCustom;' class='homePageTempCarousel13 listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
-        </div>
-    </div>
-    
-    <div>
-    <!-- a sample of how to get a 'list' src onto the page. -->
-        <ul data-bind="var: list($models.@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
-	</div>
+<!-- a sample of how to get a 'list' src onto the page. -->
+	<ul data-bind="var: list($models.@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
 
-<!--STATIC BOTTOM SECTION @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
-
-    <div class='miscInfoContainer'>
-        <div class='miscLeft'>
-        	<H2 class='bangersFont'>ABOUT 2BHIP</H2>
-			<p class='openSansFont'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eros nisi, interdum in tincidunt eu, rutrum pellentesque quam. Quisque facilisis, ante ut iaculis ullamcorper, nulla tellus dapibus orci, quis venenatis felis elit et ante. Donec egestas commodo nibh sed fermentum. Ut tempor nibh non urna vulputate pellentesque. Nullam ac lacus nibh. Quisque ut tellus et nibh placerat varius. Maecenas vel lorem risus.<br><br>
-			Donec egestas commodo nibh sed fermentum. Ut tempor nibh non urna vulputate pellentesque. Nullam ac lacus nibh. Quisque ut et nibh placerat varius. Maecenas vel lorem risus. Nullam ac lacus nibh. Quisque ut et nibh placerat varius. Maecenas vel lorem risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eros nisi, interdum in tincidunt eu, rutrum pellentesque quam. Quisque facilisis, ante ut iaculis ullamcorper, nulla tellus dapibus orci, quis venenatis felis elit et ante. Donec egestas commodo nibh sed fermentum. Ut tempor nibh non urna vulputate pellentesque. Nullam ac lacus nibh. Quisque ut tellus et nibh placerat varius. Maecenas vel lorem risus.<br><br>
-			Donec egestas commodo nibh sed fermentum. Ut tempor nibh non urna vulputate pellentesque. Nullam ac lacus nibh. Quisque ut et nibh placerat varius. Maecenas vel lorem risus. Nullam ac lacus nibh. Quisque ut et nibh placerat varius. Maecenas vel lorem risus.  Maecenas vel lorem risus.</p>       </div>
-        <div class='miscRight'>
-        	<H2 class='bangersFont'>TOP SELLING BRANDS</H2>
-            <div class='miscTopSelling border'>
-                <div>
-                    <ul class='miscList openSansFont'>
-                        <li>Marvel Comics</li>
-                        <li>DC Comics</li>
-                        <li>Dark Horse</li>
-                        <li>Image</li>
-                        <li>Some Company</li>
-                        <li>Manga</li>
-                        <li></li>	
-                    </ul>
-                    <ul class='miscList miscListRight openSansFont'>
-                        <li>Marvel Comics</li>
-                        <li>DC Comics</li>
-                        <li>Dark Horse</li>
-                        <li>Image</li>
-                    </ul>
-                    <div class='miscListButton borderRound bangersFont yellowGradient'>VIEW ALL BRANDS</div>	
-                </div>
-                
-            </div>
-        </div>
-        <div class='miscRight'>
-        	<H3 class='bangersFont'>CUSTOMER REVIEWS</H3>
-            <div class='miscCustReviews'>
-            	<div class='miscCustReviewText openSansFont'><br><br>
-                	"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eros nisi, interdum in tincidunt eu, rutrum pellentesque quam. Quisque facilisis, ante ut iaculis ullamcorper, nulla tellus dapibus orci, quis venenatis felis elit et ante. Donec egestas commodo nibh sed fermentum. Ut tempor nibh non urna vulputate pellentesque. Nullam ac lacus nibh. Quisque ut tellus et nibh placerat varius. Maecenas vel lorem risus.
-					Donec egestas commodo<br><br>
-            		Nullam ac lacus nibh. Quisque ut tellus et nibh placerat varius. Maecenas vel lorem risus.”<br>
-					<p align='right'>- Soandso Whatshisface</p>
-            	</div>
-            </div>
-        </div>
-       
-    </div>
-
-<!-- END STATIC BOTTOM SECTION @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
 
 </div>
 
@@ -658,61 +192,21 @@ don't modify the 'data-templateid' unless you are changing template names and up
 -->
 <div id='categoryTemplate' class='loadingBG categoryTemplate'>
 
-	<ul class='breadcrumb clearfix noPadOrMargin fluidList bangersMedFont' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
-	<div class='catPageContainer'>
-        <div class='filterSearchContainerPlaceholder borderRound'>
-        	<div class='allFilterSearchBoxes sortPrice'>
-            	<h2 class='openSansXBoldFont'>SORT BY PRICE</h2>
-            </div>
-            <div class='allFilterSearchBoxes sortTheme'>
-            	<h2 class='openSansXBoldFont'>SORT BY THEME</h2>
-                <ul class='openSansFont'>
-                	<li><label><input type='checkbox'/> Star Wars</label></li>
-                    <li><label><input type='checkbox'/> Superman</label></li>
-                    <li><label><input type='checkbox'/> Batman</label></li>
-                    <li><label><input type='checkbox'/> Marvel Comics</label></li>
-                    <li><label><input type='checkbox'/> DC Comics</label></li>
-                    <li><label><input type='checkbox'/> Image Comics</label></li>
-                    <li><label><input type='checkbox'/> Dark Horse Comics</label></li>
-                </ul>
-            </div>
-            <div class='allFilterSearchBoxes sortSize'>
-            	<h2 class='openSansXBoldFont'>SORT BY SIZE</h2>
-                <ul class='openSansFont'>
-                	<li><label><input type='checkbox'/> X-Small</label></li>
-                    <li><label><input type='checkbox'/> Small</label></li>
-                    <li><label><input type='checkbox'/> Medium</label></li>
-                    <li><label><input type='checkbox'/> Large</label></li>
-                    <li><label><input type='checkbox'/> X-Large</label></li>
-                </ul>
-            </div>
-            <div class='allFilterSearchBoxes sortType'>
-            	<h2 class='openSansXBoldFont'>SORT BY TYPE</h2>
-                <ul class='openSansFont'>
-                	<li><label><input type='checkbox'/> Apparel</label></li>
-                    <li><label><input type='checkbox'/> Collectibles</label></li>
-                    <li><label><input type='checkbox'/> Toys</label></li>
-                    <li><label><input type='checkbox'/> Electronics</label></li>
-                </ul>
-                <h3></h3>
-            </div>
-        </div>
-        <div class='catContentContainer'>
-            <img data-bind="var: category(%page.banner1); format: banner; editor: banner; height:250; width:750; extension: myRIA;" />
-            
-            <h2 data-bind="var: category(%page.header); format: text; editor: text;"></h2>
-            
-            <h1 class='bangersFont'>CATEGORIES</h1>
-            
-            <p class='openSansFont' data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
-        
-            <ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplateCustom; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul><!-- outputs a list of subcategories -->
-            
-            <ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
-            
-            <p data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p><!---->
-        </div>
-    </div>
+	<ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
+
+	<img data-bind="var: category(%page.banner1); format: banner; editor: banner; height:250; width:750; extension: myRIA;" />
+
+	<h2 data-bind="var: category(%page.header); format: text; editor: text;"></h2>
+
+	<p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
+
+	<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul><!-- outputs a list of subcategories -->
+
+	<ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
+
+	<p data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
+
+
 </div>
 
 
@@ -725,28 +219,8 @@ don't modify the 'data-templateid' unless you are changing template names and up
 <ul>
 <li id='categoryListTemplate'>
 	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='pointer'>
+		<div class='thumbContainer'><img src='blank.gif' class='catThumb' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='120' height='120' /></div>
 		<div class='catName white2LGray'><span data-bind='var: category(pretty); format:catText; extension: myRIA;'></span></div>
-        <div class='thumbContainer'><img src='blank.gif' class='catThumb' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='120' height='70' /></div>	
-	</div>
-</li>
-
-
-<!-- CATEGORY PAGE -->
-<li id='categoryListTemplateCustom'>
-	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='subCarouselCatagories categoryCatagories border pointer'>
-		<div class='bangersMedFont catName white2LGray'><span data-bind='var: category(pretty); format:catText; extension: myRIA;'></span></div>	
-        <div class='subMoreDetailsButton bangersFont'>MORE DETAILS...</div>	
-        <div class='thumbContainer'><img src='blank.gif' class='catThumb' data-bind='var: category(%meta.CAT_THUMB); format:imageURL; bgcolor:tttttt;' width='100' height='100' /></div>
-	</div>
-</li>
-
-
-<!-- CATEGORY CAROUSEL -->
-<li id='categoryListTemplateCarousel'>
-	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='subCarouselCatagories border pointer'>
-		<div class='bangersMedFont catName white2LGray'><span data-bind='var: category(pretty); format:catText; extension: myRIA;'></span></div>	
-        <div class='subMoreDetailsButton bangersFont'>MORE DETAILS...</div>	
-        <div class='thumbContainer'><img src='blank.gif' class='catThumb' data-bind='var: category(%meta.CAT_THUMB); format:imageURL; bgcolor:tttttt;' width='120' height='108' /></div>
 	</div>
 </li>
 
@@ -768,54 +242,28 @@ Used for the product in a product list (prodlist), usually in the body of a cate
 the loadingBG class is removed (must be that classname) when the template is translated.
 remember to NOT put the button inside the 'onclick' container or two events will occur onclick.
 -->
-
-
-<li id='productListTemplate' class='loadingBG' onMouseOver="$('.quickView',$(this)).show();" onMouseOut="$('.quickView').hide();" >
+<li id='productListTemplate' class='loadingBG  ' onMouseOver="$('.quickView',$(this)).show();" onMouseOut="$('.quickView').hide();" >
 
 	<button class='floatRight pointer quickView displayNone' onClick="quickView('product',{'templateID':'productTemplateQuickView','pid':$(this).closest('[data-pid]').attr('data-pid')});">Quickview</button>
 
 	<div onClick="showContent('product',{'pid':$(this).attr('data-pid')})" data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='pointer'>
 		<div class='prodThumbContainer' data-bind='var:product(pid); format:addPicSlider; extension:myRIA;'>
-		<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='190' height='100' />
+		<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='120' height='120' />
 		</div>
 
+		<h5 data-bind='var: product(zoovy:prod_name); format:text;'></h5>
+
+		<h6 data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>
 		
-<div class='productDesc openSansFont'>
-    <h5 data-bind='var: product(zoovy:prod_name); format:text;'></h5>
-</div>
-
-<div class='productPrice bangersFont'>
-    <h6 data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>
-</div>
-
 		<span data-bind='var: reviews(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>
 <!-- 	<span data-bind='var: reviews(reviews.total); format:text; pretext: from ;posttext: reviews; className:numReviews;'></span> -->
 	</div>
+	
+	<form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm clearfix' action='#'>
+		<button data-bind='format:addToCartButton; extension:myRIA; useParentData:true;'>more details</button>
+	</form>
+	
 </li>
-
-
-    <li id='productListTemplateCustom' class='loadingBG' onMouseOver="$('.quickView',$(this)).show();" onMouseOut="$('.quickView').hide();" >
-    
-        <button class='floatRight pointer quickView displayNone' onClick="quickView('product',{'templateID':'productTemplateQuickView','pid':$(this).closest('[data-pid]').attr('data-pid')});">Quickview</button>
-    
-        <div onClick="showContent('product',{'pid':$(this).attr('data-pid')})" data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='pointer'>
-            <div class='prodThumbContainer' data-bind='var:product(pid); format:addPicSlider; extension:myRIA;'>
-            <img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='190' height='100' />
-            </div>
-    
-            
-    <div class='productDesc openSansFont'>
-        <h5 data-bind='var: product(zoovy:prod_name); format:text;'></h5>
-    </div>
-    
-    <div class='productPrice bangersFont'>
-        <h6 data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>
-    </div>
-    
-            <span data-bind='var: reviews(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>
-    <!-- 	<span data-bind='var: reviews(reviews.total); format:text; pretext: from ;posttext: reviews; className:numReviews;'></span> -->
-        
-    </li><!--END PRODLISTCAROUSEL-->
 
 
 <!--
@@ -854,7 +302,7 @@ container ul should have lineItemProdlist class on it instead of productList
 
 		<div class='prodThumbContainer floatLeft'>
 			<div class='ui-widget ui-widget-content ui-corner-all'>
-				<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;'; width='160' height='160' />
+				<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='160' height='160' />
 				<div class='buttonList ui-widget ui-widget-header ui-corner-all alignCenter'>
 
 <button class='ui-state-default ui-corner-all' title='add item to cart' onClick="showContent('product',{'pid':$(this).closest('[data-pid]').attr('data-pid')});">
@@ -897,55 +345,22 @@ container ul should have lineItemProdlist class on it instead of productList
 <!--
 Used for the product in a product list (prodlist), usually in the body of a category or the homepage.
 the loadingBG class is removed (must be that classname) when the template is translated.
-remember to NOT put the button inside the 'onclick' container or two events will occur onclick.-->
-<li id='productListTemplateResults' class='loadingBG ' >
+remember to NOT put the button inside the 'onclick' container or two events will occur onclick.
+
+SANITY -> if you change the height and width of this image, change the .minimalMode .searchResultsProduct in qs_styles.css to match
+-->
+<li id='productListTemplateResults' class='loadingBG searchResultsProduct ' >
 	<div onClick="app.ext.myRIA.a.handleProdPreview($(this).parent().attr('data-pid'));" class='pointer'>
 		<div class='prodThumbContainer'>
 		<img src='blank.gif' class='prodThumb' data-bind='var: product(images); format:imageURL;isElastic:1;bgcolor:ffffff;' width='120' height='120' />
 		</div>
 
-		<h5 data-bind='var: product(prod_name); format:text;'></h5>
+		<h5 class='hideInMinimalMode' data-bind='var: product(prod_name); format:text;'></h5>
 
-		<h6 data-bind='var: product(base_price); format:money; isElastic:1; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>
+		<h6 class='hideInMinimalMode' data-bind='var: product(base_price); format:money; isElastic:1; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>
 	</div>
-	<div class='pointer moreDetails' onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});">more details</div>
+	<div class='hideInMinimalMode' class='pointer moreDetails' onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});">more details</div>
 </li>
-</ul>
-
-<ul>
-<!--CUSTOM VERSION OF ABOVE TEMPLATE
-Used for the product in a product list (prodlist), usually in the body of a category or the homepage.
-the loadingBG class is removed (must be that classname) when the template is translated.
-remember to NOT put the button inside the 'onclick' container or two events will occur onclick.
--->
-<!-- BEST SELLING ITEMS CAROUSEL -->
-<li id='productListTemplateResultsCustom' class='loadingBG'>
-	
-	<div onClick="app.ext.myRIA.a.handleProdPreview($(this).parent().attr('data-pid'));" class='pointer'>
-        <div class='prodThumbContainer'>
-		<img src='blank.gif' class='prodThumb' data-bind='var: product(images); format:imageURL;isElastic:1;bgcolor:ffffff;' width='208' height='100' />
-		</div>
-
-		<div class='productDesc openSansFont'>
-            <h5 data-bind='var: product(prod_name); format:text;'></h5>
-        </div>
-
-		<div class='productPrice bangersFont'>
-            <h6 data-bind='var: product(base_price); format:money; isElastic:1; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>
-        </div>
-        
-        <div class='productSizeContainer'> 
-    		<div class='productSize borderRound bangersFont greyGradient'>S</div>
-        	<div class='productSize borderRound bangersFont greyGradient'>M</div>
-            <div class='productSize borderRound bangersFont greyGradient'>L</div>
-            <div class='productSize borderRound bangersFont greyGradient'>XL</div>
-            <div class='productSize borderRound bangersFont greyGradient'>XXL</div>	
-    	</div>
-        <div class='pointer productBubble bangersMedFont' onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});">CLEARANCE</div>
-	</div>
-	
-</li>
-
 </ul>
 
 
@@ -978,8 +393,6 @@ this will likely become more flexible in the future. ###
 
 
 <div id='productTemplate'>
-
-<div class='blah'> </div>
 
 <ul class='clearfix noPadOrMargin fluidList breadcrumb' data-bind='var: session(session.recentCategories.0); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
 
@@ -1023,7 +436,7 @@ this will likely become more flexible in the future. ###
 			<span class='savingsPercentage' data-bind='var: product(pid); format:priceRetailSavingsPercentage; extension:myRIA; pretext: (; posttext:);'></span>
 		</span>
 	</div>
-
+	<div class="socialLinks"></div>
 
 	<ul title='please choose' id='prodlistChildren' class='listStyleNone fluidList clearfix noPadOrMargin productList smallProdlist' data-bind="var: product(zoovy:grp_children); format:productList; extension:store_prodlist; loadsTemplate:productListTemplateChildren;hide_summary:true;"></ul>
 
@@ -1384,7 +797,7 @@ adding classes is not likely to have any bad effects.
 		<div id='myaccountArticle' class='displayNone textContentArea'>
 			<h1>My Account</h1>
 			<div id='logMessaging'></div>
-			<div><a href="#" onClick="app.u.logBuyerOut(); showContent('homepage',{}); return false;">Log Out</a></div>
+			<div><a href="#" onClick="app.ext.myRIA.u.handleLogoutActions(); return false;">Log Out</a></div>
 
 			<section id='buyerAddresses' class='clearfix'>
 
@@ -1636,9 +1049,7 @@ So the cart template should contain these two elements and the extension should 
 <ul>
 	<li id='productListTemplateCart' class='padMargBorderBottom clearfix'>
 
-		<span class='ui-state-default ui-corner-all floatRight removeButton' data-bind='var: product(stid); format:removeItemBtn; extension:store_cart;' >
-		<span class='ui-icon ui-icon-closethick'></span>
-		</span>
+		<button class='floatRight removeButton' data-bind='format:removeItemBtn; extension:store_cart; useParentData:true;' >Remove Item From Cart</button>
 
 		<div class='floatLeft'><img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); defaultVar: product(%attribs.zoovy:prod_image1); format:imageURL;' width='75' height='75' /></div>
 
@@ -1647,7 +1058,7 @@ So the cart template should contain these two elements and the extension should 
 		<div class='ztable_row_small stid' data-bind='var: product(sku); format:text; className: stid; pretext: Sku: ;'></div>
 
 		<div>
-		qty: <input type='number' class='qtyInput' onChange="app.ext.store_cart.u.updateCartQty($(this)); app.model.dispatchThis('immutable');"  data-bind='var: product(qty); format:cartItemQty;extension:store_cart;' size='3' />
+		qty: <input type='number' class='qtyInput' onChange="app.ext.store_cart.u.updateCartQty($(this)); app.model.dispatchThis('immutable');"  data-bind='format:cartItemQty;extension:store_cart;useParentData:true;' size='3' />
 		<button class='displayNone'>update</button><!-- here to stop 'enter' in input above from closing modal -->
 		<span data-bind='var: product(price); format:money; currencySign: $;  hideZero:false; pretext: x ;' ></span>
 		<span data-bind='var: product(extended); format:money; currencySign: $; hideZero:false; pretext: = ;'></span>
@@ -1999,9 +1410,6 @@ The 'data-action' attribute is used to assign an onclick.
 
 </menu>
 	<button  onClick="localStorage.clear(); return false;">Clear Local Storage</button>
-	<button  onClick="app.u.dump(app); return false;">Control to Console</button>
-	<button  onClick="app.ext.myRIA.a.showInlineProdDetails({'pid':'E1C14568','selector':'#mainContentArea','templateID':'productTemplate'});">showInlineProdDetails</button>
-	<button  onClick="document.write('stuff');">document.write</button>
 	<button  onClick="alert(app.ext.store_checkout.u.thisSessionIsPayPal());">Alert isPaypal</button>
 	<button  onClick="alert(app.ext.store_checkout.u.aValidPaypalTenderIsPresent());">Alert aValidPaypalTenderIsPresent</button>
 

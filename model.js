@@ -81,7 +81,7 @@ app.globalAjax.lastDispatch - keeps track of when the last dispatch occurs. Not 
 function zoovyModel() {
 	var r = {
 	
-		version : "201304",
+		version : "201308",
 	// --------------------------- GENERAL USE FUNCTIONS --------------------------- \\
 	
 	//pass in a json object and the last item id is returned.
@@ -734,7 +734,10 @@ uuid is more useful because on a high level error, rtag isn't passed back in res
 					app.u.dump(' -> successful response for uuid '+uuid+'. callback defined ('+callback+') but does not exist or is not valid type.')
 					}
 				}
-			app.q[app.model.whichQAmIFrom(uuid)][Number(uuid)]['status'] = status;
+			var fromQ = app.model.whichQAmIFrom(uuid);
+			if(fromQ && app.q[fromQ] && app.q[fromQ][Number(uuid)])	{
+				app.q[app.model.whichQAmIFrom(uuid)][Number(uuid)]['status'] = status;
+				}
 			return status;
 		},
 	
@@ -881,9 +884,6 @@ or as a series of messages (_msg_X_id) where X is incremented depending on the n
 							responseData['errtype'] = "apperr";
 							responseData['errmsg'] = "could not find category (may not exist)";
 							} //a response errid of zero 'may' mean no errors.
-						break;
-					case 'appPublicSearch':
-						//currently, there are no errors. I have a hunch this will change.
 						break;
 		
 					case 'addSerializedDataToCart': //no break is present here so that case addSerializedDataToCart and case addToCart execute the same code.

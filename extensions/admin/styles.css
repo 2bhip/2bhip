@@ -32,7 +32,7 @@ class can also be applied to a 1 item per row list.
 .valignMiddle	{vertical-align:middle;}
 
 
-.displayNone, .debug, .showForZoovyOnly, .showForAnyCommerceOnly	{display:none;}
+.displayNone, .debug, .showForZoovyOnly, .showForAnyCommerceOnly, .minimalMode .hideInMinimalMode	{display:none;}
 .isZoovy .showForZoovyOnly, .isAnyCommerce .showForAnyCommerceOnly	{display:inherit;}
 
 /* for use on lists where no bullets, indents, etc are needed. add on ul */
@@ -138,10 +138,13 @@ using these shared margins will help make the UI more consistent.
 .marginRight	{margin-right:12px;}
 .marginTop	{margin-top:12px;}
 .marginBottom	{margin-bottom:12px;}
+
+.paddingRight	{padding-right:12px;} /* used to create space between horizontally listed spans, among other things */
+
 .stdMargin	{margin:12px;}
 .stdPadding	{padding:12px;}
 .smallPadding	{padding:4px;}
-.ui-widget-header-padding	{padding:3px 6px;}
+.ui-widget-header-padding	{padding:3px 6px !important;}
 section.marginBottom	{margin-bottom:36px;} /* use on a section tag to divide portions of the page. */
 
 
@@ -204,7 +207,7 @@ li.loadingBG, tr.loadingBG	{background:url(images/wait.gif) no-repeat center cen
 
 
 /* This gets applied to the parent containers around each tabs content area.  */
-.tabContent	{margin:0px auto; padding:12px 0; font-size:90%; width:96%; min-height:200px;} /* min height so showLoading always shows in full. should reduce jitter some too */
+.tabContent	{margin:0px auto; padding:12px 0; font-size:90%; width:92%; min-height:200px;} /* min height so showLoading always shows in full. should reduce jitter some too */
 
 
 
@@ -236,6 +239,31 @@ li.loadingBG, tr.loadingBG	{background:url(images/wait.gif) no-repeat center cen
 #headerSearchFrm fieldset	{text-align:right}
 #headerKeywordsInput	{width:350px;}
 
+
+
+
+
+
+/* css for a three column layout. will be used on dashboard and in customer editor. */
+
+/* three column panel layout (homepage) */
+.twoColumn{  
+	width:49%;  
+	min-height:300px;  
+	float:left;  
+	}  
+
+.twoColumn.column2 {float:right;}
+
+.twoColumn .placeholder{  
+	background: #ffffff;  
+	}  
+
+
+
+
+
+.ui-widget-anypanel ul.ui-menu li	{padding:2px 6px;}
 
 
 
@@ -562,17 +590,16 @@ Messaging Styles
 .ui-state-z-ise, .ui-state-z-error	{border:1px solid #CC0000; background:#CC0000; color:#ffffff;}
 .ui-state-z-debug	{border:1px solid #000000; background:#333333; color:#ffffff;}
 
-.ui-state-z-success .success	{background:none;} /* compensates for bg image for standard.css */
+.ui-icon-z-ise	{background:url(images/ise-25x22.png) no-repeat center center !important; width:29px; height:26px;}
+.ui-icon-z-error	{background: url(images/error-25x25.png) no-repeat center center !important; width:29px; height:29px;}
 
-.ui-icon-z-ise	{background:url(images/ise-25x22.png) no-repeat center center; width:29px; height:26px;}
-.ui-icon-z-error	{background: url(images/error-25x25.png) no-repeat center center; width:29px; height:29px;}
-
-.ui-icon-z-legacy	{background:url(images/legacy-25x22.png) no-repeat; width:25px; height:22px;}
-.ui-icon-z-todo	{background: url(images/todo-25x29.png) no-repeat; width:25px; height:29px;}
-.ui-icon-z-hint	{background: url(images/hint-25x25.png) no-repeat; width:25px; height:25px;}
-.ui-icon-z-success	{background: url(images/success-25x25.png) no-repeat; width:25px; height:29px;}
-.ui-icon-z-debug	{background: url(images/debug-25x20.png) no-repeat; width:25px; height:24px;}
-.ui-icon-z-warn	{background:url(images/ise-25x22.png) no-repeat center center; width:29px; height:26px;}
+.ui-icon-z-legacy	{background:url(images/legacy-25x22.png) no-repeat !important; width:25px; height:22px;}
+.ui-icon-z-todo	{background: url(images/todo-25x29.png) no-repeat !important; width:25px; height:29px;}
+.ui-icon-z-hint	{background: url(images/hint-25x25.png) no-repeat !important; width:25px; height:25px;}
+.ui-icon-z-success	{background: url(images/success-25x25.png) no-repeat !important; width:25px; height:29px;}
+.ui-icon-z-debug	{background: url(images/debug-25x20.png) no-repeat !important; width:25px; height:24px;}
+.ui-icon-z-youerr	{background:url(images/ise-25x22.png) no-repeat center center !important; width:29px; height:26px;}
+.ui-icon-z-warn	{background:url(images/ise-25x22.png) no-repeat center center !important; width:29px; height:26px;}
 
 
 .anyIcon	{background:url(images/ui_anyicon_set-612x792.png) no-repeat; width:55px; height:55px; display:inline-block;}
@@ -710,7 +737,7 @@ put the prompt into a span
 <label><span>prompt</span>input</label>
 */
 .labelsAsBreaks label, .labelsAsBreaks div.label	{display:block; margin:6px 0; vertical-align:top;}
-.labelsAsBreaks label span	{padding-right:12px; display:inline-block; vertical-align:top;}
+.labelsAsBreaks label span:first-of-type	{padding-right:12px; display:inline-block; vertical-align:top;}
 
 /* 
 within a labelAsBreaks, if a row of inputs is needed, add a div with class label and clearfix around it and an h4 as the header. 
@@ -722,7 +749,7 @@ see shipping panel in product editor for example
 .labelsAsBreaks div.label label	{ margin:0 12px 0 0;}
 
 /* optional classes to put on same container that has labelsAsBreaks. Will make labels into a column and input into another, horizontally lined up. */
-.alignedLabels label span	{width:30%;}
+.alignedLabels label span:first-of-type	{width:30%;}
 .alignedInputs textarea,
 .alignedInputs input[type=email],
 .alignedInputs input[type=url],
@@ -771,10 +798,22 @@ table.achievementList	{width:60%; margin:0 auto; border-spacing: 0px; border-col
 .helpDoc article {margin-bottom:12px; padding-bottom:12px; border-bottom:1px solid #efefef;}
 
 
+
 /*
 http://codepad.co/s/7cca38#select
 some pad (more or less)specific styles.
 */
 @media screen and (max-width: 1024px) {
 	.domainList li {padding:0 4px;}
+	}
+
+
+@media screen and (max-width: 800px) {
+	.twoColumn{  
+		width:100%;
+		clear:both;
+		}  
+	
+	.twoColumn.column2 {clear:both;}
+
 	}
