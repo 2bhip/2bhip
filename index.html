@@ -20,7 +20,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130225121800",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130225023000",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"httpsURL":"https://ssl.zoovy.com/s=www.97638a9e.pop.zoovy.net/",
@@ -708,7 +708,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
         
             <ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplateCustom; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul><!-- outputs a list of subcategories -->
             
-            <ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
+            <ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplateCustom; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
             
             <p data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p><!---->
         </div>
@@ -795,27 +795,38 @@ remember to NOT put the button inside the 'onclick' container or two events will
 
 
     <li id='productListTemplateCustom' class='loadingBG' onMouseOver="$('.quickView',$(this)).show();" onMouseOut="$('.quickView').hide();" >
-    
+
         <button class='floatRight pointer quickView displayNone' onClick="quickView('product',{'templateID':'productTemplateQuickView','pid':$(this).closest('[data-pid]').attr('data-pid')});">Quickview</button>
-    
-        <div onClick="showContent('product',{'pid':$(this).attr('data-pid')})" data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='pointer'>
-            <div class='prodThumbContainer' data-bind='var:product(pid); format:addPicSlider; extension:myRIA;'>
-            <img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='190' height='100' />
-            </div>
-    
+    	<div class='prodThumbContainer'>
+            <div onClick="showContent('product',{'pid':$(this).attr('data-pid')})" data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='productList pointer'>
+                <div class='prodThumbContainer' data-bind='var:product(pid); format:addPicSlider; extension:myRIA;'>
+                	<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='190' height='100' />
+           		</div>
+    		</div>
+        </div>
             
-    <div class='productDesc openSansFont'>
-        <h5 data-bind='var: product(zoovy:prod_name); format:text;'></h5>
-    </div>
-    
-    <div class='productPrice bangersFont'>
-        <h6 data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>
-    </div>
-    
-            <span data-bind='var: reviews(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>
-    <!-- 	<span data-bind='var: reviews(reviews.total); format:text; pretext: from ;posttext: reviews; className:numReviews;'></span> -->
+        <div class='productDesc openSansFont'>
+            <h5 data-bind='var: product(zoovy:prod_name); format:text;'></h5>
+        </div>
         
-    </li><!--END PRODLISTCAROUSEL-->
+        <div class='productPrice bangersFont'>
+            <h6 data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>
+        </div>
+        
+        <div class='productSizeContainer'> 
+    		<div class='productSize borderRound bangersFont greyGradient'>S</div>
+        	<div class='productSize borderRound bangersFont greyGradient'>M</div>
+            <div class='productSize borderRound bangersFont greyGradient'>L</div>
+           	<div class='productSize borderRound bangersFont greyGradient'>XL</div>
+           	<div class='productSize borderRound bangersFont greyGradient'>XXL</div>	
+    	</div>
+        
+        <div class='pointer productBubble bangersMedFont' onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});">CLEARANCE</div>
+
+        <span data-bind='var: reviews(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>
+        <!-- 	<span data-bind='var: reviews(reviews.total); format:text; pretext: from ;posttext: reviews; className:numReviews;'></span> -->
+        
+    </li>
 
 
 <!--
@@ -923,7 +934,7 @@ remember to NOT put the button inside the 'onclick' container or two events will
 	
 	<div onClick="app.ext.myRIA.a.handleProdPreview($(this).parent().attr('data-pid'));" class='pointer'>
         <div class='prodThumbContainer'>
-		<img src='blank.gif' class='prodThumb' data-bind='var: product(images); format:imageURL;isElastic:1;bgcolor:ffffff;' width='208' height='100' />
+		<img src='blank.gif' class='prodThumb' data-bind='var: product(images); format:imageURL;isElastic:1;bgcolor:ffffff;' width='190' height='100' />
 		</div>
 
 		<div class='productDesc openSansFont'>
@@ -978,8 +989,6 @@ this will likely become more flexible in the future. ###
 
 
 <div id='productTemplate'>
-
-<div class='blah'> </div>
 
 <ul class='clearfix noPadOrMargin fluidList breadcrumb' data-bind='var: session(session.recentCategories.0); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
 

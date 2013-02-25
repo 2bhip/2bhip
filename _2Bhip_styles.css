@@ -1027,9 +1027,17 @@ PRODUCT STYLES / CAROUSELS
 
 .prodThumbContainer {
 	height: 120px;
+	width: 190px;
 	margin-left: auto;	
 	margin-right: auto;
 }
+
+/*.prodContainer {
+	height: 275px;	
+	width: 206px;
+	margin: 15px;
+	float: left;
+}*/
 
 .prodThumbContainer img {
 	margin-top: 10px;	
@@ -1185,6 +1193,11 @@ CATAGORY PAGE
 	line-height: 27px;
 }
 
+.catContentContainer pl_149bef625c51_container {
+	height: 180px;
+	width: 
+}
+
 .categoriesContainer {
 	position: relative;
 	height: auto;
@@ -1192,7 +1205,7 @@ CATAGORY PAGE
 	vertical-align: bottom;
 }
 
-.catContentContainer li {
+.categoryList li {
 	height: 110px;
 	width: 220px;
 	margin: 0px 0px 14px 15px;
