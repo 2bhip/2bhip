@@ -75,6 +75,12 @@ a {
 	color: #000;
 	font-family: "Open Sans";	
 	font-size: 15px;
+}
+
+.openSansBoldFont {
+	color: #000;
+	font-family: "Open Sans";	
+	font-size: 15px;
 	font-weight: bold;
 }
 
@@ -1243,12 +1249,56 @@ PRODUCT DETAIL PAGE
 
 .prodSummaryContainer {
  	width: 420px; 
-	background-color: #306;
+	background-color: #C90;
+}
+
+.prodSummaryContainer h1 {
+	font-size: 18px;
+	margin: 5px 0px 13px 0px;
+}
+
+.stid {
+	font-size: 12px;
+}
+
+.prodDetailsDesc {
+	line-height: 18px;
 }
 
 .prodSelectionContainer {
-	width: 220px;
+	height: 618px;
+	width: 218px;
 	background-color: #C9F;
+}
+
+.productShips {
+	height: 30px;
+	width: 218px;
+	color: #fff;
+	font-size: 12px;
+	text-align: center;
+	line-height: 28px;
+	background-color: #000;
+}
+
+.prodPriceSelection {
+	height: 64px;
+	width: 100%;
+	background-color: #eeeeee;
+}
+
+.prodSizeSelection {
+	height: 180px;
+	width: 100%;
+	background-color: #cccccc;
+	border-top: 2px solid #000;
+	border-bottom: 2px solid #000;
+}
+
+.prodCartSelection {
+	height: 310px;
+	width: 100%;
+	background-color: #eeeeee;
 }
 
 
