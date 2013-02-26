@@ -81,7 +81,7 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
 		});
 	}
  	mainBannerCarousel = foo;
- 	setTimeout(mainBannerCarousel, 1000);
+ 	setTimeout(mainBannerCarousel, 2000);
 	
 	
 	//subcatagories Carousel horizontal sliders

@@ -739,11 +739,8 @@ HOME PAGE
 	left: 40px;
 	top: 0px;
 	z-index: 1;
+	margin-top: 12px;
 }
-/*
-.subCarouselCategoryContainer li {
-	margin: 0px;	
-}*/
 
 .subCarouselButton {
 	position: absolute;
@@ -1223,15 +1220,35 @@ END CATAGORY PAGE
 
 /*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 
-PRODUCT PAGE
+PRODUCT DETAIL PAGE
 
 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
 
 
-.blah {
-	width: 900px;
-	height: 200px;
-	background-color: #093;
+.prodViewerContainer {
+	width: 940px;
+	margin: auto;
+}
+
+.imageContainer {
+	width: 300px;
+	background-color: #CF6;	
+}
+
+.additionalImageContainer {
+	height: 75px;
+	width: 300px;
+	background-color: #000;
+}
+
+.prodSummaryContainer {
+ 	width: 420px; 
+	background-color: #306;
+}
+
+.prodSelectionContainer {
+	width: 220px;
+	background-color: #C9F;
 }
 
 
