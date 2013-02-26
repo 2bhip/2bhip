@@ -1032,13 +1032,6 @@ PRODUCT STYLES / CAROUSELS
 	margin-right: auto;
 }
 
-/*.prodContainer {
-	height: 275px;	
-	width: 206px;
-	margin: 15px;
-	float: left;
-}*/
-
 .prodThumbContainer img {
 	margin-top: 10px;	
 }
@@ -1177,7 +1170,6 @@ CATAGORY PAGE
 
 .catContentContainer {
 	width: 718px;
-	background-color: #C09;
 	float: right;
 }
 
@@ -1251,6 +1243,38 @@ PRODUCT PAGE
 
 
 
+
+
+/*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+ABOUT PAGE
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
+
+
+.aboutLeft {
+	height: 1118px;
+	width: 480px;
+	background-color: #666;
+	margin: 20px 0px 20px 40px;
+	float: left;
+}
+
+.aboutMiddle {
+	height: 1118px;
+	width: 240px;
+	background-color: #00F;
+	margin: 20px 0px 20px 0px;
+	float: left;
+}
+
+.sideline {
+	height: 1118px;
+	width: 220px;
+	background-color:#339F;
+	margin: 20px 40px 20px 0px;
+	float: right;
+}
 
 
 
