@@ -20,7 +20,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130226043200",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130227112200",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"httpsURL":"https://ssl.zoovy.com/s=www.97638a9e.pop.zoovy.net/",
@@ -1052,13 +1052,35 @@ this will likely become more flexible in the future. ###
             <div class='openSansBoldFont productShips' data-bind='var: product(zoovy:ship_latency); format:text;pretext:PRODUCT SHIPS WITHIN ;posttext: DAYS;' class='latency'></div>
             
             <div class='prodPriceSelection'>
-                <h4 class='basePrice' data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; pretext: Our Price: ;'></h4>
-                <h5 class='prodMSRP' data-bind='var: product(zoovy:prod_msrp); format:money; currencySign: $;  hideZero:true; pretext: MSRP: ;'></h5>
+                <h5 class='prodMSRP bangersFont' data-bind='var: product(zoovy:prod_msrp); format:money; currencySign: $;  hideZero:true;'></h5>
+                <h4 class='basePrice bangersFont' data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true;'></h4>
             </div>
             
             <div class='prodSizeSelection'>
             	<ul title='please choose' id='prodlistChildren' class='listStyleNone fluidList clearfix noPadOrMargin productList smallProdlist' data-bind="var: product(zoovy:grp_children); format:productList; extension:store_prodlist; loadsTemplate:productListTemplateChildren;hide_summary:true;"></ul>
-        	</div>
+        		<ul class='sizeUL'>
+                	<li>
+                        <div class='sizeCheck border'></div>
+                        <div class='sizeText openSansBoldFont'>S &nbsp $1,049.99</div>
+                    </li>
+                    <li>
+                        <div class='sizeCheck border'></div>
+                        <div class='sizeText openSansBoldFont'>M &nbsp $1,049.99</div>
+                    </li>
+                    <li>
+                        <div class='sizeCheck border'></div>
+                        <div class='sizeText openSansBoldFont'>L &nbsp $1,049.99</div>
+                    </li>
+                    <li>
+                        <div class='sizeCheck border'></div>
+                        <div class='sizeText openSansBoldFont'>XL &nbsp $1,049.99</div>
+                    </li>
+                    <li>
+                        <div class='sizeCheck border'></div>
+                        <div class='sizeText openSansBoldFont'>XXL &nbsp $1,049.99</div>
+                    </li>
+                </ul>
+            </div>
         <!--	<div data-bind='var: product(@inventory.inv); format:simpleInvDisplay; extension:store_product;' class='inventory'></div> -->
         
         	<div class='prodCartSelection'>

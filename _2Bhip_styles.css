@@ -1287,12 +1287,65 @@ PRODUCT DETAIL PAGE
 	background-color: #eeeeee;
 }
 
+.prodPriceSelection h5 {
+	height: 64px;
+	width: 100px;
+	color: #666666;
+	font-size: 24px;
+	line-height: 64px;
+	text-align: center;
+	text-decoration: line-through;
+	float: left;
+}
+
+.prodPriceSelection h4 {
+	height: 64px;
+	width: 118px;
+	margin:auto;
+	color: #000;
+	font-size: 30px;
+	line-height: 64px;
+	text-align: center;
+	float: left;
+}
+
 .prodSizeSelection {
 	height: 180px;
 	width: 100%;
 	background-color: #cccccc;
 	border-top: 2px solid #000;
 	border-bottom: 2px solid #000;
+}
+
+.sizeUL {
+	padding-left: 25px;
+	height: 147px;
+	width: 193px;
+	list-style: none;
+}
+
+.sizeUL li {
+	height: 32px;
+	width: 180px;
+	line-height: 20px;
+}
+
+.sizeCheck {
+	height: 16px;
+	width: 16px;
+	margin-right: 10px;
+	background-color: #fff;
+	float: left;
+}
+
+.sizeCheck:hover {
+	background-color: #0099f4;
+}
+
+.sizeText {
+	width: auto;
+	height: auto;
+	float: left;
 }
 
 .prodCartSelection {
