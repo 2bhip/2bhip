@@ -65,8 +65,8 @@ Having a placeholder allows us to always reference the same messaging function, 
 app.u.throwMessage = function(m)	{
 	alert(m); 
 	}
- 
- 
+	
+	
 app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
 	//mainBanner Carousel horizontal sliders
 	var mainBannerCarousel;
@@ -218,6 +218,20 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
 	}
  	carousel5 = foo5;
 	setTimeout(carousel5, 1000); 
+	
+	
+	//Homepage customer review switcher
+	var revChange = $('.miscCustReviews li');
+	var i=1;
+	$(revChange[0]).show();
+	function loop() {
+		revChange.siblings().delay(3000).fadeOut(2000).delay(2000).eq(i).fadeIn(2000, function() {
+			check = i != revChange.length-1 ? i++ : i=0;
+			loop();
+		});
+	};
+	loop();
+	
 }]);
  
 

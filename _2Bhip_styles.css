@@ -893,7 +893,6 @@ HOME PAGE
 }
 
 .miscRight H3 {
-	margin-top: 20px;
 	color: #000;
 	font-size: 32px;
 }
@@ -903,6 +902,8 @@ HOME PAGE
 	height: 248px;
 	width: 464px;
 	background-image:url(images/MiscCustReviewBkgrnd.png);
+	list-style: none;
+	padding-left: 0px;
 }
 
 .miscCustReviewText{
