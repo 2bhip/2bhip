@@ -20,7 +20,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130227112200",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130227054100",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"httpsURL":"https://ssl.zoovy.com/s=www.97638a9e.pop.zoovy.net/",
@@ -1165,9 +1165,44 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 	</td>
 </tr> -->
 </table>
-<div class='prodlistRelatedContainer'>
-	<ul class='listStyleNone fluidList clearfix noPadOrMargin productList' data-bind="var: product(zoovy:related_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplate;hide_pagination:true;hide_summary:true; before:<h2>Similar Items</h2>; withReviews:1;"></ul>
-</div>
+
+
+<!--PRODUCT DETAILS PAGE CAROUSELS-->
+<div class='seperator'></div>
+
+    <div class='templateHeadContainer'>
+        <div class='templateHeadDesc border bangersMedFont'>SIMILAR PRODUCTS...</div>
+        <div class='templateMiddleContainer'>
+            <div class='prodListButtons pointer prodDetailCarButtonPrev6'><img src="images/TemplateArrowPrev.png"></div>
+            <div class='prodListCarouselButtonContainer prodDetailPaginationContainer6'></div>
+            <div class='prodListButtons pointer prodDetailCarButtonPrev6'><img src="images/TemplateArrowNext.png"></div>
+        </div>
+		<div class='templateHeadAllProds border bangersMedFont'>VIEW ALL PRODUCTS</div>
+    </div>
+    <div class='templateCarouselContainer border'>
+        <div>									 
+            <ul class='prodDetailTempCarousel1 listStyleNone fluidList clearfix noPadOrMargin productList' data-bind="var: product(zoovy:related_products); format:productList; extension:store_prodlist; loadsTemplate: productListTemplateCustom; hide_pagination:false; hide_summary:true; withReviews:1;"></ul>
+        </div>
+    </div>
+    
+    <div class='seperator'></div>
+    
+        <div class='templateHeadContainer'>
+        <div class='templateHeadDesc border bangersMedFont'>PREVIOUSLY VIEWED ITEMS...</div>
+        <div class='templateMiddleContainer'>
+            <div class='prodListButtons pointer prodDetailCarButtonPrev7'><img src="images/TemplateArrowPrev.png"></div>
+            <div class='prodListCarouselButtonContainer prodDetailPaginationContainer7'></div>
+            <div class='prodListButtons pointer prodDetailCarButtonPrev7'><img src="images/TemplateArrowNext.png"></div>
+        </div>
+		<div class='templateHeadAllProds border bangersMedFont'>VIEW ALL PRODUCTS</div>
+    </div>
+    <div class='templateCarouselContainer border'>
+        <div>									 
+            <ul class='prodDetailTempCarousel2 listStyleNone fluidList clearfix noPadOrMargin productList' data-bind="var: product(zoovy:related_products); format:productList; extension:store_prodlist; loadsTemplate: productListTemplateCustom; hide_pagination:false; hide_summary:true; withReviews:1;"></ul>
+        </div>
+    </div>
+    
+    <div class='seperator'></div>
 
 
 </div><!-- productTemplate -->

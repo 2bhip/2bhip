@@ -1249,7 +1249,6 @@ PRODUCT DETAIL PAGE
 
 .imageContainer {
 	width: 300px;
-	background-color: #CF6;	
 }
 
 .additionalImageContainer {
@@ -1259,14 +1258,15 @@ PRODUCT DETAIL PAGE
 }
 
 .prodSummaryContainer {
-	font-size: 12px;
+	font-size: 14px;
  	width: 420px; 
-	background-color: #C90;
+	color: #666;
 }
 
 .prodSummaryContainer h1 {
 	font-size: 18px;
 	margin: 5px 0px 13px 0px;
+	color: #000;
 }
 
 .stid h3 {

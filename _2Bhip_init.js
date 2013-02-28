@@ -171,7 +171,53 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
  		});
 	}
  	carousel5 = foo5;
-	setTimeout(carousel5, 1000); 	
+	setTimeout(carousel5, 1000); 
+	
+	
+	//Similar Items Carousel on Product Details page horizontal sliders
+	var carousel6;
+		function foo6(){ $(".prodDetailTempCarousel1").carouFredSel({
+  			width    : 960,
+  			height 	 : 305,
+     		items    : 2,
+  			scroll   : 1,
+			auto	 : false,
+			prev : {
+				button : ".prodDetailCarButtonPrev6",
+				key    : "left"
+			},
+			next : {
+				button : ".prodDetailCarButtonNext6",
+				key	   : "right"
+			},
+			pagination: ".prodDetailPaginationContainer6"
+ 		});
+	}
+ 	carousel5 = foo5;
+	setTimeout(carousel5, 1000); 
+	
+	
+	//Previously Viewed Items Carousel on Product Details page horizontal sliders
+	var carousel7;
+		function foo7(){ $(".prodDetailTempCarousel2").carouFredSel({
+  			width    : 960,
+  			height 	 : 305,
+     		items    : 2,
+  			scroll   : 1,
+			auto	 : false,
+			prev : {
+				button : ".prodDetailCarButtonPrev7",
+				key    : "left"
+			},
+			next : {
+				button : ".prodDetailCarButtonNext7",
+				key	   : "right"
+			},
+			pagination: ".prodDetailPaginationContainer7"
+ 		});
+	}
+ 	carousel5 = foo5;
+	setTimeout(carousel5, 1000); 
 }]);
  
 
