@@ -1416,24 +1416,53 @@ adding classes is not likely to have any bad effects.
 <!-- loadingBG needed on this for app init (content may take a moment to load) -->
 <div id='companyTemplate' class='clearfix loadingBG'>
 
-	<div class='sideline borderRound' >
+	<div class='sideline borderRound openSansBoldFont' >
     	<div class='productShips'>QUICK LINKS</div>
-        <nav id='companyNav aboutQuickNav'>
+        <nav class='aboutNav aboutQuickNav openSansBoldFont' id='companyNav'>
             <ul class='listStyleNone noPadOrMargin'>
-                <li><a href='#company?show=about'  id='navLink_about'>About Us</a></li>
-                <li><a href='#company?show=contact'  id='navLink_contact'>Contact Information</a></li>
-                <li><a href='#company?show=faq'  id='navLink_faq'>FAQ</a></li>
-                <li><a href='#company?show=payment' id='navLink_payment'>Payment Policy</a></li>
-                <li><a href='#company?show=privacy' id='navLink_privacy'>Privacy Statement</a></li>
-                <li><a href='#company?show=return' id='navLink_return'>Return Policy</a></li>
-                <li><a href='#company?show=shipping' id='navLink_shipping'>Shipping Information</a></li>
+            	<li>Special Sale!</li>
+                <li>New Items</li>
+                <li>Clearance</li>
+                <li>Retail Store</li>
+                <li onClick="return showContent('company',{'show':'contact'});" class='pointer' id='navLink_contact'>Contact Us</li>
+                <li onClick="return showContent('customer',{'show':'newsletter'});" class='pointer'>Newsletter</li>
             </ul>
         </nav>
         <div class='productShips'>HELPFUL LINKS</div>
-        <nav class='aboutHelpNav'></nav>
+        <nav class='aboutNav aboutHelpNav openSansBoldFont'>
+        	<ul class='listStyleNone noPadOrMargin'>
+                <li onClick="return showContent('company',{'show':'about'});" class='pointer' id='navLink_about'>About Us</li>
+                <li onClick="return showContent('company',{'show':'contact'});" class='pointer' id='navLink_contact'>Contact Information</li>
+                <li onClick="return showContent('company',{'show':'faq'});" class='pointer' id='navLink_faq'>FAQ</li>
+				<li onClick="return showContent('company',{'show':'payment'});" class='pointer' id='navLink_payment'>Payment Policy</li>
+				<li onClick="return showContent('company',{'show':'privacy'});" class='pointer' id='navLink_privacy'>Privacy Statement</li>
+                <li onClick="return showContent('company',{'show':'return'});" class='pointer' id='navLink_return'>Return Policy</li>
+                <li onClick="return showContent('company',{'show':'shipping'});" class='pointer' id='navLink_shipping'>Shipping Information</li>
+            </ul>
+        </nav>
         <div class='productShips'>MY ACCOUNT</div>
-        <nav class='aboutAcctNav'></nav>
-        <div class='aboutNavBottom'></div>
+        <nav class='aboutNav aboutAcctNav openSansBoldFont'>
+        	<ul class='listStyleNone noPadOrMargin'>
+            	<li onClick="return showContent('customer',{'show':'newsletter'});" class='pointer'>Log-in or Sign-up</li>
+                <li onClick="return showContent('customer',{'show':'orders'});" class='pointer'>Order Tracking</li>
+                <li onClick="return showContent('company',{'show':'return'});" class='pointer'>Return a Product</li>
+                <li onClick="return showContent('customer',{'show':'newsletter'});" class='pointer'>Join Our Newsletter</li>
+                <li onClick="return showContent('company',{'show':'faq'});" class='pointer' id='navLink_faq'>FAQs</li>
+            </ul>
+        </nav>
+        <div class='aboutNavBottom openSansBoldFont'>
+        	<h1>NEED HELP? CALL US!</h1>
+            <h2 class='bangersFont'>(610) 421-4447</h2>
+            <h3>Private Information is protected
+            	<br>Satisfaction Guaranteed
+                <br>30-day return policy
+                <br>Friendly Customer Service
+            </h3>
+            <h4 class='bangersFont'>FREE SHIPPING!</h4>
+            <h5>Most orders ship within
+            	<br>1-2 business days
+            </h5>
+        </div>
 	</div>
 
 	<div class='mainColumn'>

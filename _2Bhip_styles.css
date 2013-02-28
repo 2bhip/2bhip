@@ -1536,27 +1536,97 @@ ABOUT PAGE
 	background-color: #eeeeee;
 	margin: 20px 40px 20px 0px;
 	float: right;
+	font-size: 12px;
+}
+
+.sideline li {
+	color: #006099;
+	font-size: 14px;
+	width: 175px;
+}
+
+.aboutNav {
+	width: 196px;
+	padding-left: 20px;
+	margin-top: 9.5px;
 }
 
 .aboutQuickNav {
 	height: 182px;
-	width: 216px;
+	line-height: 28px;
 }
 
 .aboutHelpNav {
 	height: 182px;
-	width: 216px;
+	line-height: 24px;
 }
 
 .aboutAcctNav {
 	height: 160px;
-	width: 216px;
+	line-height: 30px;
 }
 
 .aboutNavBottom {
 	height: 239px;
 	width: 216px;
 	background-color: #000;
+	color: #fff;
+	text-align: center;
+	font-size: 12px;
+	line-height: 20px;
 }
+
+.aboutNavBottom h1 {
+	color: #ffcc00;
+	font-size: 12px;
+	line-height: 31px;
+}
+
+.aboutNavBottom h2 {
+	font-size: 30px;
+	line-height: 28px;
+}
+
+.aboutNavBottom h3 {
+	font-size: 12px;
+	line-height: 21px;
+	margin-top: 10px;
+}
+
+.aboutNavBottom h4 {
+	color: #ffcc00;
+	font-size: 24px;
+	line-height: 45px;
+}
+
+.aboutNavBottom h5 {
+	font-size: 12px;
+	line-height: 16px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
