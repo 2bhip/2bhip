@@ -1477,6 +1477,30 @@ PRODUCT DETAIL PAGE
 }
 
 
+/*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+END PRODUCT DETAILS PAGE
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
+
+/*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+QUICK VIEW MODAL
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1507,12 +1531,32 @@ ABOUT PAGE
 }
 
 .sideline {
-	height: 1118px;
-	width: 220px;
-	background-color:#339F;
+	height: 881px;
+	width: 216px;
+	background-color: #eeeeee;
 	margin: 20px 40px 20px 0px;
 	float: right;
 }
 
+.aboutQuickNav {
+	height: 182px;
+	width: 216px;
+}
+
+.aboutHelpNav {
+	height: 182px;
+	width: 216px;
+}
+
+.aboutAcctNav {
+	height: 160px;
+	width: 216px;
+}
+
+.aboutNavBottom {
+	height: 239px;
+	width: 216px;
+	background-color: #000;
+}
 
 

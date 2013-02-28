@@ -138,9 +138,9 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
 <div class='mainNavBarContainer borderRound'>
 	<img src='images/mainNavBackground.png'>
     <div class='mainNavBarLinksContainer'>	
-        <div class='mainNavBarLinks bangersBigFont pointer'>SHOP BY TYPE</div>                     <!--onClick="showContent('category',{'navcat':''});"-->
+        <div class='mainNavBarLinks bangersBigFont pointer'>SHOP BY TYPE</div>                     
         <div class='mainNavBarLinks bangersBigFont' id='characters'>CHARACTERS & TITLES</div>
-        <div class='mainNavBarLinks bangersBigFont'>BEST SELLERS</div>
+<!--!!!NEEDS TAGS SEARCH ONCE ADDED TO FRAMEWORK!!!-->        <div class='mainNavBarLinks bangersBigFont pointer' onClick="return showContent('search',{'KEYWORDS':'IS_BESTSELLER'});">BEST SELLERS</div>
         <div class='mainNavBarLinks bangersBigFont'>NEW ARRIVALS</div>
         <div class='mainNavBarLinks bangersBigFont'>CLEARANCE</div>
     </div>
@@ -1228,39 +1228,118 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 <table class='prodViewerContainer'>
 <tr>
 	<td class='imageContainer'>
-<div>
+        <!--	<img src='blank.gif' id='bobWasHere' class='prodBigImage' data-bind='var: product(zoovy:prod_image1); format: magicZoomPlus; extension: magicToolBox_mzp;' width='340' height='340' /> -->
+        
+        <div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).attr("data-pid")});' class='pointer clearfix'  data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>        
+            <div data-bind="var: product(zoovy:prod_is_tags); format:addTagSpans;" class='tagsContainer'></div>
+            <img src='blank.gif' class='prodBigImage border' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='296' height='296' />
+        </div>
 
-	<div data-bind="var: product(zoovy:prod_is_tags); format:addTagSpans;" class='tagsContainer'></div>
-	<div data-bind='var:product(pid); format:addPicSlider; extension:myRIA;'><img src='blank.gif' class='prodBigImage' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='240' height='240' /></div>
-
-</div>
-
+        <div data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='prodThumbs'>
+            <div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).parent().attr("data-pid"),"int":"2"});' class='pointer'><img src='blank.gif' data-bind='var: product(zoovy:prod_image2); format:imageURL;' width='100' height='100' /></div>
+            <div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).parent().attr("data-pid"),"int":"3"});' class='pointer'><img src='blank.gif' data-bind='var: product(zoovy:prod_image3); format:imageURL;' width='100' height='100' /></div>
+            <div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).parent().attr("data-pid"),"int":"4"});' class='pointer'><img src='blank.gif' data-bind='var: product(zoovy:prod_image4); format:imageURL;' width='100' height='100' /></div>
+        </div>
+        
+        <div class='additionalImageContainer'></div>
 	</td>
 
-	<td class='prodSummaryContainer marginBottom no_underline'>
-	<h1 data-bind='var: product(zoovy:prod_name); format:text;'></h1>
-	<h6 class='ztable_row_small stid' data-bind='var: product(pid); format:text; className: stid; pretext: Sku#: ;'></h6>
+	<td class='prodSummaryContainer openSansFont marginBottom no_underline'>
+        
+        <h1 data-bind='var: product(zoovy:prod_name); format:text;'></h1>
+        	<!-- USE BEFORE INSTEAD OF PRETEXT TO FORMAT "SKU" SEPERATELY. EXAMPLE ON HOMEPAGE OF DEFAULT
+            	TEMPLATE "FEATURED ITEMS -->
+        <h5 class='stid openSansBoldFont' data-bind='var: product(zoovy:prod_mfg); format:text; extension:myRIA; pretext: <h4>Manufactured by: &nbsp</h4>;'></h5>
+        <h6 class='stid openSansBoldFont' data-bind='var: product(pid); format:text; pretext: <h3>SKU Item Number: &nbsp</h3>;'></h6>
+        <h5 data-bind='var: product(zoovy:prod_mfgid); format:text; pretext: Mfg ID: ;'></h5>
+    
+   <!-- <div class='priceContainer'>
+            <span class='savings'>
+                <span class='savingsDifference' data-bind='var: product(pid); format:priceRetailSavingsDifference; extension:myRIA; pretext: You save: ;'></span>
+                <span class='savingsPercentage' data-bind='var: product(pid); format:priceRetailSavingsPercentage; extension:myRIA; pretext: (; posttext:);'></span>
+            </span>
+        </div> -->
 
-
-	<div class='priceContainer'>
-		<h4 class='basePrice' data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; pretext: Our Price: ;'></h4>
-		<h5 class='prodMSRP' data-bind='var: product(zoovy:prod_msrp); format:money; currencySign: $;  hideZero:true; pretext: MSRP: ;'></h5>
-		<span class='savings'>
-			<span class='savingsDifference' data-bind='var: product(pid); format:priceRetailSavingsDifference; extension:myRIA; pretext: You save: ;'></span>
-			<span class='savingsPercentage' data-bind='var: product(pid); format:priceRetailSavingsPercentage; extension:myRIA; pretext: (; posttext:);'></span>
-		</span>
-	</div>
-
-	<div data-bind='var: product(zoovy:ship_latency); format:text;pretext:Normally ships in ;posttext: day(s);' class='latency'></div>
-
-	<section id='prodViewerReviewSummary' class='marginBottom'>
-		<span data-bind='var: reviews(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>
-		<span data-bind='var: reviews(reviews.total); format:text;posttext: from ;posttext: reviews; className:numReviews;'></span>
-	</section>
-
-	<div id="prodDesc" data-bind='var: product(zoovy:prod_desc); format:wiki; wikiFormats:myRIA;'></div>
-
+        <div data-bind='var:product(zoovy:qty_price);format:quantityDiscounts; extension:store_product; pretext:Quantity Discounts:; className:marginBottom;'></div>
+    
+        <section class='marginBottom'>
+            <span data-bind='var: reviews(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>
+            <span data-bind='var: reviews(reviews.total); format:text;posttext: from ;posttext: reviews; className:numReviews;'></span>
+        </section>
+        <div class='prodDetailsDesc' data-bind='var: product(zoovy:prod_desc); format:wiki; wikiFormats:myRIA;'></div>
+   
+        <span id="buySAFE_Kicker" name="buySAFE_Kicker" type="Kicker Guaranteed Transparent 33 175x30"></span>
+        
+        <div> 
+        	Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+			Integer eros nisi, interdum in tincidunt eu, rutrum
+			pellentesque quam. Quisque facilisis, ante ut iaculis
+			ullamcorper, nulla tellus dapibus orci, quis venenatis felis
+			elit et ante.
+        </div>
 	</td>
+    
+    <td>
+        <div  class='prodSelectionContainer borderRound'>
+            
+            <div class='openSansBoldFont productShips' data-bind='var: product(zoovy:ship_latency); format:text;pretext:PRODUCT SHIPS WITHIN ;posttext: DAYS;' class='latency'></div>
+            
+            <div class='prodPriceSelection'>
+                <h5 class='prodMSRP bangersFont' data-bind='var: product(zoovy:prod_msrp); format:money; currencySign: $;  hideZero:true;'></h5>
+                <h4 class='basePrice bangersFont' data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true;'></h4>
+            </div>
+            
+            <div class='prodSizeSelection'>
+            	<ul title='please choose' id='prodlistChildren' class='listStyleNone fluidList clearfix noPadOrMargin productList smallProdlist' data-bind="var: product(zoovy:grp_children); format:productList; extension:store_prodlist; loadsTemplate:productListTemplateChildren;hide_summary:true;"></ul>
+        		<ul class='sizeUL'>
+                	<li>
+                        <div class='sizeCheck border'></div>
+                        <div class='sizeText openSansBoldFont'>S &nbsp $1,049.99</div>
+                    </li>
+                    <li>
+                        <div class='sizeCheck border'></div>
+                        <div class='sizeText openSansBoldFont'>M &nbsp $1,049.99</div>
+                    </li>
+                    <li>
+                        <div class='sizeCheck border'></div>
+                        <div class='sizeText openSansBoldFont'>L &nbsp $1,049.99</div>
+                    </li>
+                    <li>
+                        <div class='sizeCheck border'></div>
+                        <div class='sizeText openSansBoldFont'>XL &nbsp $1,049.99</div>
+                    </li>
+                    <li>
+                        <div class='sizeCheck border'></div>
+                        <div class='sizeText openSansBoldFont'>XXL &nbsp $1,049.99</div>
+                    </li>
+                </ul>
+            </div>
+        <!--	<div data-bind='var: product(@inventory.inv); format:simpleInvDisplay; extension:store_product;' class='inventory'></div> -->
+        
+        	<div class='prodCartSelection'>
+                
+                <form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodCartMarginRemove prodViewerAddToCartForm clearfix' action='#' onSubmit="app.ext.myRIA.u.handleAddToCart($(this),{'action':'modal'}); return false;">
+                    <!--<div data-bind='var: product(pid); format:atcVariations; extension:store_product;' class='borderNone'></div>-->
+                    <div class='openSansBoldFont prodSelectionQty'>ITEM QUANTITY</div>
+                    <div data-bind='var: product(pid); format:atcQuantityInput; extension:store_product;' class='prodSelectItemField'></div>
+                    <input type='submit' value='Add to Cart' class='prodSelectAddCartButton bangersFont ui-button ui-button-text ui-corner-all ui-state-default addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;' id='addToCartBtn' />
+                </form>
+                
+                <div class='productSmallButtonContainer'>       
+                    <menu data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='CRMButtonMenu'>
+                        <button class='prodSelectShareButton prodSelectSmallButtons bangersFont ui-button-text ui-button ui-state-default ui-corner-all' onClick=";">SHARE</button><!--!%!-->
+                        <button class='prodSelectWishlistButton prodSelectSmallButtons bangersFont ui-button-text ui-button ui-state-default ui-corner-all' onClick="app.ext.myRIA.a.add2BuyerList({sku:$(this).parent().attr('data-pid'),'listid':'wishlist'}); return false;">ADD TO WISHLIST</button>
+                        <button class='prodSelectSeeReviewButton prodSelectSmallButtons bangersFont ui-button-text ui-button ui-state-default ui-corner-all' onClick=';' data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>SEE PRODUCT REVIEWS</button>
+                        <button class='prodSelectWriteReviewButton prodSelectSmallButtons bangersFont ui-button-text ui-button ui-state-default ui-corner-all' onClick='app.ext.store_crm.u.showReviewFrmInModal({"pid":$(this).attr("data-pid"),"templateID":"reviewFrmTemplate"});' data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>WRITE A PRODUCT REVIEW</button>
+                    </menu>
+                </div>
+                     
+                <ul class='listStyleNone clearfix productReviewsList' id='prodViewerReviews' data-bind="var: reviews(reviews.@reviews); format:processList; loadsTemplate:productReviewsTemplateDetail;"></ul>
+        	 </div>
+             
+             <div class='productShips'></div>
+        </div>
+    </td>
 </tr>
 <tr>
 	<td colspan='2'>
@@ -1337,18 +1416,24 @@ adding classes is not likely to have any bad effects.
 <!-- loadingBG needed on this for app init (content may take a moment to load) -->
 <div id='companyTemplate' class='clearfix loadingBG'>
 
-	<div class='sideline' >
-<nav id='companyNav'>
-<ul class='listStyleNone noPadOrMargin'>
-	<li><a href='#company?show=about'  id='navLink_about'>About Us</a></li>
-	<li><a href='#company?show=contact'  id='navLink_contact'>Contact Information</a></li>
-	<li><a href='#company?show=faq'  id='navLink_faq'>FAQ</a></li>
-	<li><a href='#company?show=payment' id='navLink_payment'>Payment Policy</a></li>
-	<li><a href='#company?show=privacy' id='navLink_privacy'>Privacy Statement</a></li>
-	<li><a href='#company?show=return' id='navLink_return'>Return Policy</a></li>
-	<li><a href='#company?show=shipping' id='navLink_shipping'>Shipping Information</a></li>
-</ul>
-</nav>
+	<div class='sideline borderRound' >
+    	<div class='productShips'>QUICK LINKS</div>
+        <nav id='companyNav aboutQuickNav'>
+            <ul class='listStyleNone noPadOrMargin'>
+                <li><a href='#company?show=about'  id='navLink_about'>About Us</a></li>
+                <li><a href='#company?show=contact'  id='navLink_contact'>Contact Information</a></li>
+                <li><a href='#company?show=faq'  id='navLink_faq'>FAQ</a></li>
+                <li><a href='#company?show=payment' id='navLink_payment'>Payment Policy</a></li>
+                <li><a href='#company?show=privacy' id='navLink_privacy'>Privacy Statement</a></li>
+                <li><a href='#company?show=return' id='navLink_return'>Return Policy</a></li>
+                <li><a href='#company?show=shipping' id='navLink_shipping'>Shipping Information</a></li>
+            </ul>
+        </nav>
+        <div class='productShips'>HELPFUL LINKS</div>
+        <nav class='aboutHelpNav'></nav>
+        <div class='productShips'>MY ACCOUNT</div>
+        <nav class='aboutAcctNav'></nav>
+        <div class='aboutNavBottom'></div>
 	</div>
 
 	<div class='mainColumn'>
@@ -1356,9 +1441,12 @@ adding classes is not likely to have any bad effects.
 		<div id='aboutArticle' class='textContentArea article'>
         	<div class='aboutLeft'>
 				<h1>About Us</h1>
+                <div data-bind='var: profile(zoovy:about); format:wiki; wikiFormats:myRIA;' id='aboutUsContent'></div>
 			</div>
             <div class='aboutMiddle'></div>
-            	<div data-bind='var: profile(zoovy:about); format:wiki; wikiFormats:myRIA;' id='aboutUsContent'></div>
+            	<div></div>
+                <nav></nav>
+                <div></div>
             </div>
             
 		</div>
