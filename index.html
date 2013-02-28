@@ -1016,8 +1016,8 @@ this will likely become more flexible in the future. ###
         <h1 data-bind='var: product(zoovy:prod_name); format:text;'></h1>
         	<!-- USE BEFORE INSTEAD OF PRETEXT TO FORMAT "SKU" SEPERATELY. EXAMPLE ON HOMEPAGE OF DEFAULT
             	TEMPLATE "FEATURED ITEMS -->
-        <h5 class='stid openSansFont' data-bind='var: product(pid); format:text; pretext: Sku: ;'></h5>
-        <h5 class='stid openSansFont' data-bind='var: product(zoovy:prod_mfg); format:searchLink; extension:myRIA; pretext: Mfg: ;'></h5>
+        <h5 class='stid openSansBoldFont' data-bind='var: product(zoovy:prod_mfg); format:text; extension:myRIA; pretext: <h4>Manufactured by: &nbsp</h4>;'></h5>
+        <h6 class='stid openSansBoldFont' data-bind='var: product(pid); format:text; pretext: <h3>SKU Item Number: &nbsp</h3>;'></h6>
         <h5 data-bind='var: product(zoovy:prod_mfgid); format:text; pretext: Mfg ID: ;'></h5>
     
    <!-- <div class='priceContainer'>
@@ -1085,19 +1085,19 @@ this will likely become more flexible in the future. ###
         
         	<div class='prodCartSelection'>
                 
-                <form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm clearfix' action='#' onSubmit="app.ext.myRIA.u.handleAddToCart($(this),{'action':'modal'}); return false;">
-                    <div data-bind='var: product(pid); format:atcVariations; extension:store_product;' class='borderNone'></div>
+                <form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodCartMarginRemove prodViewerAddToCartForm clearfix' action='#' onSubmit="app.ext.myRIA.u.handleAddToCart($(this),{'action':'modal'}); return false;">
+                    <!--<div data-bind='var: product(pid); format:atcVariations; extension:store_product;' class='borderNone'></div>-->
                     <div class='openSansBoldFont prodSelectionQty'>ITEM QUANTITY</div>
                     <div data-bind='var: product(pid); format:atcQuantityInput; extension:store_product;' class='prodSelectItemField'></div>
-                    <input type='submit' value='Add to Cart' class='borderRound prodSelectAddCartButton bangersFont ui-button ui-button-text ui-corner-all ui-state-default addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;' id='addToCartBtn' />
+                    <input type='submit' value='Add to Cart' class='prodSelectAddCartButton bangersFont ui-button ui-button-text ui-corner-all ui-state-default addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;' id='addToCartBtn' />
                 </form>
                 
                 <div class='productSmallButtonContainer'>       
                     <menu data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='CRMButtonMenu'>
-                        <button class='prodSelectShareButton prodSelectSmallButtons bangersFont borderRound ui-button-text ui-button ui-state-default ui-corner-all' onClick=";">SHARE</button><!--!%!-->
-                        <button class='prodSelectWishlistButton prodSelectSmallButtons bangersFont borderRound ui-button-text ui-button ui-state-default ui-corner-all' onClick="app.ext.myRIA.a.add2BuyerList({sku:$(this).parent().attr('data-pid'),'listid':'wishlist'}); return false;">ADD TO WISHLIST</button>
-                        <button class='prodSelectSeeWriteReviewButton prodSelectSmallButtons bangersFont borderRound ui-button-text ui-button ui-state-default ui-corner-all' onClick=';' data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>SEE PRODUCT REVIEWS</button>
-                        <button class='prodSelectSeeWriteReviewButton prodSelectSmallButtons bangersFont borderRound ui-button-text ui-button ui-state-default ui-corner-all' onClick='app.ext.store_crm.u.showReviewFrmInModal({"pid":$(this).attr("data-pid"),"templateID":"reviewFrmTemplate"});' data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>WRITE A PRODUCT REVIEW</button>
+                        <button class='prodSelectShareButton prodSelectSmallButtons bangersFont ui-button-text ui-button ui-state-default ui-corner-all' onClick=";">SHARE</button><!--!%!-->
+                        <button class='prodSelectWishlistButton prodSelectSmallButtons bangersFont ui-button-text ui-button ui-state-default ui-corner-all' onClick="app.ext.myRIA.a.add2BuyerList({sku:$(this).parent().attr('data-pid'),'listid':'wishlist'}); return false;">ADD TO WISHLIST</button>
+                        <button class='prodSelectSeeReviewButton prodSelectSmallButtons bangersFont ui-button-text ui-button ui-state-default ui-corner-all' onClick=';' data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>SEE PRODUCT REVIEWS</button>
+                        <button class='prodSelectWriteReviewButton prodSelectSmallButtons bangersFont ui-button-text ui-button ui-state-default ui-corner-all' onClick='app.ext.store_crm.u.showReviewFrmInModal({"pid":$(this).attr("data-pid"),"templateID":"reviewFrmTemplate"});' data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>WRITE A PRODUCT REVIEW</button>
                     </menu>
                 </div>
                      
