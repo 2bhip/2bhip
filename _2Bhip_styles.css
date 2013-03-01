@@ -1522,6 +1522,18 @@ ABOUT PAGE
 	float: left;
 }
 
+.aboutLeft h1 {
+	font-size: 30px;
+	color: #000;
+	margin-bottom: 10px;
+}
+
+.aboutLeft p {
+	font-size: 14px;
+	text-indent: 35px;
+	margin: 0px;
+}
+
 .aboutMiddle {
 	height: 1118px;
 	width: 240px;
