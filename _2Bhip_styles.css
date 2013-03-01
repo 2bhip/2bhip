@@ -44,7 +44,7 @@ a {
 .bangersFont {
 	color: #ffffff;
 	font-family: Bangers;
-	font-size: 15px;
+	font-size: 15px;  
 }
 
 .bangersMedFont {
@@ -1513,11 +1513,10 @@ ABOUT PAGE
 
 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
 
+/*START ABOUT LEFT BAR*/
 
 .aboutLeft {
-	height: 1118px;
 	width: 480px;
-	background-color: #666;
 	margin: 20px 0px 20px 40px;
 	float: left;
 }
@@ -1532,15 +1531,95 @@ ABOUT PAGE
 	font-size: 14px;
 	text-indent: 35px;
 	margin: 0px;
+	line-height: 25px;
 }
 
+.aboutLeft a {
+	color: #000;
+	text-decoration: underline;
+}
+
+.aboutImageBar1 {
+	height: 160px;
+	width: 100%;
+}
+
+.aboutImageBar1 img {
+	margin: 10px 0px 0px 11px;
+}
+
+.aboutImageBar2 {
+	height: 320px;
+	width: 100%;
+}
+
+.aboutImageBar2 img {
+	margin: 13px 0px 0px 13px;
+}
+
+
+/*END ABOUT LEFT BAR*/
+
+/*START ABOUT MIDDLE BAR*/
+
 .aboutMiddle {
-	height: 1118px;
 	width: 240px;
-	background-color: #00F;
 	margin: 20px 0px 20px 0px;
 	float: left;
 }
+
+.specialtyStore {
+	height: 30px;
+	width: 200px;
+	margin: auto;
+	font-size: 18px;
+	color: #000;
+	text-align: center;
+}
+
+.specialtyButtons {
+	width: 200px;
+	margin: 0px auto 0px auto;
+}
+
+.specialtyButtons li {
+	height: 30px;
+	width: 196px;
+	margin: 5px 0px 5px 0px;
+	text-align: center;
+	font-size: 18px;
+	color: #000;
+	line-height: 30px;
+}
+
+.specialtyText {
+	width: 200px;
+	margin: 50px auto 0px auto;
+	color: #666;
+	font-size: 12px;
+}
+
+.specialtyText li {
+	margin-top: 5px;
+}
+
+.hangingIndent {
+	padding-left: 10px;
+	text-indent: -10px;
+}
+
+.specialtyText h3 {
+	color: #000;
+	font-size: 18px;
+	margin: 20px 0px 5px 0px;
+}
+
+
+
+/*END ABOUT MIDDLE BAR*/
+
+/*START ABOUT RIGHT BAR (SIDELINE)*/
+
 
 .sideline {
 	height: 881px;
@@ -1615,6 +1694,12 @@ ABOUT PAGE
 	font-size: 12px;
 	line-height: 16px;
 }
+
+
+/*END ABOUT RIGHT BAR (SIDELINE)*/
+
+
+/*START...*/
 
 
 

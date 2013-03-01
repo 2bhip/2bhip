@@ -20,7 +20,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130228043700",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130301090600",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"httpsURL":"https://ssl.zoovy.com/s=www.97638a9e.pop.zoovy.net/",
@@ -1420,34 +1420,34 @@ adding classes is not likely to have any bad effects.
     	<div class='productShips'>QUICK LINKS</div>
         <nav class='aboutNav aboutQuickNav openSansBoldFont' id='companyNav'>
             <ul class='listStyleNone noPadOrMargin'>
-            	<li>Special Sale!</li>
-                <li>New Items</li>
-                <li>Clearance</li>
-                <li>Retail Store</li>
-                <li onClick="return showContent('company',{'show':'contact'});" class='pointer' id='navLink_contact'>Contact Us</li>
-                <li onClick="return showContent('customer',{'show':'newsletter'});" class='pointer'>Newsletter</li>
+            	<li>» Special Sale!</li>
+                <li>» New Items</li>
+                <li>» Clearance</li>
+                <li>» Retail Store</li>
+                <li onClick="return showContent('company',{'show':'contact'});" class='pointer' id='navLink_contact'>» Contact Us</li>
+                <li onClick="return showContent('customer',{'show':'newsletter'});" class='pointer'>» Newsletter</li>
             </ul>
         </nav>
         <div class='productShips'>HELPFUL LINKS</div>
         <nav class='aboutNav aboutHelpNav openSansBoldFont'>
         	<ul class='listStyleNone noPadOrMargin'>
-                <li onClick="return showContent('company',{'show':'about'});" class='pointer' id='navLink_about'>About Us</li>
-                <li onClick="return showContent('company',{'show':'contact'});" class='pointer' id='navLink_contact'>Contact Information</li>
-                <li onClick="return showContent('company',{'show':'faq'});" class='pointer' id='navLink_faq'>FAQ</li>
-				<li onClick="return showContent('company',{'show':'payment'});" class='pointer' id='navLink_payment'>Payment Policy</li>
-				<li onClick="return showContent('company',{'show':'privacy'});" class='pointer' id='navLink_privacy'>Privacy Statement</li>
-                <li onClick="return showContent('company',{'show':'return'});" class='pointer' id='navLink_return'>Return Policy</li>
-                <li onClick="return showContent('company',{'show':'shipping'});" class='pointer' id='navLink_shipping'>Shipping Information</li>
+                <li onClick="return showContent('company',{'show':'about'});" class='pointer' id='navLink_about'>» About Us</li>
+                <li onClick="return showContent('company',{'show':'contact'});" class='pointer' id='navLink_contact'>» Contact Information</li>
+                <li onClick="return showContent('company',{'show':'faq'});" class='pointer' id='navLink_faq'>» FAQ</li>
+				<li onClick="return showContent('company',{'show':'payment'});" class='pointer' id='navLink_payment'>» Payment Policy</li>
+				<li onClick="return showContent('company',{'show':'privacy'});" class='pointer' id='navLink_privacy'>» Privacy Statement</li>
+                <li onClick="return showContent('company',{'show':'return'});" class='pointer' id='navLink_return'>» Return Policy</li>
+                <li onClick="return showContent('company',{'show':'shipping'});" class='pointer' id='navLink_shipping'>» Shipping Information</li>
             </ul>
         </nav>
         <div class='productShips'>MY ACCOUNT</div>
         <nav class='aboutNav aboutAcctNav openSansBoldFont'>
         	<ul class='listStyleNone noPadOrMargin'>
-            	<li onClick="return showContent('customer',{'show':'newsletter'});" class='pointer'>Log-in or Sign-up</li>
-                <li onClick="return showContent('customer',{'show':'orders'});" class='pointer'>Order Tracking</li>
-                <li onClick="return showContent('company',{'show':'return'});" class='pointer'>Return a Product</li>
-                <li onClick="return showContent('customer',{'show':'newsletter'});" class='pointer'>Join Our Newsletter</li>
-                <li onClick="return showContent('company',{'show':'faq'});" class='pointer' id='navLink_faq'>FAQs</li>
+            	<li onClick="return showContent('customer',{'show':'newsletter'});" class='pointer'>» Log-in or Sign-up</li>
+                <li onClick="return showContent('customer',{'show':'orders'});" class='pointer'>» Order Tracking</li>
+                <li onClick="return showContent('company',{'show':'return'});" class='pointer'>» Return a Product</li>
+                <li onClick="return showContent('customer',{'show':'newsletter'});" class='pointer'>» Join Our Newsletter</li>
+                <li onClick="return showContent('company',{'show':'faq'});" class='pointer' id='navLink_faq'>» FAQs</li>
             </ul>
         </nav>
         <div class='aboutNavBottom openSansBoldFont'>
@@ -1469,20 +1469,21 @@ adding classes is not likely to have any bad effects.
 <!-- .textContentArea is used as a selector in quickstart.js because article tag type isn't ie8 friendly -->
 		<div id='aboutArticle' class='textContentArea article'>
         	<div class='aboutLeft'>
-				<h1 class='bangersFont'>About Us</h1>
+				<h1 class='bangersFont'>ABOUT 2BHIP</h1>
                 <div data-bind='var: profile(zoovy:about); format:wiki; wikiFormats:myRIA;' id='aboutUsContent'>
-                	<p>
+                	<p class='openSansFont'>
                     	Unique and Edgy. Hip and Trendy. 2Bhip.com is a leading online retailer of T-shirts, 
                     	Belt buckles, Hoodies, Accessories, Novelty Gifts and More! Check out each 2Bhip specialty 
                         store for an ultimate shopping experience. It’s a simple way to get those hard-to-find gifts. 
-                        www.2Bhip.com allows customers to shop the 2Bhip brand any time from anywhere in the world. 
+                       	<a class='pointer' href='#' onClick="return showContent('homepage',{});">www.2Bhip.com</a> 
+                        allows customers to shop the 2Bhip brand any time from anywhere in the world. 
                         Convenient, Friendly service when you need it.
                     </p>
-                    <div>
-                    	<img src="images/AboutPageCars.jpg">
-                        <img src="images/AboutPageTroopers.jpg">
+                    <div class='aboutImageBar1'>
+                    	<img src="images/AboutPageCars.jpg" class='border'>
+                        <img src="images/AboutPageTroopers.jpg" class='border'>
                     </div>
-                    <p>
+                    <p class='openSansFont'>
                     	2Bhip.com was established in 2003 in Los Angeles, CA. and is now located in Emmaus, PA. 
                         From the start, 2Bhip Inc was known as the leading belt buckle specialty store online 
                         throughout the entire world. In 2008, the 2Bhip brand expanded to carry more cool merchandise. 
@@ -1494,20 +1495,58 @@ adding classes is not likely to have any bad effects.
                         This is why 2Bhip Inc continues to be at the forefront of ever-changing trends and always 
                         strives to carry the hottest brands and licenses while always offering 100% customer satisfaction. 
                 	</p>
-                    <div>
-                    	<img src="images/AboutPageWndrWmn.jpg">
-                        <img src="images/AboutPageManatee.jpg">
-                        <img src="images/AboutPageDoAsI.jpg">
-                        <img src="images/AboutPageSOA.jpg">
-                        <img src="images/AboutPageVader.jpg">
-                        <img src="images/AboutPageRocky.jpg">
+                    <div class='aboutImageBar2'>
+                    	<img src="images/AboutPageWndrWmn.jpg" class='border'>
+                        <img src="images/AboutPageManatee.jpg" class='border'>
+                        <img src="images/AboutPageDoAsI.jpg" class='border'>
+                        <img src="images/AboutPageSOA.jpg" class='border'>
+                        <img src="images/AboutPageVader.jpg" class='border'>
+                        <img src="images/AboutPageRocky.jpg" class='border'>
                     </div>
                 </div>
 			</div>
-            <div class='aboutMiddle'></div>
-            	<div></div>
-                <nav></nav>
-                <div></div>
+            <div class='aboutMiddle'>
+            	<div class='specialtyStore bangersFont'>OUR SPECIALTY STORE MENU</div>
+                <nav class='specialtyButtons bangersFont'>
+                	<ul class='listStyleNone noPadOrMargin'>
+                    	<li class='borderRound greyGradient'>BELT BUCKLES</li>
+                        <li class='borderRound greyGradient'>T-SHIRTS</li>
+                        <li class='borderRound greyGradient'>GIFTS</li>
+                        <li class='borderRound greyGradient'>FOR BABIES</li>
+                        <li class='borderRound greyGradient'>HOODIES</li>
+                        <li class='borderRound greyGradient'>FLASKS</li>
+                        <li class='borderRound greyGradient'>SOCKS</li>
+                        <li class='borderRound greyGradient'>IRISH MERCHANDISE</li>
+                    </ul>	
+                </nav>
+                <div class='specialtyText openSansFont'>
+                	<h3 class='bangersFont'>IF THAT WEREN'T ENOUGH!</h3>
+                    <p>
+                    	You may have seen our products in the following places. 
+                        Famous people are wearing 2BHIP merchandise!
+                        <ul class='noPadOrMargin listStyleNone'>
+                            <li class='hangingIndent'>» Dukes of Hazzard Movie Premiere</li>
+                            <li class='hangingIndent'>» American Idol gift baskets from Star Style</li>
+                            <li class='hangingIndent'>» American Idol's Ace Young from Season 5</li>
+                            <li class='hangingIndent'>» Feb 2006 issue of Playgirl magazine</li>
+                            <li class='hangingIndent'>» On the set of General Hospital</li>
+                            <li class='hangingIndent'>» in the San Francisco Chronicle</li>
+                            <li class='hangingIndent'>» on the Las Vegas Chippendales</li>
+                            <li class='hangingIndent'>» Hellride with Dennis Hopper, Michael Madsen & Larry Bishop</li>
+                            <li class='hangingIndent'>» On the “Deal or No Deal” girls</li>
+                            <li class='hangingIndent'>» On You!</li>
+                        </ul>
+                    </p>
+                    <h3 class='bangersFont'>100% CUSTOMER SATISFACTION</h3>
+                    <p>
+                    	All preorders paid with a credit card will be charged at the time of shipment. 
+                        All preorders paid with Google Checkout, Paypal or Amazon Payments will be 
+                        charged when your order is placed. If you do not wish to pay for your preorder 
+                        until it ships then you must use the checkout button and pay with a credit card. 
+                        Orders that have both preorder and instock items we be shipped at the same time 
+                        in one shipment.
+                    </p>
+                </div>
             </div>
             
 		</div>
