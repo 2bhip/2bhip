@@ -839,7 +839,13 @@ HOME PAGE
 }
 
 .miscLeft p {
-	font-size: 15px;
+	font-size: 14px;
+}
+
+.miscLeft a {
+	color: #000;
+	text-decoration: underline;
+	
 }
      	
 .miscRight {
@@ -862,6 +868,9 @@ HOME PAGE
 	background-image:url(images/MiscTopSellingBkgrnd.jpg);
 }
 
+.miscTopSelling k {
+	color: #00B7F5;
+}
 
 .miscList {
 	list-style: none;
@@ -1595,7 +1604,6 @@ ABOUT PAGE
 .specialtyText {
 	width: 200px;
 	margin: 50px auto 0px auto;
-	color: #666;
 	font-size: 12px;
 }
 
@@ -1615,7 +1623,6 @@ ABOUT PAGE
 }
 
 .specialtyText k {
-	color: #000;
 	font-weight: bold;
 }
 
