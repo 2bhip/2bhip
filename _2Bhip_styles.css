@@ -1610,8 +1610,13 @@ ABOUT PAGE
 
 .specialtyText h3 {
 	color: #000;
-	font-size: 18px;
+	font-size: 16px;
 	margin: 20px 0px 5px 0px;
+}
+
+.specialtyText k {
+	color: #000;
+	font-weight: bold;
 }
 
 
@@ -1634,6 +1639,10 @@ ABOUT PAGE
 	color: #006099;
 	font-size: 14px;
 	width: 175px;
+}
+
+.sideline k {
+	color: #000;
 }
 
 .aboutNav {
