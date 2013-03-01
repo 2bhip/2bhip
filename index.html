@@ -1650,13 +1650,44 @@ adding classes is not likely to have any bad effects.
 
 		<div class='displayNone textContentArea' id='returnArticle'>
 			<h1>Return Policy</h1>
-			<div data-bind='var: profile(zoovy:return_policy); format:wiki; wikiFormats:myRIA;' id='returnContent'></div>
+			<div data-bind='var: profile(zoovy:return_policy); format:wiki; wikiFormats:myRIA;' id='returnContent'>
+            	
+            </div>
 		</div>
 
 
 
-		<div class='displayNone textContentArea' id='shippingArticle'>
-			<h1>Shipping Information</h1>
+		<div class='displayNone textContentArea shippingArtic' id='shippingArticle'>
+			<h1 class='bangersFont'>Shipping Information</h1>
+            <p class='indentText openSansFont'>
+            	Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of 
+                classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, 
+                a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure 
+                Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word 
+                in classical literature, discovered the undoubtable source.
+			</p>
+            <p class='indentText openSansFont'>
+				Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" 
+                (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory 
+                of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor 
+                sit amet..", comes from a line in section 1.10.32. This book is a treatise on the theory of ethics, 
+                very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", 
+                comes from a line in section 1.10.32.
+            </p>
+            <h2 class='bangersFont'>FREE SHIPPING ON ALL ORDERS ABOVE $50</h2>
+            <ps class='openSansFont'>
+            	All orders of $50 and more qualify for free standard shipping. Applicable only to address in the 
+                continental United States (HI and AK are not included). Free shipping does not apply to orders 
+                shipped to PO Boxes or international destinations. Not applicable to eBay or Amazon purchases.
+            </ps>
+            <h2 class='bangersFont'>BACK ORDERS</h2>
+             <ps class='openSansFont'>
+            	All preorders paid with a credit card will be charged at the time of shipment. All preorders paid 
+                with Google Checkout, Paypal or Amazon Payments will be charged when your order is placed. If you 
+                do not wish to pay for your preorder until it ships then you must use the checkout button and pay 
+                with a credit card. Orders that have both preorder and instock items we be shipped at the same time 
+                in one shipment.
+            </pa>
 			<div data-bind='var: profile(zoovy:shipping_policy); format:wiki; wikiFormats:myRIA;' id='shippingContent'></div>
 		</div>
 

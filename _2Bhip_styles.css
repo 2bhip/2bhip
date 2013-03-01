@@ -99,6 +99,10 @@ a {
     	1px 1px 0 #000;  	
 }
 
+.indentText {
+	text-indent: 35px;
+}
+
 .form {
 	height: 29px;
 	width: 196px;
@@ -1715,17 +1719,42 @@ ABOUT PAGE
 /*END ABOUT RIGHT BAR (SIDELINE)*/
 
 
-/*START...*/
+
+/*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+SHIPPING CONTENT
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
 
 
+/*START SHIPPING CONTENT*/
 
+.shippingArtic {
+	width: 640px;
+	margin: 40px 0px 0px 40px;
+	background-color: #FF9;
+}
 
+.shippingArtic h1 {
+	color: #000;
+	font-size: 30px;
+	margin-bottom: 15px;
+}
 
+.shippingArtic p {
+	font-size: 14px;
+	line-height: 25px;
+}
 
+.shippingArtic h2 {
+	color: #000;
+	font-size: 18px;
+	margin-top: 12px;
+}
 
-
-
-
+.shippingArtic ps {
+	font-size: 12px;
+}
 
 
 
