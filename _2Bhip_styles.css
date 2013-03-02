@@ -1719,6 +1719,51 @@ ABOUT PAGE
 /*END ABOUT RIGHT BAR (SIDELINE)*/
 
 
+/*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+CONTACT CONTENT
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
+
+
+/*START CONTACT CONTENT (uses shipping content styles as well)*/
+
+.contInfoContainer {
+	width: 356px;
+	float: left;
+}
+
+.contactFields {
+	width: 271px; 
+	margin: 68px 0px 0px 29px;
+	border-style: none;
+}
+
+.contactLegend {
+	font-size: 18px;
+	color: #000;
+}
+
+.contForm, #contactForm input {
+	height: 30px;
+	width: 267px;
+	font-size: 12px;
+}
+
+.contForm, #contactForm textarea {
+	height: 200px;
+	width: 267px;
+	font-size: 12px;
+	padding-top: 7px;
+}
+
+.contactFormButton.ui-button-text.ui-button.ui-state-default.ui-corner-all {
+	height: 30px;
+	width: 130px;
+	color: #000;
+	font-size: 18px;
+}
+
 
 /*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 
@@ -1727,18 +1772,18 @@ SHIPPING CONTENT
 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
 
 
-/*START SHIPPING CONTENT*/
+/*START SHIPPING CONTENT (also applied to return and contact pages)*/
 
 .shippingArtic {
 	width: 640px;
-	margin: 40px 0px 0px 40px;
-	background-color: #FF9;
+	margin: 0px 0px 0px 40px;
 }
 
 .shippingArtic h1 {
 	color: #000;
 	font-size: 30px;
 	margin-bottom: 15px;
+	padding-top: 30px;
 }
 
 .shippingArtic p {
@@ -1755,6 +1800,10 @@ SHIPPING CONTENT
 .shippingArtic ps {
 	font-size: 12px;
 }
+
+/*END SHIPPING CONTENT*/
+
+
 
 
 

@@ -20,7 +20,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130301115600",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130301051900",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"httpsURL":"https://ssl.zoovy.com/s=www.97638a9e.pop.zoovy.net/",
@@ -1572,19 +1572,34 @@ adding classes is not likely to have any bad effects.
 		</div>
 
 
-		<div id='contactArticle' class='displayNone textContentArea'>
-			<h1>Contact Information</h1>
-			<form action='#' onSubmit="app.ext.store_crm.calls.appSendMessage.init($(this).serializeJSON(),{'callback':'showMessaging','parentID':'contactFormMessaging','message':'Thank you, your message has been sent'},'immutable'); app.model.dispatchThis('immutable');  return false;" id='contactForm' name='contactForm'>
-			<fieldset>
-				<legend>Contact Us</legend>
+		<div class='shippingArtic' id='contactArticle' class='displayNone textContentArea'>
+			<div class='contInfoContainer'>
+	            <h1 class='bangersFont'>Contact Information</h1>
+                <h2 class='bangersFont'>ORDER STATUS</h2>
+                <p class='openSansFont'>
+                	If you'd like to check the status of an order, (or cancel one that hasn't been processed), 
+                    please sign in to your customer account.
+                </p>
+                <h2 class='bangersFont'>PHONE</h2>
+                <p class='openSansFont'>
+                	To place an order over the phone call +1 (610) 421-4447 between 9:30am - 5:00pm PST
+                </p>
+                <h2 class='bangersFont'>EMAIL</h2>
+                <p class='openSansFont'>
+                	For general product questions and order inquiries you can also email us at help@2bhip.com.
+                </p>
+            </div>
+			<form action='#' onSubmit="app.ext.store_crm.calls.appSendMessage.init($(this).serializeJSON(),{'callback':'showMessaging','parentID':'contactFormMessaging','message':'Thank you, your message has been sent'},'immutable'); app.model.dispatchThis('immutable');  return false;" class='contForm' id='contactForm' name='contactForm'>
+			<div class='contactFields'>
+				<div class='contactLegend bangersFont'>QUESTIONS OR CONCERNS?</div>
 				<div id='contactFormMessaging'></div>
-				<div><label for='contactFormSender'>Email Address: </label><input type='email' name='sender' required='required' id='contactFormSender' /></div>
-				<div><label for='contactFormSubject'>Subject: </label><input type='text' name='subject' id='contactFormSubject' /></div>
-				<div><label for='contactFormOID'>Order ID: </label><input type='text' name='OID' id='contactFormOID' /></div>
-				<div><label for='contactFormBody'>Message: </label><textarea name='body' required='required' id='contactFormBody'></textarea></div>
-				<div class='alignRight'><input type='submit' class='ui-button-text ui-button ui-state-default ui-corner-all' value='Send Message' />
+				<div><input type='text' name='fullname' class='border openSansFont' id='contactFormSubject' placeholder=' Full Name'/></div>
+				<div><input type='email' name='sender' required='required' class='border openSansFont' id='contactFormSender' placeholder=' E-mail Address'/></div>
+                <div><input type='text' name='OID' class='border openSansFont' id='contactFormOID' placeholder=' Order Number (if applicable)'/></div>
+				<div><textarea name='body' required='required' class='border openSansFont' id='contactFormBody' placeholder=' Message/Notes'></textarea></div>
+				<div class='alignRight'><input type='submit' class='contactFormButton bangersFont ui-button-text ui-button ui-state-default ui-corner-all' value='Send Message' />
 				</div>
-			</fieldset>
+			</div>
 			</form>
 			<div data-bind='var: profile(zoovy:contact); format:wiki; wikiFormats:myRIA;' id='contactContent'></div>
 		</div>
@@ -1648,11 +1663,22 @@ adding classes is not likely to have any bad effects.
 
 
 
-		<div class='displayNone textContentArea' id='returnArticle'>
-			<h1>Return Policy</h1>
-			<div data-bind='var: profile(zoovy:return_policy); format:wiki; wikiFormats:myRIA;' id='returnContent'>
-            	
-            </div>
+		<div class='displayNone textContentArea shippingArtic' id='returnArticle'>
+            <h1 class='bangersFont'>Exchange and Return Policy</h1>
+            <p class='indentText openSansFont'>
+            	Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of 
+                classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a 
+                Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, 
+                consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature,
+                discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of 
+                "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. 
+                This book is a treatise on the theory of ethics, very popular during the Renaissance. The first 
+                line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.Contrary 
+                to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin 
+                literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at 
+                Hampden-Sydney College in Virginia.
+			</p>
+			<div data-bind='var: profile(zoovy:return_policy); format:wiki; wikiFormats:myRIA;' id='returnContent'></div>
 		</div>
 
 
