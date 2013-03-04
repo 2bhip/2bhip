@@ -668,6 +668,15 @@ HOME PAGE
 *************************************************************************************/
 
 
+.newBreadcrumb {
+	color: #90F;
+}
+
+.clearfix.noPadOrMargin.fluidList.breadcrumb {
+	width: 940px;
+	margin: 0px auto 12px auto;
+}
+
 .mainBannerContainer {
 	height: 300px;
 	width: 936px;
@@ -1276,6 +1285,7 @@ PRODUCT DETAIL PAGE
 	font-size: 14px;
  	width: 420px; 
 	color: #666;
+	padding-right: 22px;
 }
 
 .prodSummaryContainer h1 {
@@ -1749,6 +1759,10 @@ CONTACT CONTENT
 	height: 30px;
 	width: 267px;
 	font-size: 12px;
+}
+
+.contForm, #contactForm input[type="submit"] {
+	background: red;
 }
 
 .contForm, #contactForm textarea {

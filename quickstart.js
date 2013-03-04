@@ -2471,7 +2471,7 @@ buyer to 'take with them' as they move between  pages.
 				if(infoObj.templateID && infoObj.navcat)	{
 					infoObj.dialogID = infoObj.templateID+'_'+app.u.makeSafeHTMLId(infoObj.navcat)+"_dialog";
 //dialog can be set to true and will use default settings or it can be set to an object of supported dialog parameters.
-					infoObj.dialog = $.isEmptyObject(infoObj.dialog) ? {modal: true,width:'86%',height:$(window).height() - 100} : infoObj.dialog; 
+					infoObj.dialog = $.isEmptyObject(infoObj.dialog) ? {modal: true,width:'69%',height:$(window).height() - 100} : infoObj.dialog; 
 					infoObj.dialog.autoOpen = false; //always set to false, then opened below. fixes some issues with re-opening the same id in a modal.
 					var $parent = app.u.handleParentForDialog(infoObj.dialogID,infoObj.title);
 					infoObj.parentID = infoObj.dialogID+"_content"; //the parentID passed in is the modal ID. this is for the contents and needs to be different so showPage knows whether it has been rendered before or not.

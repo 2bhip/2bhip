@@ -1,0 +1,10 @@
+1. _2Bhip_init.js:
+	Line 47: " app.rq.push(['script',0,app.vars.baseURL+'anyplugins.js']); //in zero pass in case product page is first page. "
+
+	changes anytabs.js to anyplugins.js
+
+
+2. Quickstart.js:
+	Line 2474: " infoObj.dialog = $.isEmptyObject(infoObj.dialog) ? {modal: true,width:'69%',height:$(window).height() - 100} : infoObj.dialog; "
+	
+	changes original size of modal window from 86% to 69% (changed for quickview).
