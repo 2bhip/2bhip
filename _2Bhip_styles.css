@@ -1828,14 +1828,43 @@ SHIPPING CONTENT
 /*END SHIPPING CONTENT*/
 
 
+/*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+FAQ CONTENT
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
 
 
+.faqArtic {
+	width: 700px;
+	margin: 0px 0px 20px 40px;
+}
+
+.faqArtic h1 {
+	color: #000;
+	font-size: 30px;
+	margin-bottom: 15px;
+	padding-top: 16px;
+}
 
 
+/*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+PRIVACY STATEMENT CONTENT
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
 
 
+.privacyArtic {
+	width: 700px;
+	margin: 0px 0px 20px 40px;
+	font-family: "Open Sans";
+}
 
-
+.privacyArtic h1 {
+	margin-bottom: 15px;
+	padding-top: 10px; 
+}
 
 
 
