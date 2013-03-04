@@ -1744,6 +1744,19 @@ CONTACT CONTENT
 	float: left;
 }
 
+.contInfoContainer pl {
+	color: #006099;
+	text-decoration: underline;
+	font-size: 14px;
+	line-height: 25px;
+}
+
+.contInfoContainer pp {
+	color: #006099;
+	font-size: 14px;
+	line-height: 25px;
+}
+
 .contactFields {
 	width: 271px; 
 	margin: 68px 0px 0px 29px;
@@ -1762,7 +1775,10 @@ CONTACT CONTENT
 }
 
 .contForm, #contactForm input[type="submit"] {
-	background: red;
+	height: 30px;
+	width: 130px;
+	color: #000;
+	font-size: 18px;
 }
 
 .contForm, #contactForm textarea {
@@ -1770,13 +1786,6 @@ CONTACT CONTENT
 	width: 267px;
 	font-size: 12px;
 	padding-top: 7px;
-}
-
-.contactFormButton.ui-button-text.ui-button.ui-state-default.ui-corner-all {
-	height: 30px;
-	width: 130px;
-	color: #000;
-	font-size: 18px;
 }
 
 

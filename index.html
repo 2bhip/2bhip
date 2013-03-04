@@ -366,7 +366,7 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
             <li class='openSansBoldFont footerLinkListItem pointer' onClick="return showContent('company',{'show':'return'});">Exchange and Return Policy</li>
             <li class='openSansBoldFont footerLinkListItem pointer' onClick="return showContent('company',{'show':'shipping'});">Shipping Policy</li>
             <li class='openSansBoldFont footerLinkListItem pointer' onClick="return showContent('company',{'show':'faq'});">Frequently Asked Questions</li>
-            <li class='openSansBoldFont footerLinkListItem'>Blog</li>
+            <a href='http://blog.2bhip.com/' target='_blank'><li class='openSansBoldFont footerLinkListItem'>Blog</li></a>
             <li class='openSansBoldFont footerLinkListItem'>News</li>
             <li class='openSansBoldFont footerLinkListItem'>Testimonials</li>
 		</ul>
@@ -1573,21 +1573,21 @@ adding classes is not likely to have any bad effects.
 		</div>
 
 
-		<div class='shippingArtic' id='contactArticle' class='displayNone textContentArea'>
+		<div id='contactArticle' class='shippingArtic displayNone textContentArea'>
 			<div class='contInfoContainer'>
 	            <h1 class='bangersFont'>Contact Information</h1>
                 <h2 class='bangersFont'>ORDER STATUS</h2>
                 <p class='openSansFont'>
-                	If you'd like to check the status of an order, (or cancel one that hasn't been processed), 
-                    please sign in to your customer account.
+                	If you'd like to check the status of an order, (or cancel one that hasn't been processed),<br> 
+                    please <pl class='openSansBoldFont pointer' onClick="return showContent('customer',{'show':'myaccount'});">sign in</pl> to your customer account.
                 </p>
                 <h2 class='bangersFont'>PHONE</h2>
                 <p class='openSansFont'>
-                	To place an order over the phone call +1 (610) 421-4447 between 9:30am - 5:00pm PST
+                	To place an order over the phone call <br><pp class='openSansBoldFont'>+1 (610) 421-4447</pp> between 9:30am - 5:00pm PST
                 </p>
                 <h2 class='bangersFont'>EMAIL</h2>
                 <p class='openSansFont'>
-                	For general product questions and order inquiries you can also email us at help@2bhip.com.
+                	For general product questions and order inquiries you can also email us at <a href="mailto:help@2bhip.com"><pl class='openSansBoldFont pointer'>help@2bhip.com</pl></a>.
                 </p>
             </div>
 			<form action='#' onSubmit="app.ext.store_crm.calls.appSendMessage.init($(this).serializeJSON(),{'callback':'showMessaging','parentID':'contactFormMessaging','message':'Thank you, your message has been sent'},'immutable'); app.model.dispatchThis('immutable');  return false;" class='contForm' id='contactForm' name='contactForm'>
