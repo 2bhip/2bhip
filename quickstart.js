@@ -107,11 +107,9 @@ var myRIA = function() {
 //if ?debug=anything is on URI, show all elements with a class of debug.
 if(app.u.getParameterByName('debug'))	{
 	$('.debug').show().append("<div class='clearfix'>Model Version: "+app.model.version+" and release: "+app.vars.release+"</div>");
-	$('.debugQuickLinks','.debug').menu().css({'width':'150px'});
 	$('button','.debug').button();
 	app.ext.myRIA.u.bindAppViewForms('.debug');
 	app.ext.myRIA.u.bindNav('.debug .bindByAnchor');
-	$('body').css('padding-bottom',$('.debug').last().height());
 	}
 
 //attach an event to the window that will execute code on 'back' some history has been added to the history.
@@ -799,8 +797,7 @@ fallback is to just output the value.
 					else if(pData['is:sizeable'])	{
 						buttonText = 'Choose Size'; className = 'variational sizeable';
 						}
-//pdata is a shortcut to attribs.
-					else if(data.value['@variations'].length)	{
+					else if(!$.isEmptyObject(pData['@variations']))	{
 						buttonText = 'Choose Options'; className = 'variational';
 						}
 					else	{
@@ -1447,21 +1444,17 @@ if(ps.indexOf('?') >= 1)	{
 	ps = ps.split('?')[1]; //ignore everything before the first questionmark.
 	if(ps.indexOf('#') >= 1)	{ps = ps.split('#')[0]} //uri params should be before the #
 //	app.u.dump(ps);
-	try {
-		infoObj.uriParams = app.u.kvp2Array(ps);
-	} catch(err){
-		//we lost the URI params to kvp2Array
-	}
+	infoObj.uriParams = app.u.kvp2Array(ps);
 //	app.u.dump(uriParams);
 	}
 
 //				app.u.dump(" -> infoObj.uriParams:"); app.u.dump(infoObj.uriParams);
 				if(infoObj.uriParams.meta)	{
-					app.calls.cartSet.init({'want/refer':infoObj.uriParams.meta},{},'passive');
+					app.calls.cartSet.init({'cart/refer':infoObj.uriParams.meta},{},'passive');
 					}
 
 				if(infoObj.uriParams.meta_src)	{
-					app.calls.cartSet.init({'want/refer_src':infoObj.uriParams.meta_src},{},'passive');
+					app.calls.cartSet.init({'cart/refer_src':infoObj.uriParams.meta_src},{},'passive');
 					}
 
 				if(app.u.determineAuthentication() != 'none')  {
@@ -1693,9 +1686,9 @@ if(ps.indexOf('?') >= 1)	{
 					else if(infoObj.pageType == 'homepage')	{r = ''}
 					else if(infoObj.pageType == 'cart')	{r = '#cart?show='+infoObj.show}
 					else if(infoObj.pageType == 'checkout')	{r = '#checkout?show='+infoObj.show}
-					else if(infoObj.pageType == 'search' && infoObj.elasticsearch)	{
-						//r = '#search?KEYWORDS='+encodeURIComponent(infoObj.KEYWORDS);
-						r = '#search?elasticsearch='+encodeURIComponent(JSON.stringify(infoObj.elasticsearch));
+					else if(infoObj.pageType == 'search' && infoObj.KEYWORDS)	{
+						app.u.dump("ROAR");
+						r = '#search?KEYWORDS='+encodeURIComponent(infoObj.KEYWORDS);
 						}
 					else if(infoObj.pageType && infoObj.show)	{r = '#'+infoObj.pageType+'?show='+infoObj.show}
 					else	{
@@ -1725,7 +1718,7 @@ if(ps.indexOf('?') >= 1)	{
 					else if(infoObj.pageType == 'homepage')	{r = true}
 					else if(infoObj.pageType == 'cart')	{r = true}
 					else if(infoObj.pageType == 'checkout')	{r = true}
-					else if(infoObj.pageType == 'search' && infoObj.elasticsearch)	{r = true}
+					else if(infoObj.pageType == 'search' && infoObj.KEYWORDS)	{r = true}
 					else if(infoObj.pageType == 'customer' && infoObj.show)	{r = true}
 					else if(infoObj.pageType == 'company' && infoObj.show)	{r = true}
 					else	{
@@ -1756,26 +1749,9 @@ if(ps.indexOf('?') >= 1)	{
 				var splits = myHash.split('?'); //array where 0 = 'company' or 'search' and 1 = show=returns or keywords=red
 //				app.u.dump(" -> splits: "); app.u.dump(splits);
 				
-				
-				//Try to parse URI information
-				try {
-					infoObj = app.u.kvp2Array(splits[1]); //will set infoObj.show=something or infoObj.pid=PID
-//					app.u.dump(" -> infoObj: "); app.u.dump(infoObj);
-					infoObj.pageType = splits[0];
-					
-					//The below may not be necessary, depending on how the kvp2array function handles the parsing of the hash info with nested objects
-					
-					//De-stringify elastic search from page hash so we can build our raw elastic during showContent
-					//if(infoObj.pageType === 'search' && infoObj.elasticsearch){
-					//	infoObj.elasticsearch = JSON.parse(infoObj.elasticsearch);
-					//} 
-				} catch (err){
-					//Problem parsing info
-					app.u.dump("Error parsing Hash: "+err, 'warn');
-				}
-				
-				
-				
+				infoObj = app.u.kvp2Array(splits[1]); //will set infoObj.show=something or infoObj.pid=PID
+//				app.u.dump(" -> infoObj: "); app.u.dump(infoObj);
+				infoObj.pageType = splits[0];
 				if(!infoObj.pageType || !this.thisPageInfoIsValid(infoObj))	{
 					infoObj = false;
 					}
@@ -1816,9 +1792,7 @@ if(ps.indexOf('?') >= 1)	{
 					break;
 
 				case 'search':
-					app.u.dump("BUILDRELATIVEPATH");
-					app.u.dump(infoObj.elasticsearch);
-					relativePath = '#search?elasticsearch='+JSON.stringify(infoObj.elasticsearch);
+					relativePath = '#search?KEYWORDS='+infoObj.KEYWORDS
 					break;
 
 				case 'company':
@@ -2045,7 +2019,7 @@ return r;
 effects the display of the nav buttons only. should be run just after the handleAppNavData function in showContent.
 */
 			handleAppNavDisplay : function(infoObj)	{
-//				app.u.dump("BEGIN myRIA.u.handleNavButtonsForDetailPage");
+				app.u.dump("BEGIN myRIA.u.handleNavButtonsForDetailPage");
 //				app.u.dump(" -> history of the world: "); app.u.dump(app.ext.myRIA.vars.hotw[1]);
 
 				var r = false, //what is returned. true if buttons are visible. false if not.
@@ -2201,8 +2175,9 @@ effects the display of the nav buttons only. should be run just after the handle
 				infoObj.templateID = 'searchTemplate';
 				infoObj.state = 'onInits';
 				app.ext.myRIA.u.handleTemplateFunctions(infoObj);
-				var $page = $('#mainContentArea_search');
-				
+				var $page = $('#mainContentArea_search'),
+				qObj = {'query':infoObj.KEYWORDS} //what is submitted to the query generator.
+				if(infoObj.fields)	{qObj.fields = infoObj.fields}
 
 //only create instance once.
 				if($page.length)	{
@@ -2217,35 +2192,21 @@ effects the display of the nav buttons only. should be run just after the handle
 				if($.inArray(infoObj.KEYWORDS,app.ext.myRIA.vars.session.recentSearches) < 0)	{
 					app.ext.myRIA.vars.session.recentSearches.unshift(infoObj.KEYWORDS);
 					}
-					
-//If raw elastic has been provided, use that.  Otherwise build a query.
-				var elasticsearch;
-				if(infoObj.elasticsearch){
-					elasticsearch = app.ext.store_search.u.buildElasticRaw(infoObj.elasticsearch);
-				} else {
-					var qObj = {'query':infoObj.KEYWORDS} //what is submitted to the query generator.
-					if(infoObj.fields)	{qObj.fields = infoObj.fields}
-					elasticsearch = app.ext.store_search.u.buildElasticSimpleQuery(qObj);
-				}
-				//app.u.dump(elasticsearch);
+
+				var query = app.ext.store_search.u.buildElasticSimpleQuery(qObj),
+				_tag = {'callback':'handleElasticResults','extension':'store_search','templateID':'productListTemplateResults','list':$('#resultsProductListContainer')};
+				_tag.datapointer = qObj.fields ? "appPublicSearch|"+qObj.query+"|"+qObj.fields : "appPublicSearch|"+qObj.query;
+
 /*
 #####
-if you are going to override any of the defaults in the elasticsearch, such as size, do it here BEFORE the elasticsearch is added as data on teh $page.
-ex:  elasticsearch.size = 200
+if you are going to override any of the defaults in the query, such as size, do it here BEFORE the query is added as data on teh $page.
+ex:  query.size = 200
 #####
 */
-elasticsearch.size = 50;
+query.size = 50;
 
-				_tag = {'callback':'handleElasticResults','extension':'store_search','templateID':'productListTemplateResults','list':$('#resultsProductListContainer')};
-				_tag.datapointer = "appPublicSearch|"+JSON.stringify(elasticsearch);
-				//app.u.dump(_tag.datapointer);
-				
-				//Used to build relative path
-				infoObj.elasticsearch = $.extend(true, {}, elasticsearch);
-				
-				
-				app.ext.store_search.u.updateDataOnListElement($('#resultsProductListContainer'),elasticsearch,1);
-				app.ext.store_search.calls.appPublicSearch.init(elasticsearch,_tag);
+				app.ext.store_search.u.updateDataOnListElement($('#resultsProductListContainer'),query,1);
+				app.ext.store_search.calls.appPublicSearch.init(query,_tag);
 				app.model.dispatchThis();
 
 				infoObj.state = 'onCompletes'; //needed for handleTemplateFunctions.

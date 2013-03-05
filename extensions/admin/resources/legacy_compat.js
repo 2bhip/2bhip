@@ -536,7 +536,6 @@ function getRadioValue(r) {
 
 
 function openPopupWindow(url)	{
-	// used for ebay category chooser popup 
-	window.open(url,'legacyPopup','height=500,width=500,scrollbars=1');
+	window.open(url,'legacyPopup','height=500,width=500');
 	}
 

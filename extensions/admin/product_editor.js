@@ -300,7 +300,7 @@ var admin_prodEdit = function() {
 					
 					$tbody.empty().append($('#prodEditorResultsTbody').children()); //clear old orders first then copy rows over.
 //remove click event to move the orders over to the tab, since they're already in the tab.
-					$("[data-app-event='admin_prodEdit|showProductEditor']",$tbody).off('click.moveProductsToTab').on('click.hideProductTab',function(){
+					$("[data-app-event='admin_prodEdit|showProductEditor']",$tbody).off('click.moveProductToTab').on('click.hideProductTab',function(){
 						app.ext.admin_prodEdit.u.handleProductListTab('collapse');
 						});
 					$("table",$target).anytable();
@@ -374,7 +374,6 @@ var admin_prodEdit = function() {
 					$(this).addClass('lookLikeLink').click(function(){
 						app.ext.admin_prodEdit.u.prepContentArea4Results();
 						var tag = $(this).text();
-						$('#prodEditorResultsTbody').showLoading({'message':'Fetching items tagged as '+tag})
 						app.ext.store_search.calls.appPublicProductSearch.init({"size":"50","mode":"elastic-native","filter":{"term":{"tags":tag}}},{'datapointer':'appPublicSearch|'+tag,'templateID':'productListTemplateTableResults','callback':'handleElasticResults','extension':'store_search',list:$('#prodEditorResultsTbody')});
 						app.model.dispatchThis('mutable');
 						})
@@ -385,7 +384,6 @@ var admin_prodEdit = function() {
 					$(this).addClass('lookLikeLink').click(function(){
 						app.ext.admin_prodEdit.u.prepContentArea4Results();
 						var mktid = $(this).data('mktid')+'_on';
-						$('#prodEditorResultsTbody').showLoading({'message':'Fetching items for '+$(this).text()})
 						app.ext.store_search.calls.appPublicProductSearch.init({"size":"50","mode":"elastic-native","filter":{"term":{"marketplaces":mktid}}},{'datapointer':'appPublicSearch|'+mktid,'templateID':'productListTemplateTableResults','callback':'handleElasticResults','extension':'store_search',list:$('#prodEditorResultsTbody')});
 						app.model.dispatchThis('mutable');
 						})
@@ -401,7 +399,7 @@ var admin_prodEdit = function() {
 				}
 			else	{
 				P.targetID = "productTabMainContent";
-				$(app.u.jqSelector('#',P.targetID)).empty().showLoading({'message':'loading...'});
+				$(app.u.jqSelector('#',P.targetID)).empty().showLoading();
 				app.model.fetchAdminResource(path,P);
 				}
 			}, //showProductTab 
@@ -431,7 +429,6 @@ var admin_prodEdit = function() {
 		handleProductKeywordSearch : function(obj)	{
 			if(obj && obj.KEYWORDS)	{
 				app.ext.admin_prodEdit.u.prepContentArea4Results();
-				$('#prodEditorResultsTbody').showLoading({'message':'Performing search...'})
 				app.ext.store_search.u.handleElasticSimpleQuery(obj.KEYWORDS,{'callback':'handleElasticResults','extension':'store_search','templateID':'productListTemplateTableResults','list':$('#prodEditorResultsTbody')});
 				app.model.dispatchThis();
 				}
@@ -580,7 +577,7 @@ var admin_prodEdit = function() {
 						});			
 					
 					if(pid && panelid && !$.isEmptyObject(formJSON))	{
-						$panel.showLoading({'message':'Updating product '+pid});
+						$panel.showLoading();
 						app.ext.admin.calls.adminProductUpdate.init(pid,formJSON,{});
 						app.model.destroy('appProductGet|'+pid);
 						app.calls.appProductGet.init({'pid':pid,'withInventory':true,'withVariations':true},{'callback':function(responseData){

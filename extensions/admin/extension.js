@@ -396,7 +396,7 @@ if no handler is in place, then the app would use legacy compatibility mode.
 
 
 
-
+//never get from local or memory.
 		adminOrderList : {
 			init : function(obj,_tag,Q)	{
 				_tag = _tag || {};
@@ -514,6 +514,7 @@ if no handler is in place, then the app would use legacy compatibility mode.
 			}, //adminOrderPaymentAction
 
 
+
 		adminPartnerSet : {
 			init : function(obj,_tag)	{
 				obj._cmd = 'adminPartnerSet'
@@ -574,138 +575,7 @@ if no handler is in place, then the app would use legacy compatibility mode.
 				}
 			}, //adminProductUpdate
 
-		adminSupplierCreate	: {
-			
-			init : function(obj,_tag,Q)	{
-				this.dispatch(obj,_tag,Q);
-				return 1;
-				},
-			
-			dispatch : function(obj,_tag,Q){
-				obj._cmd = 'adminSupplierCreate';
-				obj._tag = _tag || {};
-				obj._tag.datapointer = 'adminSupplierCreate';
-				app.model.addDispatchToQ(obj,Q || 'immutable');
-				}
-			
-			}, //adminSupplierCreate
 
-		adminSupplierItemList : {
-			init : function(vendorid,_tag,Q)	{
-				var r = 0;
-				if(vendorid)	{
-					_tag = _tag || {};
-					_tag.datapointer = "adminSupplierItemList|"+vendorid;
-					if(app.model.fetchData(_tag.datapointer) == false)	{
-						r = 1;
-						this.dispatch(vendorid,_tag,Q);
-						}
-					else	{
-						app.u.handleCallback(_tag);
-						}
-					}
-				else	{
-					$('#globalMessaging').anymessage({"message":"In admin.calls.adminSupplierItemList, vendorid not passed","gMessage":true})
-					}
-				return r;
-				},
-			dispatch : function(vendorid,_tag,Q)	{
-				app.model.addDispatchToQ({_cmd : "adminSupplierItemList",_tag:_tag,"VENDORID":vendorid},Q || mutable);
-				}
-			}, //adminSupplierItemList
-
-
-		adminSupplierOrderList : {
-			init : function(obj,_tag,Q)	{
-				var r = 0;
-				if(obj && obj.VENDORID && obj.FILTER)	{
-					_tag = _tag || {};
-					_tag.datapointer = "adminSupplierOrderList|"+obj.VENDORID+"|"+obj.FILTER;
-					if(app.model.fetchData(_tag.datapointer) == false)	{
-						r = 1;
-						this.dispatch(obj,_tag,Q);
-						}
-					else	{
-						app.u.handleCallback(_tag);
-						}
-					}
-				else	{
-					$('#globalMessaging').anymessage({"message":"In admin.calls.adminSupplierOrderList, either FILTER or VENDORID not passed in param object","gMessage":true})
-					}
-				return r;
-				},
-			dispatch : function(obj,_tag,Q)	{
-				obj._cmd = "adminSupplierOrderList";
-				obj._tag = _tag || {};
-				app.model.addDispatchToQ(obj,Q || mutable);
-				}
-			}, //adminSupplierOrderList
-
-		adminSupplierList : {
-			init : function(_tag,Q)	{
-				var r = 0;
-				_tag = _tag || {};
-				_tag.datapointer = "adminSupplierList";
-				if(app.model.fetchData(_tag.datapointer) == false)	{
-					r = 1;
-					this.dispatch(_tag,Q);
-					}
-				else	{
-					app.u.handleCallback(_tag);
-					}
-				return r;
-				},
-			dispatch : function(_tag,Q)	{
-				app.model.addDispatchToQ({_cmd : "adminSupplierList",_tag:_tag},Q || mutable);
-				}
-			}, //adminSupplierList
-
-//VENDORID = supplier id (CODE)
-		adminSupplierDetail : {
-			init : function(vendorid,_tag,Q)	{
-				var r = 0;
-				_tag = _tag || {};
-				_tag.datapointer = "adminSupplierDetail|"+vendorid;
-				if(app.model.fetchData(_tag.datapointer) == false)	{
-					r = 1;
-					this.dispatch(vendorid,_tag,Q);
-					}
-				else	{
-					app.u.handleCallback(_tag);
-					}
-				return r;
-				},
-			dispatch : function(vendorid,_tag,Q)	{
-				app.model.addDispatchToQ({_cmd : "adminSupplierDetail","VENDORID":vendorid,_tag:_tag},Q || mutable);
-				}
-			}, //adminSupplierList
-
-			
-// !!! not done. 
-		adminSupplierUpdate	: {
-			init : function(vendorid, updateObj,_tag,Q)	{
-				var r = 0;
-				if(vendorid && typeof updateObj == 'object')	{
-					r = 1;
-					this.dispatch(vendorid,updateObj,_tag,Q);
-					}
-				else	{
-					$('#globalMessaging').anymessage({"message":"In admin.calls.adminSupplierCreate, either vendorid ["+vendorid+"] or updateObj ["+typeof updateObj+"] not passed","gMessage":true});
-					}
-				return r;
-				},
-			
-			dispatch : function(vendorid,updateObj,_tag,Q){
-				obj._cmd = 'adminSupplierUpdate';
-				obj.VENDORID = vendorid;
-				obj._tag = _tag || {};
-				obj._tag.datapointer = 'adminSupplierUpdate';
-				app.model.addDispatchToQ(obj,Q || 'immutable');
-				}
-			
-			}, //adminSupplierCreate
-
-			
 
 		adminTaskList : {
 			init : function(_tag,q)	{
@@ -1358,15 +1228,10 @@ if(uriParams.trigger == 'adminPartnerSet')	{
 
 
 if(app.vars.debug)	{
-//	$('button','#debugPanel').button();
-	var $DP = $('#debugPanel');
-	$DP.show().find('.debugMenu').menu()
-	$DP.append("<h6 class='clearfix'>debug: "+app.vars.debug+"</h6><h6 class='clearfix'>v: "+app.vars.release+"</h6><hr />");
-	$('<input \/>').attr({'type':'text','placeholder':'destroy','size':'10'}).on('blur',function(){
-		app.model.destroy($(this).val());
-		app.u.dump("DEBUG: "+$(this).val()+" was just removed from memory and local storage");
-		$(this).val('');
-		}).appendTo($DP);
+	$('button','#debugPanel').button();
+	$('#debugPanel').show()
+	$('.debugContent','#debugPanel').append("<div class='clearfix'>Model Version: "+app.model.version+" and release: "+app.vars.release+"</div>");
+	$('body').css('padding-bottom',125);
 	$('#jtSectionTab').show();
 	}
 
@@ -2405,34 +2270,6 @@ var chart = new Highcharts.Chart({
 				return domain;
 				}, //getDomain
 
-
-//pass in a form and this will apply some events to add a 'edited' class any time the field is edited.
-//will also update a .numChanges selector with the number of elements within the context that have edited on them.
-//will also 'enable' the parent button of that class.
-			applyEditTrackingToInputs : function($context)	{
-
-				$("input",$context).each(function(){
-					
-					if($(this).hasClass('skipTrack')){} //allows for a field to be skipped.
-					else if($(this).is(':checkbox') || $(this).is('select'))	{
-						$(this).off('change.trackChange').on('change.trackChange',function(){
-							$(this).toggleClass('edited');
-							$('.numChanges',$context).text($('.edited',$context).length).closest('button').button("enable");
-							});			
-						}
-					else	{
-						$(this).off('keyup.trackChange').one('keyup.trackChange',function(){
-							$(this).addClass('edited');
-							$('.numChanges',$context).text($('.edited',$context).length).closest('button').button("enable");
-							});
-						}
-			
-					});
-
-				}, //applyEditTrackingToInputs
-
-
-
 			loadNativeApp : function(path,opts){
 //				app.u.dump("BEGIN loadNativeApp");
 				if(path == '#!mediaLibraryManageMode')	{
@@ -2446,7 +2283,6 @@ var chart = new Highcharts.Chart({
 				else if(path == '#!customerManager')	{app.ext.admin_customer.a.showCustomerManager();}
 				else if(path == '#!eBayListingsReport')	{app.ext.admin_reports.a.showeBayListingsReport();}
 				else if(path == '#!orderPrint')	{app.ext.convertSessionToOrder.a.printOrder(opts.data.oid,opts);}
-				else if(path == '#!supplierManager')	{app.ext.admin_wholesale.a.showSupplierManager($(app.u.jqSelector('#',app.ext.admin.vars.tab+"Content")).empty())}
 				else if(path == '#!orderCreate')	{app.ext.convertSessionToOrder.a.openCreateOrderForm();}
 				else if(path == '#!domainConfigPanel')	{app.ext.admin.a.showDomainConfig();}
 
@@ -3315,7 +3151,6 @@ else	{
 //Currently, a fairly simple validation script. The browsers aren't always implementing their form validation for the dynamically generated content, so this
 //is simple validator which can be extended over time.
 // checks for 'required' attribute and, if set, makes sure field is set and, if max-length is set, that the min. number of characters has been met.
-//
 			validateForm : function($form)	{
 				app.u.dump("BEGIN admin.u.validateForm");
 				if($form && $form instanceof jQuery)	{
@@ -3546,22 +3381,19 @@ just lose the back button feature.
 //value of action should be EXT|buttonObjectActionName.  ex:  admin_orders|orderListFiltersUpdate
 //good naming convention on the action would be the object you are dealing with followed by the action being performed OR
 // if the action is specific to a _cmd or a macro (for orders) put that as the name. ex: admin_orders|orderItemAddBasic
-//obj is some optional data. obj.$content would be a common use.
-// !!! this code is duplicated in the controller now. change all references in the version after 201308 (already in use in UI)
-			handleAppEvents : function($target,obj)	{
+			handleAppEvents : function($target)	{
 //				app.u.dump("BEGIN admin.u.handleAppEvents");
 				if($target && $target.length && typeof($target) == 'object')	{
 //					app.u.dump(" -> target exists"); app.u.dump($target);
 					$("[data-app-event]",$target).each(function(){
 						var $ele = $(this),
-						obj = obj || {},
 						extension = $ele.data('app-event').split("|")[0],
 						action = $ele.data('app-event').split("|")[1];
 //						app.u.dump(" -> action: "+action);
 						if(action && extension && typeof app.ext[extension].e[action] == 'function'){
 //if an action is declared, every button gets the jquery UI button classes assigned. That'll keep it consistent.
 //if the button doesn't need it (there better be a good reason), remove the classes in that button action.
-							app.ext[extension].e[action]($ele,obj);
+							app.ext[extension].e[action]($ele);
 							} //no action specified. do nothing. element may have it's own event actions specified inline.
 						else	{
 							app.u.throwGMessage("In admin.u.handleAppEvents, unable to determine action ["+action+"] and/or extension ["+extension+"] and/or extension/action combination is not a function");
@@ -3581,11 +3413,7 @@ just lose the back button feature.
 
 		e : {
 			
-			alphaNumeric : function($input)	{
-				$input.off('keypress.alphaNumeric').on('keypress.alphaNumeric',function(event){
-					return app.u.alphaNumeric(event);
-					})
-				},
+
 			
 			achievementDetail : function($row)	{
 				$row.on('mouseover.achievementDetail',function(){
