@@ -134,12 +134,20 @@ else	{
 				});			
 			}
 		else if($(this).hasClass('skipTrack')){} //notes, for example, is independant.
+//logo value changed with JS, which doesn't trigger keyup code. It's run through medialib.
+		else if($(this).attr('name') == 'LOGO')	{
+			$(this).off('change.trackChange').one('change.trackChange',function(){
+				$(this).addClass('edited');
+				app.ext.admin_customer.u.handleChanges($custEditorTarget);
+				});			
+			}
 		else	{
 			$(this).off('keyup.trackChange').one('keyup.trackChange',function(){
 				$(this).addClass('edited');
 				app.ext.admin_customer.u.handleChanges($custEditorTarget);
 				});
 			}
+
 		});
 
 	app.ext.admin.u.handleAppEvents($custEditorTarget);
@@ -166,7 +174,7 @@ else	{
 				$modal.dialog('open');
 				if(obj && obj.CID)	{
 					$modal.anycontent({'templateID':'customerWalletAddTemplate','showLoading':false,'dataAttribs':obj});
-					app.ext.admin.u.handleAppEvents($modal);
+					app.ext.admin.u.handleAppEvents($modal,{'$context':$walletPanel});
 					}
 				else	{
 					$modal.anymessage({'message':'In admin_customer.a.showAddWalletModal, no CID defined.',gMessage:true});
@@ -371,6 +379,24 @@ else	{
 				}, //customerAddressAddUpdate
 
 
+
+			getAddressByID : function(addrObj,id)	{
+				var r = false; //what is returned. will be an address object if there's a match.
+				if(addrObj && id)	{
+					for(var i = 0; i < addrObj.length; i += 1)	{
+						if(addrObj[i]._id == id)	{
+							r = addrObj[i];
+							break;
+							}
+						else	{}
+						}
+					}
+				else	{
+					$('#globalMessaging').anymessage({'message':'in admin_customer.u.getAddressByID, either addrObj or ID empty'});
+					}
+				return r;
+				},
+
 //The flags field in the order is an integer. The binary representation of that int (bitwise and) will tell us what flags are enabled.
 			getNewslettersTF : function(newsint,val)	{
 				B = Number(newsint).toString(2); //binary
@@ -400,7 +426,16 @@ if(formObj.lastname)	{updates.push("SET?lastname="+formObj.lastname);}
 if(formObj.generatepassword)	{updates.push("PASSWORDRESET?password=");} //generate a random password
 
 // $('body').showLoading("Creating customer record for "+formObj.email);
-app.ext.admin.calls.adminCustomerCreate.init(updates,{});
+app.ext.admin.calls.adminCustomerCreate.init(updates,{'callback':function(rd){
+	if(app.model.responseHasErrors(rd)){
+		$('#globalMessaging').anymessage({'message':rd});
+		}
+	else	{
+		$('#customerUpdateModal').dialog('close');
+		$('.dualModeListMessaging',app.u.jqSelector('#',app.ext.admin.vars.tab+"Content")).empty();
+		app.ext.admin_customer.a.showCustomerEditor($('.dualModeListContent',app.u.jqSelector('#',app.ext.admin.vars.tab+"Content")),{'CID':app.data[rd.datapointer].CID})
+		}
+	}});
 app.model.dispatchThis('immutable');
 
 						}
@@ -419,7 +454,7 @@ app.model.dispatchThis('immutable');
 					var $form = $btn.closest('form'),
 					macros = new Array(),
 					CID = $btn.closest("[data-cid]").data('cid'),
-					wholesale = "", //wholesale, dropship and general are used to concatonate the KvP for any changed fields within that panel. used to build macro
+					wholesale = "", //wholesale and general are used to concatonate the KvP for any changed fields within that panel. used to build macro
 					dropshipAddrUpdate = false, //set to true if address update is present. sends entire address, not just changed fields.
 					general = "";
 
@@ -445,7 +480,7 @@ app.model.dispatchThis('immutable');
 									macros.push("ADDRREMOVE?TYPE="+pr.toUpperCase()+"&SHORTCUT="+$tag.data('_id'));
 									}
 								else if(pr == 'wallets')	{
-									macros.push("WALLETREMOVE?SECUREID="+$tag.data('id'));
+									macros.push("WALLETREMOVE?SECUREID="+$tag.data('wi'));
 									}
 								else if(pr == 'notes')	{
 									macros.push("NOTEREMOVE?NOTEID="+$tag.data('id'));
@@ -456,7 +491,20 @@ app.model.dispatchThis('immutable');
 								}
 							else if($("button.ui-state-highlight",$tag).length > 0)	{
 								if(pr == 'ship' || pr == 'bill')	{
-									macros.push("ADDRUPDATE?TYPE="+pr.toUpperCase()+"&SHORTCUT="+$tag.data('_id')+"&default=1");
+									//must pass entire address object any time addrupdate occurs.
+									var addr = app.ext.admin_customer.u.getAddressByID(app.data['adminCustomerDetail|'+CID]['@'+pr.toUpperCase()],$tag.data('_id'));
+//these two aren't needed. nuke em.
+									delete addr['_is_default'];
+									delete addr['_id'];
+//strip bill_ ship_ off of front.
+									for(index in addr)	{
+										addr[index.substring(5)] = addr[index];
+										delete addr[index];
+										}
+//set as default.
+									addr['DEFAULT'] = 1;
+//pretty sure the API wants TYPE and SHORTCUT to be on the front of this macro.
+									macros.push("ADDRUPDATE?TYPE="+pr.toUpperCase()+"&SHORTCUT="+$tag.data('_id')+"&"+decodeURIComponent($.param(addr)));
 									}
 								else if(pr == 'wallets')	{
 									macros.push("WALLETDEFAULT?SECUREID="+$tag.data('id'));
@@ -481,7 +529,9 @@ app.model.dispatchThis('immutable');
 								}
 							else if(pr == 'dropship')	{
 								//Add something here for dropship logo.
-								if($tag.attr('name') == 'image')	{}
+								if($tag.attr('name') == 'LOGO')	{
+									macros.push("WSSET?LOGO="+$tag.val());
+									}
 								else	{
 									dropshipAddrUpdate = true;
 									}
@@ -583,7 +633,7 @@ else	{
 				$btn.button();
 				$btn.off('click.hintReset').on('click.hintReset',function(event){
 					event.preventDefault();
-					var $target = $("#customerUpdateModal").empty().dialog('open'),
+					var $modal = $("#customerUpdateModal").empty().dialog('open'),
 					CID = $btn.closest("[data-cid]").data('cid');
 					
 					$modal.html("<p class='clearfix marginBottom'>Please confirm that you want to reset this customers password hint. There is no undo.<\/p>");
@@ -650,7 +700,7 @@ else	{
 					});
 				},
 
-			execWalletCreate : function($btn)	{
+			execWalletCreate : function($btn,o)	{
 				$btn.button();
 				$btn.off('click.walletCreate').on('click.walletCreate',function(event){
 					event.preventDefault();
@@ -662,16 +712,27 @@ else	{
 						$form.anymessage({'message':'in admin_customer.e.walletCreate, could not determine CID.','gMessage':true});
 						}
 					else if(app.ext.admin.u.validateForm($form))	{
-						$form.showLoading({'message':'Adding wallet to customer record.'});
-						app.ext.admin.calls.adminCustomerUpdate.init(["WALLETCREATE?"+encodeURIComponent($form.serializeJSON())],{'callback':function(){
+						$form.showLoading({'message':'Adding wallet to customer record '+CID+'.'});
+
+
+						app.ext.admin.calls.adminCustomerUpdate.init(CID,["WALLETCREATE?"+$form.serialize()],{'callback':function(rd){
 							$form.hideLoading();
 							if(app.model.responseHasErrors(rd)){
 								$form.anymessage({'message':rd});
 								}
 							else	{
 								$form.parent().empty().anymessage({'message':'Thank you, the wallet has been added','errtype':'success'});
+								if(o && o['$context'])	{
+									var $panel = o['$context']; //shortcut and and to identify what the context is.
+									$("tbody",$panel).empty(); //clear wallets
+									$panel.anycontent({'datapointer' : 'adminCustomerDetail|'+CID}); //re-translate panel, which will update wallet list.
+									app.ext.admin.u.handleAppEvents($panel);
+									}
 								}
 							}},'immutable');
+//do this after the update so the detail includes the changes from the update.
+						app.model.destroy('adminCustomerDetail|'+CID);
+						app.ext.admin.calls.adminCustomerDetail.init({'CID':CID,'rewards':1,'wallets':1,'tickets':1,'notes':1,'events':1,'orders':1,'giftcards':1},{},'immutable');
 						app.model.dispatchThis('immutable');
 						}
 					else	{
@@ -799,6 +860,13 @@ else	{
 					});
 				
 				}, //showCustomerCreate
+
+			showMediaLib4DropshipLogo : function($ele)	{
+				$ele.off('click.mediaLib').on('click.mediaLib',function(event){
+					event.preventDefault();
+					mediaLibrary($('#customerDropshipLogoImg'),$('#customerDropshipLogo'),'Choose Dropship Logo');
+					});
+				},
 
 //not in use yet. will show wallet details.
 			showWalletDetail : function($btn)	{

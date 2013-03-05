@@ -111,6 +111,8 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 
 //the request that uses this as a callback should have the following params set for _tag:
 // parentID, templateID (template used on each item in the results) and datapointer.
+//the request that uses this as a callback should have the following params set for _tag:
+// parentID, templateID (template used on each item in the results) and datapointer.
 		handleElasticResults : {
 			onSuccess : function(_rtag)	{
 //				app.u.dump("BEGIN myRIA.callbacks.handleElasticResults.onSuccess.");
@@ -127,11 +129,13 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 					else	{
 						$list.append(app.ext.store_search.u.getElasticResultsAsJQObject(_rtag)); //prioritize w/ getting product in front of buyer
 						if(app.ext.admin)	{
+							$list.hideLoading();
 							app.ext.admin.u.handleAppEvents($list);
 							}
 	
 						var EQ = $list.data('elastic-query'); //Elastic Query
 						if(EQ)	{
+							
 							var $header = app.ext.store_search.u.buildResultsHeader($list,_rtag.datapointer), //# of results and keyword display.
 //							$sortMenu = app.ext.store_search.u.buildSortMenu($list,_rtag), //sorting options as ul
 							$pageMenu = app.ext.store_search.u.buildPagination($list,_rtag), //pagination as ul
@@ -140,16 +144,21 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 							$controlsContainer = $("<div \/>").addClass('ui-widget ui-widget-content resultsHeader clearfix ui-corner-bottom'); //used to hold menus and buttons.
 							
 //							$menuContainer.append($sortMenu); //sorting not working. commented out for now. !!!
-							$menuContainer.append($pageMenu);
-							$menuContainer.appendTo($controlsContainer);
-							$multipage.appendTo($controlsContainer); //multipage nav is at the top and bottom
-							
 							$header.insertBefore($list);
-							$controlsContainer.insertBefore($list);
+//pageMenu will be false if there are no pages. If there's no pagination, no further output is needed.
+							if($pageMenu)	{
 	
-	//add to DOM prior to running menu. helps it to not barf.
-//							$sortMenu.menu();
-							$pageMenu.menu(); 
+								$menuContainer.append($pageMenu);
+								$menuContainer.appendTo($controlsContainer);
+								$multipage.appendTo($controlsContainer); //multipage nav is at the top and bottom
+								
+								
+								$controlsContainer.insertBefore($list);
+//add to DOM prior to running menu. helps it to not barf.
+								$pageMenu.menu();
+//								$sortMenu.menu();
+								}
+	
 							
 							
 							}
@@ -171,6 +180,10 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 
 
 		u : {
+		
+//!!! The header and pagination handling all relies on a query->query_string->query type object.  With more complex elastic searches we must add handling
+
+
 //list is the UL or whatever element type contains the list of product.
 			buildResultsHeader : function($list,datapointer)	{
 				app.u.dump("BEGIN store_search.u.buildMultipageHeader");
@@ -179,7 +192,13 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 				EQ = $list.data('elastic-query'); //Elastic Query
 				
 				if(datapointer && $list && EQ)	{
-					$header = $("<div \/>").addClass('ui-widget ui-widget-header resultsHeader clearfix ui-corner-top hideInMinimalMode').text(app.data[datapointer].hits.total+" Results for: "+EQ.query.query_string.query);
+					$header = $("<div \/>").addClass('ui-widget ui-widget-header resultsHeader clearfix ui-corner-top hideInMinimalMode');
+					if(EQ.query && EQ.query.query_string && EQ.query.query_string.query){
+						$header.text(app.data[datapointer].hits.total+" Results for: "+EQ.query.query_string.query);
+						}
+					else {
+						$header.text(app.data[datapointer].hits.total+" Results for your query");
+						}
 					}
 				else if(!EQ)	{
 					app.u.dump("NOTICE! the search results container did not contain data('elastic-filter') so no multipage data is present.",'warn');
@@ -250,8 +269,8 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 					var EQ = $list.data('elastic-query'); //Elastic Query
 					
 					if(EQ)	{
-						var query = app.ext.store_search.u.buildElasticSimpleQuery(EQ.query.query_string);
-						query.size = EQ.size; //use original size, not what's returned in buildSimple...
+						var query = EQ;
+						//query.size = EQ.size; //use original size, not what's returned in buildSimple...
 						query.from = (newPage - 1) * EQ.size; //page is passed in, which starts at 1. but elastic starts at 0.
 						app.ext.store_search.u.updateDataOnListElement($list,query,newPage);
 						app.ext.store_search.calls.appPublicSearch.init(query,_tag);
@@ -424,7 +443,20 @@ P.parentID - The parent ID is used as the pointer in the multipage controls obje
 					}
 				return $r.children();
 				},
-
+			
+	
+//Adds elastic search params to a new raw elasticsearch object
+//Example of an obj would be {'filter':{'term':{'tags':'IS_BESTSELLER'}}} -- IE a full query or filter- just adding the required params here.
+			buildElasticRaw : function(elasticsearch) {
+				var es = $.extend(true, {}, elasticsearch);
+				
+				es.type = 'product';
+				es.mode = 'elastic-native';
+				es.size = 250;
+				
+				return es;
+			},
+			
 //Example of an obj would be: {'query':'some search string'} OR {'query':'some search string','fields':'prod_keywords'}
 			buildElasticSimpleQuery : function(obj)	{
 				var query = {}; //what is returned. false if error occurs.
