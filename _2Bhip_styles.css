@@ -1034,6 +1034,22 @@ PRODUCT STYLES / CAROUSELS
 }
 
 /*PRODUCT LIST FORMATING*/
+
+.productQuickviewButton {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 36px;
+	width: 90px;
+	padding-bottom: 2px;
+	color: #fff;
+	background-color: #006099;
+	text-align: center;
+	font-size: 19px;
+	line-height: 30px;
+	z-index: 3;
+}
+
 .productList li { 
 	float: left;
 	height: 275px;

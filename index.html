@@ -214,8 +214,10 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
             <div class="nav openSansXBoldFont"onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
                 MOVIES
                 <div class="dropdown leftAlign">
-                    <div class='ddListHead bangersFont'>abc</div>
-                    <div>abc</div>
+                	<ul>
+                    	<li class='ddListHead bangersFont'>abc</li>
+                    	<li>abc</li>
+                    </ul>    
                 </div>
             </div>
             <div class="nav tooNarrow openSansXBoldFont"onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
@@ -833,7 +835,7 @@ remember to NOT put the button inside the 'onclick' container or two events will
 
     <li id='productListTemplateCustom' class='loadingBG' onMouseOver="$('.quickView',$(this)).show();" onMouseOut="$('.quickView').hide();" >
 
-        <button class='floatRight pointer quickView displayNone' onClick="quickView('product',{'templateID':'productTemplateQuickView','pid':$(this).closest('[data-pid]').attr('data-pid')});">Quickview</button>
+        <button class='productQuickviewButton borderRound bangersMedFont pointer quickView displayNone' onClick="quickView('product',{'templateID':'productTemplateQuickView','pid':$(this).closest('[data-pid]').attr('data-pid')});">Quickview</button>
     	<div class='prodThumbContainer'>
             <div onClick="showContent('product',{'pid':$(this).attr('data-pid')})" data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='productList pointer'>
                 <div class='prodThumbContainer' data-bind='var:product(pid); format:addPicSlider; extension:myRIA;'>
@@ -859,7 +861,7 @@ remember to NOT put the button inside the 'onclick' container or two events will
     	</div>
         
         <div class='pointer productBubble bangersMedFont' onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});">CLEARANCE</div>
-
+<!--<div data-bind="var: product(zoovy:prod_is_tags); format:addTagSpans;" class='tagsContainer'></div>-->
         <span data-bind='var: reviews(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>
         <!-- 	<span data-bind='var: reviews(reviews.total); format:text; pretext: from ;posttext: reviews; className:numReviews;'></span> -->
         
@@ -968,12 +970,12 @@ remember to NOT put the button inside the 'onclick' container or two events will
 -->
 <!-- BEST SELLING ITEMS CAROUSEL -->
 <li id='productListTemplateResultsCustom' class='loadingBG'>
-	
+    
 	<div onClick="showContent('product',{'pid':$(this).attr('data-pid')})" data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='pointer'>
+<button class='productQuickviewButton borderRound bangersMedFont pointer quickView displayNone' onClick="quickView('product',{'templateID':'productTemplateQuickView','pid':$(this).closest('[data-pid]').attr('data-pid')});">Quickview</button>   
         <div class='prodThumbContainer'>
 		<img src='blank.gif' class='prodThumb' data-bind='var: product(images); format:imageURL;isElastic:1;bgcolor:ffffff;' width='190' height='100' />
 		</div>
-<!--<div data-bind="var: product(zoovy:prod_is_tags); format:addTagSpans;" class='tagsContainer'></div>-->
 
 		<div class='productDesc openSansBoldFont'>
             <h5 data-bind='var: product(prod_name); format:text;'></h5>
