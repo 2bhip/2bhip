@@ -10,6 +10,12 @@
 <meta property="og:image" content="" id='ogImage' />
 <meta property="og:description" content="" id='ogDescription' />
 
+<!-- Used for attempted cache control in various browsers http://stackoverflow.com/questions/1341089/using-meta-tags-to-turn-off-caching-in-all-browsers -->
+<meta http-equiv="cache-control" content="max-age=0" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+<meta http-equiv="pragma" content="no-cache" />
 
 <base href='' /><!-- leave blank so it works for a local file -->
 
@@ -1463,7 +1469,7 @@ adding classes is not likely to have any bad effects.
         <div class='productShips'>MY ACCOUNT</div>
         <nav class='aboutNav aboutAcctNav openSansBoldFont'>
         	<ul class='listStyleNone noPadOrMargin'>
-            	<li onClick="return showContent('customer',{'show':'newsletter'});" class='pointer'><k>» </k>Log-in or Sign-up</li>
+            	<li onClick="return showContent('customer',{'show':'myaccount'});" class='pointer'><k>» </k>Log-in or Sign-up</li>
                 <li onClick="return showContent('customer',{'show':'orders'});" class='pointer'><k>» </k>Order Tracking</li>
                 <li onClick="return showContent('company',{'show':'return'});" class='pointer'><k>» </k>Return a Product</li>
                 <li onClick="return showContent('customer',{'show':'newsletter'});" class='pointer'><k>» </k>Join Our Newsletter</li>
@@ -1730,24 +1736,60 @@ adding classes is not likely to have any bad effects.
 <!-- loadingBG needed on this for app init (content may take a moment to load) -->
 <div id='customerTemplate' class='clearfix loadingBG'>
 
-	<div class='sideline' >
-	<nav id='customerNav'>
-	<ul class='listStyleNone noPadOrMargin'>
-<!-- before restoring this, test cuz news form on left was causing some conflicts -->
-<!--		<li><a href='#newsletter' id='navLink_newsletter'>Newsletter Subscription</a></li>
-		<li><a href='#recoverpassword' id='navLink_recoverpassword'>Recover Password</a></li> -->
-		<li><a href='#customer?show=myaccount' id='navLink_myaccount'>My Account</a></li>
-		<li><a href='#customer?show=changepassword' id='navLink_changepassword'>Change Password</a></li>
-		<li><a href='#customer?show=orders' id='navLink_orders'>Order History</a></li>
-		<li><a href='#customer?show=lists' id='navLink_orders'>Manage Lists</a></li>
-	</ul>
-	</nav>
+	<div class='sideline borderRound openSansBoldFont' >
+    	<div class='productShips'>QUICK LINKS</div>
+        <nav class='aboutNav aboutQuickNav openSansBoldFont' id='companyNav'>
+            <ul class='listStyleNone noPadOrMargin'>
+            	<li><k>» </k>Special Sale!</li>
+                <li><k>» </k>New Items</li>
+                <li><k>» </k>Clearance</li>
+                <li><k>» </k>Retail Store</li>
+                <li onClick="return showContent('company',{'show':'contact'});" class='pointer' id='navLink_contact'><k>» </k>Contact Us</li>
+                <li onClick="return showContent('customer',{'show':'newsletter'});" class='pointer'><k>» </k>Newsletter</li>
+            </ul>
+        </nav>
+        <div class='productShips'>HELPFUL LINKS</div>
+        <nav class='aboutNav aboutHelpNav openSansBoldFont'>
+        	<ul class='listStyleNone noPadOrMargin'>
+                <li onClick="return showContent('company',{'show':'about'});" class='pointer' id='navLink_about'<k>» </k>About Us</li>
+                <li onClick="return showContent('company',{'show':'contact'});" class='pointer' id='navLink_contact'><k>» </k>Contact Information</li>
+                <li onClick="return showContent('company',{'show':'faq'});" class='pointer' id='navLink_faq'><k>» </k>FAQ</li>
+				<li onClick="return showContent('company',{'show':'payment'});" class='pointer' id='navLink_payment'><k>» </k>Payment Policy</li>
+				<li onClick="return showContent('company',{'show':'privacy'});" class='pointer' id='navLink_privacy'><k>» </k>Privacy Statement</li>
+                <li onClick="return showContent('company',{'show':'return'});" class='pointer' id='navLink_return'><k>» </k>Return Policy</li>
+                <li onClick="return showContent('company',{'show':'shipping'});" class='pointer' id='navLink_shipping'><k>» </k>Shipping Information</li>
+            </ul>
+        </nav>
+        <div class='productShips'>MY ACCOUNT</div>
+        <nav class='aboutNav aboutAcctNav openSansBoldFont'>
+        	<ul class='listStyleNone noPadOrMargin'>
+            	<li onClick="return showContent('customer',{'show':'myaccount'});" class='pointer'><k>» </k>Log-in or Sign-up</li>
+                <li onClick="return showContent('customer',{'show':'orders'});" class='pointer'><k>» </k>Order Tracking</li>
+                <li onClick="return showContent('company',{'show':'return'});" class='pointer'><k>» </k>Return a Product</li>
+                <li onClick="return showContent('customer',{'show':'newsletter'});" class='pointer'><k>» </k>Join Our Newsletter</li>
+                <li onClick="return showContent('company',{'show':'faq'});" class='pointer' id='navLink_faq'><k>» </k>FAQs</li>
+            </ul>
+        </nav>
+        <div class='aboutNavBottom openSansBoldFont'>
+        	<h1>NEED HELP? CALL US!</h1>
+            <h2 class='bangersFont'>(610) 421-4447</h2>
+            <h3>Private Information is protected
+            	<br>Satisfaction Guaranteed
+                <br>30-day return policy
+                <br>Friendly Customer Service
+            </h3>
+            <h4 class='bangersFont'>FREE SHIPPING!</h4>
+            <h5>Most orders ship within
+            	<br>1-2 business days
+            </h5>
+        </div>
 	</div>
+
 
 	<div class='mainColumn'>
 <!-- .textContentArea is used as a selector because IE8 doesn't play well  with tag type article as a selector -->
-		<div id='newsletterArticle' class='displayNone textContentArea'>
-			<h1>Subscribe to our Newsletter and Save!</h1>
+		<div id='newsletterArticle' class='shippingArtic displayNone textContentArea'>
+			<h1 class='bangersFont'>Subscribe to our Newsletter!</h1>
 			<div id='newsletterFormContainer'></div>
 		</div>
 
@@ -2141,25 +2183,27 @@ used for store_crm.js
 
 
 <div id='subscribeFormTemplate'>
-<form action='#' id='subscribeFrm' name='subscribeFrm' onSubmit="app.ext.store_crm.u.handleSubscribe('subscribeFrm'); return false">
-
-<fieldset class='userInfo borderNone'>
-<div>
-<label for='subscribeLogin'>Email Address</label>
-<input type='email'  maxlength='50' size='30' name='login' id='subscribeLogin' value='' />
-</div>
-
-<div>
-<label for='subscribeFullname'>Full Name</label>
-<input type='text'  maxlength='50' size='30' name='fullname' id='subscribeFullname' value='' />
-</div>
-</fieldset>
-
-<fieldset data-bind="var:newsletters(@lists); format:subscribeCheckboxes; extension:store_crm;" class='borderNone subscriberLists'></fieldset>
-
-<input type='submit' class='ui-button-text ui-button ui-state-default ui-corner-all' value='Subscribe'>
-
-</form>
+    <form action='#' class='newsletterSubscribeForm' id='subscribeFrm' name='subscribeFrm' onSubmit="app.ext.store_crm.u.handleSubscribe('subscribeFrm'); return false">
+    
+    <fieldset class='userInfo borderNone'>
+    <div>
+    <!--<label for='subscribeLogin'>Email Address</label>-->
+    <input type='email'  maxlength='50' size='30' name='login' class='newsletterSubscribeFormInput border openSansFont' id='subscribeLogin' placeholder=' E-mail Address' value='' />
+    </div>
+    
+    <div>
+    <!--<label for='subscribeFullname'>Full Name</label>-->
+    <input type='text'  maxlength='50' size='30' name='fullname' class='newsletterSubscribeFormInput border openSansFont'id='subscribeFullname' placeholder=' Full Name' value='' />
+    </div>
+    </fieldset>
+    
+    <fieldset data-bind="var:newsletters(@lists); format:subscribeCheckboxes; extension:store_crm;" class='newsletterSubscribeFormCheckbox borderNone subscriberLists'></fieldset>
+    
+    <div class='newsletterSubscribeFormSubmitContianer'>
+        <input type='submit' class='bangersFont ui-button-text ui-button ui-state-default ui-corner-all' value='Subscribe'>
+    </div>
+    
+    </form>
 </div>
 
 
@@ -2190,7 +2234,7 @@ used for store_crm.js
 
 
 <section  id='faqTopicTemplate'>
-
+	
 	<div class='ui-accordion-header ui-helper-reset ui-state-default ui-corner-top ui-corner-bottom' data-bind='var:faq(TOPIC_ID);format:assignAttribute; attribute:data-topicid;' onClick="app.ext.myRIA.a.showFAQbyTopic($(this).attr('data-topicid'));">
 	<span class="ui-icon ui-icon-triangle-1-e"></span>
 	<span data-bind='var:faq(TOPIC_TITLE);format:text;'></span>
@@ -2295,7 +2339,7 @@ The 'data-action' attribute is used to assign an onclick.
 
 
 
-<div id='loginFormForModal' class='loginOption displayNone' title='Please log in'>
+<div id='loginFormForModal' class='modalLogin loginOption displayNone' title='Please log in'>
 
 <!-- the contents of this div/id are toggled on/off when login/logout occurs. don't change the ID -->
 
