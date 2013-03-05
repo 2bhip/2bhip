@@ -1291,6 +1291,14 @@ PRODUCT DETAIL PAGE
 	width: 300px;
 }
 
+.prodTemplateTagsContainer {
+	position: absolute;
+	z-index: 2;
+	height: 30px;
+	width: 50px;
+	background-color: #F00;
+}
+
 .additionalImageContainer {
 	height: 75px;
 	width: 300px;
