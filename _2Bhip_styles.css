@@ -882,7 +882,7 @@ HOME PAGE
 	background-image:url(images/MiscTopSellingBkgrnd.jpg);
 }
 
-.miscTopSelling k {
+.miscTopSelling span {
 	color: #00B7F5;
 }
 
@@ -1637,7 +1637,7 @@ ABOUT PAGE
 	margin: 20px 0px 5px 0px;
 }
 
-.specialtyText k {
+.specialtyText span {
 	font-weight: bold;
 }
 
@@ -1663,7 +1663,7 @@ ABOUT PAGE
 	width: 175px;
 }
 
-.sideline k {
+.sideline span {
 	color: #000;
 }
 
