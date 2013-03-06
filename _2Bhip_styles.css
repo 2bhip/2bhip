@@ -1067,8 +1067,26 @@ PRODUCT STYLES / CAROUSELS
 	text-align: center;
 	font-size: 19px;
 	line-height: 36px;
-	background-image: url(images/BubbleRed.png);
 	z-index: 2;
+	background-color: #0F0;
+}
+
+.productBubble span.is_bestseller {
+	background-image: url(images/BubbleRed.png);
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 47px;
+	width: 90px;
+}
+
+.productBubble span.is_sale {
+	background-image: url(images/BubbleRed.png);
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 47px;
+	width: 90px;
 }
 
 .productList h5 {
@@ -1294,10 +1312,19 @@ PRODUCT DETAIL PAGE
 .prodTemplateTagsContainer {
 	position: absolute;
 	z-index: 2;
-	height: 30px;
-	width: 50px;
+	height: 47px;
+	width: 90px;
+	color: #fff;
+	text-align: center;
+	font-size: 19px;
+	line-height: 36px;
 	background-color: #F00;
 }
+
+/*background-image: url(images/BubbleRed.png);*/
+
+
+
 
 .additionalImageContainer {
 	height: 75px;
