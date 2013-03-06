@@ -1,13 +1,18 @@
 var app = app || {vars:{},u:{}}; //make sure app exists.
 app.rq = app.rq || []; //ensure array is defined. rq = resource queue.
 
-
-
-
 //app.rq.push(['extension',0,'convertSessionToOrder','extensions/checkout_passive/extension.js']);
-app.rq.push(['extension',0,'convertSessionToOrder','extensions/checkout_active/extension.js']);
 //app.rq.push(['extension',0,'convertSessionToOrder','extensions/checkout_required/extension.js']);
-app.rq.push(['extension',0,'store_checkout','extensions/store_checkout.js']);
+
+
+app.rq.push(['extension',0,'convertSessionToOrder','extensions/checkout_mobile/extension.js']);
+app.rq.push(['extension',0,'cco','extensions/cart_checkout_order.js']);
+
+//app.rq.push(['extension',0,'convertSessionToOrder','extensions/checkout_active/extension.js']);
+//app.rq.push(['extension',0,'store_checkout','extensions/store_checkout.js']);
+
+
+
 app.rq.push(['extension',0,'store_prodlist','extensions/store_prodlist.js']);
 app.rq.push(['extension',0,'store_navcats','extensions/store_navcats.js']);
 app.rq.push(['extension',0,'store_search','extensions/store_search.js']);
@@ -16,8 +21,8 @@ app.rq.push(['extension',0,'store_cart','extensions/store_cart.js']);
 app.rq.push(['extension',0,'store_crm','extensions/store_crm.js']);
 app.rq.push(['extension',0,'myRIA','quickstart.js','startMyProgram']);
 
-app.rq.push(['extension',1,'google_analytics','extensions/partner_google_analytics.js','startExtension']);
-app.rq.push(['extension',0,'partner_addthis','extensions/partner_addthis.js','startExtension']);
+//app.rq.push(['extension',1,'google_analytics','extensions/partner_google_analytics.js','startExtension']);
+//app.rq.push(['extension',0,'partner_addthis','extensions/partner_addthis.js','startExtension']);
 //app.rq.push(['extension',1,'resellerratings_survey','extensions/partner_buysafe_guarantee.js','startExtension']); /// !!! needs testing.
 //app.rq.push(['extension',1,'buysafe_guarantee','extensions/partner_buysafe_guarantee.js','startExtension']);
 //app.rq.push(['extension',1,'powerReviews_reviews','extensions/partner_powerreviews_reviews.js','startExtension']);
@@ -43,6 +48,7 @@ app.rq.push(['script',0,(document.location.protocol == 'file:') ? app.vars.httpU
 app.rq.push(['script',0,app.vars.baseURL+'model.js']); //'validator':function(){return (typeof zoovyModel == 'function') ? true : false;}}
 app.rq.push(['script',0,app.vars.baseURL+'includes.js']); //','validator':function(){return (typeof handlePogs == 'function') ? true : false;}})
 app.rq.push(['script',1,app.vars.baseURL+'jeditable.js']); //used for making text editable (customer address). non-essential. loaded late.
+app.rq.push(['script',1,app.vars.baseURL+'extensions/admin/resources/jquery.showloading-v1.0.jt.js']); //used for making text editable (customer address). non-essential. loaded late.
 app.rq.push(['script',0,app.vars.baseURL+'controller.js']);
 
 app.rq.push(['script',0,app.vars.baseURL+'anyplugins.js']); //in zero pass in case product page is first page.
@@ -56,7 +62,7 @@ app.rq.push(['templateFunction','homepageTemplate','onDeparts',function(P) {app.
 
 
 //group any third party files together (regardless of pass) to make troubleshooting easier.
-app.rq.push(['script',0,(document.location.protocol == 'https:' ? 'https:' : 'http:')+'//ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.js']);
+app.rq.push(['script',0,(document.location.protocol == 'https:' ? 'https:' : 'http:')+'//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js']);
 
 
 /*

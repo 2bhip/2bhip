@@ -42,7 +42,7 @@ For the list of available params, see the 'options' object below.
 	$.widget("ui.anymessage",{
 		options : {
 			message : null, //a string for output. if set, will ignore any _msgs or _err orr @issues in the 'options' object (passed by a request response)
-			gMessage : false, //set to true to throw a generic message. Will include extra error details
+			gMessage : false, //set to true to throw a generic message. Will include extra error details and a default message before the value of message.
 			containerClass : 'ui-state-highlight', //will be added to container, if set. will add no ui-state class if this is set.
 			iconClass : null, //for icon display. ex: ui-state-info. if set, no attempt to auto-generate icon will be made.
 			persistant : false //if true, message will not close automatically. WILL still generate a close button. iseerr's are persistant by default
@@ -174,7 +174,12 @@ For the list of available params, see the 'options' object below.
 			return $r;
 
 			},
-
+//intended for use inside the user interface
+/*
+		'type' : {
+			'success' : {'iconClass':'ui-icon-z-success','containerClass':''}
+			},
+*/
 //an animated 'close'
 		close : function($message){
 			var $target;  //what is being closed. could be an individual message OR all messages.
@@ -424,10 +429,10 @@ either templateID or (data or datapointer) are required.
 			r = true; // what is returned. false if not able to create template.
 			
 			
-			if(o.templateID && o.datapointer && app.data[datapointer])	{
+			if(o.templateID && o.datapointer && app.data[o.datapointer])	{
 //				app.u.dump(" -> template and datapointer present. transmogrify.");
 				this.element.hideLoading().removeClass('loadingBG');
-				this.element.append(app.renderFunctions.transmogrify(o.dataAttribs,o.templateID,app.data[datapointer]));
+				this.element.append(app.renderFunctions.transmogrify(o.dataAttribs,o.templateID,app.data[o.datapointer]));
 				}
 			else if(o.templateID && o.data)	{
 //				app.u.dump(" -> template and data present. transmogrify.");
@@ -959,7 +964,7 @@ Additional a settings button can be added which will contain a dropdown of selec
 			},
 
 		_handlePersistentStateUpdate : function(value)	{
-//			app.u.dump("BEGIN anypanel._handlePersistentStateUpdate")
+//			app.u.dump("BEGIN anypanel._handlePersistentStateUpdate");
 			var r = false; //will return true if a persistent update occurs.
 //			app.u.dump(" -> this.options.persistent: "+this.options.persistent);
 //			app.u.dump(" -> value: "+value);
@@ -969,11 +974,13 @@ Additional a settings button can be added which will contain a dropdown of selec
 					var settings = {};
 					settings[this.options.name] = {'state':value};
 					var newSettings = $.extend(true,app.ext.admin.u.dpsGet(this.options.extension,'anypanel'),settings); //make sure panel object exits.
+//					app.u.dump(' -> '+this.options.extension);
+//					app.u.dump(' -> newSettings:');	app.u.dump(newSettings);
 					app.ext.admin.u.dpsSet(this.options.extension,'anypanel',newSettings); //update the localStorage session var.
 					r = true;
 					}
 				else	{
-					console.warn("anypanel has persist enabled, but either name ["+this.name+"] or extension ["+this.extension+"] not declared. This is a non-critical error, but it means panel will not be persistant.");
+					app.u.dump("anypanel has persist enabled, but either name ["+this.name+"] or extension ["+this.extension+"] not declared. This is a non-critical error, but it means panel will not be persistant.",'warn');
 					}
 				}
 			return r;
