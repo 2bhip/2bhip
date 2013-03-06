@@ -1068,11 +1068,10 @@ PRODUCT STYLES / CAROUSELS
 	font-size: 19px;
 	line-height: 36px;
 	z-index: 2;
-	background-color: #0F0;
 }
 
 .productBubble span.is_bestseller {
-	background-image: url(images/BubbleRed.png);
+	background-image: url(images/TagBestSeller.png);
 	position: absolute;
 	top: 0px;
 	left: 0px;
@@ -1081,7 +1080,16 @@ PRODUCT STYLES / CAROUSELS
 }
 
 .productBubble span.is_sale {
-	background-image: url(images/BubbleRed.png);
+	background-image: url(images/TagClearance.png);
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 47px;
+	width: 90px;
+}
+
+.productBubble span.is_newarrival {
+	background-image: url(images/TagNew.png);
 	position: absolute;
 	top: 0px;
 	left: 0px;
