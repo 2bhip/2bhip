@@ -516,12 +516,12 @@ FOOTER
 .footerEmailBar{
 	position: absolute;
 	top: 0px;
-	left: 320px;	
+	left: 204px;	
 }
 
 .footerButtonContainer {
 	position: absolute;
-	left: 518px;
+	left: 402px;
 	top: 0px;
 	height: 35px;
 	width: 50px;	

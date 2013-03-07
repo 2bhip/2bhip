@@ -26,7 +26,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130306084800",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130307112200",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"httpsURL":"https://ssl.zoovy.com/s=www.97638a9e.pop.zoovy.net/",
@@ -132,10 +132,10 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
     <div class='headerBranding'>
     	<div class='bangersBigFont' id='headerPhone'>(610) 421-4447&nbsp </div>
         <div class='socialIconContainer'>
-        	<div class='socialIcons'><a href="https://www.facebook.com/coolgifts" target='_blank'><img src='images/FacebookIcon.png'></div></a>
-            <div class='socialIcons'><a href="https://twitter.com/2Bhip" target='_blank'><img src="images/TwitterIcon.png"></div></a>
-            <div class='socialIcons'><a href="https://pinterest.com/2bhip/" target='_blank'><img src="images/PintrestIcon.png"></div></a>
-            <div class='socialIcons'><a href="https://www.youtube.com/user/2beltbuckles" target='_blank'><img src="images/YouTubeIcon.png"></div></a>
+        	<div class='socialIcons'><a href="https://www.facebook.com/coolgifts" target="_blank"><img src='images/FacebookIcon.png'></a></div>
+            <div class='socialIcons'><a href="https://twitter.com/2Bhip" target='_blank'><img src="images/TwitterIcon.png"></a></div>
+            <div class='socialIcons'><a href="https://pinterest.com/2bhip/" target='_blank'><img src="images/PintrestIcon.png"></a></div>
+            <div class='socialIcons'><a href="https://www.youtube.com/user/2beltbuckles" target='_blank'><img src="images/YouTubeIcon.png"></a></div>
         </div>
     </div>    
 </div>
@@ -364,25 +364,24 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
 	<div class='stayUpdatedContainer'>
     	
         <div class='stayUpdated bangersMedFont'>STAY UPDATED!</div>
-	    <div class='footerNameBar'>
-        	<form action='#' class='footerFormFrm' id='subscribeFrm' name='subscribeFrm' onSubmit="app.ext.store_crm.u.handleSubscribe('subscribeFrm'); return false">
-				<input type='text'  maxlength='50' size='30' name='fullname' class='borderRound form' placeholder='  Full Name' />
-		</div>
-          <div class='footerEmailBar'>
-              <input type='email'  maxlength='50' size='30' name='login' class='borderLeft form' placeholder='  E-mail Address' />
-          </div>
-          <div class='footerButtonContainer'>
-              <input type='submit' value='GO!' class='borderRight button bangersMedFont'>
-          </div>
-			</form>
+	    
+        <form action='#' class='footerNameBar footerFormFrm' id='subscribeFrm' name='subscribeFrm' onSubmit="app.ext.store_crm.u.handleSubscribe('subscribeFrm'); return false">
+			<input type='text'  maxlength='50' size='30' name='fullname' class='borderRound form' placeholder='  Full Name' />
+            <div class='footerEmailBar'>
+                <input type='email'  maxlength='50' size='30' name='login' class='borderLeft form' placeholder='  E-mail Address' />
+            </div>
+            <div class='footerButtonContainer'>
+                <input type='submit' value='GO!' class='borderRight button bangersMedFont'>
+            </div>
+		</form>
     </div>
     
     <div class='getSocial bangersFont textShadow'>GET SOCIAL WITH US!</div>
 	<div class='footerSocialIconContainer'>
-	    <div class='socialIcons'><a href="https://www.facebook.com/coolgifts" target='_blank'><img src='images/FacebookIcon.png'></div></a>
-            <div class='socialIcons'><a href="https://twitter.com/2Bhip" target='_blank'><img src="images/TwitterIcon.png"></div></a>
-            <div class='socialIcons'><a href="https://pinterest.com/2bhip/" target='_blank'><img src="images/PintrestIcon.png"></div></a>
-            <div class='socialIcons'><a href="https://www.youtube.com/user/2beltbuckles" target='_blank'><img src="images/YouTubeIcon.png"></div></a>
+	    <div class='socialIcons'><a href="https://www.facebook.com/coolgifts" target='_blank'><img src='images/FacebookIcon.png'></a></div>
+            <div class='socialIcons'><a href="https://twitter.com/2Bhip" target='_blank'><img src="images/TwitterIcon.png"></a></div>
+            <div class='socialIcons'><a href="https://pinterest.com/2bhip/" target='_blank'><img src="images/PintrestIcon.png"></a></div>
+            <div class='socialIcons'><a href="https://www.youtube.com/user/2beltbuckles" target='_blank'><img src="images/YouTubeIcon.png"></a></div>
     </div>
 </div>
 
@@ -1142,10 +1141,10 @@ this will likely become more flexible in the future. ###
 	</td>
     	
     <td>
-        <div  class='prodSelectionContainer borderRound'>
-            
-            <div class='openSansBoldFont productShips' data-bind='var: product(zoovy:ship_latency); format:text;pretext:PRODUCT SHIPS WITHIN ;posttext: DAYS;' class='latency'></div>
-            
+        <div class='prodSelectionContainer borderRound'>
+        
+            <div class='openSansBoldFont productShips latency' data-bind='var: product(zoovy:ship_latency); format:text;pretext:PRODUCT SHIPS WITHIN ;posttext: DAYS;'></div>
+                        
             <div class='prodPriceSelection'>
                 <h5 class='prodMSRP bangersFont' data-bind='var: product(zoovy:prod_msrp); format:money; currencySign: $;  hideZero:true;'></h5>
                 <h4 class='basePrice bangersFont' data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true;'></h4>
@@ -1200,7 +1199,7 @@ this will likely become more flexible in the future. ###
         	 </div>
              
              <div class='productShips'></div>
-        </div>
+       </div>
     </td>
 </tr>
 <!-- <tr>
@@ -1365,7 +1364,7 @@ It's done this way because ID's hard coded into template are bad mojo (templates
     <td>
         <div  class='prodSelectionContainer borderRound'>
             
-            <div class='openSansBoldFont productShips' data-bind='var: product(zoovy:ship_latency); format:text;pretext:PRODUCT SHIPS WITHIN ;posttext: DAYS;' class='latency'></div>
+            <div class='openSansBoldFont productShips latency' data-bind='var: product(zoovy:ship_latency); format:text; pretext:PRODUCT SHIPS WITHIN ; posttext: DAYS;'></div>
             
             <div class='prodPriceSelection'>
                 <h5 class='prodMSRP bangersFont' data-bind='var: product(zoovy:prod_msrp); format:money; currencySign: $;  hideZero:true;'></h5>
@@ -1400,11 +1399,12 @@ It's done this way because ID's hard coded into template are bad mojo (templates
         <!--	<div data-bind='var: product(@inventory.inv); format:simpleInvDisplay; extension:store_product;' class='inventory'></div> -->
         
         	<div class='prodCartSelection'>
-                
+
                 <form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodCartMarginRemove prodViewerAddToCartForm clearfix' action='#' onSubmit="app.ext.myRIA.u.handleAddToCart($(this),{'action':'modal'}); return false;">
                     <!--<div data-bind='var: product(pid); format:atcVariations; extension:store_product;' class='borderNone'></div>-->
                     <div class='openSansBoldFont prodSelectionQty'>ITEM QUANTITY</div>
                     <div data-bind='var: product(pid); format:atcQuantityInput; extension:store_product;' class='prodSelectItemField'></div>
+               <!-- <input type='submit' value='Add to Cart' class='                                    ui-button ui-button-text ui-corner-all ui-state-default addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;' id='addToCartBtn' -->    
                     <input type='submit' value='Add to Cart' class='prodSelectAddCartButton bangersFont ui-button ui-button-text ui-corner-all ui-state-default addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;' id='addToCartBtn' />
                 </form>
                 
@@ -1808,7 +1808,7 @@ adding classes is not likely to have any bad effects.
         <div class='productShips'>HELPFUL LINKS</div>
         <nav class='aboutNav aboutHelpNav openSansBoldFont'>
         	<ul class='listStyleNone noPadOrMargin'>
-                <li onClick="return showContent('company',{'show':'about'});" class='pointer' id='navLink_about'<k>» </k>About Us</li>
+                <li onClick="return showContent('company',{'show':'about'});" class='pointer' id='navLink_about'><k>» </k>About Us</li>
                 <li onClick="return showContent('company',{'show':'contact'});" class='pointer' id='navLink_contact'><k>» </k>Contact Information</li>
                 <li onClick="return showContent('company',{'show':'faq'});" class='pointer' id='navLink_faq'><k>» </k>FAQ</li>
 				<li onClick="return showContent('company',{'show':'payment'});" class='pointer' id='navLink_payment'><k>» </k>Payment Policy</li>
