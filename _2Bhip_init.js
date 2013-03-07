@@ -230,7 +230,9 @@ app.u.throwMessage = function(m)	{
 	//Homepage customer review switcher
 	var revChange = $('.miscCustReviews li');
 	var i=1;
+	$(revChange).hide();
 	$(revChange[0]).show();
+	revChange.siblings();
 	function loop() {
 		revChange.siblings().delay(4000).fadeOut(4000).delay(4000).eq(i).fadeIn(4000, function() {
 			check = i != revChange.length-1 ? i++ : i=0;

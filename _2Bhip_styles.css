@@ -1058,6 +1058,23 @@ PRODUCT STYLES / CAROUSELS
 	margin: 15px;
 }
 
+.staticProductBubble {
+	position: absolute;
+	top: 0px;
+	left: 127px;
+	height: 47px;
+	width: 90px;
+	color: #fff;
+	text-align: center;
+	font-size: 19px;
+	line-height: 36px;
+	z-index: 2;
+	text-align: center;
+	font-size: 18px;
+	line-height: 36px;
+	background-image: url(images/BubbleRed.png);
+}
+
 .productBubble {
 	position: absolute;
 	top: 0px;
@@ -1317,23 +1334,6 @@ PRODUCT DETAIL PAGE
 .imageContainer {
 	width: 300px;
 }
-
-.prodTemplateTagsContainer {
-	position: absolute;
-	z-index: 2;
-	height: 47px;
-	width: 90px;
-	color: #fff;
-	text-align: center;
-	font-size: 19px;
-	line-height: 36px;
-	background-color: #F00;
-}
-
-/*background-image: url(images/BubbleRed.png);*/
-
-
-
 
 .additionalImageContainer {
 	height: 75px;
