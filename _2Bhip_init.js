@@ -104,7 +104,7 @@ app.u.throwMessage = function(m)	{
  		});
 	}
 	carousel2 = foo2;
- 	setTimeout(carousel2, 1000); 
+ 	setTimeout(carousel2, 2000); 
 	
 	
 	//Best Selling Items Carousel horizontal sliders
@@ -132,7 +132,7 @@ app.u.throwMessage = function(m)	{
  		});
 	}
  	carousel3 = foo3;
-	setTimeout(carousel3, 1000); 	
+	setTimeout(carousel3, 2000); 	
 	
 	
 	//New Arrivals Carousel horizontal sliders
@@ -155,7 +155,7 @@ app.u.throwMessage = function(m)	{
  		});
 	}
  	carousel4 = foo4;
-	setTimeout(carousel4, 1000); 
+	setTimeout(carousel4, 2000); 
 	
 	
 	//BATMAN Carousel horizontal sliders
@@ -178,7 +178,7 @@ app.u.throwMessage = function(m)	{
  		});
 	}
  	carousel5 = foo5;
-	setTimeout(carousel5, 1000); 
+	setTimeout(carousel5, 2000); 
 	
 	
 	//Similar Items Carousel on Product Details page horizontal sliders
@@ -201,7 +201,7 @@ app.u.throwMessage = function(m)	{
  		});
 	}
  	carousel5 = foo5;
-	setTimeout(carousel5, 1000); 
+	setTimeout(carousel5, 2000); 
 	
 	
 	//Previously Viewed Items Carousel on Product Details page horizontal sliders
@@ -224,7 +224,7 @@ app.u.throwMessage = function(m)	{
  		});
 	}
  	carousel5 = foo5;
-	setTimeout(carousel5, 1000); 
+	setTimeout(carousel5, 2000); 
 	
 	
 	//Homepage customer review switcher
@@ -232,7 +232,7 @@ app.u.throwMessage = function(m)	{
 	var i=1;
 	$(revChange[0]).show();
 	function loop() {
-		revChange.siblings().delay(3000).fadeOut(2000).delay(2000).eq(i).fadeIn(2000, function() {
+		revChange.siblings().delay(4000).fadeOut(4000).delay(4000).eq(i).fadeIn(4000, function() {
 			check = i != revChange.length-1 ? i++ : i=0;
 			loop();
 		});
