@@ -562,7 +562,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
         <div class='templateCarouselContainer border'>
         <div>
         <!-- a sample of how to format an elastic native search in a data-bind -->
-            <ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch imageURL; extension: myRIA; loadsTemplate: productListTemplateResultsCustom;' class='homePageTempCarousel1 listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+            <ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"20","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch imageURL; extension: myRIA; loadsTemplate: productListTemplateResultsCustom;' class='homePageTempCarousel1 listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
         </div>
     </div>
     
@@ -586,7 +586,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
         <div class='templateCarouselContainer border'>
         <div>
         <!-- a sample of how to format an elastic native search in a data-bind -->
-            <ul id='homeProdSearchBestSellers2' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResultsCustom;' class='homePageTempCarousel12 listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+            <ul id='homeProdSearchBestSellers2' data-bind='var: elastic-native({"size":"20","mode":"elastic-native","filter":{"term":{"tags":"IS_NEWARRIVAL"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResultsCustom;' class='homePageTempCarousel12 listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
         </div>
     </div>
     
@@ -599,9 +599,9 @@ the homepageTemplate template is loaded into mainContentArea by default when the
     <div class='seperator'></div>
     
     
-<!-- BATMAN CAROUSEL -->
+<!-- FREE SHIPPING CAROUSEL -->
     <div class='templateHeadContainer'>
-    	<div class='templateHeadDesc border bangersMedFont'>BATMAN</div>
+    	<div class='templateHeadDesc border bangersMedFont'>FREE SHIPPING!!</div>
         <div class='templateMiddleContainer'>
             <div class='prodListButtons pointer' id='homeCarButtonPrev3'><img src="images/TemplateArrowPrev.png"></div>
             <div class='prodListCarouselButtonContainer' id='homePaginationContainer3'></div>
@@ -612,7 +612,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
         <div class='templateCarouselContainer border'>
         <div>
         <!-- a sample of how to format an elastic native search in a data-bind -->
-            <ul id='homeProdSearchBestSellers3' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"IS_BESTSELLER"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResultsCustom;' class='homePageTempCarousel13 listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
+            <ul id='homeProdSearchBestSellers3' data-bind='var: elastic-native({"size":"20","mode":"elastic-native","filter":{"term":{"tags":"IS_SHIPFREE"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResultsCustom;' class='homePageTempCarousel13 listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
         </div>
     </div>
     
@@ -659,10 +659,10 @@ the homepageTemplate template is loaded into mainContentArea by default when the
                         <li><span>&#187 </span>Looney Tunes</li>
                         <li><span>&#187 </span>Mario Bros</li>
                         <li><span>&#187 </span>Marvel Comics</li>
-                        <li></li>	
+                        <li><span>&#187 </span>My Little Pony</li>	
                     </ul>
                     <ul class='miscList miscListRight openSansBoldFont'>
-                        <li><span>&#187 </span>My Little Pony</li>
+                        <li><span>&#187 </span>Nightmare Before Christmas</li>
                         <li><span>&#187 </span>Sesame Street</li>
                         <li><span>&#187 </span>Star Trek</li>
                         <li><span>&#187 </span>Star Wars</li>                        
@@ -1047,7 +1047,7 @@ remember to NOT put the button inside the 'onclick' container or two events will
             <div class='productSize borderRound bangersFont greyGradient'>XL</div>
             <div class='productSize borderRound bangersFont greyGradient'>XXL</div>	
     	</div>
-        <div class='pointer staticProductBubble bangersMedFont' onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});">BEST SELLING</div>
+        <!-- <div class='pointer staticProductBubble bangersMedFont' onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});">BEST SELLING</div> -->
 	</div>
 	
 </li>
@@ -2023,12 +2023,12 @@ So the cart template should contain these two elements and the extension should 
 <table class='cartContainer'>
 <tr>
 	<td class='cartStuffContainer'>
-	<ul id='cartStuffList' data-bind="var: cart(@ITEMS); format:stuffList; loadsTemplate:productListTemplateCart;" class='listStyleNone fluidList clearfix noPadOrMargin productList lineItemProdlist'></ul>
-	</td>
+ 	<ul id='cartStuffList' data-bind="var: cart(@ITEMS); format:stuffList; loadsTemplate:productListTemplateCart;" class='listStyleNone fluidList clearfix noPadOrMargin productList lineItemProdlist'></ul>
+    </td>
 
 	<td class='cartSummaryTotalsContainer'>
 	<div class='ui-widget ui-widget-content ui-helper-clearfix ui-corner-all'>
-		<h2 class='ui-widget-header ui-helper-clearfix ui-corner-all ui-header'>Cart Totals</h2>
+		<h2 class='cartPriceHeader openSansBoldFont'>Total Cart Price</h2>
 		<div class='cartSummaryContainer'>
 
 <section id='cartTemplateCostSummary' class='cartSummary'>
@@ -2106,7 +2106,9 @@ So the cart template should contain these two elements and the extension should 
 <!-- cart line-item template -->
 <ul>
 	<li id='productListTemplateCart' class='padMargBorderBottom clearfix'>
-
+		
+        <div class='cartItems'></div>
+        
 		<button class='floatRight removeButton' data-bind='format:removeItemBtn; extension:store_cart; useParentData:true;' >Remove Item From Cart</button>
 
 		<div class='floatLeft'><img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); defaultVar: product(%attribs.zoovy:prod_image1); format:imageURL;' width='75' height='75' /></div>

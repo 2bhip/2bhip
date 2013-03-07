@@ -113,7 +113,7 @@ app.u.throwMessage = function(m)	{
   			width    : 956,
   			height 	 : 305,
      		items    : 4,
-  			scroll   : 1,
+  			scroll   : 4,
   			/*auto     : {
 						delay : 1,
 						items : 4,
@@ -140,8 +140,8 @@ app.u.throwMessage = function(m)	{
 		function foo4(){ $(".homePageTempCarousel12").carouFredSel({
   			width    : 960,
   			height 	 : 305,
-     		items    : 2,
-  			scroll   : 1,
+     		items    : 4,
+  			scroll   : 4,
 			auto	 : false,
 			prev : {
 				button : "#homeCarButtonPrev2",
@@ -163,8 +163,8 @@ app.u.throwMessage = function(m)	{
 		function foo5(){ $(".homePageTempCarousel13").carouFredSel({
   			width    : 960,
   			height 	 : 305,
-     		items    : 2,
-  			scroll   : 1,
+     		items    : 4,
+  			scroll   : 4,
 			auto	 : false,
 			prev : {
 				button : "#homeCarButtonPrev3",

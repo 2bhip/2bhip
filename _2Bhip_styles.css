@@ -902,7 +902,9 @@ HOME PAGE
 }
 
 .miscList li {
-	margin: 15px 0px 15px 0px;
+	margin: 11px 0px 11px 0px;
+	padding-left: 6px;
+	text-indent: -15px;
 }
 
 .miscListButton {
@@ -991,14 +993,14 @@ PRODUCT STYLES / CAROUSELS
 
 .templateMiddleContainer {
 	height: 26px;
-	width: 220px;
-	margin: 4px 140px 0px 140px;
+	width: 178px;
+	margin: 4px 161px 0px 161px;
 	float: left;
 }
 
 .prodListCarouselButtonContainer {
 	height: 26px;
-	width: 150px;
+	width: 107px;
 	float: left;
 }
 
@@ -1574,9 +1576,25 @@ QUICK VIEW MODAL
 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
 
 
+/*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+CART MODAL
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
 
 
+.cartItems {
+	height: 50px;
+	widht: 50px;
+	background-color: #F00;
+}
 
+.cartPriceHeader {
+	background-color: #000;
+	font-size: 12px;
+	color: #fff;
+	text-align: center;
+}
 
 
 
