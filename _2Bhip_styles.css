@@ -1649,11 +1649,76 @@ CART MODAL
 
 .cartRight {
 	height: 565px;
-	width: 218;
+	width: 216px;
 	margin: 1px 1px 1px 121px;	
 	background-color: #C9F;
 }
 
+.cartSummaryContainer {
+	background-color: #000;
+}
+
+.cartSummaryContainer.cartSumCont {
+	padding: 0px;
+	margin: 0px;
+	height: 541px;
+}
+
+.cartSummary {
+	height: 85px;
+	width: 100%;
+	margin: 0px;
+	background-color: #eee;	
+}
+
+.cartShipMethods {
+	margin: 0px;
+}
+
+.cartPrice {
+	color: #000;
+	font-size: 48px;
+	text-align: center;
+	line-height: 50px;
+}
+
+.youSaved  {
+	color: #000;
+	text-align: center;
+	font-size: 14px;
+	line-height: 10px;
+}
+
+.discCodeContainer {
+	height: 40px;
+	width: 100%;
+	border-top: 2px solid #000;
+	background-color: #006099;
+}
+
+.shipOptions.shipOptCont {
+	border-top: 2px solid #000;
+	border-bottom: 2px solid #000;
+	background-color: #ffcc00;
+}
+
+.checkoutSection {
+	height: 70px;
+	width: 100%;
+	background-color: #eee;
+}
+
+.checkoutButtonsContainer.checkButtCont span {
+	height: 50px;
+	width: 195px;
+	margin: 10px 0px 0px 12px;
+}
+
+.checkButt.ui-button.ui-button-text.ui-state-default.ui-corner-all.checkoutButton {
+	height: 50px;
+	width: 195px;
+	font-size: 30px;
+}
 
 
 

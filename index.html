@@ -2029,7 +2029,7 @@ So the cart template should contain these two elements and the extension should 
 	<td class='cartSummaryTotalsContainer'>
 	<div class='cartRight prodSelectionContainer borderRound '>
 		<h2 class='cartPriceHeader openSansBoldFont'>Total Cart Price</h2>
-		<div class='cartSummaryContainer'>
+		<div class='cartSummaryContainer cartSumCont'>
 
 <section id='cartTemplateCostSummary' class='cartSummary'>
 
@@ -2041,42 +2041,61 @@ So the cart template should contain these two elements and the extension should 
 	<div data-bind='var: cart(sum/pnt_total); format:money; className:rewardPointsTotal; hideZero:false; currencySign: $; pretext:Reward Points: ; '></div>
 	<div data-bind='var: cart(sum/rmc_total); format:money; className:returnsCreditTotal; hideZero:false; currencySign: $; pretext:Returns Credit: ; '></div>-->
 
-	<div class='bangersBigFont' data-bind='var: cart(sum/balance_due_total); format:orderBalance; className:orderBalanceDue; hideZero:false; currencySign: $; pretext:; extension:store_cart;'></div>
-
+	<div class='bangersFont cartPrice' data-bind='var: cart(sum/balance_due_total); format:orderBalance; className:orderBalanceDue; hideZero:false; currencySign: $; pretext:; extension:store_cart;'></div>
+	<div class='youSaved openSansBoldFont'>Saved $XX(%XX)</div>
 </section>
 
-<section id='cartTemplateShippingContainer'>
-	<h3>Shipping:</h3>
+<section class='discCodeContainer'>
+	
+</section>
+
+<section id='cartTemplateShippingContainer' class='shipOptions shipOptCont'>
+	<!--<h3>Shipping:</h3>-->
 	<ul class='noPadOrMargin listStyleNone cartShipMethods' data-bind='var: cart(@SHIPMETHODS); format:shipMethodsAsRadioButtons; extension:store_cart;'></ul>
 </section>
 
-<section class='stdMargin'>
+<section class='checkoutSection'>
 
-	<div class='cartZipCodeContainer'>
+	<!-- <div class='cartZipCodeContainer'>
 	<label for='data-ship_zip'>Zip/Postal Code:</label>
 	<input type='text' size='6'  name='ship/postal' id='data-ship_zip' value='' data-bind='var: cart(ship/postal); format:popVal;' maxlength='10' onChange="app.calls.cartSet.init({'ship/postal':this.value, 'ship/region':''});
 	app.ext.store_cart.u.updateCartSummary();
 	app.ext.store_cart.calls.cartShippingMethodsWithUpdate.init();
 	app.model.dispatchThis('immutable');"  />
-	</div>
+	</div> -->
 
 
 
 	<!-- some buttons that are alternatives to checkout. fewer is better -->
-	<menu class='cartAltButtonsContainer noPadOrMargin'>
+	<!-- <menu class='cartAltButtonsContainer noPadOrMargin'>
 	<button class='ui-button-text ui-button ui-state-default ui-corner-all continueShoppingButton' onClick="$('#modalCart').dialog('close');">Continue Shopping</button>
-	</menu>
+	</menu> -->
 
-	<div class='checkoutButtonsContainer'>
+	<div class='checkoutButtonsContainer checkButtCont'>
 
-		<span title='proceed to secure checkout'><button class='ui-button ui-button-text ui-state-default ui-corner-all checkoutButton' onClick="showContent('checkout',{});">Store Checkout</button></span>
+		<span title='proceed to secure checkout'><button class='checkButt ui-button ui-button-text ui-state-default ui-corner-all checkoutButton' onClick="showContent('checkout',{});">CHECK OUT</button></span>
 
-		<span id='paypalECButton' data-bind='var: cart(cart/cartid); format:paypalECButton;'></span>
-
+		<!-- <span id='paypalECButton' data-bind='var: cart(cart/cartid); format:paypalECButton;'></span>
 		<span id='googleCheckoutButton' class='pointer' data-bind='var: cart(sum/items_total); format:googleCheckoutButton;'></span>
+		<span id='amazonCheckoutButton' class='pointer' data-bind='var: cart(cart/cartid); format:amazonCheckoutButton;'></span> -->
 
-		<span id='amazonCheckoutButton' class='pointer' data-bind='var: cart(cart/cartid); format:amazonCheckoutButton;'></span>
-
+	</div>
+    
+</section>
+    
+<section>
+    <div class='aboutNavBottom openSansBoldFont'>
+        	<h1>NEED HELP? CALL US!</h1>
+            <h2 class='bangersFont'>(610) 421-4447</h2>
+            <h3>Private Information is protected
+            	<br>Satisfaction Guaranteed
+                <br>30-day return policy
+                <br>Friendly Customer Service
+            </h3>
+            <h4 class='bangersFont'>FREE SHIPPING!</h4>
+            <h5>Most orders ship within
+            	<br>1-2 business days
+            </h5>
 	</div>
 
 </section>
