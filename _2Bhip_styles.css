@@ -1394,7 +1394,7 @@ PRODUCT DETAIL PAGE
 .prodSelectionContainer {
 	height: 618px;
 	width: 218px;
-	background-color: #C9F;
+	background-color: #eee;
 }
 
 .productShips {
@@ -1612,6 +1612,13 @@ CART MODAL
 	font-size: 12px;
 	color: #fff;
 	text-align: center;
+}
+
+.cartRight {
+	height: 565px;
+	width: 218;
+	margin: 1px 1px 1px 121px;	
+	background-color: #C9F;
 }
 
 
