@@ -798,13 +798,13 @@ don't modify the 'data-templateid' unless you are changing template names and up
             
             <h1 class='bangersFont'>CATEGORIES</h1>
             
-            <p class='openSansBoldFont' data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
+            <p class='openSansFont' data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
         
             <ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplateCustom; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul><!-- outputs a list of subcategories -->
             
             <ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplateCustom; withReviews:1; items_per_page: 9;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
             
-            <p data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p><!---->
+            <p class='openSansFont' data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p><!---->
         </div>
     </div>
 </div>
@@ -1097,9 +1097,9 @@ this will likely become more flexible in the future. ###
         </div>
 
         <div data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='prodThumbs'>
-            <div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).parent().attr("data-pid"),"int":"2"});' class='pointer'><img src='blank.gif' data-bind='var: product(zoovy:prod_image2); format:imageURL;' width='100' height='100' /></div>
-            <div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).parent().attr("data-pid"),"int":"3"});' class='pointer'><img src='blank.gif' data-bind='var: product(zoovy:prod_image3); format:imageURL;' width='100' height='100' /></div>
-            <div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).parent().attr("data-pid"),"int":"4"});' class='pointer'><img src='blank.gif' data-bind='var: product(zoovy:prod_image4); format:imageURL;' width='100' height='100' /></div>
+            <div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).parent().attr("data-pid"),"int":"2"});' class='pointer additionalImages border'><img src='blank.gif' data-bind='var: product(zoovy:prod_image2); format:imageURL;' width='69' height='69' /></div>
+            <div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).parent().attr("data-pid"),"int":"3"});' class='pointer additionalImages border'><img src='blank.gif' data-bind='var: product(zoovy:prod_image3); format:imageURL;' width='69' height='69' /></div>
+            <div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).parent().attr("data-pid"),"int":"4"});' class='pointer additionalImages border'><img src='blank.gif' data-bind='var: product(zoovy:prod_image4); format:imageURL;' width='69' height='69' /></div>
         </div>
         
         <div class='additionalImageContainer'></div>
@@ -1150,7 +1150,7 @@ this will likely become more flexible in the future. ###
                 <h4 class='basePrice bangersFont' data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true;'></h4>
             </div>
             
-            <div class='prodSizeSelection'>
+        <!--<div class='prodSizeSelection'>
             	<ul title='please choose' id='prodlistChildren' class='listStyleNone fluidList clearfix noPadOrMargin productList smallProdlist' data-bind="var: product(zoovy:grp_children); format:productList; extension:store_prodlist; loadsTemplate:productListTemplateChildren;hide_summary:true;"></ul>
         		<ul class='sizeUL'>
                 	<li>
@@ -1174,14 +1174,14 @@ this will likely become more flexible in the future. ###
                         <div class='sizeText openSansBoldFont'>XXL &nbsp $1,049.99</div>
                     </li>
                 </ul>
-            </div>
+            </div> -->
         <!--	<div data-bind='var: product(@inventory.inv); format:simpleInvDisplay; extension:store_product;' class='inventory'></div> -->
         
         	<div class='prodCartSelection'>
                 
                 <form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodCartMarginRemove prodViewerAddToCartForm clearfix' action='#' onSubmit="app.ext.myRIA.u.handleAddToCart($(this),{'action':'modal'}); return false;">
                     <!-- -->
-                    <div data-bind='var: product(pid); format:atcVariations; extension:store_product;' class='borderNone'></div>
+                    <div data-bind='var: product(pid); format:atcVariations; extension:store_product;' class='borderNone sizeSelector'></div>
                     
                     <div class='openSansBoldFont prodSelectionQty'>ITEM QUANTITY</div>
                     <div data-bind='var: product(pid); format:atcQuantityInput; extension:store_product;' class='prodSelectItemField'></div>
@@ -1320,9 +1320,9 @@ It's done this way because ID's hard coded into template are bad mojo (templates
         </div>
 
         <div data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='prodThumbs'>
-            <div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).parent().attr("data-pid"),"int":"2"});' class='pointer'><img src='blank.gif' data-bind='var: product(zoovy:prod_image2); format:imageURL;' width='100' height='100' /></div>
-            <div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).parent().attr("data-pid"),"int":"3"});' class='pointer'><img src='blank.gif' data-bind='var: product(zoovy:prod_image3); format:imageURL;' width='100' height='100' /></div>
-            <div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).parent().attr("data-pid"),"int":"4"});' class='pointer'><img src='blank.gif' data-bind='var: product(zoovy:prod_image4); format:imageURL;' width='100' height='100' /></div>
+            <div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).parent().attr("data-pid"),"int":"2"});' class='pointer additionalImages border'><img src='blank.gif' data-bind='var: product(zoovy:prod_image2); format:imageURL;' width='69' height='69' /></div>
+            <div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).parent().attr("data-pid"),"int":"3"});' class='pointer additionalImages border'><img src='blank.gif' data-bind='var: product(zoovy:prod_image3); format:imageURL;' width='69' height='69' /></div>
+            <div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).parent().attr("data-pid"),"int":"4"});' class='pointer additionalImages border'><img src='blank.gif' data-bind='var: product(zoovy:prod_image4); format:imageURL;' width='69' height='69' /></div>
         </div>
         
         <div class='additionalImageContainer'></div>
@@ -1373,7 +1373,7 @@ It's done this way because ID's hard coded into template are bad mojo (templates
                 <h4 class='basePrice bangersFont' data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true;'></h4>
             </div>
             
-            <div class='prodSizeSelection'>
+        <!--<div class='prodSizeSelection'>
             	<ul title='please choose' id='prodlistChildren' class='listStyleNone fluidList clearfix noPadOrMargin productList smallProdlist' data-bind="var: product(zoovy:grp_children); format:productList; extension:store_prodlist; loadsTemplate:productListTemplateChildren;hide_summary:true;"></ul>
         		<ul class='sizeUL'>
                 	<li>
@@ -1397,13 +1397,13 @@ It's done this way because ID's hard coded into template are bad mojo (templates
                         <div class='sizeText openSansBoldFont'>XXL &nbsp $1,049.99</div>
                     </li>
                 </ul>
-            </div>
+            </div> -->
         <!--	<div data-bind='var: product(@inventory.inv); format:simpleInvDisplay; extension:store_product;' class='inventory'></div> -->
         
         	<div class='prodCartSelection'>
 
                 <form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodCartMarginRemove prodViewerAddToCartForm clearfix' action='#' onSubmit="app.ext.myRIA.u.handleAddToCart($(this),{'action':'modal'}); return false;">
-                    <!--<div data-bind='var: product(pid); format:atcVariations; extension:store_product;' class='borderNone'></div>-->
+                    <div data-bind='var: product(pid); format:atcVariations; extension:store_product;' class='borderNone sizeSelector'></div>
                     <div class='openSansBoldFont prodSelectionQty'>ITEM QUANTITY</div>
                     <div data-bind='var: product(pid); format:atcQuantityInput; extension:store_product;' class='prodSelectItemField'></div>
                <!-- <input type='submit' value='Add to Cart' class='                                    ui-button ui-button-text ui-corner-all ui-state-default addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;' id='addToCartBtn' -->    
@@ -1412,10 +1412,10 @@ It's done this way because ID's hard coded into template are bad mojo (templates
                 
                 <div class='productSmallButtonContainer'>       
                     <menu data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='CRMButtonMenu'>
-                        <button class='prodSelectShareButton prodSelectSmallButtons bangersFont ui-button-text ui-button ui-state-default ui-corner-all' onClick=";">SHARE</button><!--!%!-->
-                        <button class='prodSelectWishlistButton prodSelectSmallButtons bangersFont ui-button-text ui-button ui-state-default ui-corner-all' onClick="app.ext.myRIA.a.add2BuyerList({sku:$(this).parent().attr('data-pid'),'listid':'wishlist'}); return false;">ADD TO WISHLIST</button>
-                        <button class='prodSelectSeeReviewButton prodSelectSmallButtons bangersFont ui-button-text ui-button ui-state-default ui-corner-all' onClick=';' data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>SEE PRODUCT REVIEWS</button>
-                        <button class='prodSelectWriteReviewButton prodSelectSmallButtons bangersFont ui-button-text ui-button ui-state-default ui-corner-all' onClick='app.ext.store_crm.u.showReviewFrmInModal({"pid":$(this).attr("data-pid"),"templateID":"reviewFrmTemplate"});' data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>WRITE A PRODUCT REVIEW</button>
+                        <button class='prodSelectShareButton prodSelectSmallButtons bangersFont borderRoundThin ui-button ui-corner-all' onClick=";">SHARE</button><!--!%!-->
+                        <button class='prodSelectWishlistButton prodSelectSmallButtons bangersFont borderRoundThin ui-button ui-corner-all' onClick="app.ext.myRIA.a.add2BuyerList({sku:$(this).parent().attr('data-pid'),'listid':'wishlist'}); return false;">ADD TO WISHLIST</button>
+                        <button class='prodSelectSeeReviewButton prodSelectSmallButtons bangersFont borderRoundThin ui-button ui-corner-all' onClick=';' data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>SEE PRODUCT REVIEWS</button>
+                        <button class='prodSelectWriteReviewButton prodSelectSmallButtons bangersFont borderRoundThin ui-button ui-corner-all' onClick='app.ext.store_crm.u.showReviewFrmInModal({"pid":$(this).attr("data-pid"),"templateID":"reviewFrmTemplate"});' data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>WRITE A PRODUCT REVIEW</button>
                     </menu>
                 </div>
                      
