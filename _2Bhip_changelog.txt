@@ -185,3 +185,30 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
 	loop();
 	
 }]);
+
+
+
+
+
+
+3. store_cart.js:
+	Line: 279 	
+	Add this to orderBalance function to show superscript:
+
+	//if the value is greater than .99 AND has a decimal, put the 'change' into a span to allow for styling.
+				if(o.indexOf('.') > 0)	{
+	//				app.u.dump(' -> r = '+r);
+					sr = o.split('.');
+					r = sr[0];
+					if(sr[1])	{r += '<span class="cents"> .'+sr[1]+'<\/span>'}
+					$tag.html(r);
+					}
+				else	{
+					$tag.html(r);
+					} 
+
+4. controller.js:
+	Line 2627
+	Add space after if(sr[1])	{o += '<span class="cents">.
+	to make         if(sr[1])	{o += '<span class="cents"> .
+	

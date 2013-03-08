@@ -278,6 +278,7 @@ $tag.one('click',function(event){
 //for displaying order balance in checkout order totals.				
 			orderBalance : function($tag,data)	{
 				var o = '';
+				var r, sr;
 				var amount = data.value;
 //				app.u.dump('BEGIN app.renderFunctions.format.orderBalance()');
 //				app.u.dump('amount * 1 ='+amount * 1 );
@@ -294,6 +295,19 @@ $tag.one('click',function(event){
 					}
 		
 				$tag.text(o);  //update DOM.
+				
+				//if the value is greater than .99 AND has a decimal, put the 'change' into a span to allow for styling.
+				if(o.indexOf('.') > 0)	{
+//					app.u.dump(' -> r = '+r);
+					sr = o.split('.');
+					r = sr[0];
+					if(sr[1])	{r += '<span class="cents"> .'+sr[1]+'<\/span>'}
+					$tag.html(r);
+					}
+				else	{
+					$tag.html(r);
+					}
+				
 //				app.u.dump('END app.renderFunctions.format.orderBalance()');
 				}, //orderBalance
 
