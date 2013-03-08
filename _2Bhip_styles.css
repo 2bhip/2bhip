@@ -664,7 +664,43 @@ NON-PERSISTENT CONTENT
 /*$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
 
+/*BREAD CRUMB*/
 
+.newBreadcrumb {
+	color: #006099;
+	font-family: Bangers;
+	cursor: pointer;
+	font-size: 22px;
+	text-shadow:
+		-1px -1px 0 #000000, 
+		1px -1px 0 #000000, 
+		-1px 3px 0 #000000, 
+		1px 1px 0 #000000
+}
+
+.breadcrumb li:after {
+	color: #006099;
+	font-family: Bangers;
+	font-size: 22px;
+	text-shadow: 0px 0px 0px;
+}
+
+.breadcrumb li:last-child a {
+	color: #ffcc00;
+	font-family: Bangers;
+	cursor: pointer;
+	font-size: 22px;
+	text-shadow:
+		-1px -1px 0 #000000, 
+		1px -1px 0 #000000, 
+		-1px 3px 0 #000000, 
+		1px 1px 0 #000000
+}
+
+.clearfix.noPadOrMargin.fluidList.breadcrumb {
+	width: 940px;
+	margin: 0px auto 12px auto;
+}
 
 /*************************************************************************************
 
@@ -672,15 +708,6 @@ HOME PAGE
 
 *************************************************************************************/
 
-
-.newBreadcrumb {
-	color: #006099;
-}
-
-.clearfix.noPadOrMargin.fluidList.breadcrumb {
-	width: 940px;
-	margin: 0px auto 12px auto;
-}
 
 .mainBannerContainer {
 	height: 300px;

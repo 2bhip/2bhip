@@ -26,7 +26,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130307051700",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130308094200",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"httpsURL":"https://ssl.zoovy.com/s=www.97638a9e.pop.zoovy.net/",
@@ -349,7 +349,7 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
 <div id='globalMessaging' class='appMessaging'></div><!-- DO NOT REMOVE - used for some high level error handling (usually appears below breadcrumb nav or top bar) -->
 
 <!-- These add specific functionality for the app. In most cases, you want to leave them alone. -->
-<div id='appNav'>
+<div id='appNav'class='displayNone'>
 	<button class='displayNone prodDetailNextItemButton' data-app-role='prodDetailNextItemButton'>Next</button>
 	<button class='displayNone prodDetailPrevItemButton' data-app-role='prodDetailPrevItemButton'>Previous</button>
 </div>
@@ -1490,7 +1490,7 @@ adding classes is not likely to have any bad effects.
 
 <!--  used in breadcrumb -->
 <ul>
-	<li id='breadcrumbTemplate'>
+	<li id='breadcrumbTemplate' class="blah">
 	<a href='#' onClick="return showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='newBreadcrumb' data-bind='var: category(pretty); format:catText; extension: myRIA;'></a>
 	</li>
 </ul>
