@@ -26,7 +26,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130308094200",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130308055400",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"httpsURL":"https://ssl.zoovy.com/s=www.97638a9e.pop.zoovy.net/",
@@ -2074,7 +2074,7 @@ So the cart template should contain these two elements and the extension should 
 	<div class='checkoutButtonsContainer checkButtCont'>
 
 		<span title='proceed to secure checkout'><button class='checkButt ui-button ui-button-text ui-state-default ui-corner-all checkoutButton' onClick="showContent('checkout',{});">CHECK OUT</button></span>
-
+		<div class='checkSafe openSansBoldFont centerText'>100% SAFE & SECURE</div>
 		<!-- <span id='paypalECButton' data-bind='var: cart(cart/cartid); format:paypalECButton;'></span>
 		<span id='googleCheckoutButton' class='pointer' data-bind='var: cart(sum/items_total); format:googleCheckoutButton;'></span>
 		<span id='amazonCheckoutButton' class='pointer' data-bind='var: cart(cart/cartid); format:amazonCheckoutButton;'></span> -->
@@ -2120,28 +2120,45 @@ So the cart template should contain these two elements and the extension should 
 
 <!-- cart line-item template -->
 <ul>
-	<li id='productListTemplateCart' class='padMargBorderBottom clearfix'>
+	<li id='productListTemplateCart' class='padMargBorderBottom clearfix openSansFont'>
 		
-        <div class='cartItems'></div>
+        <div class='cartItems'>
+        	<div class='cartItemsLeftBlock'>
+                        
+                <div class='floatLeft'><img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); defaultVar: product(%attribs.zoovy:prod_image1); format:imageURL;' width='120' height='120' /></div>
         
-		<button class='floatRight removeButton' data-bind='format:removeItemBtn; extension:store_cart; useParentData:true;' >Remove Item From Cart</button>
+                <h3 data-bind='var: product(prod_name); format:text; '></h3>
+                <div class='stid cartManufact' data-bind='var: product(zoovy:prod_mfg); format:text; extension:myRIA; pretext: <h4>Manufactured by: &nbsp</h4>;'></div>
+                <!-- <div class='ztable_row_small stid' data-bind='var: product(sku); format:text; className: stid; pretext: Sku: ;'></div> -->
+                <div class='ztable_row_small prodOptions' data-bind='var: variations(%options); format:selectedOptionsDisplay;'></div>
+            </div>
+            
+            <div class='cartItemsRightBlock'>
+            
+            	
+                <div class='cartQtyContainer openSansBoldFont'>
+                    <div class='cartQtyButtons'><img src="images/CartQtyDown.png"></div>
+                    <div class='cartQty'>
+                        <input type='number' class='qtyInput borderNone centerText' onChange="app.ext.store_cart.u.updateCartQty($(this)); app.model.dispatchThis('immutable');"  data-bind='format:cartItemQty;extension:store_cart;useParentData:true;' size='3' />
+                        <button class='displayNone'>update</button><!-- here to stop 'enter' in input above from closing modal -->
+                    </div>
+                    <div class='cartQtyButtons'><img src="images/CartQtyUp.png"></div>
+                </div>
+                
+                <div class='cartQtyMultiplier openSansBoldFont centerText'>
 
-		<div class='floatLeft'><img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); defaultVar: product(%attribs.zoovy:prod_image1); format:imageURL;' width='75' height='75' /></div>
-
-		<h4 data-bind='var: product(prod_name); format:text; '></h4>
-
-		<div class='ztable_row_small stid' data-bind='var: product(sku); format:text; className: stid; pretext: Sku: ;'></div>
-
-		<div>
-		qty: <input type='number' class='qtyInput' onChange="app.ext.store_cart.u.updateCartQty($(this)); app.model.dispatchThis('immutable');"  data-bind='format:cartItemQty;extension:store_cart;useParentData:true;' size='3' />
-		<button class='displayNone'>update</button><!-- here to stop 'enter' in input above from closing modal -->
-		<span data-bind='var: product(price); format:money; currencySign: $;  hideZero:false; pretext: x ;' ></span>
-		<span data-bind='var: product(extended); format:money; currencySign: $; hideZero:false; pretext: = ;'></span>
-
+                    <span class='stid' data-bind='var: product(price); format:money; currencySign: $;  hideZero:false; pretext: <span2> x </span2>;' ></span>
+                    <!-- <span data-bind='var: product(extended); format:money; currencySign: $; hideZero:false; pretext: = ;'></span> -->
+            	</div>
+                
+                <div class='cartSizes'></div>
+                
+                <div class='cartRemoveButtonContainer'><button class='cartRemoveButton floatRight' data-bind='format:removeItemBtn; extension:store_cart; useParentData:true;' >Remove Item From Cart</button></div>
+                
+            </div>
+		
 		</div>
-
-		<div class='ztable_row_small prodOptions' data-bind='var: variations(%options); format:selectedOptionsDisplay;'></div>
-	</li>
+    </li>
 </ul>
 
 

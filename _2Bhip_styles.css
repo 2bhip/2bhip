@@ -108,6 +108,10 @@ a {
 	text-indent: 35px;
 }
 
+.centerText {
+		text-align: center;
+}
+
 .cents {
 	font-size: 50%;
 	vertical-align: super;
@@ -1634,9 +1638,85 @@ CART MODAL
 
 
 .cartItems {
-	height: 50px;
-	widht: 50px;
-	background-color: #F00;
+	height: 120px;
+	width: 600px;
+}
+
+.cartItems h3 {
+	color: #006099;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.cartManufact {
+	color: #006099;
+	font-size: 12px;
+	line-height: 27px;
+}
+
+.cartManufact h4 {
+	color: #000;
+	font-weight: bold;
+	line-height: 27px;
+}
+
+.cartItemsLeftBlock {
+	width: 450px;
+	margin-right: 10px;
+	float: left;	
+}
+
+.cartItemsRightBlock{
+	width: 140px;
+	float: left;
+}
+
+.cartQtyButtons {
+	height: 16px;
+	width: 16px;
+	padding: 13px;
+	float: left;	
+}
+
+.cartQtyContainer {
+	width: 140px;
+	font-size: 24px;
+	float: left;
+}
+
+.cartQty {
+	width: 54px;
+	float: left;
+}
+
+.qtyInput {
+	background-color: transparent;
+}
+
+.cartQtyMultiplier {
+	font-size: 18px;	
+}
+
+.cartQtyMultiplier span2 {
+	color: #ccc;
+	font-size: 18px;
+}
+
+.cartSizes {
+	height: 28px;
+	width: 140px;
+}
+
+.cartRemoveButtonContainer {
+	height: 28px;
+	width: 137px;
+	padding: 3px 0px 0px 3px;
+}
+
+.removeButton {
+	background-image: url(images/CartTrashIcon.png)
+	height: 26px;
+	width: 24px;
 }
 
 .cartPriceHeader {
@@ -1650,7 +1730,7 @@ CART MODAL
 .cartRight {
 	height: 565px;
 	width: 216px;
-	margin: 1px 1px 1px 121px;	
+	margin: 1px 1px 1px 6px;	
 	background-color: #C9F;
 }
 
@@ -1709,15 +1789,21 @@ CART MODAL
 }
 
 .checkoutButtonsContainer.checkButtCont span {
-	height: 50px;
+	height: 43px;
 	width: 195px;
 	margin: 10px 0px 0px 12px;
 }
 
 .checkButt.ui-button.ui-button-text.ui-state-default.ui-corner-all.checkoutButton {
-	height: 50px;
+	height: 43px;
 	width: 195px;
 	font-size: 30px;
+}
+
+.checkSafe {
+	height: 5px;
+	width: 100%;
+	font-size: 10px;
 }
 
 
