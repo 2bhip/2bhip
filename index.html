@@ -26,7 +26,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130311101700",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130311113100",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"httpsURL":"https://ssl.zoovy.com/s=www.97638a9e.pop.zoovy.net/",
@@ -74,10 +74,10 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
 <div id='appPreView'>
 <table>
 <tr>
-	<td><!-- put logo here --></td>
+	<td><img src="images/preView.gif"></td>
 	<td>
 
-	<div id="loader">
+	<div id="loader" class='loadBar'>
 		<h3>One moment please.</h3>
 
 		<div class='alignCenter'>

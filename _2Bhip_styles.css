@@ -11,6 +11,10 @@ body {
 	width: 1020px;	
 }
 
+.loadBar {
+	margin-top: 100px;
+}
+
 a {
 	color: #ffffff;
 	text-decoration: none;
