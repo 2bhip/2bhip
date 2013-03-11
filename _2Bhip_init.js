@@ -244,7 +244,8 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
 	loop();
 	
 	
-	/*var description = $('.prodSummaryContainer');
+	/*MOVED TO _2Bhip_extension.js
+	var description = $('.prodSummaryContainer');
 	var review = $('.prodReviewContainer');
 	var seeRevButton = $('.prodSelectSeeReviewButton');
 	var seeDescButton = $('.prodSelectSeeDescriptionButton');
