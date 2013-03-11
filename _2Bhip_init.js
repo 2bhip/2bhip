@@ -74,7 +74,8 @@ app.u.throwMessage = function(m)	{
 	alert(m); 
 	}
 	
-	app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
+app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
+	
 	//mainBanner Carousel horizontal sliders
 	var mainBannerCarousel;
 		function foo(){ $(".mainBannerCarousel").carouFredSel({
@@ -200,8 +201,8 @@ app.u.throwMessage = function(m)	{
 			pagination: ".prodDetailPaginationContainer6"
  		});
 	}
- 	carousel5 = foo5;
-	setTimeout(carousel5, 2000); 
+ 	carousel6 = foo6;
+	setTimeout(carousel6, 2000); 
 	
 	
 	//Previously Viewed Items Carousel on Product Details page horizontal sliders
@@ -223,8 +224,8 @@ app.u.throwMessage = function(m)	{
 			pagination: ".prodDetailPaginationContainer7"
  		});
 	}
- 	carousel5 = foo5;
-	setTimeout(carousel5, 2000); 
+ 	carousel7 = foo7;
+	setTimeout(carousel7, 2000); 
 	
 	
 	//Homepage customer review switcher
@@ -240,6 +241,27 @@ app.u.throwMessage = function(m)	{
 		});
 	};
 	loop();
+	
+	
+	var description = $('.prodSummaryContainer');
+	var review = $('.prodReviewContainer');
+	var seeRevButton = $('.prodSelectSeeReviewButton');
+	var seeDescButton = $('.prodSelectSeeDescriptionButton');
+	$(review).hide();
+	$(seeDescButton).hide();
+	$(seeRevButton).click(function() {
+		$(description).hide();
+		$(review).show();
+		$(seeRevButton).hide();
+		$(seeDescButton).show();
+	});
+	$(seeDescButton).bind('click', function() {
+		$(review).hide();
+		$(description).show();
+		$(seeDescButton).hide();
+		$(seeRevButton).show();
+	});
+	
 	
 }]);
 

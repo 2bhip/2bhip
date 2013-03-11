@@ -1388,6 +1388,12 @@ PRODUCT DETAIL PAGE
 	margin: 0px 2px 1px 2px;
 }
 
+.prodReviewContainer {
+	width: 420px;
+	padding-right: 22px;
+	background-color: #093;
+}
+
 .prodSummaryContainer {
 	font-size: 14px;
  	width: 420px; 
@@ -1598,6 +1604,10 @@ PRODUCT DETAIL PAGE
 .prodSelectWishlistButton {
 	width: 108px;
 	margin-left: 6px;
+}
+
+.prodSelectSeeDescriptionButton {
+	width: 180px;
 }
 
 .prodSelectSeeReviewButton {
