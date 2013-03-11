@@ -1189,12 +1189,35 @@ PRODUCT STYLES / CAROUSELS
 
 .productPrice {
 	position: absolute;
-	top: 189px;
-	left: 20px;
+	top: 180px;
+	left: 0px;
+	width: 100%;
 	margin-top: 10px;
 	text-align: center;
 	font-size: 32px;
 	color: #000;
+}
+
+.productPrice h4 {
+	height: 40px;
+	width: 103px;
+	margin:auto;
+	color: #000;
+	font-size: 30px;
+	line-height: 21px;
+	text-align: center;
+	float: left;
+}
+
+.productPrice h5 {
+	height: 40px;
+	width: 103px;
+	color: #666666;
+	font-size: 24px;
+	line-height: 21px;
+	text-align: center;
+	text-decoration: line-through;
+	float: left;
 }
 
 .productSizeContainer {

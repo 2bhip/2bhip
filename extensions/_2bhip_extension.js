@@ -20,7 +20,7 @@
 
 //    !!! ->   TODO: replace 'username' in the line below with the merchants username.     <- !!!
 
-var store_2bhip = function() {
+var _2bhip = function() {
 	var theseTemplates = new Array('');
 	var r = {
 
@@ -33,17 +33,35 @@ var store_2bhip = function() {
 //executed when extension is loaded. should include any validation that needs to occur.
 		init : {
 			onSuccess : function()	{
-				var r = false; //return false if extension won't load for some reason (account config, dependencies, etc).
+			
+				app.ext._2bhip.a.showDescription();
+					
+				return true;
+				/*var r = false; //return false if extension won't load for some reason (account config, dependencies, etc).
 
 				//if there is any functionality required for this extension to load, put it here. such as a check for async google, the FB object, etc. return false if dependencies are not present. don't check for other extensions.
 				r = true;
 
-				return r;
-				},
-			onError : function()	{
+				return r;*/
+			},
+			onError : function() {
+				app.u.dump('BEGIN app.ext._2bhip.callbacks.init.onErron');
 //errors will get reported for this callback as part of the extensions loading.  This is here for extra error handling purposes.
 //you may or may not need it.
 				app.u.dump('BEGIN admin_orders.callbacks.init.onError');
+				}
+			},
+			
+			startExtension : {
+				onSuccess : function() {
+					if(app.ext.myRIA && app.ext.myRIA.template){
+						//app.u.dump("_2bhip Extension Started");
+					} else	{
+						setTimeout(function(){app.ext._2bhip.callbacks.startExtension.onSuccess()},250);
+					}
+				},
+				onError : function (){
+					app.u.dump('BEGIN app.ext._2bhip.callbacks.startExtension.onError');
 				}
 			}
 		}, //callbacks
@@ -56,6 +74,33 @@ var store_2bhip = function() {
 //these are going the way of the do do, in favor of app events. new extensions should have few (if any) actions.
 		a : {
 
+				showReviews : function() {
+					app.u.dump('SHOW REVIEW');
+				
+					$('.prodSelectSeeReviewButton').animate(1000);
+					setTimeout(function() {
+						$('.prodSummaryContainer').hide();
+						$('.prodReviewContainer').show();
+						$('.prodSelectSeeReviewButton').hide();
+						$('.prodSelectSeeDescriptionButton').show();
+						$('.prodSelectSeeDescriptionButton').unbind();
+						$('.prodSelectSeeDescriptionButton').click(app.ext._2bhip.a.showDescription);
+					}, 1000);
+				},
+				showDescription : function() {
+					app.u.dump('SHOW DESC');
+					
+					$('.prodSelectSeeDescriptionButton').animate(1000);
+					setTimeout(function() {
+						$('.prodReviewContainer').hide();
+						$('.prodSummaryContainer').show();
+						$('.prodSelectSeeDescriptionButton').hide();
+						$('.prodSelectSeeReviewButton').show();
+						$('.prodSelectSeeReviewButton').unbind();
+						$('.prodSelectSeeReviewButton').click(app.ext._2bhip.a.showReviews);
+					}, 1000);
+				}
+				
 			}, //Actions
 
 ////////////////////////////////////   RENDERFORMATS    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -71,23 +116,6 @@ var store_2bhip = function() {
 //utilities are typically functions that are exected by an event or action.
 //any functions that are recycled should be here.
 		u : {
-			
-				homepageBannerCarousel : function(p){
-				//mainBanner Carousel horizontal sliders
-				var mainBannerCarousel;
-					function foo(){ $(".mainBannerCarousel").carouFredSel({
-					width   : 936,
-					height  : 300,
-						items   : 1,
-				scroll: 1,
-				auto : false,
-					prev : "#mainBannerCarouselButtonPrev",
-					next : "#mainBannerCarouselButtonNext"
-					});
-				}
-				mainBannerCarousel = foo;
-				setTimeout(mainBannerCarousel, 2000);
-				}
 			
 			}, //u [utilities]
 

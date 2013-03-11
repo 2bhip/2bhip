@@ -12,6 +12,7 @@ app.rq.push(['extension',0,'cco','extensions/cart_checkout_order.js']);
 //app.rq.push(['extension',0,'store_checkout','extensions/store_checkout.js']);
 
 
+app.rq.push(['extension',0,'_2bhip','extensions/_2bhip_extension.js','startExtension']);
 
 app.rq.push(['extension',0,'store_prodlist','extensions/store_prodlist.js']);
 app.rq.push(['extension',0,'store_navcats','extensions/store_navcats.js']);
@@ -243,7 +244,7 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
 	loop();
 	
 	
-	var description = $('.prodSummaryContainer');
+	/*var description = $('.prodSummaryContainer');
 	var review = $('.prodReviewContainer');
 	var seeRevButton = $('.prodSelectSeeReviewButton');
 	var seeDescButton = $('.prodSelectSeeDescriptionButton');
@@ -260,7 +261,7 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
 		$(description).show();
 		$(seeDescButton).hide();
 		$(seeRevButton).show();
-	});
+	});*/
 	
 	
 }]);
