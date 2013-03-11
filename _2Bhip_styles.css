@@ -2112,10 +2112,26 @@ SHIPPING CONTENT
 	line-height: 25px;
 }
 
+.shippingArtic li {
+	font-size: 14px;
+	padding-left: 10px;
+	text-indent: -16px;
+}
+
 .shippingArtic h2 {
 	color: #000;
 	font-size: 18px;
 	margin-top: 12px;
+}
+
+.shippingArtic h3 {
+	color: #000;
+	font-size: 18px;
+}
+
+.shippingArtic h4 {
+	color: #000;
+	font-size: 22px;
 }
 
 .shippingArtic ps {
