@@ -85,7 +85,7 @@ var _2bhip = function() {
 						$('.prodSelectSeeDescriptionButton').show();
 						$('.prodSelectSeeDescriptionButton').unbind();
 						$('.prodSelectSeeDescriptionButton').click(app.ext._2bhip.a.showDescription);
-					}, 1000);
+					}, 250);
 				},
 				showDescription : function() {
 					app.u.dump('SHOW DESC');
@@ -98,7 +98,7 @@ var _2bhip = function() {
 						$('.prodSelectSeeReviewButton').show();
 						$('.prodSelectSeeReviewButton').unbind();
 						$('.prodSelectSeeReviewButton').click(app.ext._2bhip.a.showReviews);
-					}, 1000);
+					}, 250);
 				}
 				
 			}, //Actions

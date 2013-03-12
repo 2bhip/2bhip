@@ -278,7 +278,6 @@ $tag.one('click',function(event){
 //for displaying order balance in checkout order totals.				
 			orderBalance : function($tag,data)	{
 				var o = '';
-				var r, sr;
 				var amount = data.value;
 //				app.u.dump('BEGIN app.renderFunctions.format.orderBalance()');
 //				app.u.dump('amount * 1 ='+amount * 1 );
@@ -293,12 +292,10 @@ $tag.one('click',function(event){
 //					app.u.dump(' -> '+amount+' > zero ');
 					o += app.u.formatMoney(amount,data.bindData.currencySign,'',data.bindData.hideZero);
 					}
-		
-				$tag.text(o);  //update DOM.
-				
+					
 				//if the value is greater than .99 AND has a decimal, put the 'change' into a span to allow for styling.
 				if(o.indexOf('.') > 0)	{
-//					app.u.dump(' -> r = '+r);
+	//				app.u.dump(' -> r = '+r);
 					sr = o.split('.');
 					r = sr[0];
 					if(sr[1])	{r += '<span class="cents"> .'+sr[1]+'<\/span>'}
@@ -306,8 +303,9 @@ $tag.one('click',function(event){
 					}
 				else	{
 					$tag.html(r);
-					}
-				
+					} 
+		
+				$tag.text(o);  //update DOM.
 //				app.u.dump('END app.renderFunctions.format.orderBalance()');
 				}, //orderBalance
 
@@ -386,7 +384,7 @@ either templateID needs to be set OR showloading must be true. TemplateID will t
  can't think of a reason not to use the default parentID, but just in case, it can be set.
 */
 			showCartInModal : function(P)	{
-//				app.u.dump("BEGIN store_cart.u.showCartInModal");
+//				app.u.dump("BEGIN store_cart.u.showCartInModal"); app.u.dump(P);
 				if(typeof P == 'object' && (P.templateID || P.showLoading === true)){
 					var $modal = $('#modalCart');
 //the modal opens as quick as possible so users know something is happening.
@@ -495,6 +493,25 @@ Parameters expected are:
 					}
 				return r;
 				},
+			
+			
+			getSkuByUUID : function(uuid){
+				var r; //what is returned. either false or a uuid.
+				if(app.data.cartDetail && app.data.cartDetail['@ITEMS'])	{
+					var L = app.data.cartDetail['@ITEMS'].length;
+					for(var i = 0; i < L; i += 1)	{
+						if(app.data.cartDetail['@ITEMS'].uuid == uuid)	{
+							r = app.data.cartDetail['@ITEMS'].stid || app.data.cartDetail['@ITEMS'].sku;
+							break; //once we have a match, no need to continue.
+							}
+						}
+					}
+				else	{
+					r = false;
+					}
+				return r;
+				},
+			
 /*
 executing when quantities are adjusted for a given cart item.
 call is made to update quantities.

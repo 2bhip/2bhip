@@ -11,7 +11,7 @@ app.rq.push(['extension',0,'cco','extensions/cart_checkout_order.js']);
 //app.rq.push(['extension',0,'convertSessionToOrder','extensions/checkout_active/extension.js']);
 //app.rq.push(['extension',0,'store_checkout','extensions/store_checkout.js']);
 
-
+//2Bhip custom extension
 app.rq.push(['extension',0,'_2bhip','extensions/_2bhip_extension.js','startExtension']);
 
 app.rq.push(['extension',0,'store_prodlist','extensions/store_prodlist.js']);
@@ -53,7 +53,10 @@ app.rq.push(['script',1,app.vars.baseURL+'extensions/admin/resources/jquery.show
 app.rq.push(['script',0,app.vars.baseURL+'controller.js']);
 
 app.rq.push(['script',0,app.vars.baseURL+'anyplugins.js']); //in zero pass in case product page is first page.
+
+//carousel script
 app.rq.push(['script',0,app.vars.baseURL+'carouFredSel-6.2.0/jquery.carouFredSel-6.2.0-packed.js']);
+
 
 //sample of an onDeparts. executed any time a user leaves this page/template type.
 app.rq.push(['templateFunction','homepageTemplate','onDeparts',function(P) {app.u.dump("just left the homepage")}]);
@@ -75,8 +78,8 @@ app.u.throwMessage = function(m)	{
 	alert(m); 
 	}
 	
-app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
 	
+app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
 	//mainBanner Carousel horizontal sliders
 	var mainBannerCarousel;
 		function foo(){ $(".mainBannerCarousel").carouFredSel({
@@ -160,7 +163,7 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
 	setTimeout(carousel4, 2000); 
 	
 	
-	//BATMAN Carousel horizontal sliders
+	//FREE SHIPPING! Carousel horizontal sliders
 	var carousel5;
 		function foo5(){ $(".homePageTempCarousel13").carouFredSel({
   			width    : 960,
@@ -188,8 +191,8 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
 		function foo6(){ $(".prodDetailTempCarousel1").carouFredSel({
   			width    : 960,
   			height 	 : 305,
-     		items    : 2,
-  			scroll   : 1,
+     		items    : 4,
+  			scroll   : 4,
 			auto	 : false,
 			prev : {
 				button : ".prodDetailCarButtonPrev6",
@@ -211,8 +214,8 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
 		function foo7(){ $(".prodDetailTempCarousel2").carouFredSel({
   			width    : 960,
   			height 	 : 305,
-     		items    : 2,
-  			scroll   : 1,
+     		items    : 4,
+  			scroll   : 4,
 			auto	 : false,
 			prev : {
 				button : ".prodDetailCarButtonPrev7",
@@ -242,8 +245,8 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
 		});
 	};
 	loop();
-	
-	
+
+
 	/*MOVED TO _2Bhip_extension.js
 	var description = $('.prodSummaryContainer');
 	var review = $('.prodReviewContainer');
@@ -264,8 +267,8 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
 		$(seeRevButton).show();
 	});*/
 	
+}]);	
 	
-}]);
 
 app.u.howManyPassZeroResourcesAreLoaded = function(debug)	{
 	var L = app.vars.rq.length;
