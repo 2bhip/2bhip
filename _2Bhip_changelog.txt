@@ -215,9 +215,19 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
 	Add: app.rq.push(['extension',0,'_2bhip','extensions/_2bhip_extension.js','startExtension']);
 
 
+4. _2Bhip.init.js: 
+	Line 8 - 12:
+	comment out lines 8 & 9: 
+		app.rq.push(['extension',0,'convertSessionToOrder','extensions/checkout_mobile/extension.js']);
+		app.rq.push(['extension',0,'cco','extensions/cart_checkout_order.js']);
+
+	uncomment lines 11 & 12: 
+		app.rq.push(['extension',0,'convertSessionToOrder','extensions/checkout_active/extension.js']);
+		app.rq.push(['extension',0,'store_checkout','extensions/store_checkout.js']);
 
 
-4. store_cart.js:
+
+5. store_cart.js:
 	Line: 279 	
 	Add this to orderBalance functionu under end of else statement just before: "$tag.text(o);  //update DOM." to show superscript:
 
@@ -233,8 +243,10 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
 					$tag.html(r);
 					} 
 
-5. controller.js:
+6. controller.js:
 	Line 2627
 	Add space after if(sr[1])	{o += '<span class="cents">.
 	to make         if(sr[1])	{o += '<span class="cents"> .
+
+ 
 	

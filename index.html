@@ -158,7 +158,7 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
         <script type="text/javascript">
             var showDropdown = function ($tag) {
                 var $dropdown = $(".dropdown", $tag);
-                var height = 294;
+                var height = 387;
                 $dropdown.children().each(function(){
                     $(this).outerHeight(true);
                 });
@@ -172,9 +172,9 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
         <div id="navBar">
             <div class="nav openSansXBoldFont" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
                 COMICS
-                <div class="dropdown leftAlign">
+                <div class="dropdown comicsAlign">
                     <ul class='floatLeft'>
-                        <li class='ddListHead bangersFont'>BY PUBLISHER</li>
+                        <li class='ddListHead dd bangersFont'>BY PUBLISHER</li>
                         <li>Aquaman</li>
                         <li>Archie Comics</li>
                         <li>Avengers, The</li>
@@ -209,7 +209,7 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
                         <li>Superman</li>
                         <li>Teenage Mutant Ninja Turtles</li>
                         <li>Thor</li>
-                        <li>Tornado</li>
+                        <li class='ddListHead dd bangersFont'>BY CHARACTER</li>
                         <li>Vampirella</li>
                         <li>Walking Dead, The</li>
                         <li>Watchmen</li>
@@ -222,20 +222,47 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
             </div>
             <div class="nav openSansXBoldFont"onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
             	CARTOONS
-                <div class="dropdown leftAlign">
-                    <ul>
-                        <li class='ddListHead bangersFont'>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                    </ul>
+                <div class="dropdown cartoonsAlign">
+                	<div class='dropdownBestSellers'>
+                        <ul>
+                            <li class='ddListHead dd bangersFont'>BEST SELLERS . . .</li>
+                            <li><span>&#187 </span>Adventue Time</li>
+                            <li><span>&#187 </span>Alice In Wonderland</li>
+                            <li><span>&#187 </span>Almost Naked Animals</li>
+                            <li><span>&#187 </span>Animaniacs</li>
+                            <li><span>&#187 </span>Bambi</li>
+                            <li><span>&#187 </span>Batman</li>
+                            <li><span>&#187 </span>Beavis & Butthead</li>
+                            <li><span>&#187 </span>Betty Boop</li>
+                            <li><span>&#187 </span>Black Butler</li>
+                            <li><span>&#187 </span>Care Bears</li>
+                            <li><span>&#187 </span>Courage The Cowardly Dog</li>
+                        </ul>
+                    </div>
+                    <div class='giantPipeBS'></div>
+                    <div class='dropdownPopular'>
+                    	<ul>
+                            <li class='ddListHead dd bangersFont'>FEATURED . . .</li>
+							<li><span>&#187 </span>Cow And Chicken</li> 
+                            <li><span>&#187 </span>Curious George</li>
+                            <li><span>&#187 </span>Dethklok</li>
+                            <li><span>&#187 </span>Dexter's Laboratory</li>
+                            <li><span>&#187 </span>Dinosaur Train</li>
+                            <li><span>&#187 </span>Disney</li>
+                            <li><span>&#187 </span>Domo</li>
+                            <li><span>&#187 </span>Dr. Suess</li>
+                            <li><span>&#187 </span>Dragon Ball Z</li>
+                            <li><span>&#187 </span>Ed, Edd n Eddy</li>
+                            <li><span>&#187 </span>Family Guy</li>
+                        </ul>
+                    </div>
+                    <div class='giantPipePop'></div>
+                    <button class='cartoonViewAllButton bangersMedFont borderRound yellowGradient'>VIEW ALL</button>              
                 </div>
             </div>
             <div class="nav openSansXBoldFont"onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
                 MOVIES
-                <div class="dropdown leftAlign">
+                <div class="dropdown moviesAlign">
                 	<ul>
                     	<li class='ddListHead bangersFont'>abc</li>
                     	<li>abc</li>
@@ -244,7 +271,7 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
             </div>
             <div class="nav tooNarrow openSansXBoldFont"onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
                 TV
-                <div class="dropdown leftAlign">
+                <div class="dropdown tvAlign">
                     <ul>
                         <li class='ddListHead bangersFont'>abc</li>
                         <li>abc</li>
@@ -262,7 +289,7 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
             </div>
             <div class="nav tooWide openSansXBoldFont"onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
                 VIDEO GAMES
-                <div class="dropdown leftAlign">
+                <div class="dropdown videoGamesAlign">
                     <ul>
                         <li class='ddListHead bangersFont'>abc</li>
                         <li>abc</li>
@@ -289,7 +316,7 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
             </div>
             <div class="nav openSansXBoldFont" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
                 MUSIC
-                <div class="dropdown leftAlign">
+                <div class="dropdown musicAlign">
                     <ul>
                         <li class='ddListHead bangersFont'>abc</li>
                     </ul>
@@ -297,7 +324,7 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
             </div>
             <div class="nav tooWide openSansXBoldFont" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
                 BEER/ALCOHOL
-                <div class="dropdown rightAlign">
+                <div class="dropdown beerAlcoholAlign">
                     <ul>
                         <li class='ddListHead bangersFont'>abc</li>
                     </ul>
@@ -305,7 +332,7 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
             </div>
             <div class="nav openSansXBoldFont" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
                 SPORTS
-                <div class="dropdown rightAlign">
+                <div class="dropdown sportsAlign">
                     <ul>
                         <li class='ddListHead bangersFont'>abc</li>
                     </ul>
@@ -313,7 +340,7 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
             </div>
             <div class="nav openSansXBoldFont" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
                 FUNNY
-                <div class="dropdown rightAlign">
+                <div class="dropdown funnyAlign">
                     <ul>
                         <li class='ddListHead bangersFont'>abc</li>
                     </ul>
@@ -321,7 +348,7 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
             </div>
             <div class="nav openSansXBoldFont" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
                 BRANDS
-                <div class="dropdown rightAlign">
+                <div class="dropdown brandsAlign">
                     <ul>
                         <li class='ddListHead bangersFont'>abc</li>
                     </ul>
@@ -329,7 +356,7 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
             </div>
             <div class="nav tooWide openSansXBoldFont" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
                 JUNK FOOD
-                <div class="dropdown rightAlign">
+                <div class="dropdown junkFoodAlign">
                     <ul>
                         <li class='ddListHead bangersFont'>abc</li>
                     </ul>
@@ -2132,8 +2159,8 @@ So the cart template should contain these two elements and the extension should 
 	<div class='youSaved openSansBoldFont'>Saved $XX(%XX)</div>
 </section>
 
-<section class='discCodeContainer'>
-	
+<section class='discCodeContainer bangersFont'>
+	ENTER YOUR PROMO CODE AT CHECK OUT!
 </section>
 
 <section id='cartTemplateShippingContainer' class='shipOptions shipOptCont'>
