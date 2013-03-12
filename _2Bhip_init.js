@@ -12,6 +12,7 @@ app.rq.push(['extension',0,'cco','extensions/cart_checkout_order.js']);
 //app.rq.push(['extension',0,'store_checkout','extensions/store_checkout.js']);
 
 //2Bhip custom extension
+//app.rq.push(['templateFunction','productTemplate','onCompletes',function(p){
 app.rq.push(['extension',0,'_2bhip','extensions/_2bhip_extension.js','startExtension']);
 
 app.rq.push(['extension',0,'store_prodlist','extensions/store_prodlist.js']);

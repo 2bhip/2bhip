@@ -35,7 +35,7 @@ var _2bhip = function() {
 			onSuccess : function()	{
 			
 				app.ext._2bhip.a.showDescription();
-					
+					app.u.dump("_2bhip showDescription() run");
 				return true;
 				/*var r = false; //return false if extension won't load for some reason (account config, dependencies, etc).
 
@@ -45,7 +45,7 @@ var _2bhip = function() {
 				return r;*/
 			},
 			onError : function() {
-				app.u.dump('BEGIN app.ext._2bhip.callbacks.init.onErron');
+				app.u.dump('BEGIN app.ext._2bhip.callbacks.init.onError');
 //errors will get reported for this callback as part of the extensions loading.  This is here for extra error handling purposes.
 //you may or may not need it.
 				app.u.dump('BEGIN admin_orders.callbacks.init.onError');
@@ -55,7 +55,7 @@ var _2bhip = function() {
 			startExtension : {
 				onSuccess : function() {
 					if(app.ext.myRIA && app.ext.myRIA.template){
-						//app.u.dump("_2bhip Extension Started");
+						app.u.dump("_2bhip Extension Started");
 					} else	{
 						setTimeout(function(){app.ext._2bhip.callbacks.startExtension.onSuccess()},250);
 					}
@@ -74,30 +74,34 @@ var _2bhip = function() {
 //these are going the way of the do do, in favor of app events. new extensions should have few (if any) actions.
 		a : {
 
-				showReviews : function() {
+				showReviews : function(pid) {
+					var $context = $('#productTemplate_'+app.u.makeSafeHTMLId(pid));
+					
 					app.u.dump('SHOW REVIEW');
 				
-					$('.prodSelectSeeReviewButton').animate(1000);
+					$('.prodSelectSeeReviewButton', $context).animate(1000);
 					setTimeout(function() {
-						$('.prodSummaryContainer').hide();
-						$('.prodReviewContainer').show();
-						$('.prodSelectSeeReviewButton').hide();
-						$('.prodSelectSeeDescriptionButton').show();
-						$('.prodSelectSeeDescriptionButton').unbind();
-						$('.prodSelectSeeDescriptionButton').click(app.ext._2bhip.a.showDescription);
+						$('.prodSummaryContainer', $context).hide();
+						$('.prodReviewContainer', $context).show();
+						$('.prodSelectSeeReviewButton', $context).hide();
+						$('.prodSelectSeeDescriptionButton', $context).show();
+						$('.prodSelectSeeDescriptionButton', $context).unbind();
+						$('.prodSelectSeeDescriptionButton', $context).click(app.ext._2bhip.a.showDescription);
 					}, 250);
 				},
-				showDescription : function() {
+				showDescription : function(pid) {
+					var $context = $('#productTemplate_'+app.u.makeSafeHTMLId(pid));
+					
 					app.u.dump('SHOW DESC');
 					
-					$('.prodSelectSeeDescriptionButton').animate(1000);
+					$('.prodSelectSeeDescriptionButton', $context).animate(1000);
 					setTimeout(function() {
-						$('.prodReviewContainer').hide();
-						$('.prodSummaryContainer').show();
-						$('.prodSelectSeeDescriptionButton').hide();
-						$('.prodSelectSeeReviewButton').show();
-						$('.prodSelectSeeReviewButton').unbind();
-						$('.prodSelectSeeReviewButton').click(app.ext._2bhip.a.showReviews);
+						$('.prodReviewContainer', $context).hide();
+						$('.prodSummaryContainer', $context).show();
+						$('.prodSelectSeeDescriptionButton', $context).hide();
+						$('.prodSelectSeeReviewButton', $context).show();
+						$('.prodSelectSeeReviewButton', $context).unbind();
+						$('.prodSelectSeeReviewButton', $context).click(app.ext._2bhip.a.showReviews);
 					}, 250);
 				}
 				

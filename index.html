@@ -1142,8 +1142,8 @@ this will likely become more flexible in the future. ###
         </div>
 	</td>
     
-    <td class='prodReviewContainer'>
-    	
+    <td class='prodReviewContainer displayNone'>
+		<ul class='listStyleNone clearfix productReviewsList' id='prodViewerReviews' data-bind="var: reviews(reviews.@reviews); format:processList; loadsTemplate:productReviewsTemplateDetail;"></ul>
     </td>
     	
     <td>
@@ -1198,8 +1198,8 @@ this will likely become more flexible in the future. ###
                     <menu data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='CRMButtonMenu'>
                         <button class='prodSelectShareButton prodSelectSmallButtons bangersFont ui-button-text ui-button ui-state-default ui-corner-all' onClick=";">SHARE</button><!--!%!-->
                         <button class='prodSelectWishlistButton prodSelectSmallButtons bangersFont ui-button-text ui-button ui-state-default ui-corner-all' onClick="app.ext.myRIA.a.add2BuyerList({sku:$(this).parent().attr('data-pid'),'listid':'wishlist'}); return false;">ADD TO WISHLIST</button>
-                        <button class='prodSelectSeeReviewButton prodSelectSmallButtons bangersFont ui-button-text ui-button ui-state-default ui-corner-all' onClick=';' data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>SEE PRODUCT REVIEWS</button>
-                    <button class='prodSelectSeeDescriptionButton prodSelectSmallButtons bangersFont ui-button-text ui-button ui-state-default ui-corner-all' onClick=';' data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>SEE PRODUCT DESCRIPTION</button>
+                        <button class='prodSelectSeeReviewButton prodSelectSmallButtons bangersFont ui-button-text ui-button ui-state-default ui-corner-all' onClick='app.ext._2bhip.a.showReviews($(this).parent().data("pid"));'>SEE PRODUCT REVIEWS</button> 
+                        <button class='prodSelectSeeDescriptionButton prodSelectSmallButtons bangersFont ui-button-text ui-button ui-state-default ui-corner-all displayNone' onClick='app.ext._2bhip.a.showDescription($(this).parent().data("pid"));'>SEE PRODUCT DESCRIPTION</button>
                         <button class='prodSelectWriteReviewButton prodSelectSmallButtons bangersFont ui-button-text ui-button ui-state-default ui-corner-all' onClick='app.ext.store_crm.u.showReviewFrmInModal({"pid":$(this).attr("data-pid"),"templateID":"reviewFrmTemplate"});' data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>WRITE A PRODUCT REVIEW</button>
                     </menu>
                 </div>
@@ -1413,7 +1413,6 @@ It's done this way because ID's hard coded into template are bad mojo (templates
                     <div data-bind='var: product(pid); format:atcVariations; extension:store_product;' class='borderNone sizeSelector'></div>
                     <div class='openSansBoldFont prodSelectionQty'>ITEM QUANTITY</div>
                     <div data-bind='var: product(pid); format:atcQuantityInput; extension:store_product;' class='prodSelectItemField'></div>
-               <!-- <input type='submit' value='Add to Cart' class='                                    ui-button ui-button-text ui-corner-all ui-state-default addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;' id='addToCartBtn' -->    
                     <input type='submit' value='Add to Cart' class='prodSelectAddCartButton bangersFont ui-button ui-button-text ui-corner-all ui-state-default addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;' id='addToCartBtn' />
                 </form>
                 

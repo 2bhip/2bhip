@@ -1633,8 +1633,9 @@ PRODUCT DETAIL PAGE
 	margin-left: 6px;
 }
 
-.prodSelectSeeDescriptionButton {
+.prodSelectSeeDescriptionButton.prodSelectSmallButtons.bangersFont.ui-button-text.ui-button.ui-state-default.ui-corner-all.displayNone {
 	width: 180px;
+	display: none;
 }
 
 .prodSelectSeeReviewButton {
@@ -1651,6 +1652,14 @@ PRODUCT DETAIL PAGE
 	background: -ms-linear-gradient(top, #666666 0%,#020202 100%); /* IE10+ */
 	background: linear-gradient(to bottom, #666666 0%,#020202 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#666666', endColorstr='#020202',GradientType=0 ); /* IE6-9 */
+}
+
+.prodCartSelection span {
+	font-family: Bangers;
+	text-align: center;
+	margin-bottom: 10px;
+	width: 100%;
+	height: 100px;
 }
 
 
