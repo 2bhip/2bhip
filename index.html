@@ -109,7 +109,8 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
     
 <div class='topNavContainer bangersFont'>
 	<div class='topNavLeft'>
-    	<div class='topNavLink pointer' onClick="return showContent('customer',{'show':'myaccount'});">MY ACCOUNT</div>
+    	<div class='topNavLink pointer'><a class="bindByAnchor" href="#!company?show=myaccount">MY ACCOUNT</a></div>
+   <!-- <div class='topNavLink pointer' onClick="return showContent('customer',{'show':'myaccount'});">MY ACCOUNT</div> -->
         <div class='topNavLink pointer' onClick="return showContent('company',{'show':'contact'});">CONTACT US</div>
         <a href='http://blog.2bhip.com/' target='_blank'><div class='topNavLink'>VISIT OUR BLOG</div></a>
     </div>
@@ -146,7 +147,9 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
     <div class='mainNavBarLinksContainer'>	
         <div class='mainNavBarLinks bangersBigFont pointer'>SHOP BY TYPE</div>                     
         <div class='mainNavBarLinks bangersBigFont' id='characters'>CHARACTERS & TITLES</div>
-<!--!!!NEEDS TAGS SEARCH ONCE ADDED TO FRAMEWORK!!!-->        <div class='mainNavBarLinks bangersBigFont pointer' onClick="return showContent('search',{'KEYWORDS':'IS_BESTSELLER'});">BEST SELLERS</div>
+<!--!!!NEEDS TAGS SEARCH ONCE ADDED TO FRAMEWORK!!!-->        
+		<div class='mainNavBarLinks bangersBigFont pointer' onClick="return showContent('search',{'KEYWORDS':'IS_BESTSELLER'});">BEST SELLERS</div>
+    <!--<div class='mainNavBarLinks bangersBigFont pointer'><a class="bindByAnchor" href="#!search?TAG=IS_BESTSELLER">BEST SELLERS</a></div>-->
         <div class='mainNavBarLinks bangersBigFont'>NEW ARRIVALS</div>
         <div class='mainNavBarLinks bangersBigFont'>CLEARANCE</div>
     </div>
@@ -545,8 +548,8 @@ the homepageTemplate template is loaded into mainContentArea by default when the
     	<div class='relativeMainBannerContainer'>
 	        <div class='mainBannerCarousel'>
         		<div class='mainBannerCarouselCatagories'><img src="images/SpidermanBannerImage.jpg"></div>
-                <div class='mainBannerCarouselCatagories'><img src="images/SpidermanBannerImage.jpg"></div>
-                <div class='mainBannerCarouselCatagories'><img src="images/SpidermanBannerImage.jpg"></div>
+                <div class='mainBannerCarouselCatagories displayNone'><img src="images/SpidermanBannerImage.jpg"></div>
+                <div class='mainBannerCarouselCatagories displayNone'><img src="images/SpidermanBannerImage.jpg"></div>
         	</div>
         	<div class='carouselButtonPrev pointer' id='mainBannerCarouselButtonPrev'><img src="images/SingleArrowPrev.png"></div>
             <div class='carouselBlackButtonPrev bangersFont pointer' id='mainBannerBlackButtonPrev'>PREVIOUSLY</div>

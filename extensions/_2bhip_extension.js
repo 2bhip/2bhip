@@ -59,6 +59,9 @@ var _2bhip = function() {
 					} else	{
 						setTimeout(function(){app.ext._2bhip.callbacks.startExtension.onSuccess()},250);
 					}
+					app.ext.myRIA.template.homepageTemplate.onCompletes.push(function(P) {
+						app.ext._2bhip.u.showMainBanner();	
+					})
 				},
 				onError : function (){
 					app.u.dump('BEGIN app.ext._2bhip.callbacks.startExtension.onError');
@@ -120,7 +123,12 @@ var _2bhip = function() {
 //utilities are typically functions that are exected by an event or action.
 //any functions that are recycled should be here.
 		u : {
-			
+				
+				showMainBanner : function() {
+					app.u.dump('showMainBanner just ran');
+					$('.mainBannerCarouselCatagories').delay(1000).show();
+				}
+				
 			}, //u [utilities]
 
 //app-events are added to an element through data-app-event="extensionName|functionName"
