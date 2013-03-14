@@ -59,6 +59,7 @@ var _2bhip = function() {
 					} else	{
 						setTimeout(function(){app.ext._2bhip.callbacks.startExtension.onSuccess()},250);
 					}
+					//was here to show hidden divs onComplete, but now is just here for future reference
 					app.ext.myRIA.template.homepageTemplate.onCompletes.push(function(P) {
 						app.ext._2bhip.u.showMainBanner();	
 					})
@@ -123,10 +124,10 @@ var _2bhip = function() {
 //utilities are typically functions that are exected by an event or action.
 //any functions that are recycled should be here.
 		u : {
-				
+				//was here to show hidden divs onComplete, but now is just here for future reference
 				showMainBanner : function() {
 					app.u.dump('showMainBanner just ran');
-					$('.mainBannerCarouselCatagories').delay(1000).show();
+					$('.mainBannerCarouselCatagories').show();
 				}
 				
 			}, //u [utilities]
