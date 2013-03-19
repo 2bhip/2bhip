@@ -1820,6 +1820,8 @@ CART MODAL
 	border: none;
 }
 
+.cartRemoveButton span, .ui-button-icon-primary ui-icon ui-icon-closethick {display: none;}
+
 .cartPriceHeader {
 	height: 20px;
 	background-color: #000;
