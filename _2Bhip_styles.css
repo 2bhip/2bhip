@@ -1514,6 +1514,22 @@ PRODUCT DETAIL PAGE
 	line-height: 18px;
 }
 
+.prodReviewContainer h1 {
+	font-size: 18px;
+	margin: 5px 0px 13px 0px;
+	color: #000;
+}
+
+.prodReviewContainer h5 {
+	font-size: 12px;
+	color: #000;
+}
+
+.prodReviewContainer h6 {
+	font-size: 12px;
+	color: #000;
+}
+
 .prodSelectionContainer {
 	height: 618px;
 	width: 218px;
@@ -2276,9 +2292,7 @@ PRIVACY STATEMENT CONTENT
 
 
 /*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-
 NEWSLETTER SIGN UP CONTENT / FORM
-
 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
 
 .newsletterSubscribeFormInput {
@@ -2302,11 +2316,34 @@ NEWSLETTER SIGN UP CONTENT / FORM
 
 
 
+/*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+PRODUCT REVIEWS TEMPLATE
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
+
+
+.prodReviewInfo {
+	height: 73px;
+	width: 100%;
+	line-height: 37px;	
+}
+
+.reviewDiv p {
+	font-family: "Open Sans";
+	font-size: 12px;
+}
+
+.prodReviewCustomer {}
+
+.prodReviewRating {
+	height: 20px;
+	width: 100px;
+	margin: 0px auto 0px auto;
+}
+
+
 
 /*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-
 LOGIN MODAL
-
 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
 
 

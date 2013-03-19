@@ -26,7 +26,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130314034500",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130318201800",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"httpsURL":"https://ssl.zoovy.com/s=www.97638a9e.pop.zoovy.net/",
@@ -380,7 +380,7 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
 <div id='globalMessaging' class='appMessaging'></div><!-- DO NOT REMOVE - used for some high level error handling (usually appears below breadcrumb nav or top bar) -->
 
 <!-- These add specific functionality for the app. In most cases, you want to leave them alone. -->
-<div id='appNav'class='displayNone'>
+<div id='appNav'>
 	<button class='displayNone prodDetailNextItemButton' data-app-role='prodDetailNextItemButton'>Next</button>
 	<button class='displayNone prodDetailPrevItemButton' data-app-role='prodDetailPrevItemButton'>Previous</button>
 </div>
@@ -1141,8 +1141,6 @@ this will likely become more flexible in the future. ###
 	<td class='prodSummaryContainer openSansFont marginBottom no_underline'>
         
         <h1 data-bind='var: product(zoovy:prod_name); format:text;'></h1>
-        	<!-- USE BEFORE INSTEAD OF PRETEXT TO FORMAT "SKU" SEPERATELY. EXAMPLE ON HOMEPAGE OF DEFAULT
-            	TEMPLATE "FEATURED ITEMS -->
         <h5 class='stid openSansBoldFont' data-bind='var: product(zoovy:prod_mfg); format:text; extension:myRIA; pretext: <h4>Manufactured by: &nbsp</h4>;'></h5>
         <h6 class='stid openSansBoldFont' data-bind='var: product(pid); format:text; pretext: <h3>SKU Item Number: &nbsp</h3>;'></h6>
         <h5 data-bind='var: product(zoovy:prod_mfgid); format:text; pretext: Mfg ID: ;'></h5>
@@ -1174,6 +1172,10 @@ this will likely become more flexible in the future. ###
 	</td>
     
     <td class='prodReviewContainer displayNone'>
+    	<h1 data-bind='var: product(zoovy:prod_name); format:text;'></h1>
+        <h5 class='stid openSansBoldFont' data-bind='var: product(zoovy:prod_mfg); format:text; extension:myRIA; pretext: <h4>Manufactured by: &nbsp</h4>;'></h5>
+        <h6 class='stid openSansBoldFont' data-bind='var: product(pid); format:text; pretext: <h3>SKU Item Number: &nbsp</h3>;'></h6>
+        <h5 data-bind='var: product(zoovy:prod_mfgid); format:text; pretext: Mfg ID: ;'></h5>
 		<ul class='listStyleNone clearfix productReviewsList' id='prodViewerReviews' data-bind="var: reviews(reviews.@reviews); format:processList; loadsTemplate:productReviewsTemplateDetail;"></ul>
     </td>
     	
@@ -2299,18 +2301,18 @@ used on a product layout. Some product have 'children' which may represent the s
 
 <!-- individual review template -->
 <ul>
-	<li id='productReviewsTemplateDetail' class='reviewLineItem clearfix'>
+	<li id='productReviewsTemplateDetail' class='reviewLineItem clearfix openSansFont'>
 	<ul class='prodReviewInfo'>
-		<li data-bind='var:review(RATING); format:addClass; format:addClass; className:review_;' class='reviewSprite'></li>
-		<li data-bind='var:review(CUSTOMER_NAME); format:text;'></li>
-		<li data-bind='var:review(LOCATION); format:text; pretext:of ;'></li>
-		<li data-bind='var:review(CREATED_GMT); format:unix2mdy; pretext:on ;'></li>
+    	<li class='prodReviewCustomer openSansBoldFont' data-bind='var:review(CUSTOMER_NAME); format:text; pretext:by ;'></li>
+		<div class='prodReviewRating'><li data-bind='var:review(RATING); format:addClass; format:addClass; className:review_;' class='reviewSprite'></li></div>
+		<!-- <li data-bind='var:review(LOCATION); format:text; pretext:of ;'></li>
+		<li data-bind='var:review(CREATED_GMT); format:unix2mdy; pretext:on ;'></li> -->
 
 	</ul>
-	<blockquote>
-		<h2 data-bind='var:review(SUBJECT); format:text;'></h2>
-		<p data-bind='var:review(MESSAGE); format:text; ;'></p>
-	</blockquote>
+	<div class='reviewDiv'>
+		<!-- <h2 data-bind='var:review(SUBJECT); format:text;'></h2> -->
+		<p class='openSansFont' data-bind='var:review(MESSAGE); format:text; pretext:&#34; posttext:&#34;'></p>
+	</div>
 	</li>
 </ul>
 
