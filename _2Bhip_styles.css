@@ -1456,12 +1456,12 @@ PRODUCT DETAIL PAGE
 }
 
 .imageContainer {
-	width: 300px;
+	width: 296px;
 }
 
 .additionalImageContainer {
 	height: 75px;
-	width: 300px;
+	width: 296px;
 	background-color: #000;
 }
 
@@ -1813,10 +1813,11 @@ CART MODAL
 	padding: 3px 0px 0px 3px;
 }
 
-.removeButton {
-	background-image: url(images/CartTrashIcon.png)
+.cartRemoveButton.floatRight.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-icon-only {
+	background: url(images/CartTrashIcon.png);
 	height: 26px;
 	width: 24px;
+	border: none;
 }
 
 .cartPriceHeader {
