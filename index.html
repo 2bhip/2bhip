@@ -109,8 +109,8 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
     
 <div class='topNavContainer bangersFont'>
 	<div class='topNavLeft'>
-    	<div class='topNavLink pointer'><a class="bindByAnchor" href="#!company?show=myaccount">MY ACCOUNT</a></div>
-   <!-- <div class='topNavLink pointer' onClick="return showContent('customer',{'show':'myaccount'});">MY ACCOUNT</div> -->
+<!--<div class='topNavLink pointer'><a class="bindByAnchor" href="#!company?show=myaccount">MY ACCOUNT</a></div>-->
+    <div class='topNavLink pointer' onClick="return showContent('customer',{'show':'myaccount'});">MY ACCOUNT</div> 
         <div class='topNavLink pointer' onClick="return showContent('company',{'show':'contact'});">CONTACT US</div>
         <a href='http://blog.2bhip.com/' target='_blank'><div class='topNavLink'>VISIT OUR BLOG</div></a>
     </div>
@@ -1972,21 +1972,21 @@ adding classes is not likely to have any bad effects.
 			<div id='newsletterFormContainer'></div>
 		</div>
 
-		<div id='myaccountArticle' class='displayNone textContentArea'>
-			<h1>My Account</h1>
+		<div id='myaccountArticle' class='shippingArtic displayNone textContentArea'>
+			<h1 class='bangersFont'>My Account</h1>
 			<div id='logMessaging'></div>
 			<div><a href="#" onClick="app.u.logBuyerOut(); showContent('homepage',{}); return false;">Log Out</a></div>
 
 			<section id='buyerAddresses' class='clearfix'>
 
 <div class='billAddressContainer'>
-	<h2>Billing Address(es)</h2>
+	<h2 class='bangersFont'>Billing Address(es)</h2>
 <!--	<button class='floatRight ui-state-default ui-corner-all'><span class='ui-icon ui-icon-plusthick floatLeft'></span> Add </button> coming soon -->
 	<div class='billAddresses'></div><!-- billing addresses are loaded into here using billAddressTemplate -->
 </div>
 
 <div class='shipAddressContainer'>
-	<h2>Shipping Address(es)</h2>
+	<h2 class='bangersFont'>Shipping Address(es)</h2>
 	<div class='shipAddresses'></div><!-- shipping addresses are loaded into here using shipAddressTemplate -->
 </div>
 
