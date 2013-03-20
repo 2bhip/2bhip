@@ -36,6 +36,9 @@ var _2bhip = function() {
 			
 				app.ext._2bhip.a.showDescription();
 					app.u.dump("_2bhip showDescription() run");
+				app.ext._2bhip.a.cartSpinner();
+				/*app.ext._2bhip.a.connect();*/
+					app.u.dump('connect() run');
 				return true;
 				/*var r = false; //return false if extension won't load for some reason (account config, dependencies, etc).
 
@@ -56,6 +59,11 @@ var _2bhip = function() {
 				onSuccess : function() {
 					if(app.ext.myRIA && app.ext.myRIA.template){
 						app.u.dump("_2bhip Extension Started");
+						app.ext.myRIA.template.cartTemplate.onCompletes.push(function(P) {     
+							var $context =  $('#cartTemplate');
+							$('.qtyInput', $context).spinner();
+						});
+
 					} else	{
 						setTimeout(function(){app.ext._2bhip.callbacks.startExtension.onSuccess()},250);
 					}
@@ -92,7 +100,7 @@ var _2bhip = function() {
 						$('.prodSelectSeeDescriptionButton', $context).unbind();
 						$('.prodSelectSeeDescriptionButton', $context).click(app.ext._2bhip.a.showDescription);
 					}, 250);
-				},
+				}, //END showReviews
 				showDescription : function(pid) {
 					var $context = $('#productTemplate_'+app.u.makeSafeHTMLId(pid));
 					
@@ -107,8 +115,38 @@ var _2bhip = function() {
 						$('.prodSelectSeeReviewButton', $context).unbind();
 						$('.prodSelectSeeReviewButton', $context).click(app.ext._2bhip.a.showReviews);
 					}, 250);
-				}
+				}, //END showDescription
 				
+				cartSpinner : function() {
+					var spinner = $('#spinner').spinner();
+				}
+
+
+	/*Spinner functions that don't work correctly.
+				connect : function() {
+					$(".cartQty div").append('<div class="inc spinButton">+</div><div class="dec spinButton">-</div>');
+				},
+				
+				spinner : function() {
+					$(".spinButton").click(function() {
+					var $spinButton = $(this);
+					var oldValue = $spinButton.parent().find("input").val();
+				
+					if ($spinButton.text() == "+") {
+						var newVal = parseFloat(oldValue) + 1;
+						app.u.dump('plus 1');
+					  	// AJAX save would go here
+					}	else {
+				    	// Don't allow decrementing below zero
+				    	if (oldValue >= 1) {
+							var newVal = parseFloat(oldValue) - 1;
+							app.u.dump('minus 1');
+							// AJAX save would go here
+						}
+					}
+					$spinButton.parent().find("input").val(newVal);
+				});}
+	*/			
 			}, //Actions
 
 ////////////////////////////////////   RENDERFORMATS    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\

@@ -56,7 +56,7 @@ css files should be included before any .js file to ensure they are downloaded i
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script src="jquery.ui.widget.min.js"></script>
 <script type="text/javascript" src="loadscript.js"></script>
-
+<script type="text/javascript" src="../ui.spinner.js"></script>
 
 
 
@@ -438,7 +438,7 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
             <li class='openSansBoldFont footerLinkListItem pointer' onClick="return showContent('cart',{});">Shopping Cart</li>
             <li class='openSansBoldFont footerLinkListItem pointer' onClick="return showContent('customer',{'show':'newsletter'});">Log-in / Sign-Up</li>
             <li class='openSansBoldFont footerLinkListItem'>Sign Out</li>
-            <li class='openSansBoldFont footerLinkListItem pointer' onclick="return showContent('customer',{'show':'myaccount'});">Wishlist</li>
+            <li class='openSansBoldFont footerLinkListItem pointer' onclick="return showContent('customer',{'show':'lists'});">Wishlist</li>
             <li class='openSansBoldFont footerLinkListItem pointer' onClick="return showContent('customer',{'show':'orders'});">Recent Orders</li>
             <li class='openSansBoldFont footerLinkListItem'>Previously Viewed Products</li>
             <li class='openSansBoldFont footerLinkListItem pointer' onClick="return showContent('customer',{'show':'newsletter'});">Join Our Newsletter</li>
@@ -2020,8 +2020,8 @@ adding classes is not likely to have any bad effects.
 			</div>
 		</div>
 
-		<div id='listsArticle' class='displayNone textContentArea'>
-			<h1>List Manager</h1>
+		<div id='listsArticle' class='wishList displayNone textContentArea'>
+			<h1 class='bangersFont'>Wish List</h1>
 			<div id='listsContainer' class='prodlist loadingBG'></div>
 
 			<div id='listEditorContainer' class='displayNone loadingBG'></div><!-- editor for a given list gets added here -->
@@ -2259,7 +2259,7 @@ So the cart template should contain these two elements and the extension should 
                 <div class='cartQtyContainer openSansBoldFont'>
                     <div class='cartQtyButtons'><img src="images/CartQtyDown.png"></div>
                     <div class='cartQty'>
-                        <input type='number' class='qtyInput borderNone centerText' onChange="app.ext.store_cart.u.updateCartQty($(this)); app.model.dispatchThis('immutable');"  data-bind='format:cartItemQty;extension:store_cart;useParentData:true;' size='3' />
+                        <input type='number' id='spinner' class='qtyInput borderNone centerText' onChange="app.ext.store_cart.u.updateCartQty($(this)); app.model.dispatchThis('immutable');"  data-bind='format:cartItemQty;extension:store_cart;useParentData:true;' size='3' />
                         <button class='displayNone'>update</button><!-- here to stop 'enter' in input above from closing modal -->
                     </div>
                     <div class='cartQtyButtons'><img src="images/CartQtyUp.png"></div>
@@ -2273,7 +2273,10 @@ So the cart template should contain these two elements and the extension should 
                 
                 <div class='cartSizes'></div>
                 
-                <div class='cartRemoveButtonContainer'><button class='cartRemoveButton floatRight' data-bind='format:removeItemBtn; extension:store_cart; useParentData:true;' >Remove Item From Cart</button></div>
+                <div class='cartRemoveButtonContainer'>
+                	<div class='bangersFont floatLeft pointer'>SAVE FOR LATER</div>
+                    <button class='cartRemoveButton floatRight' data-bind='format:removeItemBtn; extension:store_cart; useParentData:true;' >Remove Item From Cart</button>
+                </div>
                 
             </div>
 		

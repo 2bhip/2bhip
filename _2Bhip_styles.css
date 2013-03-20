@@ -1830,6 +1830,14 @@ CART MODAL
 	padding: 3px 0px 0px 3px;
 }
 
+.cartRemoveButtonContainer div {
+	height: 20px;
+	width: 111px;
+	color: #ccc;
+	text-align: center;
+	line-height: 30px;
+}
+
 .cartRemoveButton.floatRight.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-icon-only {
 	background: url(images/CartTrashIcon.png);
 	height: 26px;
@@ -2356,13 +2364,35 @@ LOGIN MODAL
 }
 
 
+/*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+WISH LIST
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
 
 
+.wishList {
+	margin-left: 20px;
+}
 
+.wishList h1 {
+	color: #000;
+	font-size: 30px;
+	margin: 10px 0px 10px 0px;
+}
 
+#listsContainer, .ui-tabs-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all {
+	height: 400px;
+	width: 680px;
+}
 
+#prodlistBuyerList_wishlist_container {
+	height: 200px;
+	width: 680px;
+}
 
-
+#prodlistBuyerList_wishlist {
+	height: 200px;
+	width: 680px;
+}
 
 
 
