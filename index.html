@@ -987,41 +987,48 @@ container ul should have lineItemProdlist class on it instead of productList
 </li>
 
 
-<li id='productListTemplateBuyerList' class='loadingBG clearfix' >
-	<div data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' >
+<li id='productListTemplateBuyerList' class='loadingBG' >
 
-		<div class='prodThumbContainer floatLeft'>
-			<div class='ui-widget ui-widget-content ui-corner-all'>
-				<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;'; width='160' height='160' />
-				<div class='buttonList ui-widget ui-widget-header ui-corner-all alignCenter'>
-
-<button class='ui-state-default ui-corner-all' title='add item to cart' onClick="showContent('product',{'pid':$(this).closest('[data-pid]').attr('data-pid')});">
-<span class="ui-icon ui-icon-cart"></span>
-</button>
-
-<button class='ui-state-default ui-corner-all' title='more information'>
-<span class="ui-icon ui-icon-info"></span>
-</button>
-
-<button class='ui-state-default ui-corner-all' title='write a review for this item' onClick="app.ext.store_crm.u.showReviewFrmInModal({'pid':$(this).closest('[data-pid]').attr('data-pid'),'templateID':'reviewFrmTemplate'});">
-<span class="ui-icon ui-icon-star"></span>
-</button>
-
-<button class='ui-state-default ui-corner-all' title='remove item from list' onClick="app.ext.myRIA.a.removeItemFromBuyerList({'stid':$(this).closest('[data-pid]').attr('data-pid'),'listID':$(this).closest('[data-buyerlistid]').attr('data-buyerlistid')},{'parentID':$(this).closest('li').attr('id')});">
-<span class="ui-icon ui-icon-trash"></span>
-</button>
-
-				</div>
-			</div>
-		</div>
-		<span data-bind='var: reviews(reviews.average); format:addClass; className:review_;' class='reviewSprite floatRight' ></span>
-
-		<h5 data-bind='var: product(zoovy:prod_name); format:text;'></h5>
-
-		<h6 data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>
-
-
-	</div>
+    <div class='cartItems'>
+    	<div class='cartItemsLeftBlock'>
+        	<div class='prodThumbContainer floatLeft'>
+                <div class='ui-widget ui-widget-content ui-corner-all'>
+                    <img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;'; width='120' height='120' />
+                    <div class='buttonList ui-widget ui-widget-header ui-corner-all alignCenter'>
+    
+                        <button class='ui-state-default ui-corner-all' title='add item to cart' onClick="showContent('product',{'pid':$(this).closest('[data-pid]').attr('data-pid')});">
+                        <span class="ui-icon ui-icon-cart"></span>
+                        </button>
+                        
+                        <button class='ui-state-default ui-corner-all' title='more information'>
+                        <span class="ui-icon ui-icon-info"></span>
+                        </button>
+                        
+                        <button class='ui-state-default ui-corner-all' title='write a review for this item' onClick="app.ext.store_crm.u.showReviewFrmInModal({'pid':$(this).closest('[data-pid]').attr('data-pid'),'templateID':'reviewFrmTemplate'});">
+                        <span class="ui-icon ui-icon-star"></span>
+                        </button>
+                        
+                        <button class='ui-state-default ui-corner-all' title='remove item from list' onClick="app.ext.myRIA.a.removeItemFromBuyerList({'stid':$(this).closest('[data-pid]').attr('data-pid'),'listID':$(this).closest('[data-buyerlistid]').attr('data-buyerlistid')},{'parentID':$(this).closest('li').attr('id')});">
+                        <span class="ui-icon ui-icon-trash"></span>
+                        </button>
+    
+                    </div>
+                </div>
+                <div data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' >
+            </div>
+        </div>
+        
+    
+            
+            <span data-bind='var: reviews(reviews.average); format:addClass; className:review_;' class='reviewSprite floatRight' ></span>
+    
+            <h5 data-bind='var: product(zoovy:prod_name); format:text;'></h5>
+    
+            <h6 data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>
+    
+    
+        </div>
+    </div> <!---->
 </li>
 
 

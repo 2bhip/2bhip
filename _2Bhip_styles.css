@@ -2379,20 +2379,26 @@ WISH LIST
 	margin: 10px 0px 10px 0px;
 }
 
+#wishListContents, .ui-tabs-panel.ui-widget-content.ui-corner-bottom {
+	height: auto;
+	width: 500px;
+}
+
 #listsContainer, .ui-tabs-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all {
-	height: 400px;
+	height: 50px;
 	width: 680px;
 }
 
 #prodlistBuyerList_wishlist_container {
-	height: 200px;
+	height: auto;
 	width: 680px;
 }
 
-#prodlistBuyerList_wishlist {
+/*#prodlistBuyerList_wishlist, .listStyleNone.clearfix.noPadOrMargin.lineItemProdlist, .clearfix:after {
+	clear: none;
 	height: 200px;
 	width: 680px;
-}
+}*/
 
 
 
