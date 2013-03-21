@@ -723,11 +723,21 @@ END FOOTER
 
 /*$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-
 NON-PERSISTENT CONTENT
-
 /*$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$*/
+
+/* APP NAV */
+#appNav .prodDetailPrevItemButton {
+	top: 2px;
+	left: 757px;
+}
+
+#appNav .prodDetailNextItemButton {
+	top: 2px;
+	right: 39px;
+}
+
 
 /*BREAD CRUMB*/
 
@@ -1462,7 +1472,7 @@ PRODUCT DETAIL PAGE
 
 .additionalImageContainer {
 	height: 75px;
-	width: 296px;
+	width: 300px;
 	background-color: #000;
 }
 
@@ -1830,12 +1840,14 @@ CART MODAL
 	padding: 3px 0px 0px 3px;
 }
 
-.cartRemoveButtonContainer div {
+.cartRemoveButtonContainer button:first-child {
 	height: 20px;
 	width: 111px;
 	color: #ccc;
 	text-align: center;
 	line-height: 30px;
+	border: none;
+	background: none;
 }
 
 .cartRemoveButton.floatRight.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-icon-only {

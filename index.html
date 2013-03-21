@@ -26,7 +26,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130318201800",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130320164700",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"httpsURL":"https://ssl.zoovy.com/s=www.97638a9e.pop.zoovy.net/",
@@ -1169,13 +1169,6 @@ this will likely become more flexible in the future. ###
    
         <span id="buySAFE_Kicker" name="buySAFE_Kicker" type="Kicker Guaranteed Transparent 33 175x30"></span>
         
-        <div> 
-        	Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-			Integer eros nisi, interdum in tincidunt eu, rutrum
-			pellentesque quam. Quisque facilisis, ante ut iaculis
-			ullamcorper, nulla tellus dapibus orci, quis venenatis felis
-			elit et ante.
-        </div>
 	</td>
     
     <td class='prodReviewContainer displayNone'>
@@ -1189,7 +1182,7 @@ this will likely become more flexible in the future. ###
     <td>
         <div class='prodSelectionContainer borderRound'>
         
-            <div class='openSansBoldFont productShips latency' data-bind='var: product(zoovy:ship_latency); format:text;pretext:PRODUCT SHIPS WITHIN ;posttext: DAYS;'></div>
+            <div class='openSansBoldFont productShips latency' data-bind='var: product(zoovy:ship_latency); format:text; pretext:PRODUCT SHIPS WITHIN ; posttext: DAYS;'></div>
                         
             <div class='prodPriceSelection'>
                 <h5 class='prodMSRP bangersFont' data-bind='var: product(zoovy:prod_msrp); format:money; currencySign: $;  hideZero:true;'></h5>
@@ -2281,7 +2274,8 @@ So the cart template should contain these two elements and the extension should 
                 <div class='cartSizes'></div>
                 
                 <div class='cartRemoveButtonContainer'>
-                	<div class='bangersFont floatLeft pointer'>SAVE FOR LATER</div>
+                	<button class='bangersFont floatLeft pointer' data-bind='format:moveToWishListButton; extension:myRIA; useParentData:true;' >SAVE FOR LATER</button>
+                	<!-- <div class='bangersFont floatLeft pointer'>SAVE FOR LATER</div> ORIG MOVE TO WISHLIST CLASSES class='floatRight moveToWishlist marginRight' -->
                     <button class='cartRemoveButton floatRight' data-bind='format:removeItemBtn; extension:store_cart; useParentData:true;' >Remove Item From Cart</button>
                 </div>
                 
