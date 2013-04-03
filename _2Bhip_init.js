@@ -56,7 +56,8 @@ app.rq.push(['script',0,app.vars.baseURL+'controller.js']);
 app.rq.push(['script',0,app.vars.baseURL+'anyplugins.js']); //in zero pass in case product page is first page.
 
 //carousel script
-app.rq.push(['script',0,app.vars.baseURL+'carouFredSel-6.2.0/jquery.carouFredSel-6.2.0-packed.js']);
+app.rq.push(['script',1,app.vars.baseURL+'resources/jquery.touchSwipe-1.3.3.min.js']); //used w/ carouFedSel.
+app.rq.push(['script',1,app.vars.baseURL+'resources/jquery.carouFredSel-6.2.0.min.js']); //used on homepage.
 
 
 //sample of an onDeparts. executed any time a user leaves this page/template type.
@@ -84,13 +85,17 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
 	//mainBanner Carousel horizontal sliders
 	var mainBannerCarousel;
 		function foo(){ $(".mainBannerCarousel").carouFredSel({
-		width   : 936,
-		height  : 300,
+			width   : 936,
+			height  : 300,
 			items   : 1,
-	scroll: 1,
-	auto : false,
-		prev : "#mainBannerCarouselButtonPrev",
-		next : "#mainBannerCarouselButtonNext"
+			scroll: 1,
+			auto : false,
+			prev : "#mainBannerCarouselButtonPrev",
+			next : "#mainBannerCarouselButtonNext",
+			swipe: {
+				onMouse: true,
+				onTouch: true
+			}
 		});
 	}
  	mainBannerCarousel = foo;
@@ -100,13 +105,17 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
 	//subcatagories Carousel horizontal sliders
  	var carousel2;
 		function foo2(){ $(".subCarouselCategoryContainer").carouFredSel({
-  		width   : 883,
-  		height  : 160,
-     		items   : 3,
-  	scroll: 1,
-  	auto : false,
-    	prev : "#subButtonPrev",
-		next : "#subButtonNext"
+			width   : 883,
+			height  : 160,
+			items   : 3,
+			scroll: 1,
+			auto : false,
+			prev : "#subButtonPrev",
+			next : "#subButtonNext",
+			swipe: {
+				onMouse: true,
+				onTouch: true
+			}
  		});
 	}
 	carousel2 = foo2;
@@ -134,7 +143,11 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
 				button : "#homeCarButtonNext1",
 				key	   : "right"
 			},
-			pagination: "#homePaginationContainer1"
+			pagination: "#homePaginationContainer1",
+			swipe: {
+				onMouse: true,
+				onTouch: true
+			}
  		});
 	}
  	carousel3 = foo3;
@@ -157,7 +170,11 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
 				button : "#homeCarButtonNext2",
 				key	   : "right"
 			},
-			pagination: "#homePaginationContainer2"
+			pagination: "#homePaginationContainer2",
+			swipe: {
+				onMouse: true,
+				onTouch: true
+			}
  		});
 	}
  	carousel4 = foo4;
@@ -180,7 +197,11 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
 				button : "#homeCarButtonNext3",
 				key	   : "right"
 			},
-			pagination: "#homePaginationContainer3"
+			pagination: "#homePaginationContainer3",
+			swipe: {
+				onMouse: true,
+				onTouch: true
+			}
  		});
 	}
  	carousel5 = foo5;
@@ -203,7 +224,11 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
 				button : ".prodDetailCarButtonNext6",
 				key	   : "right"
 			},
-			pagination: ".prodDetailPaginationContainer6"
+			pagination: ".prodDetailPaginationContainer6",
+			swipe: {
+				onMouse: true,
+				onTouch: true
+			}
  		});
 	}
  	carousel6 = foo6;
@@ -226,7 +251,11 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
 				button : ".prodDetailCarButtonNext7",
 				key	   : "right"
 			},
-			pagination: ".prodDetailPaginationContainer7"
+			pagination: ".prodDetailPaginationContainer7",
+			swipe: {
+				onMouse: true,
+				onTouch: true
+			}
  		});
 	}
  	carousel7 = foo7;
