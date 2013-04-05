@@ -431,7 +431,7 @@ END HEADER
 .giantPipeBS {
 	position: absolute;
 	top: 47px;
-	left: 351px;
+	left: 311px;
 	height: 287px;
 	width: 4px;
 	background-color: #000;
@@ -440,7 +440,7 @@ END HEADER
 .dropdownPopular {
 	position: absolute;
 	top: 10px;
-	left: 355px;
+	left: 335px;
 	height: 358px;
 	width: 345px;
 }
@@ -448,16 +448,24 @@ END HEADER
 .giantPipePop {
 	position: absolute;
 	top: 47px;
-	left: 695px;
+	left: 625px;
 	height: 287px;
 	width: 4px;
-	background-color: #000;
+	background-color: none;
+}
+
+.dropdownPopularSecond {
+	position: absolute;
+	top: 50px;
+	left: 619px;
+	height: 358px;
+	width: 345px;
 }
 
 .cartoonViewAllButton {
 	position: absolute;
-	top: 235px;
-	left: 737px;
+	bottom: 25px;
+	right: 100px;
 	height: 58px;
 	width: 149px;
 	text-align: center;
@@ -482,23 +490,18 @@ END HEADER
 
 .dropdown li {
 	margin: 6px 0px 0px 38px;
+	padding-left: 6px;
+	text-indent: -15px;
 }
 
-.dropdown div:first-of-type {
-	margin-top: 0px;
-}
+.dropdown a {color: #006099;}
+.dropdown a:hover {color: #ffcc00;}
+.dropdown div:first-of-type {margin-top: 0px;}
+.dropdown div {margin-bottom: 10px;}
 
-.dropdown div {
-	margin-bottom: 10px;
-}
+#navBar {width: 100%;}
 
-#navBar {
-	width: 100%;
-}
-
-.clear {
-	clear: both;
-}
+.clear {clear: both;}
 
 #main {
 	height: 40px;
