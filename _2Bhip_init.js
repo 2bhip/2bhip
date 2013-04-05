@@ -13,7 +13,7 @@ app.rq.push(['extension',0,'store_checkout','extensions/store_checkout.js']);
 
 //2Bhip custom extension
 //app.rq.push(['templateFunction','productTemplate','onCompletes',function(p){
-app.rq.push(['extension',0,'_2bhip','extensions/_2bhip_extension.js','startExtension']);
+app.rq.push(['extension',0,'store_filter','extensions/_2bhip_extension.js','startExtension']);
 
 app.rq.push(['extension',0,'store_prodlist','extensions/store_prodlist.js']);
 app.rq.push(['extension',0,'store_navcats','extensions/store_navcats.js']);
@@ -81,223 +81,7 @@ app.u.throwMessage = function(m)	{
 	}
 	
 	
-app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
-	//mainBanner Carousel horizontal sliders
-	var mainBannerCarousel;
-		function foo(){ $(".mainBannerCarousel").carouFredSel({
-			width   : 936,
-			height  : 300,
-			items   : 1,
-			scroll: 1,
-			auto : false,
-			prev : "#mainBannerCarouselButtonPrev",
-			next : "#mainBannerCarouselButtonNext",
-			swipe: {
-				onMouse: true,
-				onTouch: true
-			}
-		});
-	}
- 	mainBannerCarousel = foo;
- 	setTimeout(mainBannerCarousel, 2000);
-	
-	
-	//subcatagories Carousel horizontal sliders
- 	var carousel2;
-		function foo2(){ $(".subCarouselCategoryContainer").carouFredSel({
-			width   : 883,
-			height  : 160,
-			items   : 3,
-			scroll: 1,
-			auto : false,
-			prev : "#subButtonPrev",
-			next : "#subButtonNext",
-			swipe: {
-				onMouse: true,
-				onTouch: true
-			}
- 		});
-	}
-	carousel2 = foo2;
- 	setTimeout(carousel2, 2000); 
-	
-	
-	//Best Selling Items Carousel horizontal sliders
- 	var carousel3;
-		function foo3(){ $(".homePageTempCarousel1").carouFredSel({
-  			width    : 956,
-  			height 	 : 305,
-     		items    : 4,
-  			scroll   : 4,
-  			/*auto     : {
-						delay : 1,
-						items : 4,
-						duration : 9
-			}*/
-			auto	 : false,
-			prev : {
-				button : "#homeCarButtonPrev1",
-				key    : "left"
-			},
-			next : {
-				button : "#homeCarButtonNext1",
-				key	   : "right"
-			},
-			pagination: "#homePaginationContainer1",
-			swipe: {
-				onMouse: true,
-				onTouch: true
-			}
- 		});
-	}
- 	carousel3 = foo3;
-	setTimeout(carousel3, 2000); 	
-	
-	
-	//New Arrivals Carousel horizontal sliders
-	var carousel4;
-		function foo4(){ $(".homePageTempCarousel12").carouFredSel({
-  			width    : 960,
-  			height 	 : 305,
-     		items    : 4,
-  			scroll   : 4,
-			auto	 : false,
-			prev : {
-				button : "#homeCarButtonPrev2",
-				key    : "left"
-			},
-			next : {
-				button : "#homeCarButtonNext2",
-				key	   : "right"
-			},
-			pagination: "#homePaginationContainer2",
-			swipe: {
-				onMouse: true,
-				onTouch: true
-			}
- 		});
-	}
- 	carousel4 = foo4;
-	setTimeout(carousel4, 2000); 
-	
-	
-	//FREE SHIPPING! Carousel horizontal sliders
-	var carousel5;
-		function foo5(){ $(".homePageTempCarousel13").carouFredSel({
-  			width    : 960,
-  			height 	 : 305,
-     		items    : 4,
-  			scroll   : 4,
-			auto	 : false,
-			prev : {
-				button : "#homeCarButtonPrev3",
-				key    : "left"
-			},
-			next : {
-				button : "#homeCarButtonNext3",
-				key	   : "right"
-			},
-			pagination: "#homePaginationContainer3",
-			swipe: {
-				onMouse: true,
-				onTouch: true
-			}
- 		});
-	}
- 	carousel5 = foo5;
-	setTimeout(carousel5, 2000); 
-	
-	
-	//Similar Items Carousel on Product Details page horizontal sliders
-	var carousel6;
-		function foo6(){ $(".prodDetailTempCarousel1").carouFredSel({
-  			width    : 960,
-  			height 	 : 305,
-     		items    : 4,
-  			scroll   : 4,
-			auto	 : false,
-			prev : {
-				button : ".prodDetailCarButtonPrev6",
-				key    : "left"
-			},
-			next : {
-				button : ".prodDetailCarButtonNext6",
-				key	   : "right"
-			},
-			pagination: ".prodDetailPaginationContainer6",
-			swipe: {
-				onMouse: true,
-				onTouch: true
-			}
- 		});
-	}
- 	carousel6 = foo6;
-	setTimeout(carousel6, 2000); 
-	
-	
-	//Previously Viewed Items Carousel on Product Details page horizontal sliders
-	var carousel7;
-		function foo7(){ $(".prodDetailTempCarousel2").carouFredSel({
-  			width    : 960,
-  			height 	 : 305,
-     		items    : 4,
-  			scroll   : 4,
-			auto	 : false,
-			prev : {
-				button : ".prodDetailCarButtonPrev7",
-				key    : "left"
-			},
-			next : {
-				button : ".prodDetailCarButtonNext7",
-				key	   : "right"
-			},
-			pagination: ".prodDetailPaginationContainer7",
-			swipe: {
-				onMouse: true,
-				onTouch: true
-			}
- 		});
-	}
- 	carousel7 = foo7;
-	setTimeout(carousel7, 2000); 
-	
-	
-	//Homepage customer review switcher
-	var revChange = $('.miscCustReviews li');
-	var i=1;
-	$(revChange).hide();
-	$(revChange[0]).show();
-	revChange.siblings();
-	function loop() {
-		revChange.siblings().delay(4000).fadeOut(4000).delay(4000).eq(i).fadeIn(4000, function() {
-			check = i != revChange.length-1 ? i++ : i=0;
-			loop();
-		});
-	};
-	loop();
 
-
-	/*MOVED TO _2Bhip_extension.js
-	var description = $('.prodSummaryContainer');
-	var review = $('.prodReviewContainer');
-	var seeRevButton = $('.prodSelectSeeReviewButton');
-	var seeDescButton = $('.prodSelectSeeDescriptionButton');
-	$(review).hide();
-	$(seeDescButton).hide();
-	$(seeRevButton).click(function() {
-		$(description).hide();
-		$(review).show();
-		$(seeRevButton).hide();
-		$(seeDescButton).show();
-	});
-	$(seeDescButton).bind('click', function() {
-		$(review).hide();
-		$(description).show();
-		$(seeDescButton).hide();
-		$(seeRevButton).show();
-	});*/
-	
-}]);	
 	
 
 app.u.howManyPassZeroResourcesAreLoaded = function(debug)	{
@@ -311,6 +95,50 @@ app.u.howManyPassZeroResourcesAreLoaded = function(debug)	{
 		}
 	return r;
 	}
+	
+	
+	
+//Filter Search:
+//sample of an onDeparts. executed any time a user leaves this page/template type.
+app.rq.push(['templateFunction','categoryTemplate','onCompletes',function(P) {
+	
+	//context for reset button to reload page
+	var $context = $(app.u.jqSelector('#',P.parentID)); 
+	
+	app.u.dump("BEGIN categoryTemplate onCompletes for filtering");
+	if(app.ext.store_filter.filterMap[P.navcat])	{
+		app.u.dump(" -> safe id DOES have a filter.");
+
+		var $page = $(app.u.jqSelector('#',P.parentID));
+		app.u.dump(" -> $page.length: "+$page.length);
+		if($page.data('filterAdded'))	{app.u.dump("filter exists skipping form add");} //filter is already added, don't add again.
+		else	{
+			$page.data('filterAdded',true)
+			var $form = $("[name='"+app.ext.store_filter.filterMap[P.navcat].filter+"']",'#appFilters').clone().appendTo($('.filterContainer',$page));
+			$form.on('submit.filterSearch',function(event){
+				event.preventDefault()
+				app.u.dump(" -> Filter form submitted.");
+				app.ext.store_filter.a.execFilter($form,$page);
+				});
+
+			if(typeof app.ext.store_filter.filterMap[P.navcat].exec == 'function')	{
+				app.ext.store_filter.filterMap[P.navcat].exec($form,P)
+				}
+
+	//make all the checkboxes auto-submit the form.
+			$(":checkbox",$form).off('click.formSubmit').on('click.formSubmit',function() {
+				$form.submit();      
+				});
+			}
+		}
+		
+		//selector for reset button to reload page
+		$('.resetButton', $context).click(function(){
+  			$context.empty().remove();
+  			showContent('category',{'navcat':P.navcat});
+  		});
+
+	}]);
 
 
 //gets executed once controller.js is loaded.

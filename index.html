@@ -26,7 +26,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130405082600",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130405141600",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"httpsURL":"https://ssl.zoovy.com/s=www.97638a9e.pop.zoovy.net/",
@@ -147,7 +147,8 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
     <div class='mainNavBarLinksContainer'>	
         <div class='mainNavBarLinks bangersBigFont pointer'>SHOP BY TYPE</div>                     
         <div class='mainNavBarLinks bangersBigFont' id='characters'>CHARACTERS & TITLES</div>
-    	<div class='mainNavBarLinks bangersBigFont pointer'><a class="bindByAnchor" href="#!search?TAG=IS_BESTSELLER">BEST SELLERS</a></div>
+   <!-- <div class='mainNavBarLinks bangersBigFont pointer'><a class="bindByAnchor" href="#!search?TAG=IS_BESTSELLER">BEST SELLERS</a></div> -->
+    	<div class='mainNavBarLinks bangersBigFont pointer'><a href="#" onClick="return showContent('search',{'TAG':'IS_BESTSELLER'})">BEST SELLERS</a></div>
         <div class='mainNavBarLinks bangersBigFont'><a class="bindByAnchor" href="#!search?TAG=IS_NEWARRIVAL">NEW ARRIVALS</a></div>
         <div class='mainNavBarLinks bangersBigFont'><a class="bindByAnchor" href="#!search?TAG=IS_CLEARANCE">CLEARANCE</a></div>
     </div>
@@ -798,43 +799,11 @@ don't modify the 'data-templateid' unless you are changing template names and up
 
 	<ul class='breadcrumb clearfix noPadOrMargin fluidList bangersMedFont' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
 	<div class='catPageContainer'>
-        <div class='filterSearchContainerPlaceholder borderRound'>
-        	<div class='allFilterSearchBoxes sortPrice'>
-            	<h2 class='openSansXBoldFont'>SORT BY PRICE</h2>
-            </div>
-            <div class='allFilterSearchBoxes sortTheme'>
-            	<h2 class='openSansXBoldFont'>SORT BY THEME</h2>
-                <ul class='openSansBoldFont'>
-                	<li><label><input type='checkbox'/> Star Wars</label></li>
-                    <li><label><input type='checkbox'/> Superman</label></li>
-                    <li><label><input type='checkbox'/> Batman</label></li>
-                    <li><label><input type='checkbox'/> Marvel Comics</label></li>
-                    <li><label><input type='checkbox'/> DC Comics</label></li>
-                    <li><label><input type='checkbox'/> Image Comics</label></li>
-                    <li><label><input type='checkbox'/> Dark Horse Comics</label></li>
-                </ul>
-            </div>
-            <div class='allFilterSearchBoxes sortSize'>
-            	<h2 class='openSansXBoldFont'>SORT BY SIZE</h2>
-                <ul class='openSansBoldFont'>
-                	<li><label><input type='checkbox'/> X-Small</label></li>
-                    <li><label><input type='checkbox'/> Small</label></li>
-                    <li><label><input type='checkbox'/> Medium</label></li>
-                    <li><label><input type='checkbox'/> Large</label></li>
-                    <li><label><input type='checkbox'/> X-Large</label></li>
-                </ul>
-            </div>
-            <div class='allFilterSearchBoxes sortType'>
-            	<h2 class='openSansXBoldFont'>SORT BY TYPE</h2>
-                <ul class='openSansBoldFont'>
-                	<li><label><input type='checkbox'/> Apparel</label></li>
-                    <li><label><input type='checkbox'/> Collectibles</label></li>
-                    <li><label><input type='checkbox'/> Toys</label></li>
-                    <li><label><input type='checkbox'/> Electronics</label></li>
-                </ul>
-                <h3></h3>
-            </div>
-        </div>
+    	<div class='filterSearchContainerPlaceholder floatLeft'>
+			<div class='filterContainer clearfix'></div>   
+            <div class='clear'>
+        </div> 
+        </div> 
         <div class='catContentContainer'>
             <img data-bind="var: category(%page.banner1); format: banner; editor: banner; height:250; width:750; extension: myRIA;" />
             
@@ -1244,8 +1213,8 @@ this will likely become more flexible in the future. ###
                     <menu data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='CRMButtonMenu'>
                         <button class='prodSelectShareButton prodSelectSmallButtons bangersFont ui-button-text ui-button ui-state-default ui-corner-all' onClick=";">SHARE</button><!--!%!-->
                         <button class='prodSelectWishlistButton prodSelectSmallButtons bangersFont ui-button-text ui-button ui-state-default ui-corner-all' onClick="app.ext.myRIA.a.add2BuyerList({sku:$(this).parent().attr('data-pid'),'listid':'wishlist'}); return false;">ADD TO WISHLIST</button>
-                        <button class='prodSelectSeeReviewButton prodSelectSmallButtons bangersFont ui-button-text ui-button ui-state-default ui-corner-all' onClick='app.ext._2bhip.a.showReviews($(this).parent().data("pid"));'>SEE PRODUCT REVIEWS</button> 
-                        <button class='prodSelectSeeDescriptionButton prodSelectSmallButtons bangersFont ui-button-text ui-button ui-state-default ui-corner-all displayNone' onClick='app.ext._2bhip.a.showDescription($(this).parent().data("pid"));'>SEE PRODUCT DESCRIPTION</button>
+                        <button class='prodSelectSeeReviewButton prodSelectSmallButtons bangersFont ui-button-text ui-button ui-state-default ui-corner-all' onClick='app.ext.store_filter.a.showReviews($(this).parent().data("pid"));'>SEE PRODUCT REVIEWS</button> 
+                        <button class='prodSelectSeeDescriptionButton prodSelectSmallButtons bangersFont ui-button-text ui-button ui-state-default ui-corner-all displayNone' onClick='app.ext.store_filter.a.showDescription($(this).parent().data("pid"));'>SEE PRODUCT DESCRIPTION</button>
                         <button class='prodSelectWriteReviewButton prodSelectSmallButtons bangersFont ui-button-text ui-button ui-state-default ui-corner-all' onClick='app.ext.store_crm.u.showReviewFrmInModal({"pid":$(this).attr("data-pid"),"templateID":"reviewFrmTemplate"});' data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>WRITE A PRODUCT REVIEW</button>
                     </menu>
                 </div>
@@ -2625,6 +2594,55 @@ The 'data-action' attribute is used to assign an onclick.
 		<button class='ui-button-text ui-button ui-state-default ui-corner-all ' id='modalLoginContinueButton' onClick="$('#loginFormForModal').dialog('close');">Continue</button>
 	</div>
 </div>
+
+
+
+<!--
+#################################
+
+LAYERED SEARCH FILTERS
+
+put all filters into the appFilters container.
+
+#################################
+-->
+
+
+
+<div id='appFilters' class='displayNone'>
+
+	<form action='#' name='tShirtsForm' id='tShirtsForm' class='layeredSearch borderRound openSansBoldFont'>
+		
+        <div class='layeredLegend'>SORT BY PRICE</div>
+        <fieldset data-elastic-key="base_price" data-filtertype="slider" class='filterStyle'>
+            <!-- <legend>Price</legend> -->
+            <div class='ranger'><div class="slider-range"></div></div>
+            <input type="text"  class='sliderValue' />
+        </fieldset>
+        
+        <fieldset data-elastic-key="prod_type" data-filtertype="hidden" class='displayNone'>
+            <input type='hidden' name="prod_type" value="shirt" /> <!-- this is value of product type -->
+        </fieldset>  
+        
+        <div class='layeredLegend'>SORT BY TYPE</div>
+        <fieldset data-elastic-key="prod_ugenre" data-filtertype="checkboxes" class='filterStyle'>
+            <label class='break'><input class="fliterCheckBox" type='checkbox' value='adult' />Adult</label>
+            <label class='break'><input class="" type='checkbox' value='jrs' />Juniors</label>
+            <label class='break'><input class="" type='checkbox' value='juvy' />Youth</label>
+        </fieldset>
+        
+        <div class='layeredLegend'>SORT BY COLOR</div>
+        <fieldset data-elastic-key="prod_color" data-filtertype="checkboxes" class='filterStyle'>
+            <label class='break'><input class="" type='checkbox' value='multi' />Multi-colored</label>
+            <label class='break'><input class="" type='checkbox' value='gray' />Gray</label>
+            <label class='break'><input class="" type='checkbox' value='white' />White</label>
+            <label class='break'><input class="" type='checkbox' value='blue' />Blue</label>
+        </fieldset>
+    
+    </form>
+
+</div> <!-- END LAYERED SEARCH -->
+
 
 
 
