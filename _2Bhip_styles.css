@@ -1374,6 +1374,21 @@ CATAGORY PAGE
 
 label.break	{display:block; margin-bottom:2px;}
 
+input[type='checkbox'] {display:none;}
+
+input[type='checkbox'] + label span {
+	display: inline-block;
+	height: 19px;
+	width: 19px; 
+	margin: -1px 4px 0px 0px;
+	vertical-align: middle;
+	background-color: #fff;
+	cursor: pointer;
+	border: 2px solid #000;
+}
+
+input[type='checkbox']:checked + label span {background-color:#006099;}
+
 .fliterCheckBox {
 	border: none;
 	background: #fff;

@@ -26,7 +26,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130405141600",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130405161000",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"httpsURL":"https://ssl.zoovy.com/s=www.97638a9e.pop.zoovy.net/",
@@ -2626,9 +2626,9 @@ put all filters into the appFilters container.
         
         <div class='layeredLegend'>SORT BY TYPE</div>
         <fieldset data-elastic-key="prod_ugenre" data-filtertype="checkboxes" class='filterStyle'>
-            <label class='break'><input class="fliterCheckBox" type='checkbox' value='adult' />Adult</label>
-            <label class='break'><input class="" type='checkbox' value='jrs' />Juniors</label>
-            <label class='break'><input class="" type='checkbox' value='juvy' />Youth</label>
+            <input id='filterC1' type='checkbox' value='adult'/><label class='break' for='filterC1'><span></span>Adult</label>
+            <input id='filterC2' type='checkbox' value='jrs' /><label class='break' for='filterC2'><span></span>Juniors</label>
+            <input id='filterC3' type='checkbox' value='juvy' /><label class='break' for='filterC3'><span></span>Youth</label>
         </fieldset>
         
         <div class='layeredLegend'>SORT BY COLOR</div>
