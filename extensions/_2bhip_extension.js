@@ -394,6 +394,8 @@ return filters;
 					});
 				$( ".sliderValue",$form ).val( "$" + $( ".slider-range" ).slider( "values", 0 ) + " - $" + $( ".slider-range" ).slider( "values", 1 ) );
 				}, //renderSlider
+				
+				
 //CAROUSEL FUNCTIONS
 			runCarousels : function() {
 				app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
