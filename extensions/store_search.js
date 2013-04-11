@@ -147,7 +147,8 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 							$pageMenu = app.ext.store_search.u.buildPagination($list,_rtag), //pagination as ul
 							$multipage = app.ext.store_search.u.buildPaginationButtons($list,_rtag), //next/prev buttons
 							$menuContainer = $("<div \/>").addClass('resultsMenuContainer'), //used to hold menus. imp for abs. positioning.
-							$controlsContainer = $("<div \/>").addClass('ui-widget ui-widget-content resultsHeader clearfix ui-corner-bottom'); //used to hold menus and buttons.
+							$controlsContainer = $("<div \/>").addClass('resultsHeader clearfix'); //used to hold menus and buttons.
+							//$controlsContainer = $("<div \/>").addClass('ui-widget ui-widget-content resultsHeader clearfix ui-corner-bottom'); //used to hold menus and buttons.
 							
 //							$menuContainer.append($sortMenu); //sorting not working. commented out for now. !!!
 							$header.prependTo($parent);
@@ -198,7 +199,8 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 				EQ = $list.data('elastic-query'); //Elastic Query
 				
 				if(datapointer && $list && EQ)	{
-					$header = $("<div \/>").addClass('ui-widget ui-widget-header resultsHeader clearfix ui-corner-top hideInMinimalMode');
+					$header = $("<div \/>").addClass('resultsHeader clearfix hideInMinimalMode');
+					//$header = $("<div \/>").addClass('ui-widget ui-widget-header resultsHeader clearfix ui-corner-top hideInMinimalMode');
 					if(EQ.query && EQ.query.query_string && EQ.query.query_string.query){
 						$header.text(app.data[datapointer].hits.total+" Results for: "+EQ.query.query_string.query);
 						}
@@ -236,11 +238,11 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 					$controls = $("<div \/>").addClass('');
 
 //SANITY -> the classes on these buttons are used in quickstart. 					
-					var $prevPageBtn = $("<button \/>").text("Previous Page").button({icons: {primary: "ui-icon-circle-triangle-w"},text: false}).addClass('prevPageButton').on('click.multipagePrev',function(event){
+					var $prevPageBtn = $("<button \/>").text("Previous Page").button({icons: {primary: "ui-icon-circle-triangle-w"},text: false}).addClass('prevPageButton, prevMove').on('click.multipagePrev',function(event){
 						event.preventDefault();
 						app.ext.store_search.u.changePage($list,(pageInFocus - 1),_rtag);
 						});
-					var $nextPageBtn = $("<button \/>").text("Next Page").button({icons: {primary: "ui-icon-circle-triangle-e"},text: false}).addClass('nextPageButton').on('click.multipageNext',function(event){
+					var $nextPageBtn = $("<button \/>").text("Next Page").button({icons: {primary: "ui-icon-circle-triangle-e"},text: false}).addClass('nextPageButton nextMove').on('click.multipageNext',function(event){
 						event.preventDefault();
 						app.ext.store_search.u.changePage($list,(pageInFocus + 1),_rtag);
 						});

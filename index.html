@@ -26,7 +26,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130405161000",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130410173400",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"httpsURL":"https://ssl.zoovy.com/s=www.97638a9e.pop.zoovy.net/",
@@ -796,6 +796,34 @@ each of the 'sections' are used to load another template. don't change the id.
 don't modify the 'data-templateid' unless you are changing template names and updating everywhere appropriate.
 -->
 <div id='categoryTemplate' class='loadingBG categoryTemplate'>
+
+	<ul class='breadcrumb clearfix noPadOrMargin fluidList bangersMedFont' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
+	<div class='catPageContainer'>
+    	<div class='filterSearchContainerPlaceholder floatLeft'>
+			<div class='filterContainer clearfix'></div>   
+            <div class='clear'>
+        </div> 
+        </div> 
+        <div class='catContentContainer'>
+            <img data-bind="var: category(%page.banner1); format: banner; editor: banner; height:250; width:750; extension: myRIA;" />
+            
+            <h2 data-bind="var: category(%page.header); format: text; editor: text;"></h2>
+            
+            <!-- <h1 class='bangersFont'>CATEGORIES</h1> -->
+            
+            <p class='openSansFont' data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
+        
+            <ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplateCustom; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul><!-- outputs a list of subcategories -->
+            
+            <ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplateCustom; withReviews:1; items_per_page: 9;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
+            
+            <p class='openSansFont' data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p><!---->
+        </div>
+    </div>
+</div>
+
+
+<div id='categoryTemplateCharTitles' class='loadingBG categoryTemplate'>
 
 	<ul class='breadcrumb clearfix noPadOrMargin fluidList bangersMedFont' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
 	<div class='catPageContainer'>
@@ -2030,9 +2058,9 @@ adding classes is not likely to have any bad effects.
 	<!-- the div is use to show a detailed view of a product. should be hidden by default. -->
 	<div class='previewProductDetail displayNone'></div>
 
-	<div class='previewListContainer'>
+	<div class='previewListContainer resultsProdList'>
 		<!-- productListTemplateResults gets loaded into here -->
-		<ul id='resultsProductListContainer' class='listStyleNone fluidList noPadOrMargin productList resultsProdList'></ul>
+		<ul id='resultsProductListContainer' class='listStyleNone fluidList noPadOrMargin productList blah'></ul>
 	</div>
 
 </div>
@@ -2616,7 +2644,7 @@ put all filters into the appFilters container.
         <div class='layeredLegend'>SORT BY PRICE</div>
         <fieldset data-elastic-key="base_price" data-filtertype="slider" class='filterStyle'>
             <!-- <legend>Price</legend> -->
-            <div class='ranger'><div class="slider-range"></div></div>
+            <div class='ranger'><div class="slider-range slider-range2"></div></div>
             <input type="text"  class='sliderValue' />
         </fieldset>
         

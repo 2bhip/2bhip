@@ -425,7 +425,7 @@ return filters;
 							width   : 883,
 							height  : 160,
 							items   : 3,
-							scroll: 1,
+							scroll: 3,
 							auto : false,
 							prev : "#subButtonPrev",
 							next : "#subButtonNext",

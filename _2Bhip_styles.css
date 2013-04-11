@@ -1356,14 +1356,24 @@ CATAGORY PAGE
 	margin-left: 13px;
 }
 
+/*
 .slider-range, .ui-slider, .ui-slider-horizontal, .ui-widget, .ui-widget-content, .ui-corner-all 
+*/
+.layeredSearch .slider-range
 {
 	height: auto;
 	width: 160px;
+	outline: 1px solid blue;
+}
+
+.slider-range.slider-range2, .ui-slider-range .ui-widget-header .ui-corner-all
+{
+	height: 10px;
+	width: 170px;
 }
 
 .sliderValue {
-	width: 180px;
+	width: 200px;
     height: 25px;
 	border:none;
     padding: 0;
@@ -2390,8 +2400,71 @@ WISH LIST
 SEARCH RESULTS
 **************************************************************************/
 
-.resultsProdList {height:100%; width:960px; margin:auto;}
 
+.searchResultsPage {
+	height: auto;
+	width: 944px;
+	padding: 0 40px 0 46px;
+}
+
+.resultsHeader.clearfix {
+	height: auto;
+	width: 928px;
+	background-color: #000;
+	color: #fff;
+	margin-left: -6px;
+	top: -1px;
+	text-align:center;
+	font-family: Bangers;
+	font-size: 18px;
+}
+
+.resultsMenuContainer .resultsMenu {
+	height: 29px;
+	width: 485px;
+	position:absolute;
+	top: 0px;
+	left: 225px;
+	text-align: center;
+	font-size: 18px;
+	font-family: Bangers;
+}
+
+.resultsMenuContainer .resultsMenu li ul li {
+	height: 20px;
+	width: 120px;
+	}
+
+.prevMove {
+	position:absolute;
+	left: -386px;
+}
+
+.nextMove {
+	position:absolute;
+	right: 32px;
+
+/*
+.resultsProdList {height:100%; width:950px; margin:auto;}
+.resultsProductListContainer, .slider-range, .ui-slider, .ui-slider-horizontal, .ui-widget, .ui-widget-content, .ui-corner-all {
+	height: auto;
+	width: 80%;
+	margin: -1px 40px -5px 40px;
+}
+
+/*
+li[data-templateid="productListTemplateResults"]
+*/
+/*
+.resultsProductListContainer .ui-button .ui-widget .ui-state-default .ui-corner-all .ui-button-icon-only .prevPageButton, .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default .ui-widget .ui-widget  .resultsHeader {
+	position:relative;
+	left:0px;
+}
+
+.resultsProductListContainer .ui-button .ui-widget .ui-state-default .ui-corner-all .ui-button-icon-only .nextPageButton, .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{
+	position:relative;
+	left:120px;
+}*/
 
 
 

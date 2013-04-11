@@ -249,4 +249,14 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
 	to make         if(sr[1])	{o += '<span class="cents"> .
 
  
-	
+
+7. extensions/store_search.js: 
+	Line 150, remove ui classes from $controlsContainer = $("<div \/>").addClass(
+
+	Line 240 add prevMove to .addClass('prevPageButton
+
+	Line 244 add nextMove to .addClass('nextPageButton
+
+
+
+
