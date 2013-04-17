@@ -96,6 +96,14 @@ app.u.howManyPassZeroResourcesAreLoaded = function(debug)	{
 	return r;
 	}
 	
+//RECENTLY VIEWED ITEMS
+app.rq.push(['templateFunction','productTemplate','onDeparts',function(P) {
+	var $container = $('#recentlyViewedItemsContainer');
+	$container.show();
+	$("ul",$container).empty(); //empty product list
+	$container.anycontent({data:app.ext.myRIA.vars.session}); //build product list
+	}]);
+	
 	
 	
 //Filter Search:

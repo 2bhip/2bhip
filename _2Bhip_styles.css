@@ -1330,7 +1330,7 @@ CATAGORY PAGE
 
 .layeredSearch {
 	height: auto; 
-	width: 220px; 
+	width: 211px; 
 	margin-top: 10px; 
 	color: #000; 
 	background-color: #ccc;
@@ -1356,20 +1356,10 @@ CATAGORY PAGE
 	margin-left: 13px;
 }
 
-/*
-.slider-range, .ui-slider, .ui-slider-horizontal, .ui-widget, .ui-widget-content, .ui-corner-all 
-*/
 .layeredSearch .slider-range
 {
-	height: auto;
-	width: 160px;
-	outline: 1px solid blue;
-}
-
-.slider-range.slider-range2, .ui-slider-range .ui-widget-header .ui-corner-all
-{
 	height: 10px;
-	width: 170px;
+	width: 160px;
 }
 
 .sliderValue {
@@ -1479,12 +1469,6 @@ PRODUCT DETAIL PAGE
 	margin: 0px 2px 1px 2px;
 }
 
-.prodReviewContainer {
-	width: 420px;
-	padding-right: 22px;
-	background-color: #093;
-}
-
 .prodSummaryContainer {
 	font-size: 14px;
  	width: 420px; 
@@ -1520,6 +1504,17 @@ PRODUCT DETAIL PAGE
 	color: #000;
 }
 
+.prodReviewContainer {
+	width: 420px;
+	padding-right: 22px;
+}
+
+.reviewStarContainer  {
+	height: auto;
+	width: 125px;
+	margin: 10px auto 10px auto;
+}
+
 .prodDetailsDesc {
 	line-height: 18px;
 }
@@ -1528,6 +1523,7 @@ PRODUCT DETAIL PAGE
 	font-size: 18px;
 	margin: 5px 0px 13px 0px;
 	color: #000;
+	font-family: "Open Sans";
 }
 
 .prodReviewContainer h5 {
@@ -1757,6 +1753,16 @@ CART MODAL
 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
 
 
+.cartStuffContainer {
+	width: 80%;
+	padding: 0 32px 0 80px;
+}
+
+.cartSummaryTotalsContainer {
+	width: 20%;
+	padding: 0 0 0 82px;
+}
+
 .cartItems {
 	height: 120px;
 	width: 600px;
@@ -1834,13 +1840,22 @@ CART MODAL
 }
 
 .cartRemoveButtonContainer button:first-child {
-	height: 20px;
-	width: 111px;
+	height: 15px;
+	width: 95px;
 	color: #ccc;
 	text-align: center;
 	line-height: 30px;
 	border: none;
 	background: none;
+	padding: 7px 0 0 16px;
+}
+
+.cartRemoveButtonContainer button:first-child span:nth-child(1) {
+	display: none;
+}
+
+.cartRemoveButtonContainer button:first-child span:nth-child(2) {
+	padding: 0px;
 }
 
 .cartRemoveButton.floatRight.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-icon-only {
@@ -1893,6 +1908,7 @@ CART MODAL
 	font-size: 48px;
 	text-align: center;
 	line-height: 50px;
+	padding: 10px 0 0 0;
 }
 
 .youSaved  {

@@ -225,9 +225,16 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
 		app.rq.push(['extension',0,'convertSessionToOrder','extensions/checkout_active/extension.js']);
 		app.rq.push(['extension',0,'store_checkout','extensions/store_checkout.js']);
 
+5. _2Bhip.init.js: 
+	Add previously viewed items code below to line 99 (can really be added anywhere, I just picked a line)	
+	app.rq.push(['templateFunction','productTemplate','onDeparts',function(P) {
+		var $container = $('#recentlyViewedItemsContainer');
+		$container.show();
+		$("ul",$container).empty(); //empty product list
+		$container.anycontent({data:app.ext.myRIA.vars.session}); //build product list
+	}]);
 
-
-5. store_cart.js:
+6. store_cart.js:
 	Line: 279 	
 	Add this to orderBalance functionu under end of else statement just before: "$tag.text(o);  //update DOM." to show superscript:
 
@@ -243,14 +250,14 @@ app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
 					$tag.html(r);
 					} 
 
-6. controller.js:
+7. controller.js:
 	Line 2627
 	Add space after if(sr[1])	{o += '<span class="cents">.
 	to make         if(sr[1])	{o += '<span class="cents"> .
 
  
 
-7. extensions/store_search.js: 
+8. extensions/store_search.js: 
 	Line 150, remove ui classes from $controlsContainer = $("<div \/>").addClass(
 
 	Line 240 add prevMove to .addClass('prevPageButton

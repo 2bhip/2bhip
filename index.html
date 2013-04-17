@@ -1171,9 +1171,9 @@ this will likely become more flexible in the future. ###
 
         <div data-bind='var:product(zoovy:qty_price);format:quantityDiscounts; extension:store_product; pretext:Quantity Discounts:; className:marginBottom;'></div>
     
-        <section class='marginBottom'>
+        <section class='marginBottom reviewStarContainer'>
             <span data-bind='var: reviews(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>
-            <span data-bind='var: reviews(reviews.total); format:text;posttext: from ;posttext: reviews; className:numReviews;'></span>
+       <!-- <span data-bind='var: reviews(reviews.total); format:text;posttext: from ;posttext: reviews; className:numReviews;'></span> -->
         </section>
         <div class='prodDetailsDesc' data-bind='var: product(zoovy:prod_desc); format:wiki; wikiFormats:myRIA;'></div>
    
@@ -1247,7 +1247,7 @@ this will likely become more flexible in the future. ###
                     </menu>
                 </div>
                      
-                <ul class='listStyleNone clearfix productReviewsList' id='prodViewerReviews' data-bind="var: reviews(reviews.@reviews); format:processList; loadsTemplate:productReviewsTemplateDetail;"></ul>
+                <!-- <ul class='listStyleNone clearfix productReviewsList' id='prodViewerReviews' data-bind="var: reviews(reviews.@reviews); format:processList; loadsTemplate:productReviewsTemplateDetail;"></ul> -->
         	 </div>
              
              <div class='productShips'></div>
@@ -1316,37 +1316,42 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 <!--PRODUCT DETAILS PAGE CAROUSELS-->
 <div class='seperator'></div>
 
-    <div class='templateHeadContainer'>
-        <div class='templateHeadDesc border bangersMedFont'>SIMILAR PRODUCTS...</div>
-        <div class='templateMiddleContainer'>
-            <div class='prodListButtons pointer prodDetailCarButtonPrev6'><img src="images/TemplateArrowPrev.png"></div>
-            <div class='prodListCarouselButtonContainer prodDetailPaginationContainer6'></div>
-            <div class='prodListButtons pointer prodDetailCarButtonPrev6'><img src="images/TemplateArrowNext.png"></div>
-        </div>
-		<div class='templateHeadAllProds border bangersMedFont'>VIEW ALL PRODUCTS</div>
-    </div>
-    <div class='templateCarouselContainer border'>
-        <div>									 
-            <ul class='prodDetailTempCarousel1 listStyleNone fluidList clearfix noPadOrMargin productList' data-bind="var: product(zoovy:related_products); format:productList; extension:store_prodlist; loadsTemplate: productListTemplateCustom; hide_pagination:false; hide_summary:true; withReviews:1;"></ul>
-        </div>
-    </div>
+	<div class='displayNone' data-bind='var:product(zoovy:related_products); format:showIfSet;'>
+		<div class='templateHeadContainer'>
+			<div class='templateHeadDesc border bangersMedFont'>SIMILAR PRODUCTS...</div>
+			<div class='templateMiddleContainer'>
+				<div class='prodListButtons pointer prodDetailCarButtonPrev6'><img src="images/TemplateArrowPrev.png"></div>
+				<div class='prodListCarouselButtonContainer prodDetailPaginationContainer6'></div>
+				<div class='prodListButtons pointer prodDetailCarButtonPrev6'><img src="images/TemplateArrowNext.png"></div>
+			</div>
+			<div class='templateHeadAllProds border bangersMedFont'>VIEW ALL PRODUCTS</div>
+		</div>
+		<div class='templateCarouselContainer border'>
+			<div>									 
+				<ul class='prodDetailTempCarousel1 listStyleNone fluidList clearfix noPadOrMargin productList' data-bind="var: product(zoovy:related_products); format:productList; extension:store_prodlist; loadsTemplate: productListTemplateCustom; hide_pagination:false; hide_summary:true; withReviews:1;"></ul>
+			</div>
+		</div>
+	</div>
     
     <div class='seperator'></div>
-    
-        <div class='templateHeadContainer'>
-        <div class='templateHeadDesc border bangersMedFont'>PREVIOUSLY VIEWED ITEMS...</div>
-        <div class='templateMiddleContainer'>
-            <div class='prodListButtons pointer prodDetailCarButtonPrev7'><img src="images/TemplateArrowPrev.png"></div>
-            <div class='prodListCarouselButtonContainer prodDetailPaginationContainer7'></div>
-            <div class='prodListButtons pointer prodDetailCarButtonPrev7'><img src="images/TemplateArrowNext.png"></div>
-        </div>
-		<div class='templateHeadAllProds border bangersMedFont'>VIEW ALL PRODUCTS</div>
-    </div>
-    <div class='templateCarouselContainer border'>
-        <div>									 
-            <ul class='prodDetailTempCarousel2 listStyleNone fluidList clearfix noPadOrMargin productList' data-bind="var: product(zoovy:related_products); format:productList; extension:store_prodlist; loadsTemplate: productListTemplateCustom; hide_pagination:false; hide_summary:true; withReviews:1;"></ul>
-        </div>
-    </div>
+	
+	<div id='recentlyViewedItemsContainer' class='recentContainer displayNone'>
+		<div class='recentContainer templateHeadContainer'>
+			<div class='templateHeadDesc border bangersMedFont'>PREVIOUSLY VIEWED ITEMS...</div>
+			<div class='templateMiddleContainer'>
+				<div class='prodListButtons pointer prodDetailCarButtonPrev7'><img src="images/TemplateArrowPrev.png"></div>
+				<div class='prodListCarouselButtonContainer prodDetailPaginationContainer7'></div>
+				<div class='prodListButtons pointer prodDetailCarButtonPrev7'><img src="images/TemplateArrowNext.png"></div>
+			</div>
+			<div class='templateHeadAllProds border bangersMedFont'>VIEW ALL PRODUCTS</div>
+		</div>
+		<div class='templateCarouselContainer border'>
+			<div>
+				<ul data-bind="var: session(recentlyViewedItems); format: productList; extension: store_prodlist; loadsTemplate: productListTemplate; hide_summary:1; hide_pagination:1; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList'</ul>
+		   <!-- <ul class='prodDetailTempCarousel2 listStyleNone fluidList clearfix noPadOrMargin productList' data-bind="var: product(zoovy:related_products); format:productList; extension:store_prodlist; loadsTemplate: productListTemplateCustom; hide_pagination:false; hide_summary:true; withReviews:1;"></ul> -->
+			</div>
+		</div>
+	</div>
     
     <div class='seperator'></div>
 
@@ -2176,7 +2181,7 @@ So the cart template should contain these two elements and the extension should 
 </section>
 
 <section class='discCodeContainer bangersFont'>
-	ENTER YOUR PROMO CODE AT CHECK OUT!
+	ENTER YOUR PROMO &nbsp &nbsp &nbsp &nbsp <br> &nbsp &nbsp &nbsp &nbsp CODE AT CHECK OUT!
 </section>
 
 <section id='cartTemplateShippingContainer' class='shipOptions shipOptCont'>
@@ -2269,7 +2274,7 @@ So the cart template should contain these two elements and the extension should 
                 <div class='cartQtyContainer openSansBoldFont'>
                     <div class='cartQtyButtons'><img src="images/CartQtyDown.png"></div>
                     <div class='cartQty'>
-                        <input type='number' id='spinner' class='qtyInput borderNone centerText' onChange="app.ext.store_cart.u.updateCartQty($(this)); app.model.dispatchThis('immutable');"  data-bind='format:cartItemQty;extension:store_cart;useParentData:true;' size='3' />
+                        <input type='number' id='spinner' class='qtyInput centerText' onChange="app.ext.store_cart.u.updateCartQty($(this)); app.model.dispatchThis('immutable');"  data-bind='format:cartItemQty;extension:store_cart;useParentData:true;' size='3' />
                         <button class='displayNone'>update</button><!-- here to stop 'enter' in input above from closing modal -->
                     </div>
                     <div class='cartQtyButtons'><img src="images/CartQtyUp.png"></div>
@@ -2284,7 +2289,7 @@ So the cart template should contain these two elements and the extension should 
                 <div class='cartSizes'></div>
                 
                 <div class='cartRemoveButtonContainer'>
-                	<button class='bangersFont floatLeft pointer' data-bind='format:moveToWishListButton; extension:myRIA; useParentData:true;' >SAVE FOR LATER</button>
+					<button class='bangersFont moveToWishlist floatLeft pointer' data-bind='format:moveToWishlistButton; extension:myRIA; useParentData:true;' >SAVE FOR LATER</button>
                 	<!-- <div class='bangersFont floatLeft pointer'>SAVE FOR LATER</div> ORIG MOVE TO WISHLIST CLASSES class='floatRight moveToWishlist marginRight' -->
                     <button class='cartRemoveButton floatRight' data-bind='format:removeItemBtn; extension:store_cart; useParentData:true;' >Remove Item From Cart</button>
                 </div>
