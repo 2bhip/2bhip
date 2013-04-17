@@ -2381,7 +2381,7 @@ WISH LIST
 
 
 .wishList {
-	margin-left: 20px;
+	margin-left: 40px;
 }
 
 .wishList h1 {
@@ -2390,6 +2390,23 @@ WISH LIST
 	margin: 10px 0px 10px 0px;
 }
 
+.prodlist {
+	height: auto;
+	width: 690px;
+	
+}
+
+.prodlist > ul {
+	height: 44px; 
+	width: 680px;
+}
+
+.prodlist.ui-tabs .ui-tabs-panel {
+	padding: 5px;
+}
+
+
+/*
 #wishListContents, .ui-tabs-panel.ui-widget-content.ui-corner-bottom {
 	height: auto;
 	width: 500px;
@@ -2399,10 +2416,22 @@ WISH LIST
 	height: 50px;
 	width: 680px;
 }
-
+*/
 #prodlistBuyerList_wishlist_container {
 	height: auto;
 	width: 680px;
+}
+
+#prodlistBuyerList_wishlist {
+	clear:none;
+}
+
+.lineItemProdlist > li {
+	height: 150px !important;
+}
+
+.cartItemsLeftBlock .prodThumbContainer {
+	margin: 0 10px 0 0;
 }
 
 /*#prodlistBuyerList_wishlist, .listStyleNone.clearfix.noPadOrMargin.lineItemProdlist, .clearfix:after {
