@@ -1452,7 +1452,7 @@ PRODUCT DETAIL PAGE
 
 .prodViewerContainer {
 	width: 940px;
-	margin: auto;
+	margin: 40px auto 0px auto;
 }
 
 .imageContainer {
@@ -1565,13 +1565,16 @@ PRODUCT DETAIL PAGE
 	font-size: 24px;
 	line-height: 72px;
 	text-align: center;
-	text-decoration: line-through;
+	/*text-decoration: line-through;*/
 	float: left;
+	background-image: url(images/StrikeThrough.png);	
+	background-position: 0 26px;
+	background-repeat: no-repeat;
 }
 
 .prodPriceSelection h4 {
 	height: 72px;
-	width: 118px;
+	/*width: 118px; 118px; TS593 BAG130*/
 	margin:auto;
 	color: #000;
 	font-size: 30px;
@@ -1579,6 +1582,10 @@ PRODUCT DETAIL PAGE
 	text-align: center;
 	float: left;
 }
+
+.fixedBasePrice {width:118px;}
+
+.percentBasePrice {width:100%;}
 
 .prodSizeSelection {
 	height: 180px;
@@ -1637,7 +1644,7 @@ PRODUCT DETAIL PAGE
 }
 
 .sizeSelector {
-	height: 132px;
+	height: 59px;
 	width: 100%;
 	font-size: 18px;
 	margin: 0px auto 0px auto;

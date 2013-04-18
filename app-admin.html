@@ -26,7 +26,7 @@ else {
 
 var app = {vars:{
 	/////////////////////////////////\
-	"release":"201310.a",   ///|> Increment this with each change. should solve caching issues. format: YYYYMMDD.X where X starts at 1 and is incremented w/ each daily change.
+	"release":"201314.c",   ///|> Increment this with each change. model version followed by each deployed update getting a new letter in the alphabet.
 	//////////////////////////////////
 	"thisSessionIsAdmin": true,
 	"_clientid":"admin",
@@ -107,7 +107,7 @@ app.u.loadScript(app.vars.baseURL+"app-admin-init.js");
 			<button class='loginbutton floatRight' data-app-event="admin|accountLogin">login</button>
 			<div class="hint">App Release #: <span id="appversion">??</span></div>
 			<label class='hint'><input type='checkbox' name='persitentAuth' value='1' checked='checked' /> Keep me logged in</label>
-			<div class="hint"><b><a href='/app/201308/admin.html'> &#187; Use previous version</a></b></div>
+			<div class="hint"><b><a href='/app/201312/admin.html'> &#187; Use previous version</a></b></div>
 
 		</fieldset>
 		</form>
@@ -163,6 +163,7 @@ app.u.loadScript(app.vars.baseURL+"app-admin-init.js");
 			<div class='logo pointer alignCenter' onClick="navigateTo('#!dashboard');" title='home'><img src='extensions/admin/images/zoovy_logo-173x30.png' width='173' height='30' alt='zoovy' /></div>
 			<div class='menu floatRight'>
 				<span class='pointer lookLikeLink showForZoovyOnly' onClick="return navigateTo('/biz/downloads/index.cgi');" title='Use our windows clients for managing orders and product'>Downloads</span>
+				| <span class='pointer lookLikeLink' onClick="showUI('#!help',{'tab':'support'})">Help</span>
 				| <span class='pointer lookLikeLink' onClick="return navigateTo('#!taskManager');" title='view and edit your task list'>Tasks</span>
 				| <span class='pointer lookLikeLink' onClick="app.ext.admin.a.logout(); return false;" title='log out of your account' >Exit</span>
 			</div>
@@ -174,7 +175,7 @@ app.u.loadScript(app.vars.baseURL+"app-admin-init.js");
 		</div>
 	
 		<div class='mhTabsContainer'>
-		<ul class='showIcons'>
+		<ul class='showIcons navIcons'>
 			<li class='toggleArrow alignCenter' onClick="app.ext.admin.a.toggleHeaderTabHeight()" title='Toggle this menu to be taller or shorter'>&#9650;</li>
 			<li class='setupTab' onClick="navigateTo('#:setup');"><span class='text'>Setup</span><span class='icon'></span></li>
 			<li class='sitesTab' onClick="navigateTo('#:sites');"><span class='text'>Sites</span><span class='icon'></span></li>
@@ -185,10 +186,20 @@ app.u.loadScript(app.vars.baseURL+"app-admin-init.js");
 			<li class='reportsTab' onClick="navigateTo('#:reports');"><span class='text'>Reports</span><span class='icon'></span></li>
 			<li class='kpiTab' onClick="navigateTo('#:kpi');"><span class='text'>KPI</span><span class='icon'></span></li>
 			<li class='utilitiesTab' onClick="navigateTo('#:utilities');"><span class='text'>Utilities</span><span class='icon'></span></li>
-			<li class='supportTab' onClick="navigateTo('/biz/support/index.cgi');"><span class='text'>Support</span><span class='icon'></span></li>
-<!--			<li class='messagesTab' onClick="navigateTo('#:messages');"><span class='text'>Messages</span><span class='messageCount'></span></li>-->
+<!--			<li class='supportTab' onClick="navigateTo('/biz/support/index.cgi');"><span class='text'>Support</span><span class='icon'></span></li> -->
+			<li class='supportTab' onClick="navigateTo('#!support',{'tab':'support'});"><span class='text'>Support</span><span class='icon'></span></li>
+			<li class='messagesTab' onClick="app.ext.admin.u.toggleMessagePane();"><span class='text'>Messages</span><span class='messageCount'></span></li>
 		</ul>
-		<div id='messagesContent' class='displayNone'></div>
+		<div id='messagesContent' class='displayNone'>
+			<button onClick="app.ext.admin.u.toggleMessagePane();" class='floatRight' id='closePanelButton'>Close Message Panel</button>
+			<div class='messagesList'>
+			<table>
+			<tbody data-app-role='messagesContainer'></tbody>
+			</table>
+			</div>
+			
+			<div class='messageDetail'></div>
+		</div>
 		</div>
 		<div id='navTabs'></div>
 		<div id='breadcrumb'></div>
@@ -210,6 +221,58 @@ app.u.loadScript(app.vars.baseURL+"app-admin-init.js");
 		<div id='reportsContent' class='displayNone tabContent' data-section='reports'></div>
 		<div id='kpiContent' class='displayNone tabContent' data-section='kpi'></div>
 		<div id='utilitiesContent' class='displayNone tabContent' data-section='utilities'></div>
+		<div id='supportContent' class='displayNone tabContent' data-section='support'></div><!-- used for new support app -->
+		<div id='launchpadContent' class='displayNone tabContent' data-section='launchpad'>
+
+
+
+<section id='launchpad'>
+	<div id='launchpadInner'><!-- this is what's moved -->
+
+		<ul class='launchpadTileGroup' id='tilegroup_marketing'>
+<!--			<li class='tile_2x2 blue' onClick="window.open('https://plus.google.com/communities/108928399105730273026');"><img src='https://s3-us-west-1.amazonaws.com/admin-ui/ads/join_zcmnty-300x250.gif' width='300' height='250' alt='' /></li>-->
+			<li class='blue'><span class='icon-newspaper icon'></span><span class='tilename'>blue</span></li>
+			<li class='blueLight'><span class='icon-pencil icon'></span><span class='tilename'>blue light</span></li>
+			<li class='blueDark'><span class='icon-droplet icon'></span><span class='tilename'>blue dark</span></li>
+			<li class='green'><span class='icon-home icon'></span><span class='tilename'>green</span></li>
+		</ul>
+		<ul class='launchpadTileGroup' id='tilegroup_domains'>
+			<li class='greenDark tile_2x1'>
+				<span class='icon-music icon'></span>
+				<span class='tilename'><input type="text" placeholder='type domain here' ><button>Add Domain</button></span>
+				</li>
+		</ul>
+		<ul class='launchpadTileGroup'>
+			<li class='red' onClick="app.ext.admin_support.a.showHelpInterfaceInDialog();"><span class='icon-support icon'></span><span class='tilename'>WebDoc in dialog</span></li>
+			<li class='red' onClick="showUI('#!help',{'tab':'support'})"><span class='icon-support icon'></span><span class='tilename'>WebDoc in page</span></li>
+			<li class='greenLight'><span class='icon-camera icon'></span><span class='tilename'>greenLight</span></li>
+			<li class='tile_2x1 greenDark'><span class='icon-music icon'></span><span class='tilename'>greenDark</span></li>
+			<li class='redLight'><span class='icon-film icon'></span><span class='tilename'>redLight</span></li>
+		</ul>
+		<ul class='launchpadTileGroup'>
+			<li class='pinkDark tile_2x2'><span class='icon-help icon'></span><span class='tilename'>pinkDark</span></li>
+			<li class='purple tile_2x1'><span class='icon-phone icon'></span><span class='tilename'>purple</span></li>
+			<li class='orangeDark'><span class='icon-copy icon'></span><span class='tilename'>orangeDark</span></li>
+			<li class='pink'><span class='icon-folder icon'></span><span class='tilename'>pink</span></li>
+		</ul>
+		<ul class='launchpadTileGroup'>
+			<li class='white'><span class='icon-mail icon'></span><span class='tilename'>white</span></li>
+			<li class='grayLight'><span class='icon-location icon'></span><span class='tilename'>greyLight</span></li>
+			<li class='grayDark'><span class='icon-comments icon'></span><span class='tilename'>grayDark</span></li>
+			<li class='yellow tile_2x1'><span class='icon-file icon'></span><span class='tilename'>yellow</span></li>
+		</ul>
+		<ul class='launchpadTileGroup'>
+			<li class='magenta tile_2x2'><span class='icon-user icon'></span><span class='tilename'>magenta</span></li>
+			<li class='teal'><span class='icon-busy icon'></span><span class='tilename'>teal</span></li>
+			<li class='orange'><span class='icon-new icon'></span><span class='tilename'>orange</span></li>
+			<li><span class='icon-loading icon'></span><span class='tilename'>no color specified</span></li>
+		</ul>
+
+	</div>
+</section>
+
+
+		</div>
 		<div id='jtContent' class='displayNone tabContent' data-section='jt'></div><!-- for testing -->
 	
 	</div>
@@ -323,12 +386,24 @@ These two pieces of data are used for mapping after the uploads to set what fold
 	</li>
 	<li><a href='#'>Pages</a>
 	<ul>
+		<li><a href='#' onClick="navigateTo('#!launchpad');">Launchpad</a></li>
+		<li><a href='#' onClick="navigateTo('#!batchManager');">batchjobs</a></li>
 		<li><a href='#' onClick="navigateTo('#!supplierManager');">Supplier Manager</a></li>
 		<li><a href='#' onClick="navigateTo('#!appChooser');">App Chooser</a></li>
+		<li><a href='#' onClick="navigateTo('#!support');">support</a></li>
 		<li><a href='#' onClick="$('#setupContent').empty(); app.ext.admin.a.showAchievementList($('#setupContent'));">showAchievementList (in setup)</a></li>
-		<li><a href='#' onClick="$('#setupContent').empty(); app.ext.admin.a.showHelpInterface($('#setupContent'));">showHelpInterface (in setup)</a></li>
+		<li><a href='#' onClick="$('#setupContent').empty(); app.ext.admin_support.a.showHelpInterface($('#setupContent'));">showHelpInterface (in setup)</a></li>
 	</ul>
 	</li>
+	<li><a href='#'>Test</a>
+	<ul>
+		<li><a href='#' onClick="app.ext.admin.calls.adminMessagesList.init(0,{},'mutable'); app.model.dispatchThis('mutable');">adminMessagesList</a></li>
+		<li><a href='#' onClick="app.model.addDispatchToQ({'_cmd':'adminUIExecuteCGI','uri':'/biz/syndication/buycom/index.cgi'},'mutable'); app.model.dispatchThis('mutable');">UIExecCGI addDispatchToQ</a></li>
+		<li><a href='#' onClick="app.ext.admin.calls.adminUIExecuteCGI.init('/biz/syndication/buycom/index.cgi'); app.model.dispatchThis('mutable');">adminUIExecuteCGI call</a></li>
+		<li><a href='#' onClick="app.u.throwMessage('Something Wicked This Way Comes');">throwMessage</a></li>
+		
+	</ul>
+	</li>	
 </ul>
 
 <!--
@@ -360,32 +435,6 @@ This is content that isn't template worthy, but still necessary (most likely for
 -->
 
 
-
-<div id='achievementAddProductModal' class='achievementModal displayNone' title="Achievement: Add a product">
-
-	<table>
-	<tr>
-		<td></td>
-		<td>
-		<h2>Add some product to your store</h2>
-		<p>For the purpose of this achievement, there are three ways to get product into your store (in actuality, there are more).</p>
-		<ol>
-			<li>Using the product editor</li>
-			<li>Through a CSV import</li>
-			<li>Add test product</li>
-		</ol>
-		
-		<p>#1. This is the manual process, but fairly simple.  Click the product tab and then the 'create new' link on the left. Fill in the appropriate fields and press save. That's all there is to it. Once the product is created, go into the editor to add pictures and more detailed information.<br />
-		Watch | <a href='http://www.zoovy.com/webdoc/index.cgi?VERB=DOC&DOCID=50788' target='webdoc' class='webdoc'>Read</a></p>
-		<p>#2. For adding in bulk, this is the best way to do it. Prepare your CSV with the appropriate headers (described in the link below) and then import through setup > import tools.<br />
-		Watch | <a href='http://www.zoovy.com/webdoc/index.cgi?VERB=DOC&DOCID=50285' target="webdoc" class='webdoc'>Read</a></p>
-		<p>#3. By far the easiest method, but also the least likely to get you selling (good for testing purposes). Simply click the link below and we'll add a few sample product to your store.<br />
-		Watch | Read | Do It!</p>
-		</td>
-	</tr>
-	</table>
-
-</div>
 
 
 <div id='orderListTab' class='ui-widget ui-widget-content displayNone'>

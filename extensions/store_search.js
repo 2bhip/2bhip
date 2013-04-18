@@ -66,16 +66,14 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 // to get a good handle on what datapointers should look like.
 		appPublicSearch : {
 			init : function(obj,tagObj,Q)	{
-				
-//				app.u.dump("BEGIN app.ext.store_search.calls.appPublicSearch");
-//				app.u.dump(obj);
-				
 				this.dispatch(obj,tagObj,Q)
 				return 1;
 				},
 			dispatch : function(obj,tagObj,Q)	{
 				obj['_cmd'] = "appPublicSearch";
 				obj['_tag'] = tagObj;
+//				app.u.dump("BEGIN app.ext.store_search.calls.appPublicSearch");
+//				app.u.dump(obj);
 				app.model.addDispatchToQ(obj,Q);
 				}
 			} //appPublicSearch
@@ -130,7 +128,7 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 						var $parent;
 						if($list.is('tbody'))	{$parent = $list.closest('table').parent(); app.u.dump("LIST is a tbody");}
 						else if($list.is('table'))	{$parent = $list.parent();}
-						else	{$parent = $list}
+						else	{$parent = $list.parent()}
 
 //put items into list (most likely a ul or tbody
 						$list.append(app.ext.store_search.u.getElasticResultsAsJQObject(_rtag)); //prioritize w/ getting product in front of buyer
@@ -141,14 +139,16 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 	
 						var EQ = $list.data('elastic-query'); //Elastic Query
 						if(EQ)	{
-							
+							var _tag = $.extend(true,{},_rtag); //create a copy so original is not modified.
+							delete _tag.pipeUUID;
+							delete _tag.status; //the status would already be 'requesting' or 'completed', which means this request wouldn't run.
+					
 							var $header = app.ext.store_search.u.buildResultsHeader($list,_rtag.datapointer), //# of results and keyword display.
 //							$sortMenu = app.ext.store_search.u.buildSortMenu($list,_rtag), //sorting options as ul
-							$pageMenu = app.ext.store_search.u.buildPagination($list,_rtag), //pagination as ul
-							$multipage = app.ext.store_search.u.buildPaginationButtons($list,_rtag), //next/prev buttons
+							$pageMenu = app.ext.store_search.u.buildPagination($list,_tag), //pagination as ul
+							$multipage = app.ext.store_search.u.buildPaginationButtons($list,_tag), //next/prev buttons
 							$menuContainer = $("<div \/>").addClass('resultsMenuContainer'), //used to hold menus. imp for abs. positioning.
 							$controlsContainer = $("<div \/>").addClass('resultsHeader clearfix'); //used to hold menus and buttons.
-							//$controlsContainer = $("<div \/>").addClass('ui-widget ui-widget-content resultsHeader clearfix ui-corner-bottom'); //used to hold menus and buttons.
 							
 //							$menuContainer.append($sortMenu); //sorting not working. commented out for now. !!!
 							$header.prependTo($parent);
@@ -193,14 +193,13 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 
 //list is the UL or whatever element type contains the list of product.
 			buildResultsHeader : function($list,datapointer)	{
-				app.u.dump("BEGIN store_search.u.buildMultipageHeader");
+//				app.u.dump("BEGIN store_search.u.buildMultipageHeader");
 				
 				var $header = false, //will be a jquery object IF the necesarry data is present.
 				EQ = $list.data('elastic-query'); //Elastic Query
 				
 				if(datapointer && $list && EQ)	{
-					$header = $("<div \/>").addClass('resultsHeader clearfix hideInMinimalMode');
-					//$header = $("<div \/>").addClass('ui-widget ui-widget-header resultsHeader clearfix ui-corner-top hideInMinimalMode');
+					$header = $("<div \/>").addClass('ui-widget ui-widget-header resultsHeader clearfix ui-corner-top hideInMinimalMode');
 					if(EQ.query && EQ.query.query_string && EQ.query.query_string.query){
 						$header.text(app.data[datapointer].hits.total+" Results for: "+EQ.query.query_string.query);
 						}
@@ -235,10 +234,12 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 					pageInFocus = $list.data('page-in-focus') || 1, //start at 1, not zero, so page 1 = 1
 					totalPageCount = Math.ceil(data.hits.total / EQ.size) //total # of pages for this list.
 
+app.u.dump(" -> pageInFocus: "+pageInFocus);
+
 					$controls = $("<div \/>").addClass('');
 
 //SANITY -> the classes on these buttons are used in quickstart. 					
-					var $prevPageBtn = $("<button \/>").text("Previous Page").button({icons: {primary: "ui-icon-circle-triangle-w"},text: false}).addClass('prevPageButton, prevMove').on('click.multipagePrev',function(event){
+					var $prevPageBtn = $("<button \/>").text("Previous Page").button({icons: {primary: "ui-icon-circle-triangle-w"},text: false}).addClass('prevPageButton prevMove').on('click.multipagePrev',function(event){
 						event.preventDefault();
 						app.ext.store_search.u.changePage($list,(pageInFocus - 1),_rtag);
 						});
@@ -275,9 +276,11 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 			changePage : function($list,newPage,_tag)	{
 				if($list && newPage)	{
 					var EQ = $list.data('elastic-query'); //Elastic Query
-					
+//					app.u.dump(" -> newPage: " + newPage);
 					if(EQ)	{
 						var query = EQ;
+						app.u.dump("EQ:");
+						app.u.dump(EQ);
 						//query.size = EQ.size; //use original size, not what's returned in buildSimple...
 						query.from = (newPage - 1) * EQ.size; //page is passed in, which starts at 1. but elastic starts at 0.
 						app.ext.store_search.u.updateDataOnListElement($list,query,newPage);
@@ -302,7 +305,10 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 						data = app.data[_tag.datapointer],
 						totalPageCount = Math.ceil(data.hits.total / EQ.size) //total # of pages for this list.
 						
-						if(totalPageCount <= 1)	{app.u.dump(" -> no pagination for results. totalPageCount: "+totalPageCount);} //if there is only 1 page or something went wrong, don't show pagination.
+						if(totalPageCount <= 1)	{
+							//if there is only 1 page or something went wrong, don't show pagination.
+//							app.u.dump(" -> no pagination for results. totalPageCount: "+totalPageCount);
+							}
 						else	{
 							$pagination = $("<ul \/>").addClass('pagination resultsMenu');
 							$pagination.addClass('hideInMinimalMode').append($("<li \/>").html("<a href='#'>Page "+pageInFocus+" of "+totalPageCount+"<\/a>"));

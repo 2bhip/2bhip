@@ -121,7 +121,7 @@ var store_filter = function() {
 					}
 					//was here to show hidden divs onComplete, but now is just here for future reference
 					app.ext.myRIA.template.homepageTemplate.onCompletes.push(function(P) {
-						app.ext.store_filter.u.showMainBanner();	
+						//app.ext.store_filter.u.showMainBanner();	
 					})
 				},
 				onError : function (){
@@ -290,18 +290,29 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 //on a data-bind, format: is equal to a renderformat. extension: tells the rendering engine where to look for the renderFormat.
 //that way, two render formats named the same (but in different extensions) don't overwrite each other.
 		renderFormats : {
-
+				onlyBasePrice : function($tag,data) {
+					var msrp = data.value['%attribs']['zoovy:prod_msrp'];
+					//app.u.dump('*** '+msrp);
+					//$tag.text(msrp);
+					if (typeof msrp === 'undefined') {
+						app.u.dump('*** comparison worked');
+						//$tag.removeClass('fixedBasePrice');
+						$tag.children('.basePrice').addClass('percentBasePrice');
+					}	
+					else {
+						//$tag.removeClass('percentBasePrice');
+						$tag.children('.basePrice').addClass('fixedBasePrice');
+						app.u.dump('*** comparison did not work');
+					}
+					//$tag.text(msrp);
+				}
 			}, //renderFormats
 ////////////////////////////////////   UTIL [u]   \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 //utilities are typically functions that are exected by an event or action.
 //any functions that are recycled should be here.
 		u : {
-				//was here to show hidden divs onComplete, but now is just here for future reference
-				showMainBanner : function() {
-					app.u.dump('showMainBanner just ran');
-					$('.mainBannerCarouselCatagories').show();
-				},
+
 				
 				
 //pass in form as object.  This function will verify that each fieldset has the appropriate attributes.

@@ -1,5 +1,28 @@
 
 
+<table>
+<tr id='messageListTemplate'>
+	<td class='valignTop'>ICON</td>
+	<td class='valignTop'>
+	<h5 data-bind="var:message(author); format:text;"></h5>
+	<p data-bind="var:message(txt); format:truncText; numCharacters: 75;"></p>
+	<button data-app-event='admin|showMessageDetail'>Details</button>
+	</td>
+	<td class='valignTop'>
+	<button data-app-event='admin|execMessageClear' class='smallButton'>Clear this message</button>
+	</td>
+</tr>
+</table>
+
+
+<div id='messageDetailTemplate'>
+	<h5 data-bind="var:message(author); format:text;"></h5>
+	<p data-bind="var:message(txt); format:text;"></p>
+	<hr />
+	More actions/buttons based on message type.
+</div>
+
+
 <!--
 
 ########################################################
@@ -137,9 +160,13 @@ PRODUCT FINDER/CHOOSER
 	<h5 data-bind='var: product(zoovy:prod_mfgid); format:text; pretext: Mfg ID: ;'></h5>
 	<h4 class='basePrice' data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; pretext: Our Price: ;'></h4>
 	<h5 class='prodMSRP' data-bind='var: product(zoovy:prod_msrp); format:money; currencySign: $;  hideZero:true; pretext: MSRP: ;'></h5>
+	
+	
+	
 	</td>
 </tr>
 </table>
+<div data-bind='useParentData:true; format:detailedInvDisplay; extension:store_product;' class='inventory'></div>
 	<form action='#' onSubmit="return false;">
 	<input type='hidden' data-bind='var: product(pid); format:popVal;' name='sku' />
 		<fieldset data-bind='var: product(pid); format:atcVariations; extension:store_product;' class='borderNone'></fieldset>
@@ -455,10 +482,10 @@ SETUP PAGE TEMPLATE
 			<a href="#" onClick="navigateTo('/biz/setup/private/index.cgi'); return false;" title="/biz/setup/private/index.cgi">Private Files</a><br />
 			<div class="helper">Private files include diagnostic logs, reports, and ticket attachments.</div>
 			
-			<a href="https://github.com/zoovy/Zoovy-MVC-Framework-JQuery-Plugin/index.cgi" >Developer SDK</a><br />
+			<a href="https://github.com/zoovy/AnyCommerce-Development/" target='_blank'>Developer SDK</a><br />
 			<div class="helper">Use this to easily custom integrations or apps</div>
 			
-			<a href="https://github.com/zoovy/Zoovy-MVC-Framework-JQuery-Plugin/wiki/index.cgi" >Dev Wiki</a><br />
+			<a href="https://github.com/zoovy/AnyCommerce-Development/wiki" target='_blank'>Dev Wiki</a><br />
 			<div class="helper">Learn more about what is possible, and what is included in the SDK.</div>
 
 			<div class='showForZoovyOnly'>
@@ -481,44 +508,81 @@ SETUP PAGE TEMPLATE
 
 
 <div id='pageTemplateSetupAppchooser' class='page pageSetup pageSetupAppchooser clearfix'>
+	
+	<div class='ui-widget ui-widget-content ui-corner-all stdPadding marginBottom alignCenter'>
+		<ul class='alignCenter noPadOrMargin listStyleNone clearfix'>
+			
+			<li class='floatLeft marginRight ui-state-active ui-corner-bottom pointer' data-app-event='admin|appChooserAppPreview' data-appid='avalanche'>
+			<img src='https://static.zoovy.com/graphics/wrappers/2011_avalanche/preview.jpg' width='120' height='100' alt='Fashion' />
+			<div>Avalanche</div>
+			</li>
+			
+			<li class='floatLeft marginRight ui-state-default ui-corner-bottom pointer' data-app-event='admin|appChooserAppPreview' data-appid='crispnclean'>
+			<img src='https://static.zoovy.com/graphics/wrappers/2011_crispnclean/preview.jpg' width='120' height='100' alt='crisp n clean' />
+			<div>Crisp n Clean</div>
+			</li>
+			
+			<li class='floatLeft marginRight ui-state-default ui-corner-bottom pointer' data-app-event='admin|appChooserAppPreview' data-appid='shadow'>
+			<img src='https://static.zoovy.com/graphics/wrappers/2011_shadow/preview.jpg' width='120' height='100' alt='Shadow' />
+			<div>Shadow</div>
+			</li>
 
-	<div class='floatLeft marginRight marginBottom ui-widget alignCenter' data-appid='avalanche' data-app-repo='https://github.com/zoovy/AnyCommerce-Development/'>
-		<div class='ui-widget-header ui-corner-top spacedLetters uppercase smallPadding'>Avalanche</div>
-		<div class='ui-widget-content ui-corner-bottom stdPadding'>
-			<div class='marginBottom'><img src='https://static.zoovy.com/graphics/wrappers/2011_avalanche/preview.jpg' width='280' height='200' alt='Avalanche' /></div>
-			<div >
-				<!--<button class='smallButton' data-app-event="admin|appChooserAppDetails">Details</button>-->
-				<button class='smallButton' data-app-event="admin|appChooserAppChoose">Choose</button>
-				<button class='smallButton' data-app-event="admin|appChooserFork">Fork</button>
-				<button class='smallButton' data-app-event="admin|appChooserAppDownload">Download</button>
-			</div>
-		</div>
-	</div>
+		</ul>
+	</div>	
+	
+	<div class='ui-widget ui-widget-content ui-corner-all stdPadding' id='appChooserDetailPanel'>
 
-	<div class='floatLeft marginRight marginBottom ui-widget alignCenter' data-appid='shadow' data-app-repo='https://github.com/zoovy/AnyCommerce-Development/'>
-		<div class='ui-widget-header ui-corner-top spacedLetters uppercase smallPadding'>Shadow</div>
-		<div class='ui-widget-content ui-corner-bottom stdPadding'>
-			<div class='marginBottom'><img src='https://static.zoovy.com/graphics/wrappers/2011_shadow/preview.jpg' width='280' height='200' alt='shadow' /></div>
-			<div>
-				<!--<button class='smallButton' data-app-event="admin|appChooserAppDetails">Details</button>-->
-				<button class='smallButton' data-app-event="admin|appChooserAppChoose">Choose</button>
-				<button class='smallButton' data-app-event="admin|appChooserFork">Fork</button>
-				<button class='smallButton' data-app-event="admin|appChooserAppDownload">Download</button>
-			</div>
-		</div>
-	</div>
+		<section id='details_avalanche' data-app-role='appPreviewPanel'  data-appid='avalanche' data-app-repo='https://github.com/zoovy/AnyCommerce-Development/'>
 
-	<div class='floatLeft marginRight marginBottom ui-widget alignCenter' data-appid='crispnclean' data-app-repo='https://github.com/zoovy/AnyCommerce-Development/'>
-		<div class='ui-widget-header ui-corner-top spacedLetters uppercase smallPadding'>Crisp &amp; Clean</div>
-		<div class='ui-widget-content ui-corner-bottom stdPadding'>
-			<div class='marginBottom'><img src='https://static.zoovy.com/graphics/wrappers/2011_crispnclean/preview.jpg' width='280' height='200' alt='crisp n clean' /></div>
-			<div>
-				<!--<button class='smallButton' data-app-event="admin|appChooserAppDetails">Details</button>-->
-				<button class='smallButton' data-app-event="admin|appChooserAppChoose">Choose</button>
-				<button class='smallButton' data-app-event="admin|appChooserFork">Fork</button>
-				<button class='smallButton' data-app-event="admin|appChooserAppDownload">Download</button>
+			<div class='marginBottom clearfix'>
+				<div class='floatRight alignRight'>
+					<button class='smallButton' data-app-event="admin|appChooserAppChoose">Choose</button>
+					<button class='smallButton' data-app-event="admin|appChooserFork">Fork</button>
+					<button class='smallButton' data-app-event="admin|appChooserAppDownload">Download</button>
+				</div>
+				<h2>Avalanche</h2>
 			</div>
-		</div>
+<img src='https://static.zoovy.com/graphics/wrappers/2011_avalanche/preview.jpg' width='500' height='500' alt='Fashion' class='floatLeft marginRight' />
+			<p class='clearfix'>
+		Integer hendrerit nulla sem, sed placerat est. Praesent rhoncus iaculis massa. Aenean a orci ut tortor commodo rhoncus. Praesent ut quam purus. Phasellus rhoncus sagittis varius. Ut posuere iaculis lectus, sed pulvinar tortor euismod a. Integer mollis leo ac felis tristique elementum venenatis ante lobortis. Proin tincidunt, lorem et ornare luctus, magna ipsum feugiat turpis, at posuere orci nulla nec lectus. Cras ut magna eros, ac tristique nisi. Curabitur eu ante dui. Duis a ipsum arcu. Nunc aliquam rutrum libero, a mollis mi mollis ut. 
+			</p>
+		</section>
+
+
+		<section id='details_crispnclean' data-app-role='appPreviewPanel' class='displayNone' data-appid='crispnclean' data-app-repo='https://github.com/zoovy/AnyCommerce-Development/'>
+
+			<div class='marginBottom clearfix'>
+				<div class='floatRight alignRight'>
+					<button class='smallButton' data-app-event="admin|appChooserAppChoose">Choose</button>
+					<button class='smallButton' data-app-event="admin|appChooserFork">Fork</button>
+					<button class='smallButton' data-app-event="admin|appChooserAppDownload">Download</button>
+				</div>
+				<h2>Crisp n Clean</h2>
+			</div>
+<img src='https://static.zoovy.com/graphics/wrappers/2011_crispnclean/preview.jpg' width='500' height='500' alt='Fashion' class='floatLeft marginRight' />
+			<p class='clearfix'>
+		Integer hendrerit nulla sem, sed placerat est. Praesent rhoncus iaculis massa. Aenean a orci ut tortor commodo rhoncus. Praesent ut quam purus. Phasellus rhoncus sagittis varius. Ut posuere iaculis lectus, sed pulvinar tortor euismod a. Integer mollis leo ac felis tristique elementum venenatis ante lobortis. Proin tincidunt, lorem et ornare luctus, magna ipsum feugiat turpis, at posuere orci nulla nec lectus. Cras ut magna eros, ac tristique nisi. Curabitur eu ante dui. Duis a ipsum arcu. Nunc aliquam rutrum libero, a mollis mi mollis ut. 
+			</p>
+		</section>
+
+
+		<section id='details_shadow' data-app-role='appPreviewPanel' class='displayNone' data-appid='shadow' data-app-repo='https://github.com/zoovy/AnyCommerce-Development/'>
+
+			<div class='marginBottom clearfix'>
+				<div class='floatRight alignRight'>
+					<button class='smallButton' data-app-event="admin|appChooserAppChoose">Choose</button>
+					<button class='smallButton' data-app-event="admin|appChooserFork">Fork</button>
+					<button class='smallButton' data-app-event="admin|appChooserAppDownload">Download</button>
+				</div>
+				<h2>Shadow</h2>
+			</div>
+<img src='https://static.zoovy.com/graphics/wrappers/2011_shadow/preview.jpg' width='500' height='500' alt='Fashion' class='floatLeft marginRight' />
+			<p class='clearfix'>
+		Integer hendrerit nulla sem, sed placerat est. Praesent rhoncus iaculis massa. Aenean a orci ut tortor commodo rhoncus. Praesent ut quam purus. Phasellus rhoncus sagittis varius. Ut posuere iaculis lectus, sed pulvinar tortor euismod a. Integer mollis leo ac felis tristique elementum venenatis ante lobortis. Proin tincidunt, lorem et ornare luctus, magna ipsum feugiat turpis, at posuere orci nulla nec lectus. Cras ut magna eros, ac tristique nisi. Curabitur eu ante dui. Duis a ipsum arcu. Nunc aliquam rutrum libero, a mollis mi mollis ut. 
+			</p>
+		</section>
+
+
 	</div>
 
 </div>
@@ -939,10 +1003,7 @@ UTILITIES PAGE TEMPLATE
 		<a href="#" onClick="navigateTo('/biz/syndication/sitemap/index.cgi'); return false;">Static Google SiteMap</a><br />
 		<div class="helper">Configure nightly generation of a static sitemap file.</div>
 	
-		<a href="#" onClick="navigateTo('/biz/manage/debugger/index.cgi'); return false;">Website Debugger</a><br />
-		<div class="helper">Website Debugger</div>
-	
-		<a href="#" onClick="navigateTo('/biz/manage/custom/zephyrsports.cgi'); return false;">Custom Inventory Lookup</a>
+		<a href="#" onClick="navigateTo('/biz/manage/custom/zephyrsports.cgi'); return false;">Inventory Lookup</a>
 		<div class="helper"></div>
 	
 		<a href="#" onClick="navigateTo('/biz/manage/support/index.cgi'); return false;">Tech Support Utils</a>
@@ -1144,81 +1205,6 @@ PRODUCT TAB
 
 </div>
 
-
-
-
-
-
-
-
-
-
-<!--
-
-########################################################
-
-
-WEBDOC
-
-########################################################
-
-
--->
-
-<div id='helpDocumentTemplate'>
-	<p class='helper'>hint: you can shrink or expand this window and continue to browse the interface</p>
-	<div data-bind="var: help(body); format:text;"></div>
-</div>
-
-<table>
-<tr id='helpSearchResultsTemplate' onClick="app.ext.admin.u.showHelpInDialog($(this).data('docid'));" class='pointer'>
-	<td data-bind='var: help(title); format:text;'></td>
-	<td class='hideInDetailMode'>
-	<p data-bind='var: help(summary); format:text;'></p>
-	<div data-bind='var: help(docid); format:text;'></div>
-	</td>
-	<td data-bind='var: help(score); format:text;'></td>
-</tr>
-</table>
-
-<div id='helpPageTemplate' class='page pageHelp' data-app-role='dualModeContainer' data-app-mode='list'>
-
-	<section class='dualModeDetailContainer' data-app-role='dualModeDetail'></section>
-
-	<section class='dualModeListContainer' data-app-role='dualModeList'>
-		<div class='ui-widget-header ui-corner-top'>
-		
-			<div class='buttonSet'>
-				<button data-app-event='admin|toggleDualMode'>Toggle between list and detail view</button>
-			</div>
-			
-			<form class='searchBar floatRight' action='#' data-app-role='helpSearch'>
-				<input type='search' name='keywords'  />
-				<button data-app-event='admin|helpSearch'>Search</button>
-			</form>
-			
-			
-			<h3 class='heading'>Documentation</h3>
-		</div>
-		
-		<div class='ui-widget-content ui-corner-bottom'>
-		
-		<div class='dualModeListMessaging stdPadding'>Please use the search above to find the docs you are looking for.</div>
-		
-		<table class='gridTable fullWidth displayNone' >
-		<!-- thead is needed, whether visible or not, so that the data-name attributes can be used to look up column # -->
-		<thead>
-		<tr>
-			<th>title</th>
-			<th class='hideInDetailMode'>Summary/id</th>
-			<th>Relevance</th>
-		</tr>
-		</thead>
-		<tbody data-bind="var: users(@RESULTS); format:processList; loadsTemplate:helpSearchResultsTemplate;" class='dualModeList' data-app-role='dualModeListContents'></tbody>
-		</table>
-		</div>
-	</section>
-</div>
 
 
 
