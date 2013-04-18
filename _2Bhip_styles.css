@@ -1537,7 +1537,7 @@ PRODUCT DETAIL PAGE
 }
 
 .prodSelectionContainer {
-	height: 618px;
+	height: auto; /*618px;*/
 	width: 218px;
 	background-color: #eee;
 }
@@ -1620,7 +1620,7 @@ PRODUCT DETAIL PAGE
 }
 
 .prodCartSelection {
-	height: 486px;
+	height: auto; /*486px;*/
 	width: 100%;
 	background-color: #eeeeee;
 }

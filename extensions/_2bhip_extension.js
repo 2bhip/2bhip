@@ -615,8 +615,8 @@ return filters;
 					});*/
 					
 				}]);	
-			} //END CAROUSELS
-
+			},//END CAROUSELS
+			
 				
 			}, //u [utilities]
 
