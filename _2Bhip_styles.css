@@ -1819,9 +1819,10 @@ CART MODAL
 }
 
 .cartQtyContainer {
-	width: 140px;
+	width: 90px;
 	font-size: 24px;
 	float: left;
+	margin: 0 15px 10px 35px;
 }
 
 .cartQty {
@@ -1870,6 +1871,7 @@ CART MODAL
 
 .cartRemoveButtonContainer button:first-child span:nth-child(2) {
 	padding: 0px;
+	text-indent: 0;
 }
 
 .cartRemoveButton.floatRight.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-icon-only {
