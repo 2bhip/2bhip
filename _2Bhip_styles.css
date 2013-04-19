@@ -2421,6 +2421,9 @@ WISH LIST
 	padding: 5px;
 }
 
+.wishlistLi h5 {}
+
+.wishlistLi h6 {}
 
 /*
 #wishListContents, .ui-tabs-panel.ui-widget-content.ui-corner-bottom {
