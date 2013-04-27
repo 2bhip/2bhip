@@ -157,151 +157,254 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
 
 <div class='navBarContainer borderRound blueGradient'>
     <div id="main">
-        <script type="text/javascript">
-            var showDropdown = function ($tag) {
-                var $dropdown = $(".dropdown", $tag);
-                var height = 387;
-                $dropdown.children().each(function(){
-                    $(this).outerHeight(true);
-                });
-                $dropdown.stop().animate({"height":height+"px"}, 1000);
-            }
-            
-            var hideDropdown = function ($tag) {
-                $(".dropdown", $tag).stop().animate({"height":"0px"}, 1000);
-            }
-        </script>
         <div id="navBar">
-            <div class="nav openSansXBoldFont" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
+            <div class="nav openSansXBoldFont" onMouseOver="app.ext.store_filter.a.showDropdown($(this))" onMouseOut="app.ext.store_filter.a.hideDropdown($(this))">
                 COMICS
                 <div class="dropdown comicsAlign">
-                    <ul class='floatLeft'>
-                        <li class='ddListHead dd bangersFont'>BY PUBLISHER</li>
-                        <li>Aquaman</li>
-                        <li>Archie Comics</li>
-                        <li>Avengers, The</li>
-                        <li>Axe Corp</li>
-                        <li>Batman</li>
-                        <li>Black Lightning</li>
-                        <li>Captain America</li>
-                        <li>Captain Marvel</li>
-                        <li>Catwoman</li>
-                        <li>Dark Knight, The</li>
-                        <li>DC Comics</li>
-                        <li>Fantastic Four</li>
-                    </ul>
-                    <ul class='floatLeft'>
-                        <li>Firestorm</li>
-                        <li>Flash</li>
-                        <li>Four Horsemen Of The App...</li>
-                        <li>Garfield</li>
-                        <li>Green Arrow</li>
-                        <li>Hawkman</li>
-                        <li>Iron Man</li>
-                        <li>Justice League</li>
-                        <li>Martian Manhunter</li>
-                        <li>Marvel Commics</li>
-                        <li>Peanuts</li>
-                        <li>Plastic Man</li>
-                        <li>Punisher</li>
-                    </ul>
-					<ul class='floatLeft'>
-                    	<li>Sider-Man</li>
-                        <li>Supergirl</li>
-                        <li>Superman</li>
-                        <li>Teenage Mutant Ninja Turtles</li>
-                        <li>Thor</li>
-                        <li class='ddListHead dd bangersFont'>BY CHARACTER</li>
-                        <li>Vampirella</li>
-                        <li>Walking Dead, The</li>
-                        <li>Watchmen</li>
-                        <li>Wonder Woman</li>
-                        <li>X-Men</li>
-                        <li>Zatanna</li>
-                        <li>Zenescope Comics</li>
-                    </ul>
+                    <div class='dropdownBestSellers'>
+                        <ul>
+                            <li class='ddListHead dd bangersFont'>BEST SELLERS . . .</li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.comics.batman' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>1. &nbsp </span>Batman</a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.comics.captain-america'><span>2. &nbsp </span>Captain America</a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.comics.flash'><span>3. &nbsp </span>Flash</a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.comics.green-lantern'><span>4. &nbsp </span>Green Lantern</a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.comics.iron-man'><span>5. &nbsp </span>Iron Man</a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.comics.punisher'><span>6. &nbsp </span>Punisher</a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.comics.spider-man'><span>8. &nbsp </span>Spiderman</a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.comics.superman'><span>7. &nbsp </span>Superman</a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.comics.wonder-woman'><span>9. &nbsp </span>Wonder Woman</a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.comics.x-men'><span>10. </span>X-Men</a></li>
+                        </ul>
+                    </div>
+                    <div class='giantPipeBS3'></div>
+                    <div class='dropdownPopular3'>
+                    	<ul>
+                            <li class='ddListHead dd bangersFont'>FEATURED . . .</li>
+							<li><a class='bindByAnchor' href='#!category?navcat=.comics.aquaman' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Aquaman</a></li> 
+                            <li><a class='bindByAnchor' href='#!category?navcat=.comics.avengers--the' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Avengers</li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.comics' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Bane</li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.comics' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Batgirl</li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.comics.catwoman' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Catwoman</li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.comics.dc-comics' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>DC Comics</li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.comics.fantastic-four' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Fantastic Four Cloting</li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.comics' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Gambit</li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.comics' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Ghost Rider</li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.comics.green-arrow' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Green Arrow</li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.comics' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Harley Quinn</li>
+                        </ul>
+                    </div>
+                    <div class='dropdownPopularSecond3'>
+                    	<ul>
+							<li><a class='bindByAnchor' href='#!category?navcat=.comics.hawkman' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Hawkman</li> 
+             				<li><a class='bindByAnchor' href='#!category?navcat=.comics' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Hellboy</li> 
+                            <li><a class='bindByAnchor' href='#!category?navcat=.comics' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Hulk</li> 
+                            <li><a class='bindByAnchor' href='#!category?navcat=.comics' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Joker</li> 
+                            <li><a class='bindByAnchor' href='#!category?navcat=.comics' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Judge Dredd</li> 
+                            <li><a class='bindByAnchor' href='#!category?navcat=.comics.justice-league' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Justice League</li> 
+                            <li><a class='bindByAnchor' href='#!category?navcat=.comics.marvel-comics' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Marvel Comics</li> 
+                            <li><a class='bindByAnchor' href='#!category?navcat=.comics' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Mighty Mouse</li>
+							<li><a class='bindByAnchor' href='#!category?navcat=.comics' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Mr. Freeze</li>
+							<li><a class='bindByAnchor' href='#!category?navcat=.comics' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Penguin</li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=.comics.plastic-man' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Plastic Man</li>
+                        </ul>
+                    </div>
+                    <div class='dropdownPopularThird3'>
+                    	<ul>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.comics' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Riddler</li>
+							<li><a class='bindByAnchor' href='#!category?navcat=.comics' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Robin</li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.comics' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Shazam</li>
+							<li><a class='bindByAnchor' href='#!category?navcat=.comics' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Silver Surfer</li> 
+                            <li><a class='bindByAnchor' href='#!category?navcat=.comics.supergirl' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Supergirl Merchandise</li> 
+                            <li><a class='bindByAnchor' href='#!category?navcat=.comics.teenage-mutant-ninja-turtles' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Teenage Mutant <br>Ninja Turtles</li> 
+                            <li><a class='bindByAnchor' href='#!category?navcat=.comics.thor' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Thor</li>
+							<li><a class='bindByAnchor' href='#!category?navcat=.comics' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Wolverine</li> 
+							 
+                        </ul>
+                    </div>
+                    <button class='dropdownViewAllButton dropdownViewAllButton3 bangersMedFont borderRound yellowGradient' onClick="return showContent('category',{'navcat':'.comics'});">VIEW ALL</button>
                 </div>
             </div>
-            <div class="nav openSansXBoldFont"onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
+            <div class="nav openSansXBoldFont"onMouseOver="app.ext.store_filter.a.showDropdown($(this))" onMouseOut="app.ext.store_filter.a.hideDropdown($(this))">
             	CARTOONS
                 <div class="dropdown cartoonsAlign">
                 	<div class='dropdownBestSellers'>
                         <ul>
                             <li class='ddListHead dd bangersFont'>BEST SELLERS . . .</li>
-                            <li><a class='bindByAnchor' href='#!category?navcat=.cartoons.adventure-time'><span>1. &nbsp </span>Adventue Time</a></li>
-                            <li><a class='bindByAnchor' href='#!category?navcat=.cartoons.alice-in-wonderland'><span>2. &nbsp </span>Alice In Wonderland</a></li>
-                            <li><a class='bindByAnchor' href='#!category?navcat=.cartoons.almost-naked-animals'><span>3. &nbsp </span>Almost Naked Animals</a></li>
-                            <li><a class='bindByAnchor' href='#!category?navcat=.cartoons.animaniacs'><span>4. &nbsp </span>Animaniacs</a></li>
-                            <li><a class='bindByAnchor' href='#!category?navcat=.cartoons.bambi'><span>5. &nbsp </span>Bambi</a></li>
-                            <li><a class='bindByAnchor' href='#!category?navcat=.cartoons.batman'><span>6. &nbsp </span>Batman</a></li>
-                            <li><a class='bindByAnchor' href='#!category?navcat=.cartoons.beavis-and-butthead'><span>7. &nbsp </span>Beavis & Butthead</a></li>
-                            <li><a class='bindByAnchor' href='#!category?navcat=.cartoons.betty-boop'><span>8. &nbsp </span>Betty Boop</a></li>
-                            <li><a class='bindByAnchor' href='#!category?navcat=.cartoons.black-butler'><span>9. &nbsp </span>Black Butler</a></li>
-                            <li><a class='bindByAnchor' href='#!category?navcat=.cartoons.care-bears'><span>10. </span>Care Bears</a></li>
-                            <li><a class='bindByAnchor' href='#!category?navcat=.cartoons.courage-the-cowardly-dog'><span>11. </span>Courage The Cowardly Dog</a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.cartoons.adventure-time' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>1. &nbsp </span>Adventue Time</a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.cartoons.disney' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>2. &nbsp </span>Disney</a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.cartoons.domo' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>3. &nbsp </span>Domo</a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.cartoons.family-guy' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>4. &nbsp </span>Family Guy</a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.cartoons.hello-kitty' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>5. &nbsp </span>Hello Kitty</a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.cartoons.my-little-pony' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>6. &nbsp </span>My Little Pony</a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.cartoons.peanuts' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>7. &nbsp </span>Peanuts</a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.cartoons.regular-show' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>8. &nbsp </span>Regular Show</a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.cartoons.simpsons' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>9. &nbsp </span>Simpsons</a></li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.cartoons.teenage-mutant-ninja-turtles' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>10. </span>Teenage Mutant <br>Ninja Turtles</a></li>
                         </ul>
                     </div>
-                    <div class='giantPipeBS'></div>
-                    <div class='dropdownPopular'>
+                    <div class='giantPipeBS3'></div>
+                    <div class='dropdownPopular3'>
                     	<ul>
                             <li class='ddListHead dd bangersFont'>FEATURED . . .</li>
-							<li><span>&#187 </span>Cow And Chicken</li> 
-                            <li><span>&#187 </span>Curious George</li>
-                            <li><span>&#187 </span>Dethklok</li>
-                            <li><span>&#187 </span>Dexter's Laboratory</li>
-                            <li><span>&#187 </span>Dinosaur Train</li>
-                            <li><span>&#187 </span>Disney</li>
-                            <li><span>&#187 </span>Domo</li>
-                            <li><span>&#187 </span>Dr. Suess</li>
-                            <li><span>&#187 </span>Dragon Ball Z</li>
-                            <li><span>&#187 </span>Ed, Edd n Eddy</li>
-                            <li><span>&#187 </span>Family Guy</li>
+							<li><a class='bindByAnchor' href='#!category?navcat=.cartoons.beavis-and-butthead' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Beavis and Butt Head</li> 
+                            <li><a class='bindByAnchor' href='#!category?navcat=.cartoons.care-bears' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Care Bears</li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.cartoons.felix-the-cat' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Felix the Cat</li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.cartoons.garfield' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Garfield</li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.cartoons.he-man' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>He Man</li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.cartoons.jem' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Jem</li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.cartoons.johnny-bravo' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Johnny Bravo</li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.cartoons' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Justice League</li>
+							<li><a class='bindByAnchor' href='#!category?navcat=.cartoons.looney-tunes' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Looney Tunes</li>
                         </ul>
                     </div>
-                    <div class='giantPipePop'></div>
-                    <div class='dropdownPopularSecond'>
+                    <div class='dropdownPopularSecond3'>
                     	<ul>
-							<li><span>&#187 </span>Felix the Cat</li> 
-             				<li><span>&#187 </span>Foster's Home For <br>Imaginary Friends</li> 
-                            <li><span>&#187 </span>G.I. Joe</li> 
-                            <li><span>&#187 </span>Garfield</li> 
-                            <li><span>&#187 </span>Gumby</li> 
-                            <li><span>&#187 </span>He Man</li> 
-                            <li><span>&#187 </span>Hello Kitty</li> 
-                            <li><span>&#187 </span>I Am Weasel</li> 
+                            <li><a class='bindByAnchor' href='#!category?navcat=.cartoons.masters-of-the-universe' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Masters Of <br>The Universe</li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.cartoons.muppets--the' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Muppets, The</li>
+							<li><a class='bindByAnchor' href='#!category?navcat=.cartoons.phineas-and-ferb' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Phineas And Ferb</li> 
+             				<li><a class='bindByAnchor' href='#!category?navcat=.cartoons.popeye' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Popeye</li> 
+                            <li><a class='bindByAnchor' href='#!category?navcat=.cartoons.rainbow-brite' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Rainbow Brite</li> 
+                            <li><a class='bindByAnchor' href='#!category?navcat=.cartoons.scooby-doo' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Scooby Doo</li> 
+                            <li><a class='bindByAnchor' href='#!category?navcat=.cartoons.smurfs' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Smurfs</li>
                         </ul>
                     </div>
-                    <button class='cartoonViewAllButton bangersMedFont borderRound yellowGradient'>VIEW ALL</button>              
+					<div class='dropdownPopularThird3'>
+                    	<ul>
+                            <li><a class='bindByAnchor' href='#!category?navcat=.cartoons.spongebob-squarepants' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Spongebob <br>Squarepants</li> 
+                            <li><a class='bindByAnchor' href='#!category?navcat=.cartoons.thundercats' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Thundercats</li> 
+                            <li><a class='bindByAnchor' href='#!category?navcat=.cartoons.transformers' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Transformers</li>
+							<li><a class='bindByAnchor' href='#!category?navcat=.cartoons.voltron' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Voltron</li>							
+							<li><a class='bindByAnchor' href='#!category?navcat=.cartoons.yo-gabba-gabba' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span>Yo Gabba Gabba</li>
+                        </ul>
+                    </div>
+                    <button class='dropdownViewAllButton dropdownViewAllButton3 bangersMedFont borderRound yellowGradient' onClick="return showContent('category',{'navcat':'.cartoons'});">VIEW ALL</button>              
                 </div>
             </div>
-            <div class="nav openSansXBoldFont"onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
+            <div class="nav openSansXBoldFont"onMouseOver="app.ext.store_filter.a.showDropdown($(this))" onMouseOut="app.ext.store_filter.a.hideDropdown($(this))">
                 MOVIES
                 <div class="dropdown moviesAlign">
-                	<ul>
-                    	<li class='ddListHead bangersFont'>abc</li>
-                    	<li>abc</li>
-                    </ul>    
+                	<div class='dropdownBestSellers'>
+                        <ul>
+                            <li class='ddListHead dd bangersFont'>BEST SELLERS . . .</li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>1. &nbsp </span></a></li> 
+                            <li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>2. &nbsp </span></a></li> 
+                            <li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>3. &nbsp </span></a></li> 
+                            <li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>4. &nbsp </span></a></li> 
+                            <li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>5. &nbsp </span></a></li> 
+                            <li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>6. &nbsp </span></a></li> 
+                            <li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>7. &nbsp </span></a></li> 
+                            <li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>8. &nbsp </span></a></li> 
+                            <li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>9. &nbsp </span></a></li> 
+                            <li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>10. &nbsp </span></a></li> 
+                        </ul>
+                    </div>
+                    <div class='giantPipeBS3'></div>
+                    <div class='dropdownPopular3'>
+                    	<ul>
+                            <li class='ddListHead dd bangersFont'>FEATURED . . .</li>
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+                        </ul>
+                    </div>
+                    <div class='dropdownPopularSecond3'>
+                    	<ul>
+                            <li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+                        </ul>
+                    </div>
+					<div class='dropdownPopularThird3'>
+                    	<ul>
+                             <li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+                        </ul>
+                    </div>
+                    <button class='dropdownViewAllButton dropdownViewAllButton3 bangersMedFont borderRound yellowGradient' onClick="return showContent('category',{'navcat':'.cartoons'});">VIEW ALL</button>              
                 </div>
             </div>
-            <div class="nav tooNarrow openSansXBoldFont"onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
+            <div class="nav tooNarrow openSansXBoldFont"onMouseOver="app.ext.store_filter.a.showDropdown($(this))" onMouseOut="app.ext.store_filter.a.hideDropdown($(this))">
                 TV
                 <div class="dropdown tvAlign">
-                    <ul>
-                        <li class='ddListHead bangersFont'>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                        <li>abc</li>
-                    </ul>
+                    <div class='dropdownBestSellers'>
+                        <ul>
+                            <li class='ddListHead dd bangersFont'>BEST SELLERS . . .</li>
+                            <li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>1. &nbsp </span></a></li> 
+                            <li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>2. &nbsp </span></a></li> 
+                            <li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>3. &nbsp </span></a></li> 
+                            <li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>4. &nbsp </span></a></li> 
+                            <li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>5. &nbsp </span></a></li> 
+                            <li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>6. &nbsp </span></a></li> 
+                            <li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>7. &nbsp </span></a></li> 
+                            <li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>8. &nbsp </span></a></li> 
+                            <li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>9. &nbsp </span></a></li> 
+                            <li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>10. &nbsp </span></a></li> 
+                        </ul>
+                    </div>
+                    <div class='giantPipeBS3'></div>
+                    <div class='dropdownPopular3'>
+                    	<ul>
+                            <li class='ddListHead dd bangersFont'>FEATURED . . .</li>
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+                        </ul>
+                    </div>
+                    <div class='dropdownPopularSecond3'>
+                    	<ul>
+                            <li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+                        </ul>
+                    </div>
+					<div class='dropdownPopularThird3'>
+                    	<ul>
+                             <li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+							<li><a class='bindByAnchor' href='#!category?navcat=' onClick="app.ext.store_filter.a.clickDropdown($(this).parent().parent().parent().parent().parent());"><span>&#187 </span></a></li> 
+                        </ul>
+                    </div>
+                    <button class='dropdownViewAllButton dropdownViewAllButton3 bangersMedFont borderRound yellowGradient' onClick="return showContent('category',{'navcat':'.cartoons'});">VIEW ALL</button>              
                 </div>
             </div>
-            <div class="nav tooWide openSansXBoldFont"onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
+            <div class="nav tooWide openSansXBoldFont"onMouseOver="app.ext.store_filter.a.showDropdown($(this))" onMouseOut="app.ext.store_filter.a.hideDropdown($(this))">
                 VIDEO GAMES
                 <div class="dropdown videoGamesAlign">
                     <ul>
@@ -328,7 +431,7 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
                     </ul>
                 </div>
             </div>
-            <div class="nav openSansXBoldFont" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
+            <div class="nav openSansXBoldFont" onMouseOver="app.ext.store_filter.a.showDropdown($(this))" onMouseOut="app.ext.store_filter.a.hideDropdown($(this))">
                 MUSIC
                 <div class="dropdown musicAlign">
                     <ul>
@@ -336,7 +439,7 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
                     </ul>
                 </div>
             </div>
-            <div class="nav tooWide openSansXBoldFont" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
+            <div class="nav tooWide openSansXBoldFont" onMouseOver="app.ext.store_filter.a.showDropdown($(this))" onMouseOut="app.ext.store_filter.a.hideDropdown($(this))">
                 BEER/ALCOHOL
                 <div class="dropdown beerAlcoholAlign">
                     <ul>
@@ -344,7 +447,7 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
                     </ul>
                 </div>
             </div>
-            <div class="nav openSansXBoldFont" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
+            <div class="nav openSansXBoldFont" onMouseOver="app.ext.store_filter.a.showDropdown($(this))" onMouseOut="app.ext.store_filter.a.hideDropdown($(this))">
                 SPORTS
                 <div class="dropdown sportsAlign">
                     <ul>
@@ -352,7 +455,7 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
                     </ul>
                 </div>
             </div>
-            <div class="nav openSansXBoldFont" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
+            <div class="nav openSansXBoldFont" onMouseOver="app.ext.store_filter.a.showDropdown($(this))" onMouseOut="app.ext.store_filter.a.hideDropdown($(this))">
                 FUNNY
                 <div class="dropdown funnyAlign">
                     <ul>
@@ -360,7 +463,7 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
                     </ul>
                 </div>
             </div>
-            <div class="nav openSansXBoldFont" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
+            <div class="nav openSansXBoldFont" onMouseOver="app.ext.store_filter.a.showDropdown($(this))" onMouseOut="app.ext.store_filter.a.hideDropdown($(this))">
                 BRANDS
                 <div class="dropdown brandsAlign">
                     <ul>
@@ -368,7 +471,7 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
                     </ul>
                 </div>
             </div>
-            <div class="nav tooWide openSansXBoldFont" onMouseOver="showDropdown($(this))" onMouseOut="hideDropdown($(this))">
+            <div class="nav tooWide openSansXBoldFont" onMouseOver="app.ext.store_filter.a.showDropdown($(this))" onMouseOut="app.ext.store_filter.a.hideDropdown($(this))">
                 JUNK FOOD
                 <div class="dropdown junkFoodAlign">
                     <ul>

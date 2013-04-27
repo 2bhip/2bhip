@@ -203,7 +203,27 @@ var store_filter = function() {
 				cartSpinner : function() {
 					var spinner = $('#spinner').spinner();
 				},
-
+				
+				//SHOW MAIN CATEGORY DROPDOWN MENU
+				showDropdown : function ($tag) {
+					var $dropdown = $(".dropdown", $tag);
+					var height = 387;
+					$dropdown.children().each(function(){
+						$(this).outerHeight(true);
+					});
+					$dropdown.stop().animate({"height":height+"px"}, 1000);
+				},
+				
+				//ANIMATE RETRACTION OF MAIN CATEGORY DROPDOWN MENU
+				hideDropdown : function ($tag) {
+					$(".dropdown", $tag).stop().animate({"height":"0px"}, 1000);
+				},
+				
+				//IMEDIATE RETRACTION OF MAIN CATEGORY DROPDOWN MENU WHEN HEADER IS CLICKED
+				clickDropdown : function ($tag) {
+					$(".dropdown", $tag).stop().animate({"height":"0px"}, 0);
+				},
+				
 
 	/*Spinner functions that don't work correctly.
 				connect : function() {
