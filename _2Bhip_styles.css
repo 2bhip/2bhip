@@ -1,9 +1,9 @@
 @charset "utf-8";
 /* CSS Document */
 
-body {
+/*body {
 	background: white;	
-}
+}*/
 
 #appPreview, #appView {
 	background: white;
@@ -257,9 +257,14 @@ HEADER
 
 .headerBranding {
 	float: left;
-	width: 313px;
+	width: 283px;
 	margin-left: 25px;
 	margin-top: 10px;
+}
+
+.headerBranding.search {
+	position: relative;
+	margin-top: 45px;
 }
 
 .headerBranding 2bhipLogo {
@@ -267,29 +272,15 @@ HEADER
 	margin-left: 25px;	
 }
 
-.headerSearchBar {
-	position: absolute;
-	top: 85px;
-	left: 580px;
-}
-
-.headerSearchButton {
-	position: absolute;
-	top: 85px;
-	left: 778px;
-}
+.headerSearchButton {border-left:0;}
 
 #headerPhone {
-	position: absolute;
-	top: 50px;
-	left: 940px;
-	margin-bottom: 10px;
+	height:auto;
+	width:210px;
+	margin: 0 0 10px 52px;
 }
 
 .socialIconContainer {
-	position: absolute;
-	top: 100px;
-	left: 885px;
 	height: 50px;
 	width: 263px;
 	margin-left: 25px;	
@@ -458,6 +449,9 @@ END HEADER
 	height: 358px;
 	width: 345px;
 }
+
+.dropdownPopularSecond2.funny2 {top: 10px;}
+.giantPipeBS3.funnyPipe {left:571px;}
 
 .dropdownPopular3 {
 	position: absolute;
@@ -2533,7 +2527,7 @@ SEARCH RESULTS
 .nextMove {
 	position:absolute;
 	right: 32px;
-
+}
 /*
 .resultsProdList {height:100%; width:950px; margin:auto;}
 .resultsProductListContainer, .slider-range, .ui-slider, .ui-slider-horizontal, .ui-widget, .ui-widget-content, .ui-corner-all {
@@ -2555,6 +2549,27 @@ li[data-templateid="productListTemplateResults"]
 	position:relative;
 	left:120px;
 }*/
+
+
+/*************************************************************************************
+MP CONTROLS
+*************************************************************************************/
+
+.ddUlMenu ul li a {padding: 0 12px 3px 12px;}
+
+.ddUlMenu li ul {
+	width: 136px;
+	margin: 21px 0 0 -18px;
+}
+
+.ddUlMenu li ul li {
+	margin: 5px 0;
+	text-align: center;
+}
+
+
+
+
 
 
 
