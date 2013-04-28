@@ -272,6 +272,8 @@ HEADER
 	margin-left: 25px;	
 }
 
+.headerSearchBar {height: 29px; width:200px;}
+
 .headerSearchButton {border-left:0;}
 
 #headerPhone {
