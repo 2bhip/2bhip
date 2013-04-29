@@ -2515,15 +2515,18 @@ SEARCH RESULTS
 	font-size: 18px;
 	font-family: Bangers;
 }
+.resultsMenuContainer .resultsMenu li ul {
+	width:120px;
+}
 
 .resultsMenuContainer .resultsMenu li ul li {
-	height: 20px;
+	height: 32px;
 	width: 120px;
 	}
 
 .prevMove {
 	position:absolute;
-	left: -386px;
+	left: -795px;/*-386px;*/
 }
 
 .nextMove {
