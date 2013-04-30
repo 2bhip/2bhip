@@ -26,7 +26,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130429110400",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"2013043091200",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"checkoutAuthMode" : "required",//can be passive, active or required
@@ -72,26 +72,28 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
 
 <!-- what is displayed onLoad until the view is loaded -->
 <div id='appPreView'>
-<table>
-<tr>
-	<td><img src="images/preView.gif"></td>
-	<td>
+	<table>
+		<tr>
+			<td><img src="images/preView.gif" width='250' height='250' alt='2bhip.com' class='appPreviewImage'></td>
+			<td>
+				<!--
+				<div id="loader" class='loadBar'>
+					<h3>One moment please.</h3>
 
-	<div id="loader" class='loadBar'>
-		<h3>One moment please.</h3>
-
-		<div class='alignCenter'>
-		<progress id="appPreViewProgressBar" max="100" value="0" /><br />
-		</div>
-		<div id='appPreViewProgressText'>0% Complete</div>
-	</div>
-	<div id="clickToLoad" class="displayNone pointer">
-		Click here to load your totally kickass shopping experience!
-	</div>
-	<div class='appMessaging'></div>
-	</td>
-</tr>
-</table>
+					<div class='alignCenter'>
+					<progress id="appPreViewProgressBar" max="100" value="0" /><br />
+					</div>
+					<div id='appPreViewProgressText'>0% Complete</div>
+				</div>
+				-->
+				
+				<div id="clickToLoad" class="displayNone pointer">
+					Click here to load your totally kickass shopping experience!
+				</div>
+				<div class='appMessaging'></div>
+			</td>
+		</tr>
+	</table>
 </div>
 
 
