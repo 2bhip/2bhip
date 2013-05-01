@@ -1320,6 +1320,8 @@ PRODUCT STYLES / CAROUSELS
 	float: left;
 }
 
+.productPrice .percentBasePrice.basePrice.bangersFont  {width: 100%;}
+
 .productPrice h5 {
 	height: 40px;
 	width: 101px;
@@ -1327,7 +1329,7 @@ PRODUCT STYLES / CAROUSELS
 	font-size: 24px;
 	line-height: 21px;
 	text-align: center;
-	text-decoration: line-through;
+	background-image: url("images/StrikeThrough.png");
 	float: left;
 }
 

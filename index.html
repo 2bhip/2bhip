@@ -1274,9 +1274,13 @@ remember to NOT put the button inside the 'onclick' container or two events will
         </div>
         
         <div class='productPrice bangersFont'>
-       <h5 class='prodMSRP bangersFont' data-bind='var: product(zoovy:prod_msrp); format:money; currencySign: $;  hideZero:true;'></h5> 
-           <h4 class='basePrice bangersFont' data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true;'></h4>
-      <!-- <h6 data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6> -->
+			<div class='displayNone' data-bind='var: product(zoovy:prod_msrp); format:showIfSet;'>
+				<h5 class='prodMSRP bangersFont' data-bind='var: product(zoovy:prod_msrp); format:money; currencySign: $;  hideZero:true;'></h5> 
+			</div>
+			<div data-bind='format:onlyBasePrice; extension:store_filter; useParentData:true;'>
+				<h4 class='basePrice bangersFont' data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true;'></h4>
+			</div>
+	   <!-- <h6 data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6> -->
         </div>
         
         <div class='productSizeContainer' data-bind='var:(@variations); format:sizeDisplay; extension:store_filter;'> 
@@ -1416,7 +1420,7 @@ remember to NOT put the button inside the 'onclick' container or two events will
 		<div class='productPrice bangersFont'>
             <h6 data-bind='var: product(base_price); format:money; isElastic:1; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>
         </div>
-        
+			
         <div class='productSizeContainer'> 
     		<div class='productSize borderRound bangersFont greyGradient'>S</div>
         	<div class='productSize borderRound bangersFont greyGradient'>M</div>
