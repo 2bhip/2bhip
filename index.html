@@ -56,7 +56,7 @@ css files should be included before any .js file to ensure they are downloaded i
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script src="resources/jquery.ui.widget.min.js"></script><!-- here so that plugins that may load before the jqueryui lib load without error -->
 <script type="text/javascript" src="loadscript.js"></script>
-<script type="text/javascript" src="../ui.spinner.js"></script>
+<script type="text/javascript" src="jquery-ui-1.10.1.custom/development-bundle/ui/ui.spinner.js"></script>
 
 
 
@@ -1279,12 +1279,12 @@ remember to NOT put the button inside the 'onclick' container or two events will
       <!-- <h6 data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6> -->
         </div>
         
-        <div class='productSizeContainer'> 
-    		<div class='productSize borderRound bangersFont greyGradient'>S</div>
+        <div class='productSizeContainer' data-bind='var:(@variations); format:sizeDisplay; extension:store_filter;'> 
+       <!-- <div class='productSize borderRound bangersFont greyGradient'>S</div>
         	<div class='productSize borderRound bangersFont greyGradient'>M</div>
             <div class='productSize borderRound bangersFont greyGradient'>L</div>
            	<div class='productSize borderRound bangersFont greyGradient'>XL</div>
-           	<div class='productSize borderRound bangersFont greyGradient'>XXL</div>	
+           	<div class='productSize borderRound bangersFont greyGradient'>XXL</div>	 -->
     	</div>
         
 		<div data-bind="var: product(zoovy:prod_is_tags); format:addTagSpans;" class='productBubble'></div>

@@ -306,23 +306,56 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 //on a data-bind, format: is equal to a renderformat. extension: tells the rendering engine where to look for the renderFormat.
 //that way, two render formats named the same (but in different extensions) don't overwrite each other.
 		renderFormats : {
-				onlyBasePrice : function($tag,data) {
-					var msrp = data.value['%attribs']['zoovy:prod_msrp'];
-					//app.u.dump('*** '+msrp);
-					//$tag.text(msrp);
-					if (typeof msrp === 'undefined') {
-						app.u.dump('*** comparison worked');
-						//$tag.removeClass('fixedBasePrice');
-						$tag.children('.basePrice').addClass('percentBasePrice');
-					}	
+		
+			sizeDisplay : function($tag,data) {
+				var variations = data.value; //shortcut
+				app.u.dump('*** '+data.value);
+				function guessSize(prompt) {
+					var r;
+					prompt = prompt.toLowerCase();
+					if(prompt.indexOf('extra') && prompt.indexOf('small')) {r = 'XS'}
+					if(prompt.indexOf('small')) {r = 'S'}
+					else if(prompt.indexOf('med')) {r = 'M'}
+					else if(prompt.indexOf('xxl')) {r = 'XXL'}
+					else if(prompt.indexOf('xl')) {r = 'XL'}
+					else if(prompt.indexOf('large')) {r = 'L'}
 					else {
-						//$tag.removeClass('percentBasePrice');
-						$tag.children('.basePrice').addClass('fixedBasePrice');
-						app.u.dump('*** comparison did not work');
+						r = prompt.substring(0,3);
 					}
-					//$tag.text(msrp);
 				}
-			}, //renderFormats
+
+				if(variations && variations.length == 1) {
+					var
+					$ul = $("<ul \/>"),
+					L = (variations[0].options && variations[0].options.length) ? variations[0].options.length : 0;
+
+					for(var i = 0; i < L; i += 1) {
+					$ul.append($("<li \/>").text(guessSize(variations[0].options.prompt)));
+					}
+					$tag.append($ul);
+				}
+				else {
+				//Either no variations OR there is more than one variation on this product.
+				}
+			},
+		
+			onlyBasePrice : function($tag,data) {
+				var msrp = data.value['%attribs']['zoovy:prod_msrp'];
+				//app.u.dump('*** '+msrp);
+				//$tag.text(msrp);
+				if (typeof msrp === 'undefined') {
+					app.u.dump('*** comparison worked');
+					//$tag.removeClass('fixedBasePrice');
+					$tag.children('.basePrice').addClass('percentBasePrice');
+				}	
+				else {
+					//$tag.removeClass('percentBasePrice');
+					$tag.children('.basePrice').addClass('fixedBasePrice');
+					app.u.dump('*** comparison did not work');
+				}
+				//$tag.text(msrp);
+			}
+		}, //renderFormats
 ////////////////////////////////////   UTIL [u]   \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 //utilities are typically functions that are exected by an event or action.

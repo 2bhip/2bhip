@@ -1212,6 +1212,10 @@ PRODUCT STYLES / CAROUSELS
 	margin: 15px;
 }
 
+.slideMe li {
+	margin: 0 2px 0 0;
+}
+
 .staticProductBubble {
 	position: absolute;
 	top: 0px;
@@ -1285,7 +1289,7 @@ PRODUCT STYLES / CAROUSELS
 }
 
 .prodThumbContainer img {
-	margin-top: 10px;	
+	margin-top: 0px;	
 }
 
 .productDesc {
