@@ -4,9 +4,11 @@
 /*body {
 	background: white;	
 }*/
+
 html {
 	height: 100%;
 }
+
 #appPreView {
 	height: 320px;
 	width: 320px;
@@ -160,7 +162,7 @@ a {
 		background: -o-linear-gradient(top, #00b7f5 0%,#00093d 100%); /* Opera 11.10+ */
 		background: -ms-linear-gradient(top, #00b7f5 0%,#00093d 100%); /* IE10+ */
 		background: linear-gradient(to bottom, #00b7f5 0%,#00093d 100%); /* W3C */
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b7f5', endColorstr='#00093d',GradientType=0 ); /* IE6-9 */;
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b7f5', endColorstr='#00093d',GradientType=0 ); /* IE6-9 */
 	color: white;
 }
 
@@ -1197,7 +1199,7 @@ PRODUCT STYLES / CAROUSELS
 .productList li { 
 	float: left;
 	height: 275px;
-	width: 206px;
+	width: 203px;
 	margin: 15px;
 }
 
@@ -1296,7 +1298,7 @@ PRODUCT STYLES / CAROUSELS
 
 .productPrice h4 {
 	height: 40px;
-	width: 103px;
+	width: 101px;
 	margin:auto;
 	color: #000;
 	font-size: 30px;
@@ -1307,7 +1309,7 @@ PRODUCT STYLES / CAROUSELS
 
 .productPrice h5 {
 	height: 40px;
-	width: 103px;
+	width: 101px;
 	color: #666666;
 	font-size: 24px;
 	line-height: 21px;
@@ -1361,16 +1363,36 @@ CATAGORY PAGE
 
 .filterSearchContainerPlaceholder {
 	height: auto;
-	width: 218px;
+	width: auto;
 	background-color: #fff;
-	float: left;
 	line-height: 30px;
+}
+
+.productColumn {width: auto;}
+
+.filterResetContainer {
+	height: 30px;
+	width: 211px;
+	background:#ccc;
+	margin: 5px 0 20px;
+}
+
+.layeredSearch .resetButton {
+	height: 30px; 
+	width: 141px; 
+	background-color: #f8c301; 
+	border: none; 
+	corners: none; 
+	font-family: Bangers;  
+	font-weight: normal; 
+	font-size: 20px;
+	margin: 0 35px;
+	border: 2px solid #000;
 }
 
 .layeredSearch {
 	height: auto; 
 	width: 211px; 
-	margin-top: 10px; 
 	color: #000; 
 	background-color: #ccc;
 	font-size: 14px;

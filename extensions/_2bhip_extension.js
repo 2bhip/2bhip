@@ -38,40 +38,36 @@ var store_filter = function() {
 
 		".t_shirts.80s_t_shirts":{
 			"filter": "tShirtsForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
-			}/*,
-			".00027-metal-chess-pieces":{
-			"filter": "chessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},
-			".00024-marble-onyx-chess-sets.marble-onyx-chess-pieces":{
-			"filter": "chessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+		".t_shirts.band_t_shirts_music_t_shirts":{
+			"filter": "tShirtsForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},
-			".00020-plastic-chess-sets":{
-			"filter": "chessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+		".t_shirts.beer_t_shirts":{
+			"filter": "tShirtsForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},
-			".00029-theme-chess-pieces":{
-			"filter": "chessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+		".t_shirts.brand_names":{
+			"filter": "tShirtsForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},
-			".00055-unfinished-chess-sets":{
-			"filter": "chessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+		".t_shirts.cartoons":{
+			"filter": "tShirtsForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},
-			".00022-jaques-london-chess-sets":{
-			"filter": "chessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+		".t_shirts.clothes_brand_names":{
+			"filter": "tShirtsForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},
-			".00033-artisan-hand-carved-chess-sets":{
-			"filter": "chessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
+		".t_shirts.comic_heroes":{
+			"filter": "tShirtsForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
 			},
-			".000295-most-unique-chess-pieces":{
-			"filter": "chessPiecesForm",
-			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:500});}
-			},*/
+		".t_shirts.costume":{
+			"filter": "tShirtsForm",
+			"exec" : function($form,infoObj){app.ext.store_filter.u.renderSlider($form, infoObj, {MIN:0,MAX:100});}
+			}
 		},
 		
 
