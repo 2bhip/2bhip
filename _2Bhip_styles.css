@@ -359,6 +359,13 @@ HEADER
 	float: left;	
 }
 
+.mainNavBarLinks:hover {
+	text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 4px 0 #fff, 1px 1px 0 #fff;
+	color: #000;
+}
+
+.mainNavBarLinks a:hover {color: #000;}
+
 #characters {
 	width: 230px;	
 }
@@ -409,7 +416,7 @@ END HEADER
 }
 
 .tooWide {
-	width: 105px;
+	width: 135px;
 }
 	
 .dropdown {
@@ -430,13 +437,12 @@ END HEADER
 .dropdown.cartoonsAlign {left: -73px;}
 .dropdown.moviesAlign {left: -158px;}
 .dropdown.tvAlign {left: -243px;}
-.dropdown.videoGamesAlign {left: -283px;}
-.dropdown.musicAlign {left: -387px;}
-.dropdown.beerAlcoholAlign {right: -352px;}
-.dropdown.sportsAlign {right: -267px;}
-.dropdown.funnyAlign {right: -182px;}
-.dropdown.brandsAlign {right: -97px;}
-.dropdown.junkFoodAlign {right: 8px;}
+.dropdown.videoGamesAlign {left: -328px;}
+.dropdown.musicAlign {left: -436px;}
+.dropdown.beerAlcoholAlign {right: -247px;}
+.dropdown.iconsAlign {right: -162px;}
+.dropdown.funnyAlign {right: -76px;}
+.dropdown.brandsAlign {right: -8px;}
 
 .dropdownBestSellers {
 	position: absolute;
