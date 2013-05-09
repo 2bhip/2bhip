@@ -499,10 +499,14 @@ need to be customized on a per-ria basis.
 		pageTransition : function($o,$n)	{
 //if $o doesn't exist, the animation doesn't run and the new element doesn't show up, so that needs to be accounted for.
 			if($o.length)	{
-				$o.fadeOut(1000, function(){$n.fadeIn(1000)}); //fade out old, fade in new.
+				//$o.fadeOut(1000, function(){$n.fadeIn(1000)}); //fade out old, fade in new.
+				//2BHIP
+				$o.hide(); //snap out old,
+				$n.show(); //snap in new.
 				}
 			else	{
-				$n.fadeIn(1000)
+				//$n.fadeIn(1000)
+				$n.show()
 				}
 			}, //pageTransition
 

@@ -1,4 +1,4 @@
-1. quickstart.js:
+1. app-quickstart.js:
 	Line 2545: " infoObj.dialog = $.isEmptyObject(infoObj.dialog) ? {modal: true,width:'69%',height:$(window).height() - 100} : infoObj.dialog; "
 	
 	changes original size of modal window from 86% to 69% (changed for quickview).
@@ -56,5 +56,12 @@
 	Line 246 add nextMove to .addClass('nextPageButton
 
 
-
+9. app-quickstart.js:
+	Line 502 in pageTransition : function($0,$n)
+	change: $o.fadeOut(1000, function(){$n.fadeIn(1000)});
+	to $o.hide(); //snap out old,
+	
+           $n.show(); //snap in new.
+	and change: $n.fadeIn(1000)
+	to: $n.show()
 

@@ -1089,9 +1089,12 @@ HOME PAGE
 	background-image:url(images/MiscCustReviewBkgrnd.png);
 	list-style: none;
 	padding-left: 0px;
+	overflow:hidden;
 }
 
 .miscCustReviewText{
+	height: 240px;
+	width: 395px;
 	font-style: italic;
 	font-size: 12px;
 	margin: 0px 37px 0px 29px;
