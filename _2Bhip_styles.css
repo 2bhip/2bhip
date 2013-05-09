@@ -450,6 +450,7 @@ END HEADER
 	left: 10px;
 	height: 358px;
 	width: 345px;
+	background-color: #FCE99B;
 }
 
 .giantPipeBS2 {
@@ -548,7 +549,7 @@ END HEADER
 }
 
 .dropdown a {color: #006099;}
-.dropdown a:hover {color: #ffcc00;}
+.dropdown a:hover {color: #fff; text-shadow: -1px -1px 0 #006099, 1px -1px 0 #006099, -1px 2px 1px #006099, 1px 1px 0 #006099;}
 .dropdown div:first-of-type {margin-top: 0px;}
 .dropdown div {margin-bottom: 10px;}
 
@@ -1011,6 +1012,11 @@ HOME PAGE
 	margin-bottom: 8px;
 }
 
+.miscLeft H2:hover {
+	color: #fff;
+	text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 4px 0 #000000, 1px 1px 0 #000000;
+}
+
 .miscLeft p {
 	font-size: 14px;
 }
@@ -1018,7 +1024,6 @@ HOME PAGE
 .miscLeft a {
 	color: #000;
 	text-decoration: underline;
-	
 }
      	
 .miscRight {
@@ -1033,6 +1038,11 @@ HOME PAGE
 	font-size: 32px;
 	margin-bottom: 8px;
 	text-align: center;
+}
+
+.miscRight H2:hover {
+	color: #fff;
+	text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 4px 0 #000000, 1px 1px 0 #000000;
 }
 
 .miscTopSelling {
@@ -1054,6 +1064,11 @@ HOME PAGE
 	float: left;
 	margin: 0px;
 	padding-left: 36px;
+}
+
+.miscList a:hover {
+	color:#000;
+	text-shadow: -1px -1px 0 #FFFFFF, 1px -1px 0 #FFFFFF, -1px 2px 1px #FFFFFF, 1px 1px 0 #FFFFFF;
 }
 
 .miscListRight {
@@ -1080,6 +1095,11 @@ HOME PAGE
 .miscRight H3 {
 	color: #000;
 	font-size: 32px;
+}
+
+.miscRight H3:hover {
+	color: #fff;
+	text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 4px 0 #000000, 1px 1px 0 #000000;
 }
 
 .miscCustReviews {
@@ -1172,6 +1192,8 @@ PRODUCT STYLES / CAROUSELS
 	margin: 0 5.7px 1px 5.7px;
 	display: inline-block;
 }
+
+.prodListCarouselButtonContainer a.selected {background: url(images/TemplateSelected.png);}
 
 .prodListCarouselButtonContainer a span {
 	display: none;
@@ -2211,13 +2233,13 @@ ABOUT PAGE
 }
 
 .aboutQuickNav {
-	height: 182px;
+	height: 152px;
 	line-height: 28px;
 }
 
 .aboutHelpNav {
-	height: 182px;
-	line-height: 24px;
+	height: 212px;
+	line-height: 28px;
 }
 
 .aboutAcctNav {

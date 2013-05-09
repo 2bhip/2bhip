@@ -26,7 +26,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130501201900",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130508195700",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"checkoutAuthMode" : "required",//can be passive, active or required
@@ -776,7 +776,6 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
             <li class='openSansBoldFont footerLinkListItem pointer'><a class="bindByAnchor" href="#!customer?show=orders">Recent Orders</a></li>
             <li class='openSansBoldFont footerLinkListItem'>Previously Viewed Products</li>
             <li class='openSansBoldFont footerLinkListItem pointer'><a class="bindByAnchor" href="#!customer?show=newsletter">Join Our Newsletter</a></li>
-            <li class='openSansBoldFont footerLinkListItem'><a class="bindByAnchor" href="#!category?navcat=.store_locations">Store Locations</a></li>
             <li class='openSansBoldFont footerLinkListItem'><a class="bindByAnchor" href="#!category?navcat=.wholesale">Wholesale</a></li>
 		</ul>        
     </div>   
@@ -926,7 +925,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
             <div class='prodListCarouselButtonContainer' id='homePaginationContainer1'></div>
             <div class='prodListButtons pointer' id='homeCarButtonNext1'><img src="images/TemplateArrowNext.png"></div>
         </div>
-        <div class='templateHeadAllProds border bangersMedFont'>VIEW ALL PRODUCTS</div>
+        <div class='templateHeadAllProds border bangersMedFont'><a class='bindByAnchor' href='#!search?TAG=IS_BESTSELLER'>VIEW ALL PRODUCTS</a></div>
     </div>
         <div class='templateCarouselContainer border'>
         <div>
@@ -950,7 +949,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
             <div class='prodListCarouselButtonContainer' id='homePaginationContainer2'></div>
             <div class='prodListButtons pointer' id='homeCarButtonNext2'><img src="images/TemplateArrowNext.png"></div>
         </div>
-        <div class='templateHeadAllProds border bangersMedFont'>VIEW ALL PRODUCTS</div>
+        <div class='templateHeadAllProds border bangersMedFont'><a class='bindByAnchor' href='#!search?TAG=IS_NEWARRIVAL'>VIEW ALL PRODUCTS</a></div>
     </div>
         <div class='templateCarouselContainer border'>
         <div>
@@ -976,7 +975,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
             <div class='prodListCarouselButtonContainer' id='homePaginationContainer3'></div>
             <div class='prodListButtons pointer' id='homeCarButtonNext3'><img src="images/TemplateArrowNext.png"></div>
         </div>
-        <div class='templateHeadAllProds border bangersMedFont'>VIEW ALL PRODUCTS</div>
+        <div class='templateHeadAllProds border bangersMedFont'><a class='bindByAnchor' href='#!search?TAG=IS_SHIPFREE'>VIEW ALL PRODUCTS</a></div>
     </div>
         <div class='templateCarouselContainer border'>
         <div>
@@ -1895,10 +1894,9 @@ adding classes is not likely to have any bad effects.
     	<div class='productShips'>QUICK LINKS</div>
         <nav class='aboutNav aboutQuickNav openSansBoldFont' id='companyNav'>
             <ul class='listStyleNone noPadOrMargin'>
-            	<li><span>&#187 </span>Special Sale!</li>
-                <li><span>&#187 </span>New Items</li>
-                <li><span>&#187 </span>Clearance</li>
-                <li><span>&#187 </span>Retail Store</li>
+            	<li onClick="return showContent('search',{'TAG':'IS_SALE'});" class='pointer'><span>&#187 </span>Special Sale!</li>
+                <li onClick="return showContent('search',{'TAG':'IS_NEWARRIVAL'});" class='pointer'><span>&#187 </span>New Items</a></li>
+                <li onClick="return showContent('search',{'TAG':'IS_CLEARANCE'});" class='pointer'><span>&#187 </span>Clearance</li>
                 <li onClick="return showContent('company',{'show':'contact'});" class='pointer' id='navLink_contact'><span>&#187 </span>Contact Us</li>
                 <li onClick="return showContent('customer',{'show':'newsletter'});" class='pointer'><span>&#187 </span>Newsletter</li>
             </ul>
@@ -2270,10 +2268,9 @@ adding classes is not likely to have any bad effects.
     	<div class='productShips'>QUICK LINKS</div>
         <nav class='aboutNav aboutQuickNav openSansBoldFont' id='companyNav'>
             <ul class='listStyleNone noPadOrMargin'>
-            	<li><span>&#187 </span>Special Sale!</li>
-                <li><span>&#187 </span>New Items</li>
-                <li><span>&#187 </span>Clearance</li>
-                <li><span>&#187 </span>Retail Store</li>
+            	<li onClick="return showContent('search',{'TAG':'IS_SALE'});" class='pointer'><span>&#187 </span>Special Sale!</li>
+                <li onClick="return showContent('search',{'TAG':'IS_NEWARRIVAL'});" class='pointer'><span>&#187 </span>New Items</a></li>
+                <li onClick="return showContent('search',{'TAG':'IS_CLEARANCE'});" class='pointer'><span>&#187 </span>Clearance</li>
                 <li onClick="return showContent('company',{'show':'contact'});" class='pointer' id='navLink_contact'><span>&#187 </span>Contact Us</li>
                 <li onClick="return showContent('customer',{'show':'newsletter'});" class='pointer'><span>&#187 </span>Newsletter</li>
             </ul>
