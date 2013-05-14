@@ -1876,12 +1876,12 @@ CART MODAL
 
 .cartStuffContainer {
 	width: 80%;
-	padding: 0 32px 0 80px;
+	padding: 0;
 }
 
 .cartSummaryTotalsContainer {
 	width: 20%;
-	padding: 0 0 0 82px;
+	padding: 0 0 0 20px;
 }
 
 .cartItems {

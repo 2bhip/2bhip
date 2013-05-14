@@ -343,7 +343,7 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 				var msrp = data.value['%attribs']['zoovy:prod_msrp'];
 				//app.u.dump('*** '+msrp);
 				//$tag.text(msrp);
-				if (typeof msrp === 'undefined') {
+				if (typeof msrp === 'undefined' || msrp <= 0) {
 					app.u.dump('*** comparison worked');
 					//$tag.removeClass('fixedBasePrice');
 					$tag.children('.basePrice').addClass('percentBasePrice');
@@ -355,6 +355,7 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 				}
 				//$tag.text(msrp);
 			}
+				
 		}, //renderFormats
 ////////////////////////////////////   UTIL [u]   \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
