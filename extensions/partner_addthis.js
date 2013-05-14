@@ -61,19 +61,18 @@ var partner_addthis = function() {
 			
 			startExtension : {
 				onSuccess : function (){
-					if(app.ext.myRIA && app.ext.myRIA.template){
+/*2BHIP*/			if(app.ext.myRIA && app.ext.myRIA.template && typeof addthis !== 'undefined'){
 						app.u.dump("Loading Addthis Extension");
 						app.ext.myRIA.template.productTemplate.onCompletes.push(function(P) {
 							//Adds the addthis code to the container specified
 							//To Customize the look and feel of the share icons, see here: http://support.addthis.com/customer/portal/articles/381238-addthis-toolbox
 							//Note: this also includes using custom share icons.
-							$(app.ext.partner_addthis.vars.selector, $('#productTemplate_'+app.u.makeSafeHTMLId(P.pid))).append(
+/*2BHIP*/					$(app.ext.partner_addthis.vars.selector, $('#productTemplate_'+app.u.makeSafeHTMLId(P.pid))).append(
 									'<div id="socialLinks" class="addthis_toolbox addthis_default_style">'
-								+		'<a class="addthis_button_preferred_1"></a>'
-								+		'<a class="addthis_button_preferred_2"></a>'
-								+		'<a class="addthis_button_preferred_3"></a>'
-								+		'<a class="addthis_button_preferred_4"></a>'
-								+		'<a class="addthis_button_compact"></a>'
+								+		'<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>'
+								+		'<a class="addthis_button_tweet"></a>'
+								+		'<a class="addthis_button_pinterest_pinit"></a>'
+								+		'<a class="addthis_counter addthis_pill_style"></a>'
 								+	'</div>');
 							
 							//Set URL+title for most sharing code
