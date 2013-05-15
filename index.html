@@ -19,7 +19,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130515114900",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130515143800",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"checkoutAuthMode" : "required",//can be passive, active or required
@@ -1275,7 +1275,7 @@ remember to NOT put the button inside the 'onclick' container or two events will
 	   <!-- <h6 data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6> -->
         </div>
         
-        <div class='productSizeContainer' data-bind='useParentData:true; format:sizeDisplay; extension:store_filter;'></div>
+        <div class='productSizeContainer bangersFont' data-bind='useParentData:true; format:sizeDisplay; extension:store_filter;'></div>
         
 		<div data-bind="var: product(zoovy:prod_is_tags); format:addTagSpans;" class='productBubble'></div>
 		<!--<div class='pointer productBubble bangersMedFont' onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});"></div>-->

@@ -1243,8 +1243,9 @@ PRODUCT STYLES / CAROUSELS
 	margin: 15px;
 }
 
-ul.sizeVariations li	{margin:2px; padding:5px; background:#006600; color:#FC3; font-size:1em; font-weight:bold; cursor:pointer;}
-ul.sizeVariations li.soldout	{
+ul.sizeVariations {padding:0; margin:0;}
+ul.sizeVariations li {margin:2px; padding:6px; background:#666; color:#000; font-size:16px; font-weight:normal; cursor:pointer; border:2px solid #000000; border-radius:5px;}
+ul.sizeVariations li.soldout {
 	cursor:crosshair;
 	-moz-opacity: 0.45;
 	opacity: 0.45;
@@ -1340,7 +1341,7 @@ ul.sizeVariations li.soldout	{
 
 .productPrice {
 	position: absolute;
-	top: 180px;
+	top: 160px;
 	left: 0px;
 	width: 100%;
 	margin-top: 10px;
@@ -1378,7 +1379,7 @@ ul.sizeVariations li.soldout	{
 	top: 225px;
 	left: -2px;
 	height: 70px;
-	width: 211px;
+	width: 204px;
 }
 
 .productSize {
