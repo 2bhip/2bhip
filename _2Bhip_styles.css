@@ -361,10 +361,10 @@ HEADER
 
 .mainNavBarLinks:hover {
 	text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 4px 0 #fff, 1px 1px 0 #fff;
-	color: #000;
+	color: #006099;
 }
 
-.mainNavBarLinks a:hover {color: #000;}
+.mainNavBarLinks a:hover {color: #006099;}
 
 #characters {
 	width: 230px;	
@@ -1893,7 +1893,6 @@ CART MODAL
 .checkoutSteps {
 	height: 50px; 
 	width: 639px;
-	background: #777;
 	margin: 0 0 0 17px;
 }
 
@@ -2055,6 +2054,15 @@ CART MODAL
 
 .cartRemoveButton span, .ui-button-icon-primary ui-icon ui-icon-closethick {display: none;}
 
+.cartTotals {
+	height: 40px;
+	width: 640px;
+	display: block;
+	font-size: 24px;
+	text-align: right;
+	line-height: 40px;
+}
+
 .cartPriceHeader {
 	height: 20px;
 	background-color: #000;
@@ -2119,6 +2127,12 @@ CART MODAL
 	border-top: 2px solid #000;
 	border-bottom: 2px solid #000;
 	background-color: #ffcc00;
+	padding: 0 0 5px 9px;
+}
+
+.shipOptions.shipOptCont H3 {
+	margin: 5px 0;
+	font-weight: normal;
 }
 
 .checkoutSection {
