@@ -1236,12 +1236,21 @@ PRODUCT STYLES / CAROUSELS
 	z-index: 3;
 }
 
-.productList li { 
+.productList > li { 
 	float: left;
 	height: 275px;
 	width: 203px;
 	margin: 15px;
 }
+
+ul.sizeVariations li	{margin:2px; padding:5px; background:#006600; color:#FC3; font-size:1em; font-weight:bold; cursor:pointer;}
+ul.sizeVariations li.soldout	{
+	cursor:crosshair;
+	-moz-opacity: 0.45;
+	opacity: 0.45;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=45);
+	}
+
 
 .slideMe li {
 	margin: 0 2px 0 0;

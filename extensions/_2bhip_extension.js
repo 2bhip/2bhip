@@ -306,37 +306,73 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 //on a data-bind, format: is equal to a renderformat. extension: tells the rendering engine where to look for the renderFormat.
 //that way, two render formats named the same (but in different extensions) don't overwrite each other.
 		renderFormats : {
+
 		
 			sizeDisplay : function($tag,data) {
-				var variations = data.value; //shortcut
-				app.u.dump('*** '+data.value);
-				function guessSize(prompt) {
-					var r;
-					prompt = prompt.toLowerCase();
-					if(prompt.indexOf('extra') && prompt.indexOf('small')) {r = 'XS'}
-					if(prompt.indexOf('small')) {r = 'S'}
-					else if(prompt.indexOf('med')) {r = 'M'}
-					else if(prompt.indexOf('xxl')) {r = 'XXL'}
-					else if(prompt.indexOf('xl')) {r = 'XL'}
-					else if(prompt.indexOf('large')) {r = 'L'}
-					else {
-						r = prompt.substring(0,3);
+
+
+// app.u.dump("BEGIN sizeDisplay");
+if(data.bindData.isElastic)	{$tag.text('incomplete')}
+else	{
+//	app.u.dump(" -> not an elastic.");
+	if(data.value['@variations'] && data.value['@variations'].length == 1 && data.value['@variations'][0].options && data.value['@variations'][0].options.length)	{
+//		app.u.dump(' -> has options');
+		//only 1 option group on the product and at least one selectable option.
+		var
+			variations = data.value['@variations'][0].options, //shortcut
+			variationID = data.value['@variations'][0].id, //SOGID/variation ID (ex: A1)
+			inventory = {}, //if inventory record is available, it'll be set in this var.
+			pid = data.value.pid, //shortcut.
+			$ul = $("<ul \/>"),
+			L = variations.length;
+
+//		app.u.dump(" -> L: "+L);
+//		app.u.dump(" -> variations: "); app.u.dump(variations);
+		$ul.addClass('sizeVariations');
+		if(app.data['appProductGet|'+data.value.pid] && app.data['appProductGet|'+data.value.pid]['@inventory'])	{
+			inventory = app.data['appProductGet|'+data.value.pid]['@inventory'];
+			}
+
+//		app.u.dump(" -> inventory: "); app.u.dump(inventory);
+
+		for(var i = 0; i < L; i += 1) {
+			var
+				$li = $("<li \/>").text(app.ext.store_filter.u.guessOptionSize(variations[i].prompt)).attr('title',variations[i].prompt),
+				varVal = variations[i].v;
+				invKey = pid+':'+variationID+varVal;
+//the value is a string, not an int, so "0" is treated as an isSet. That's good. that means we know we got to the inv record AND it's empty.
+			if(inventory[invKey] && inventory[invKey].inv)	{
+				if(Number(inventory[invKey].inv) > 0)	{
+					$li.off('click.addToCart').on('click.addToCart',function(){
+						var addObj = {'sku':pid,'qty':1,'%variations' : {}};
+						addObj['%variations'][variationID] = varVal;
+						app.calls.cartItemAppend.init(addObj,{},'immutable');
+						app.model.destroy('cartDetail');
+						showContent('cart',{'mode':'modal'})
+						$('#modalCartContents').showLoading({'message':'Adding item to your cart'});
+						app.calls.cartDetail.init({'callback':'handleCart','templateID':'cartTemplate','extension':'myRIA','parentID':'modalCartContents'},'immutable');
+						app.model.dispatchThis('immutable');
+						});
+					} //inventory is available.
+				else	{
+					$li.addClass('soldout');
 					}
 				}
-
-				if(variations && variations.length == 1) {
-					var
-					$ul = $("<ul \/>"),
-					L = (variations[0].options && variations[0].options.length) ? variations[0].options.length : 0;
-
-					for(var i = 0; i < L; i += 1) {
-					$ul.append($("<li \/>").text(guessSize(variations[0].options.prompt)));
-					}
-					$tag.append($ul);
+			else	{
+				$li.off('click.showContent').on('click.showContent',function(){
+					showContent('product',{'pid':pid});
+					});
 				}
-				else {
-				//Either no variations OR there is more than one variation on this product.
-				}
+			$ul.append($li);
+			}
+		$tag.append($ul);
+		
+		}
+	else	{
+		//more than 1 option or only 1 option group and no options available.
+		app.u.dump(" -> not a match. show no options.");
+		}
+	}
 			},
 		
 			onlyBasePrice : function($tag,data) {
@@ -363,7 +399,24 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 //any functions that are recycled should be here.
 		u : {
 
-				
+			
+			
+			guessOptionSize : function (text) {
+//				app.u.dump('text: '+text);
+				var r;
+				text = text.toLowerCase(); //make lowercase to make searching values easier. (no searching for xxl and XXL)
+				if(text.indexOf('extra') >=0 && text.indexOf('small') >=0) {r = 'XS'}
+				else if(text.indexOf('small') >=0) {r = 'S'}
+				else if(text.indexOf('med') >=0) {r = 'M'}
+				else if(text.indexOf('xxx') >=0) {r = 'XXXL'}
+				else if(text.indexOf('xx') >=0) {r = 'XXL'}
+				else if(text.indexOf('x') >=0) {r = 'XL'}
+				else if(text.indexOf('large') >=0) {r = 'L'}
+				else {r = text.substring(0,3);}
+//				app.u.dump(" -> r: "+r);
+				return r
+				},
+			
 				
 //pass in form as object.  This function will verify that each fieldset has the appropriate attributes.
 //will also verify that each filterType has a getElasticFilter function.

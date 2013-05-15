@@ -1135,7 +1135,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 						</div>
 					</td>
 					<td class='productColumn'>
-						<ul data-app-role='productList' data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplateCustom; withReviews:1; items_per_page: 9;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
+						<ul data-app-role='productList' data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplateCustom; withReviews:1; items_per_page: 9; withVariations:1; withInventory:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
 						<p class='openSansFont' data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p><!---->
 					</td>
 				</tr>
@@ -1275,13 +1275,7 @@ remember to NOT put the button inside the 'onclick' container or two events will
 	   <!-- <h6 data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6> -->
         </div>
         
-        <div class='productSizeContainer' data-bind='useParentData:true; format:sizeDisplay; extension:store_filter;'> 
-       <!-- <div class='productSize borderRound bangersFont greyGradient'>S</div>
-        	<div class='productSize borderRound bangersFont greyGradient'>M</div>
-            <div class='productSize borderRound bangersFont greyGradient'>L</div>
-           	<div class='productSize borderRound bangersFont greyGradient'>XL</div>
-           	<div class='productSize borderRound bangersFont greyGradient'>XXL</div>	 -->
-    	</div>
+        <div class='productSizeContainer' data-bind='useParentData:true; format:sizeDisplay; extension:store_filter;'></div>
         
 		<div data-bind="var: product(zoovy:prod_is_tags); format:addTagSpans;" class='productBubble'></div>
 		<!--<div class='pointer productBubble bangersMedFont' onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});"></div>-->
@@ -1413,13 +1407,7 @@ remember to NOT put the button inside the 'onclick' container or two events will
             <h6 data-bind='var: product(base_price); format:money; isElastic:1; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>
         </div>
 			
-        <div class='productSizeContainer'> 
-    		<div class='productSize borderRound bangersFont greyGradient'>S</div>
-        	<div class='productSize borderRound bangersFont greyGradient'>M</div>
-            <div class='productSize borderRound bangersFont greyGradient'>L</div>
-            <div class='productSize borderRound bangersFont greyGradient'>XL</div>
-            <div class='productSize borderRound bangersFont greyGradient'>XXL</div>	
-    	</div>
+        <div class='productSizeContainer' data-bind='useParentData:true; format:sizeDisplay; isElastic:1; extension:store_filter;'></div>
         <!-- <div class='pointer staticProductBubble bangersMedFont' onClick="showContent('product',{'pid':$(this).parent().attr('data-pid')});">BEST SELLING</div> -->
 	</div>
 	
