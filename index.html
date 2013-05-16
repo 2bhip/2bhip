@@ -19,7 +19,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130515143800",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130515202700",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"checkoutAuthMode" : "required",//can be passive, active or required
@@ -1568,7 +1568,7 @@ this will likely become more flexible in the future. ###
                 <div class='productSmallButtonContainer'>       
                     <menu data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='CRMButtonMenu'>
                         <button class='prodSelectShareButton prodSelectSmallButtons bangersFont ui-button-text ui-button ui-state-default ui-corner-all' onClick=";">SHARE</button><!--!%!-->
-                        <button class='prodSelectWishlistButton prodSelectSmallButtons bangersFont ui-button-text ui-button ui-state-default ui-corner-all' onClick="app.ext.myRIA.a.add2BuyerList({sku:$(this).parent().attr('data-pid'),'listid':'wishlist'}); return false;">ADD TO WISHLIST</button>
+                        <button class='prodSelectWishlistButton prodSelectSmallButtons bangersFont ui-button-text ui-button ui-state-default ui-corner-all floatRight' onClick="app.ext.myRIA.a.add2BuyerList({sku:$(this).parent().attr('data-pid'),'listid':'wishlist'}); return false;">ADD TO WISHLIST</button>
                         <button class='prodSelectSeeReviewButton prodSelectSmallButtons bangersFont ui-button-text ui-button ui-state-default ui-corner-all' onClick='app.ext.store_filter.a.showReviews($(this).parent().data("pid"));'>SEE PRODUCT REVIEWS</button> 
                         <button class='prodSelectSeeDescriptionButton prodSelectSmallButtons bangersFont ui-button-text ui-button ui-state-default ui-corner-all displayNone' onClick='app.ext.store_filter.a.showDescription($(this).parent().data("pid"));'>SEE PRODUCT DESCRIPTION</button>
                         <button class='prodSelectWriteReviewButton prodSelectSmallButtons bangersFont ui-button-text ui-button ui-state-default ui-corner-all' onClick='app.ext.store_crm.u.showReviewFrmInModal({"pid":$(this).attr("data-pid"),"templateID":"reviewFrmTemplate"});' data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>WRITE A PRODUCT REVIEW</button>
@@ -1644,7 +1644,7 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 <!--PRODUCT DETAILS PAGE CAROUSELS-->
 <div class='seperator'></div>
 
-	<div class='displayNone' data-bind='var:product(zoovy:related_products); format:showIfSet;'>
+	<div class='displayNone'>
 		<div class='templateHeadContainer'>
 			<div class='templateHeadDesc border bangersMedFont'>SIMILAR PRODUCTS...</div>
 			<div class='templateMiddleContainer'>
@@ -1663,7 +1663,7 @@ It's done this way because ID's hard coded into template are bad mojo (templates
     
     <div class='seperator'></div>
 	
-	<div id='recentlyViewedItemsContainer' class='recentContainer displayNone'>
+	<div class='recentlyViewedItemsContainer productRecentCarousel'>
 		<div class='recentContainer templateHeadContainer'>
 			<div class='templateHeadDesc border bangersMedFont'>PREVIOUSLY VIEWED ITEMS...</div>
 			<div class='templateMiddleContainer'>
@@ -1675,7 +1675,7 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 		</div>
 		<div class='templateCarouselContainer border'>
 			<div>
-				<ul data-bind="var: session(recentlyViewedItems); format: productList; extension: store_prodlist; loadsTemplate: productListTemplate; hide_summary:1; hide_pagination:1; withReviews:1;  withVariations:1; withInventory:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList'</ul>
+				<ul data-bind="var: session(session.recentlyViewedItems); format: productList; extension: store_prodlist; loadsTemplate: productListTemplate; hide_summary:1; hide_pagination:1; withReviews:1;  withVariations:1; withInventory:1;" class='prodDetailTempCarousel2 listStyleNone fluidList clearfix noPadOrMargin productList'</ul>
 		   <!-- <ul class='prodDetailTempCarousel2 listStyleNone fluidList clearfix noPadOrMargin productList' data-bind="var: product(zoovy:related_products); format:productList; extension:store_prodlist; loadsTemplate: productListTemplateCustom; hide_pagination:false; hide_summary:true; withReviews:1;"></ul> -->
 			</div>
 		</div>

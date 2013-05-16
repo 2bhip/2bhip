@@ -84,9 +84,10 @@ var store_filter = function() {
 				app.ext.store_filter.u.runCarousels();
 				app.ext.store_filter.a.showDescription();
 					app.u.dump("_2bhip showDescription() run");
-				app.ext.store_filter.a.cartSpinner();
-				/*app.ext._2bhip.a.connect();*/
-					app.u.dump('connect() run');
+				app.rq.push(['templateFunction','productTemplate','onCompletes',function(infoObj) {
+					var $context = $(app.u.jqSelector('#'+infoObj.parentID)); //grabs the currently loaded product page (to ignore previously loaded / invisible ones)
+					app.ext.store_filter.u.runProductCarousel($context);
+				}]);
 				return true;
 				/*var r = false; //return false if extension won't load for some reason (account config, dependencies, etc).
 
@@ -196,10 +197,6 @@ var store_filter = function() {
 					}, 250);
 				}, //END showDescription
 				
-				cartSpinner : function() {
-					var spinner = $('#spinner').spinner();
-				},
-				
 				//SHOW MAIN CATEGORY DROPDOWN MENU
 				showDropdown : function ($tag) {
 					var $dropdown = $(".dropdown", $tag);
@@ -219,33 +216,7 @@ var store_filter = function() {
 				clickDropdown : function ($tag) {
 					$(".dropdown", $tag).stop().animate({"height":"0px"}, 0);
 				},
-				
-
-	/*Spinner functions that don't work correctly.
-				connect : function() {
-					$(".cartQty div").append('<div class="inc spinButton">+</div><div class="dec spinButton">-</div>');
-				},
-				
-				spinner : function() {
-					$(".spinButton").click(function() {
-					var $spinButton = $(this);
-					var oldValue = $spinButton.parent().find("input").val();
-				
-					if ($spinButton.text() == "+") {
-						var newVal = parseFloat(oldValue) + 1;
-						app.u.dump('plus 1');
-					  	// AJAX save would go here
-					}	else {
-				    	// Don't allow decrementing below zero
-				    	if (oldValue >= 1) {
-							var newVal = parseFloat(oldValue) - 1;
-							app.u.dump('minus 1');
-							// AJAX save would go here
-						}
-					}
-					$spinButton.parent().find("input").val(newVal);
-				});}
-	*/			
+		
 	
 			execFilter : function($form,$page){
 
@@ -637,8 +608,26 @@ return filters;
 					}
 					carousel5 = foo5;
 					setTimeout(carousel5, 2000); 
+				
+				//Homepage customer review switcher
+					var revChange = $('.miscCustReviews li');
+					var i=1;
+					$(revChange).hide();
+					$(revChange[0]).show();
+					revChange.siblings();
+					function loop() {
+						revChange.siblings().delay(4000).fadeOut(4000).delay(4000).eq(i).fadeIn(4000, function() {
+							check = i != revChange.length-1 ? i++ : i=0;
+							loop();
+						});
+					};
+					loop();
 					
+				}]);	
+			},//END CAROUSELS
 					
+				
+			runProductCarousel : function($context) {
 					//Similar Items Carousel on Product Details page horizontal sliders
 					var carousel6;
 						function foo6(){ $(".prodDetailTempCarousel1").carouFredSel({
@@ -672,7 +661,7 @@ return filters;
 							width    : 960,
 							height 	 : 305,
 							items    : 4,
-							scroll   : 4,
+							scroll   : 1,
 							auto	 : false,
 							prev : {
 								button : ".prodDetailCarButtonPrev7",
@@ -692,20 +681,8 @@ return filters;
 					carousel7 = foo7;
 					setTimeout(carousel7, 2000); 
 					
+			}
 					
-					//Homepage customer review switcher
-					var revChange = $('.miscCustReviews li');
-					var i=1;
-					$(revChange).hide();
-					$(revChange[0]).show();
-					revChange.siblings();
-					function loop() {
-						revChange.siblings().delay(4000).fadeOut(4000).delay(4000).eq(i).fadeIn(4000, function() {
-							check = i != revChange.length-1 ? i++ : i=0;
-							loop();
-						});
-					};
-					loop();
 				
 				
 					/*MOVED TO _2Bhip_extension.js
@@ -728,8 +705,7 @@ return filters;
 						$(seeRevButton).show();
 					});*/
 					
-				}]);	
-			},//END CAROUSELS
+
 			
 				
 			}, //u [utilities]
