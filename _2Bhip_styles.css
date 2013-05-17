@@ -2764,10 +2764,7 @@ CHECKOUT
 	height: auto;
 	width: 940px;
 	margin: 10px auto;
-	padding: 50px 0 0 0;
-	background-image: url("images/CheckoutSteps2-639x50.png");
-	background-repeat: no-repeat;
-	background-position: 50% 0;
+	padding: 0;
 }
 
 .checkoutFormContainer legend.ui-widget-header {
@@ -2788,11 +2785,33 @@ CHECKOUT
 .ui-icon.ui-icon-help.creditCardCVVIcon {background-image: url("images/ui-icons_006099_256x240.png");}
 
 
+.checkoutSuccess {
+	font-family: "Open Sans";
+	/*background-image: url("images/CheckoutSteps2-639x50.png");
+	background-repeat: no-repeat;
+	background-position: 50% 0;*/
+}
 
+.checkoutFormContainer .chkoutSteps {
+	height: 50px;
+	width: 100%;
+	position: relative;
+	top: -80px;
+	left: 0;
+	background-image: url("images/CheckoutSteps2-639x50.png");
+	background-repeat: no-repeat;
+	background-position: 50% 0;
+}
 
+.checkoutFormContainer .chkoutSteps.chkoutSuccess {
+	background-image: url("images/CheckoutSteps3-639x50.png");
+	top: 0px;
+}
 
-
-
+.checkoutFormContainer a {
+	color: #006099;
+	text-decoration: underline;
+}
 
 
 
