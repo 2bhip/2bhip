@@ -2539,11 +2539,6 @@ So the cart template should contain these two elements and the extension should 
 
 <section id='cartTemplateShippingContainer' class='shipOptions shipOptCont'>
 	<h3>Shipping:</h3>
-	<ul class='noPadOrMargin listStyleNone cartShipMethods' data-bind='var: cart(@SHIPMETHODS); format:shipMethodsAsRadioButtons; extension:store_cart;'></ul>
-</section>
-
-<section class='checkoutSection'>
-
 	<div class='cartZipCodeContainer'>
 	<label for='data-ship_zip'>Zip/Postal Code:</label>
 	<input type='text' size='6'  name='ship/postal' id='data-ship_zip' value='' data-bind='var: cart(ship/postal); format:popVal;' maxlength='10' onChange="app.calls.cartSet.init({'ship/postal':this.value, 'ship/region':''});
@@ -2551,8 +2546,10 @@ So the cart template should contain these two elements and the extension should 
 	app.ext.store_cart.calls.cartShippingMethodsWithUpdate.init();
 	app.model.dispatchThis('immutable');"  />
 	</div>
+	<ul class='noPadOrMargin listStyleNone cartShipMethods' data-bind='var: cart(@SHIPMETHODS); format:shipMethodsAsRadioButtons; extension:store_cart;'></ul>
+</section>
 
-
+<section class='checkoutSection'>
 
 	<!-- some buttons that are alternatives to checkout. fewer is better -->
 	<!-- <menu class='cartAltButtonsContainer noPadOrMargin'>

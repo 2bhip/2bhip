@@ -396,7 +396,7 @@ either templateID needs to be set OR showloading must be true. TemplateID will t
 					else	{
 						$modal = $("<div \/>").attr({"id":"modalCart","title":"Your Shopping Cart"}).appendTo('body');
 						$modal.append("<div id='cartMessaging' class='appMessaging'><\/div><div id='modalCartContents'><\/div>");
-/*2BHIP*/				$modal.dialog({modal: true,width:'67%',height:$(window).height() - 200});  //browser doesn't like percentage for height
+/*2BHIP*/				$modal.dialog({modal: true,width:'67%',height:$(window).height() - 150});  //browser doesn't like percentage for height
 						}
 
 					if(P.showLoading === true)	{

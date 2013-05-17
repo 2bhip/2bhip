@@ -2090,10 +2090,10 @@ CART MODAL
 }
 
 .cartRight {
-	height: 565px;
+	height: auto;
 	width: 216px;
 	margin: 1px 1px 1px 6px;	
-	background-color: #C9F;
+	background-color: #000;
 }
 
 .cartSummaryContainer {
@@ -2103,7 +2103,7 @@ CART MODAL
 .cartSummaryContainer.cartSumCont {
 	padding: 0px;
 	margin: 0px;
-	height: 541px;
+	border-bottom: none;
 }
 
 .cartSummary {
@@ -2151,6 +2151,12 @@ CART MODAL
 .shipOptions.shipOptCont H3 {
 	margin: 5px 0;
 	font-weight: normal;
+}
+
+.shipOptions.shipOptCont .cartZipCodeContainer {
+	margin: 7px 0 1px 24px;
+	padding: 0;
+	border-bottom: none;
 }
 
 .checkoutSection {
@@ -2345,7 +2351,7 @@ ABOUT PAGE
 }
 
 .aboutNavBottom {
-	height: 239px;
+	height: auto;
 	width: 216px;
 	background-color: #000;
 	color: #fff;
