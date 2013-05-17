@@ -15,6 +15,8 @@ item list and summary are separate just to give more control over location.
 
 <!-- define panel order -->
 	<fieldset data-app-role='chkoutPreflight' class='marginBottom'>
+<!-- 2Bhip!! chkoutSteps -->
+		<div class='chkoutSteps'></div>
 		<legend class='headerPadding' >Email / Account Login</legend>
 		<div class='panelContent' data-bind='format:loadsTemplate; loadsTemplate: chkoutPreflightTemplate; useParentData:true;'></div>
 	</fieldset>
@@ -407,6 +409,9 @@ do NOT change the input name or id or checkout will likely break.
 <!-- used after a successful checkout.  -->
 
 <div id='chkoutCompletedTemplate' class='checkoutSuccess'>
+
+<!-- 2Bhip!! chkoutSteps chkoutSuccessSteps -->
+	<div class='chkoutSteps chkoutSuccess'></div>
 
 	<div class='floatRight ocmThirdParty'>
 		<h2>What next?</h2>
