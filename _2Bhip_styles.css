@@ -2755,6 +2755,47 @@ MP CONTROLS
 }
 
 
+/*************************************************************************************
+CHECKOUT
+*************************************************************************************/
+
+
+.checkoutFormContainer {
+	height: auto;
+	width: 940px;
+	margin: 10px auto;
+	padding: 50px 0 0 0;
+	background-image: url("images/CheckoutSteps2-639x50.png");
+	background-repeat: no-repeat;
+	background-position: 50% 0;
+}
+
+.checkoutFormContainer legend.ui-widget-header {
+	font-family: Bangers;
+	font-weight: normal;
+}
+
+.checkoutFormContainer .panelContent, .checkoutFormContainer  p, .checkoutFormContainer  address > div, .checkoutFormContainer .ui-widget input, .checkoutFormContainer .ui-widget select,.checkoutFormContainer  .label.anycb-label, .checkoutFormContainer .chkoutOrderNotes {
+	font-family: "Open Sans";
+}
+
+.checkoutFormContainer span.cents {
+	font-size: 100%;
+	vertical-align: baseline;
+}
+
+.paybySupplemental .creditCard, .paybySupplemental .creditCardCVV {margin: 2px 6px 2px 6px;}
+.ui-icon.ui-icon-help.creditCardCVVIcon {background-image: url("images/ui-icons_006099_256x240.png");}
+
+
+
+
+
+
+
+
+
+
 
 
 
