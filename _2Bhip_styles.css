@@ -2561,6 +2561,59 @@ NEWSLETTER SIGN UP CONTENT / FORM
 }
 
 
+/*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+CHARACTERS AND TITLES CONTENT
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
+
+
+#charactersAndTitlesArticle {
+	margin: 20px 0 20px 40px;
+}
+
+.alphaHeader {
+	height: 35px;
+	width: 97%;
+	font-family: Bangers;
+	color: #fff;
+	text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 4px 0 #000000, 1px 1px 0 #000000;
+	border: 1px solid #000000;
+	border-radius: 5px; 
+	padding: 5px 0;
+	margin: 5px 0 0 0;
+	text-align: center;
+}
+
+.alphaHeader span {
+	font-size: 32px; 
+	margin: 0 5px;
+}
+
+.alphaHeader span:hover {
+	color: #FFCC00; 
+}
+
+#charactersAndTitlesArticle h1 {
+	font-family: Bangers;
+	font-weight: normal;
+}
+
+#charactersAndTitlesArticle ul {
+	height: auto;
+	width: 30%;
+	padding: 0 10px;
+}
+
+#charactersAndTitlesArticle ul li {
+	margin: 5px 0;
+	font-family: "Open Sans";
+	font-size: 14px; 
+}
+
+
+/*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+END CHARACTERS AND TITLES CONTENT
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
+
 
 /*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 PRODUCT REVIEWS TEMPLATE

@@ -142,7 +142,7 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
 	<img src='images/mainNavBackground.png'>
     <div class='mainNavBarLinksContainer'>	
         <div class='mainNavBarLinks bangersBigFont pointer' onClick="return showContent('category',{'navcat':'.0'});">SHOP BY TYPE</div>                     
-        <div class='mainNavBarLinks bangersBigFont' id='characters'>CHARACTERS & TITLES</div>
+        <div class='mainNavBarLinks bangersBigFont' id='characters'><a class='bindByAnchor' href='#!company?show=charactersAndTitles'>CHARACTERS & TITLES</a></div>
    <!-- <div class='mainNavBarLinks bangersBigFont pointer'><a class="bindByAnchor" href="#!search?TAG=IS_BESTSELLER">BEST SELLERS</a></div> -->
     	<div class='mainNavBarLinks bangersBigFont pointer'><a href="#" onClick="return showContent('search',{'TAG':'IS_BESTSELLER'})">BEST SELLERS</a></div>
         <div class='mainNavBarLinks bangersBigFont'><a class="bindByAnchor" href="#!search?TAG=IS_NEWARRIVAL">NEW ARRIVALS</a></div>
@@ -2246,6 +2246,61 @@ adding classes is not likely to have any bad effects.
                 <br><br>
             </ps>
 			<div data-bind='var: profile(zoovy:shipping_policy); format:wiki; wikiFormats:myRIA;' id='shippingContent'></div>
+		</div>
+		
+		<div id='charactersAndTitlesArticle' class='displayNone textContentArea'>
+			<h1>ALL CHARACTERS AND TITLES</h1>
+			<div class='openSansFont centerText'>CHOOSE A LETTER TO FIND A BRAND</div>
+			<div class='alphaHeader greyGradient'>
+				<span>A</span>
+				<span>B</span>
+				<span>C</span>
+				<span>D</span>
+				<span>E</span>
+				<span>F</span>
+				<span>G</span>
+				<span>H</span>
+				<span>I</span>
+				<span>J</span>
+				<span>K</span>
+				<span>L</span>
+				<span>M</span>
+				<span>N</span>
+				<span>O</span>
+				<span>P</span>
+				<span>Q</span>
+				<span>R</span>
+				<span>S</span>
+				<span>T</span>
+				<span>U</span>
+				<span>V</span>
+				<span>W</span>
+				<span>X</span>
+				<span>Y</span>
+				<span>Z</span>
+			</div>
+			<div class='allA'>
+				<ul class='floatLeft listStyleNone'>
+					<li>A Christmas Carol</li>
+				</ul>
+				<ul class='floatLeft listStyleNone'>
+					<li>Alice Cooper</li>
+				</ul>
+				<ul class='floatLeft listStyleNone'>
+					<li>Anime</li>
+				</ul>
+			</div>
+			<div class='allB displayNone'>
+				<ul class='floatLeft listStyleNone'>
+					<li>A Christmas Carol</li>
+				</ul>
+				<ul class='floatLeft listStyleNone'>
+					<li>Alice Cooper</li>
+				</ul>
+				<ul class='floatLeft listStyleNone'>
+					<li>Anime</li>
+				</ul>
+			</div>
 		</div>
 
 	</div>
