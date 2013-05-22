@@ -165,6 +165,12 @@ var store_filter = function() {
 //actions are functions triggered by a user interaction, such as a click/tap.
 //these are going the way of the do do, in favor of app events. new extensions should have few (if any) actions.
 		a : {
+		
+				switchAllCharacters : function($this) {
+					//app.u.dump('allz'+$this.attr("class"));
+					$("[class^=allz]").addClass('displayNone');
+					$('.allz'+$this.attr("class")).removeClass('displayNone');
+				},
 
 				showReviews : function(pid) {
 					var $context = $('#productTemplate_'+app.u.makeSafeHTMLId(pid));

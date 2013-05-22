@@ -19,7 +19,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"20130515202700",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"201314.20130521203400",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"checkoutAuthMode" : "required",//can be passive, active or required
@@ -2252,53 +2252,151 @@ adding classes is not likely to have any bad effects.
 			<h1>ALL CHARACTERS AND TITLES</h1>
 			<div class='openSansFont centerText'>CHOOSE A LETTER TO FIND A BRAND</div>
 			<div class='alphaHeader greyGradient'>
-				<span>A</span>
-				<span>B</span>
-				<span>C</span>
-				<span>D</span>
-				<span>E</span>
-				<span>F</span>
-				<span>G</span>
-				<span>H</span>
-				<span>I</span>
-				<span>J</span>
-				<span>K</span>
-				<span>L</span>
-				<span>M</span>
-				<span>N</span>
-				<span>O</span>
-				<span>P</span>
-				<span>Q</span>
-				<span>R</span>
-				<span>S</span>
-				<span>T</span>
-				<span>U</span>
-				<span>V</span>
-				<span>W</span>
-				<span>X</span>
-				<span>Y</span>
-				<span>Z</span>
+				<span class='A' onClick='app.ext.store_filter.a.switchAllCharacters($(this));'>A</span>
+				<span class='B' onClick='app.ext.store_filter.a.switchAllCharacters($(this));'>B</span>
+				<span class='C' onClick='app.ext.store_filter.a.switchAllCharacters($(this));'>C</span>
+				<span class='D' onClick='app.ext.store_filter.a.switchAllCharacters($(this));'>D</span>
+				<span class='E' onClick='app.ext.store_filter.a.switchAllCharacters($(this));'>E</span>
+				<span class='F' onClick='app.ext.store_filter.a.switchAllCharacters($(this));'>F</span>
+				<span class='G' onClick='app.ext.store_filter.a.switchAllCharacters($(this));'>G</span>
+				<span class='H' onClick='app.ext.store_filter.a.switchAllCharacters($(this));'>H</span>
+				<span class='I' onClick='app.ext.store_filter.a.switchAllCharacters($(this));'>I</span>
+				<span class='J' onClick='app.ext.store_filter.a.switchAllCharacters($(this));'>J</span>
+				<span class='K' onClick='app.ext.store_filter.a.switchAllCharacters($(this));'>K</span>
+				<span class='L' onClick='app.ext.store_filter.a.switchAllCharacters($(this));'>L</span>
+				<span class='M' onClick='app.ext.store_filter.a.switchAllCharacters($(this));'>M</span>
+				<span class='N' onClick='app.ext.store_filter.a.switchAllCharacters($(this));'>N</span>
+				<span class='O' onClick='app.ext.store_filter.a.switchAllCharacters($(this));'>O</span>
+				<span class='P' onClick='app.ext.store_filter.a.switchAllCharacters($(this));'>P</span>
+				<span class='Q' onClick='app.ext.store_filter.a.switchAllCharacters($(this));'>Q</span>
+				<span class='R' onClick='app.ext.store_filter.a.switchAllCharacters($(this));'>R</span>
+				<span class='S' onClick='app.ext.store_filter.a.switchAllCharacters($(this));'>S</span>
+				<span class='T' onClick='app.ext.store_filter.a.switchAllCharacters($(this));'>T</span>
+				<span class='U' onClick='app.ext.store_filter.a.switchAllCharacters($(this));'>U</span>
+				<span class='V' onClick='app.ext.store_filter.a.switchAllCharacters($(this));'>V</span>
+				<span class='W' onClick='app.ext.store_filter.a.switchAllCharacters($(this));'>W</span>
+				<span class='X' onClick='app.ext.store_filter.a.switchAllCharacters($(this));'>X</span>
+				<span class='Y' onClick='app.ext.store_filter.a.switchAllCharacters($(this));'>Y</span>
+				<span class='Z' onClick='app.ext.store_filter.a.switchAllCharacters($(this));'>Z</span>
 			</div>
-			<div class='allA'>
+			<div class='allzA'>
 				<ul class='floatLeft listStyleNone'>
-					<li>A Christmas Carol</li>
-				</ul>
-				<ul class='floatLeft listStyleNone'>
+					<li>A Christmas Story</li>
+					<li>A Clockwork Orange</li>
+					<li>Abbott And Costello</li>
+					<li>AC/DC</li>
+					<li>Activision</li>
+					<li>Adventure Time</li>
+					<li>Aerosmith</li>
+					<li>Air Force</li>
+					<li>Airplane</li>
+					<li>Albert Einstein</li>
 					<li>Alice Cooper</li>
+					<li>Alice In Wonderland</li>
+					<li>Alkaline Trio</li>
+					<li>Allman Brothers Band</li>
 				</ul>
 				<ul class='floatLeft listStyleNone'>
-					<li>Anime</li>
+					<li>Almond Joy</li>
+					<li>Almost Naked Animals</li>
+					<li>Alvin And The Chipmunks</li>
+					<li>Amazing Race</li>
+					<li>American Graffiti</li>
+					<li>American McGee's Alice</li>
+					<li>American Pickers</li>
+					<li>American Pie</li>
+					<li>Anchorman</li>
+					<li>Angry Birds</li>
+					<li>Animal House</li>
+					<li>Anthrax</li>
+					<li>Aquaman</li>
+					<li>Aquarius Ltd</li>
+				</ul>
+				<ul class='floatLeft listStyleNone'>
+					<li>Archie Comics</li>
+					<li>Army</li>
+					<li>Army Of Darkness</li>
+					<li>Arrested Development</li>
+					<li>As I Lay Dying</li>
+					<li>Assassin's Creed</li>
+					<li>Atari</li>
+					<li>A-Team</li>
+					<li>Austin Healey</li>
+					<li>Avenged Sevenfold</li>
+					<li>Avengers</li>
+					<li>Axe Cop</li>
 				</ul>
 			</div>
-			<div class='allB displayNone'>
+			<div class='allzB displayNone'>
 				<ul class='floatLeft listStyleNone'>
-					<li>A Christmas Carol</li>
+					<li>Back to the Future</li>
+					<li>Bad Brains</li>
+					<li>Bad Religion</li>
+					<li>Bambi</li>
+					<li>Barbie</li>
+					<li>Barney & Friends</li>
+					<li>Batgirl</li>
+					<li>Batman</li>
+					<li>Battlestar Galactica</li>
+					<li>Bauhaus</li>
+					<li>Bears</li>
+					<li>Beastie Boys</li>
+					<li>Beatles</li>
+					<li>Beavis & Butthead</li>
+					<li>Beer</li>
+					<li>Beetlejuice</li>
+					<li>Bethesda</li>
+					<li>Bettie Page</li>
+					<li>Betty Boop</li>
+					<li>Betty Crocker</li>
+					<li>Beverly Hills 90210</li>
+					<li>Beverly Hills Cop</li>
 				</ul>
 				<ul class='floatLeft listStyleNone'>
-					<li>Alice Cooper</li>
+					<li>Bewitched</li>
+					<li>BICO</li>
+					<li>Big Bang Theory</li>
+					<li>Big Lebowski</li>
+					<li>Big Time Rush</li>
+					<li>Bills</li>
+					<li>Billy The Exterminator</li>
+					<li>Bio Domes</li>
+					<li>Bioware</li>
+					<li>Bioworld</li>
+					<li>Bizarro</li>
+					<li>Black Butler</li>
+					<li>Black Cat</li>
+					<li>Black Label Society</li>
+					<li>Black Sabbath</li>
+					<li>Blizzard</li>
+					<li>Blood On The Dance Floor</li>
+					<li>Blow Pops</li>
+					<li>Blue Velvet</li>
+					<li>Blues Brothers</li>
+					<li>Bob Marley</li>
+					<li>Boba Fett</li>
 				</ul>
 				<ul class='floatLeft listStyleNone'>
-					<li>Anime</li>
+					<li>Borat</li>
+					<li>Born Again Hippie</li>
+					<li>Born In East LA</li>
+					<li>Boston</li>
+					<li>Breakfast At Tiffany's</li>
+					<li>Breaking Bad</li>
+					<li>Brew City</li>
+					<li>Broncos</li>
+					<li>Browns</li>
+					<li>Bruce Lee</li>
+					<li>Bruce Springsteen</li>
+					<li>Buck Wild</li>
+					<li>Buckle Down</li>
+					<li>Buddha</li>
+					<li>Budweiser</li>
+					<li>Buffy the Vampire Slayer</li>
+					<li>Bullet For My Valentine</li>
+					<li>Bulls</li>
+					<li>Bungie</li>
+					<li>Busch</li>
 				</ul>
 			</div>
 		</div>

@@ -2586,6 +2586,7 @@ CHARACTERS AND TITLES CONTENT
 .alphaHeader span {
 	font-size: 32px; 
 	margin: 0 5px;
+	cursor: pointer;
 }
 
 .alphaHeader span:hover {
