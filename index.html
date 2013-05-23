@@ -19,7 +19,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"201314.20130521203400",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"201314.20130522205100",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"checkoutAuthMode" : "required",//can be passive, active or required
@@ -1457,14 +1457,13 @@ this will likely become more flexible in the future. ###
            <!-- <img src='blank.gif' class='prodBigImage border' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='296' height='296' /> -->
             <img src='blank.gif' class='prodBigImage border MagicZoomPlus' data-bind='var: product(zoovy:prod_image1); format: magicZoomPlus; extension: magicToolBox_mzp;' width='296' height='296' />
         </div>
-
-        <div data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='prodThumbs'>
-            <div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).parent().attr("data-pid"),"int":"2"});'class='pointer additionalImages border magicThumb-swap'><img src='blank.gif' data-bind='var: product(zoovy:prod_image2); format:imageURL;' width='69' height='69' /></div>
-            <div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).parent().attr("data-pid"),"int":"3"});' class='pointer additionalImages border'><img src='blank.gif' data-bind='var: product(zoovy:prod_image3); format:imageURL;' width='69' height='69' /></div>
-            <div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).parent().attr("data-pid"),"int":"4"});' class='pointer additionalImages border'><img src='blank.gif' data-bind='var: product(zoovy:prod_image4); format:imageURL;' width='69' height='69' /></div>
-        </div>
-        
-        <div class='additionalImageContainer'></div>
+		<div class='additionalImageContainer'>
+			<div>
+				<ul class='thumbCarousel' data-bind='var: product(pid); format: productImages; extension: store_filter;'></ul>    
+			</div>
+			<a href='#' class='thumbCarouselButtonPrev displayNone'><span>prev</span></a>
+			<a href='#' class='thumbCarouselButtonNext displayNone'><span>next</span></a>
+		</div>
 
 		<div class="socialLinks">
 			<div class="addthis_toolbox addthis_default_style alignRight">

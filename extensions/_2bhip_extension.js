@@ -367,7 +367,24 @@ else	{
 					app.u.dump('*** comparison did not work');
 				}
 				//$tag.text(msrp);
-			}
+			},
+			
+			// used to display product image 1 thru X where X is the last image. checks spot 1 - 50 (30 maybe?)
+			// product id should be used as var
+			productImages : function($tag,data)	{
+//				app.u.dump("BEGIN 2bhip.renderFormats.productImages ["+data.value+"]");
+				var pdata = app.data['appProductGet|'+data.value]['%attribs']; //short cut to product object in memory.
+				var imgs = ''; //all the html for all the images. appended to $tag after loop.
+				var imgName; //recycled in loop.
+				for(i = 1; i < 30; i += 1)	{
+					imgName = pdata['zoovy:prod_image'+i];
+//					app.u.dump(" -> "+i+": "+imgName);
+					if(app.u.isSet(imgName))	{
+						imgs += "<li><a class='MagicThumb MagicThumb-swap' rel='zoom-id: prodBigImage_href;' rev='"+app.u.makeImage({'tag':0,'w':380,'h':380,'name':imgName,'b':'ffffff'})+"' href='"+app.u.makeImage({'tag':0,'w':'','h':'','name':imgName,'b':'ffffff'})+"'><img src='"+app.u.makeImage({'tag':0,'w':65,'h':65,'name':imgName,'b':'ffffff'})+"' \/><\/a><\/li>";
+						}
+					}
+				$tag.append(imgs);
+				} //productImages
 				
 		}, //renderFormats
 ////////////////////////////////////   UTIL [u]   \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -686,6 +703,31 @@ return filters;
 					}
 					carousel7 = foo7;
 					setTimeout(carousel7, 2000); 
+					
+					//Thumbnail Carousel on Product Details page under main product image
+					var carousel8;
+						function foo8(){ $(".thumbCarousel").carouFredSel({
+							width    : 225,
+							height 	 : 75,
+							items    : 3,
+							scroll   : 1,
+							auto	 : false,
+							prev : {
+								button : ".thumbCarouselButtonPrev",
+								key    : "left"
+							},
+							next : {
+								button : ".thumbCarouselButtonNext",
+								key	   : "right"
+							},
+							swipe: {
+								onMouse: true,
+								onTouch: true
+							}
+						});
+					}
+					carousel8 = foo8;
+					setTimeout(carousel8, 2000); 
 					
 			}
 					
