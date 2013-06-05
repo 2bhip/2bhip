@@ -2408,14 +2408,20 @@ ABOUT PAGE
 }
 
 .aboutNavBottom h2 {
+	height: 34px; 
+	width: 172px;
 	font-size: 30px;
 	line-height: 28px;
+	background-image: url(images/phone-num_216x44.png);
+	background-repeat: no-repeat;
+	background-size: 172px 36px;
+	margin: 0 auto;
 }
 
 .aboutNavBottom h3 {
 	font-size: 12px;
 	line-height: 21px;
-	margin-top: 10px;
+	margin-top: 5px;
 }
 
 .aboutNavBottom h4 {
