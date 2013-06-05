@@ -1349,7 +1349,7 @@ ul.sizeVariations li.soldout {
 
 .productPrice {
 	position: absolute;
-	top: 160px;
+	top: 173px;
 	left: 0px;
 	width: 100%;
 	margin-top: 10px;
@@ -1400,6 +1400,10 @@ ul.sizeVariations li.soldout {
 	line-height: 28px;
 	background-color: #666;
 	float: left;
+}
+
+.reviewCenter {
+	margin: 0 0 0 40px;
 }
 
 
