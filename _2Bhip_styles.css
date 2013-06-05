@@ -425,7 +425,7 @@ END HEADER
 	height: 0px;
 	width: 930px;
 	position:absolute;
-	background-image: url(images/dropdown-image-large_930x387.png);
+	background-image: url(images/dropdown-image-large-yellow_930x387.png);
 	top: 20px;
 	margin-top: 31px;
 	overflow: hidden;
@@ -452,7 +452,7 @@ END HEADER
 	left: 10px;
 	height: 358px;
 	width: 345px;
-	background-color: #FFFF00;
+	/*background-color: #FFFF00;*/
 }
 
 .giantPipeBS2 {
