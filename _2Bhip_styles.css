@@ -440,11 +440,11 @@ END HEADER
 .dropdown.moviesAlign {left: -158px;}
 .dropdown.tvAlign {left: -243px;}
 .dropdown.videoGamesAlign {left: -328px;}
-.dropdown.musicAlign {left: -436px;}
+.dropdown.musicAlign {left: -465px;}
 .dropdown.beerAlcoholAlign {right: -247px;}
 .dropdown.iconsAlign {right: -162px;}
 .dropdown.funnyAlign {right: -76px;}
-.dropdown.brandsAlign {right: -8px;}
+.dropdown.brandsAlign {right: 11px;}
 
 .dropdownBestSellers {
 	position: absolute;
