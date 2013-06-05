@@ -1328,6 +1328,7 @@ ul.sizeVariations li.soldout {
 
 .productList h6 {
 	font-size: 24px;
+	font-weight: normal;
 }
 
 .prodThumbContainer {
@@ -1569,6 +1570,15 @@ input[type='checkbox']:checked + label span {background-color:#006099;}
 }
 
 .categoryTemplate p.openSansFont {line-height: 23px;}
+
+.catDesc1 {
+	height: 95px;
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+	padding: 35px 0 0 0;
+	margin: 0 0 10px 0;
+}
 
 .catDesc2 {
 	height: 95px;

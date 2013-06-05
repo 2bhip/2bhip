@@ -173,29 +173,50 @@ var store_filter = function() {
 					$('.allz'+$this.attr("class")).removeClass('displayNone');
 				},
 				
-				//EXPANDS DIV TO SHOW/HIDE WHAT IS IN IT
-				expand : function ($tag) {
+				//EXPANDS CATEGORY DESCRIPTION 1 TO SHOW/HIDE WHAT IS IN IT
+				expand1 : function ($tag) {
+					//var $context = $('#categoryTemplate_'+app.u.makeSafeHTMLId(catsafeid));
+					var $catDesc1 = (".catDesc1", $tag.parent());
+					var $expandButton = (".expandButton", $tag);
+					var $collapseButton = (".collapseButton", $tag.next());
+					var height = "auto";
+					$catDesc1.css({"height":height});
+					$expandButton.css({"display":"none"});
+					$collapseButton.css({"display":"inline"});
+				},
+				
+				// COLLAPSES CATEGORY DESCRIPTION 1 TO HIDE WHAT IS IN IT
+				collapse1 : function ($tag) {
+					var $catDesc1 = (".catDesc1", $tag.parent());
+					var $expandButton = (".expandButton", $tag.prev());
+					var $collapseButton = (".collapseButton", $tag);
+					var height = 95;
+					$catDesc1.css({"height":height+"px"});
+					$collapseButton.css({"display":"none"});
+					$expandButton.css({"display":"inline"});
+				},				
+				
+				//EXPANDS CATEGORY DESCRIPTION 2 TO SHOW/HIDE WHAT IS IN IT
+				expand2 : function ($tag) {
 					//var $context = $('#categoryTemplate_'+app.u.makeSafeHTMLId(catsafeid));
 					var $catDesc2 = (".catDesc2", $tag.parent());
 					var $expandButton = (".expandButton", $tag);
 					var $collapseButton = (".collapseButton", $tag.next());
 					var height = "auto";
-					app.u.dump("nothing");
-					$catDesc2.css({"height":height},1000);
-					$expandButton.css({"display":"none"},1000);
-					$collapseButton.css({"display":"inline"},1000);
+					$catDesc2.css({"height":height});
+					$expandButton.css({"display":"none"});
+					$collapseButton.css({"display":"inline"});
 				},
 				
-				// COLLAPSES DIV TO HIDE WHAT IS IN IT
-				collapse : function ($tag) {
+				// COLLAPSES CATEGORY DESCRIPTION 2 TO HIDE WHAT IS IN IT
+				collapse2 : function ($tag) {
 					var $catDesc2 = (".catDesc2", $tag.parent());
 					var $expandButton = (".expandButton", $tag.prev());
 					var $collapseButton = (".collapseButton", $tag);
 					var height = 95;
-					app.u.dump("nothing");
-					$catDesc2.css({"height":height+"px"},1000);
-					$collapseButton.css({"display":"none"},1000);
-					$expandButton.css({"display":"inline"},1000);
+					$catDesc2.css({"height":height+"px"});
+					$collapseButton.css({"display":"none"});
+					$expandButton.css({"display":"inline"});
 				},
 					
 				//SHOWS REVIEWS / HIDES SHOWN REVIEWS ON BUTTON CLICK PRODUCT PAGE / QUICKVIEW
@@ -411,7 +432,12 @@ else	{
 						}
 					}
 				$tag.append(imgs);
-				} //productImages
+				}, //productImages
+				
+			hideCatDescription : function($tag, data) {
+				var description = $tag.children().text();
+				app.u.dump('*** hideCatDescription needs a fixin');
+			}
 				
 		}, //renderFormats
 ////////////////////////////////////   UTIL [u]   \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\

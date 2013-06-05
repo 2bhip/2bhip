@@ -1120,8 +1120,12 @@ don't modify the 'data-templateid' unless you are changing template names and up
             <img data-bind="var: category(%page.banner1); format: banner; editor: banner; height:250; width:750; extension: myRIA;" />
             <h2 data-bind="var: category(%page.header); format: text; editor: text;"></h2>
             <!-- <h1 class='bangersFont'>CATEGORIES</h1> -->
-            <p class='openSansFont' data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
-			
+            <div class='catDesc1' data-bind='useParentData:true; format:hideCatDescription; extension:store_filter;'>
+				<p class='openSansFont' data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
+					<p class='expandButton yellowGradient' onClick='app.ext.store_filter.a.expand1($(this));'>See More!</p>
+					<p class='collapseButton displayNone blueGradient' onClick='app.ext.store_filter.a.collapse1($(this));'>See Less</p>
+				</p>
+			</div>	
 		<!--<div class='catContentContainer'>-->
 				<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplateCustom; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul><!-- outputs a list of subcategories -->
 		<!--</div>-->
@@ -1137,9 +1141,9 @@ don't modify the 'data-templateid' unless you are changing template names and up
 					<td class='productColumn'>
 						<ul data-app-role='productList' data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplateCustom; withReviews:1; items_per_page: 9; withVariations:1; withInventory:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul><!-- outputs the product list -->
 					<div class='catDesc2'>	
-						<p class='openSansFont ' data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;">
-							<p class='expandButton yellowGradient' onClick='app.ext.store_filter.a.expand($(this));'>See More!</p>
-							<p class='collapseButton displayNone blueGradient' onClick='app.ext.store_filter.a.collapse($(this));'>See Less</p>
+						<p class='openSansFont' data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;">
+							<p class='expandButton yellowGradient' onClick='app.ext.store_filter.a.expand2($(this));'>See More!</p>
+							<p class='collapseButton displayNone blueGradient' onClick='app.ext.store_filter.a.collapse2($(this));'>See Less</p>
 						</p>
 					</div>	
 					</td>
