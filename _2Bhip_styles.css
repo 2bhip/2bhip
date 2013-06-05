@@ -305,9 +305,10 @@ HEADER
 .headerSearchButton {border-left:0;}
 
 #headerPhone {
-	height:auto;
-	width:210px;
-	margin: 0 0 10px 52px;
+	height:44px;
+	width:216px;
+	margin: 0 0 10px 48px;
+	background-image: url(images/phone-num_216x44.png);
 }
 
 .socialIconContainer {
@@ -335,6 +336,7 @@ HEADER
 	background-color: #ffcc00;
 	margin: auto;
 	z-index: 1;
+	background-image: url(images/main-nav-background_940x100.png);
 }
 
 .mainNavBarContainer img {
