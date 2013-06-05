@@ -165,13 +165,40 @@ var store_filter = function() {
 //actions are functions triggered by a user interaction, such as a click/tap.
 //these are going the way of the do do, in favor of app events. new extensions should have few (if any) actions.
 		a : {
-		
+				
+				//CHANGES DISPLAYED LIST ON ALPHABET CLICK IN CHARACTERS AND TITLES ARTICLE
 				switchAllCharacters : function($this) {
 					//app.u.dump('allz'+$this.attr("class"));
 					$("[class^=allz]").addClass('displayNone');
 					$('.allz'+$this.attr("class")).removeClass('displayNone');
 				},
-
+				
+				//EXPANDS DIV TO SHOW/HIDE WHAT IS IN IT
+				expand : function ($tag) {
+					//var $context = $('#categoryTemplate_'+app.u.makeSafeHTMLId(catsafeid));
+					var $catDesc2 = (".catDesc2", $tag.parent());
+					var $expandButton = (".expandButton", $tag);
+					var $collapseButton = (".collapseButton", $tag.next());
+					var height = "auto";
+					app.u.dump("nothing");
+					$catDesc2.css({"height":height},1000);
+					$expandButton.css({"display":"none"},1000);
+					$collapseButton.css({"display":"inline"},1000);
+				},
+				
+				// COLLAPSES DIV TO HIDE WHAT IS IN IT
+				collapse : function ($tag) {
+					var $catDesc2 = (".catDesc2", $tag.parent());
+					var $expandButton = (".expandButton", $tag.prev());
+					var $collapseButton = (".collapseButton", $tag);
+					var height = 95;
+					app.u.dump("nothing");
+					$catDesc2.css({"height":height+"px"},1000);
+					$collapseButton.css({"display":"none"},1000);
+					$expandButton.css({"display":"inline"},1000);
+				},
+					
+				//SHOWS REVIEWS / HIDES SHOWN REVIEWS ON BUTTON CLICK PRODUCT PAGE / QUICKVIEW
 				showReviews : function(pid) {
 					var $context = $('#productTemplate_'+app.u.makeSafeHTMLId(pid));
 					
