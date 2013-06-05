@@ -423,7 +423,7 @@ END HEADER
 	height: 0px;
 	width: 930px;
 	position:absolute;
-	background-image: url(images/DropdownImageLarge.png);
+	background-image: url(images/dropdown-image-large_930x387.png);
 	top: 20px;
 	margin-top: 31px;
 	overflow: hidden;
@@ -753,7 +753,7 @@ FOOTER
 	width: 96px;
 	margin-top: 2px;
 	margin-right: 40px;
-	/*background-image: url(images/McAfeeLogo.png);*/
+	/*background-image: url(images/mcafee-logo_96x23.png);*/
 	float: right;	
 }
 
@@ -1048,7 +1048,7 @@ HOME PAGE
 .miscTopSelling {
 	height: 260px;
 	width: 460px;
-	background-image:url(images/MiscTopSellingBkgrnd.jpg);
+	background-image:url(images/misc-top-selling-bkgrnd_460x260.jpg);
 }
 
 .miscTopSelling span {
@@ -1106,7 +1106,7 @@ HOME PAGE
 	position: relative;
 	height: 248px;
 	width: 464px;
-	background-image:url(images/MiscCustReviewBkgrnd.png);
+	background-image:url(images/misc-cust-review-bkgrnd_464x248.png);
 	list-style: none;
 	padding-left: 0px;
 	overflow:hidden;
@@ -1188,14 +1188,14 @@ PRODUCT STYLES / CAROUSELS
 }
 
 .prodListCarouselButtonContainer a {
-	background: url(images/TemplateSelector.png);
+	background: url(images/template-selector_10x10.png);
 	width: 10px;
 	height: 10px;
 	margin: 0 5.7px 1px 5.7px;
 	display: inline-block;
 }
 
-.prodListCarouselButtonContainer a.selected {background: url(images/TemplateSelected.png);}
+.prodListCarouselButtonContainer a.selected {background: url(images/template-selected_10x10.png);}
 
 .prodListCarouselButtonContainer a span {
 	display: none;
@@ -1277,7 +1277,7 @@ ul.sizeVariations li.soldout {
 	text-align: center;
 	font-size: 18px;
 	line-height: 36px;
-	background-image: url(images/BubbleRed.png);
+	background-image: url(images/bubble-red_90x47.png);
 }
 
 .productBubble {
@@ -1294,7 +1294,7 @@ ul.sizeVariations li.soldout {
 }
 
 .productBubble span.is_bestseller {
-	background-image: url(images/TagBestSeller.png);
+	background-image: url(images/tag-best-seller_90x47.png);
 	position: absolute;
 	top: 0px;
 	left: 0px;
@@ -1303,7 +1303,7 @@ ul.sizeVariations li.soldout {
 }
 
 .productBubble span.is_sale {
-	background-image: url(images/TagClearance.png);
+	background-image: url(images/tag-clearance_90x47.png);
 	position: absolute;
 	top: 0px;
 	left: 0px;
@@ -1312,7 +1312,7 @@ ul.sizeVariations li.soldout {
 }
 
 .productBubble span.is_newarrival {
-	background-image: url(images/TagNew.png);
+	background-image: url(images/tag-new_90x47.png);
 	position: absolute;
 	top: 0px;
 	left: 0px;
@@ -1376,7 +1376,7 @@ ul.sizeVariations li.soldout {
 	font-size: 24px;
 	line-height: 21px;
 	text-align: center;
-	background-image: url("images/StrikeThrough.png");
+	background-image: url("images/strike-through_103x40.png");
 	float: left;
 }
 
@@ -2103,7 +2103,7 @@ CART MODAL
 }
 
 .cartRemoveButton.floatLeft.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-icon-only {
-	background: url(images/CartTrashIcon.png);
+	background: url(images/cart-trash-icon_24x26.png);
 	height: 26px;
 	width: 24px;
 	border: none;
@@ -2686,11 +2686,8 @@ LOGIN MODAL
 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
 
 
-/*.loginOption.displayNone.ui-dialog-content.ui-widget-content {
-	background-image: url(images/ModalBckgrnd.png);}*/
-
 .modalLogin.loginOption.displayNone {
-	background-image: url(images/ModalBckgrnd.png);
+	background-image: url(images/modal-bkgrnd_555x375.png);
 }
 
 
@@ -2884,12 +2881,7 @@ CHECKOUT
 .ui-icon.ui-icon-help.creditCardCVVIcon {background-image: url("images/ui-icons_006099_256x240.png");}
 
 
-.checkoutSuccess {
-	font-family: "Open Sans";
-	/*background-image: url("images/CheckoutSteps2-639x50.png");
-	background-repeat: no-repeat;
-	background-position: 50% 0;*/
-}
+.checkoutSuccess {font-family: "Open Sans";}
 
 .checkoutFormContainer .chkoutSteps {
 	height: 50px;
@@ -2897,13 +2889,13 @@ CHECKOUT
 	position: relative;
 	top: -80px;
 	left: 0;
-	background-image: url("images/CheckoutSteps2-639x50.png");
+	background-image: url("images/checkout-steps2_639x50.png");
 	background-repeat: no-repeat;
 	background-position: 50% 0;
 }
 
 .checkoutFormContainer .chkoutSteps.chkoutSuccess {
-	background-image: url("images/CheckoutSteps3-639x50.png");
+	background-image: url("images/checkout-steps3_639x50.png");
 	top: 0px;
 }
 
