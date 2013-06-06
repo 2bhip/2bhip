@@ -2889,6 +2889,8 @@ SEARCH RESULTS
 	position:absolute;
 	right: 32px;
 }
+
+.productList .productListTemplateResults {height:215px;}
 /*
 .resultsProdList {height:100%; width:950px; margin:auto;}
 .resultsProductListContainer, .slider-range, .ui-slider, .ui-slider-horizontal, .ui-widget, .ui-widget-content, .ui-corner-all {
