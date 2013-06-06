@@ -1977,6 +1977,13 @@ a.thumbCarouselButtonPrev span, a.thumbCarouselButtonNext span {display: none;}
 	/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#666666', endColorstr='#020202',GradientType=0 ); /* IE6-9 */
 }
 
+.ui-widget-anymessage {
+	position: relative;
+	z-index: 50;
+	font-family: "Open Sans";
+	font-size: 14px;
+}
+/*
 .prodCartSelection span {
 	font-family: Bangers;
 	text-align: center;
@@ -1986,7 +1993,7 @@ a.thumbCarouselButtonPrev span, a.thumbCarouselButtonNext span {display: none;}
 	font-size: 15px;
 	color: #BE0000;
 }
-
+*/
 
 /*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 END PRODUCT DETAILS PAGE
