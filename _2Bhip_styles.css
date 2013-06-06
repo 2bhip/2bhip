@@ -1811,9 +1811,10 @@ a.thumbCarouselButtonPrev span, a.thumbCarouselButtonNext span {display: none;}
 	margin:auto;
 	color: #000;
 	font-size: 30px;
-	line-height: 70px;
+	line-height: 60px;
 	text-align: center;
 	float: left;
+	border-bottom: 2px solid #000000;
 }
 
 .fixedBasePrice {width:118px;}
