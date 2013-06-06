@@ -437,6 +437,7 @@ else	{
 			hideCatDescription : function($tag, data) {
 				var description = $tag.children().text();
 				app.u.dump('*** hideCatDescription needs a fixin');
+				//app.u.dump('*** '+description);
 			}
 				
 		}, //renderFormats

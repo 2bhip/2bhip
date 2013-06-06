@@ -1586,7 +1586,7 @@ if(ps.indexOf('?') >= 1)	{
 					var data = app.data['appProductGet|'+pid]['%attribs'];
 					var $img = $obj.find('img')
 					var width = $img.attr('width'); //using width() and height() here caused unusual results in the makeImage function below.
-					var height = $img.attr('height');
+/*2bhip*/			var height = 120; //$img.attr('height');
 					$obj.width(width).height(height).css({'overflow':'hidden','position':'relative'});
 					var $ul = $('<ul>').addClass('slideMe').css({'height':height+'px','width':'20000px'}); /* inline width to override inheretance */
 					
