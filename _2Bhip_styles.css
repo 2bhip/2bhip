@@ -1911,6 +1911,13 @@ a.thumbCarouselButtonPrev span, a.thumbCarouselButtonNext span {display: none;}
 	border: 2px solid #000;
 }
 
+.prodViewerContainer .notAvailableForPurchase {
+	font-family: "Open Sans";
+	font-size: 12px;
+	font-weight: normal;
+	margin: 0 0 0 2px;
+}
+
 .prodSelectAddCartButton.ui-state-default {
 	height: 50px;
 	width: 180px;
