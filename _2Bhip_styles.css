@@ -1702,10 +1702,6 @@ a.thumbCarouselButtonPrev span, a.thumbCarouselButtonNext span {display: none;}
 	margin: 0px 2px 1px 2px;
 }
 
-.productFacebook {
-	background-image: url(images/facebook-icon_36x39.png);
-}
-
 .prodSummaryContainer {
 	font-size: 14px;
  	width: 420px; 
