@@ -1717,14 +1717,8 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 <!--<div data-bind="var: product(zoovy:prod_is_tags); format:addTagSpans;" class='tagsContainer'></div>-->
             <img src='blank.gif' class='prodBigImage border' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='296' height='296' />
         </div>
-
-        <div data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='prodThumbs'>
-            <div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).parent().attr("data-pid"),"int":"2"});' class='pointer additionalImages border'><img src='blank.gif' data-bind='var: product(zoovy:prod_image2); format:imageURL;' width='69' height='69' /></div>
-            <div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).parent().attr("data-pid"),"int":"3"});' class='pointer additionalImages border'><img src='blank.gif' data-bind='var: product(zoovy:prod_image3); format:imageURL;' width='69' height='69' /></div>
-            <div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).parent().attr("data-pid"),"int":"4"});' class='pointer additionalImages border'><img src='blank.gif' data-bind='var: product(zoovy:prod_image4); format:imageURL;' width='69' height='69' /></div>
-        </div>
-        
-        <div class='additionalImageContainer'></div>
+		<ul class='thumbCarousel' data-bind='var: product(pid); format: productImages; extension: store_filter;'></ul>
+		
 	</td>
 
 	<td class='prodSummaryContainer openSansFont marginBottom no_underline'>

@@ -2019,6 +2019,8 @@ QUICK VIEW MODAL
 }
 
 .productTemplateQuickView .prodViewerContainer {width: auto;}
+.productTemplateQuickView .imageContainer {width: 322px;}
+.productTemplateQuickView .imageContainer .prodBigImage {margin: 0 0 0 5px;}
 
 .productTemplateQuickView .prodPriceSelection {
 	height: 42px; 
