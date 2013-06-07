@@ -69,7 +69,7 @@ var partner_addthis = function() {
 							//Note: this also includes using custom share icons.
 /*2BHIP*/					$(app.ext.partner_addthis.vars.selector, $('#productTemplate_'+app.u.makeSafeHTMLId(P.pid))).append(
 									'<div id="socialLinks" class="addthis_toolbox addthis_default_style">'
-								+		'<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>'
+								+		'<a class="productFacebook" fb:like:layout="button_count"></a>'
 								+		'<a class="addthis_button_tweet"></a>'
 								+		'<a class="addthis_button_pinterest_pinit"></a>'
 								+		'<a class="addthis_counter addthis_pill_style"></a>'
