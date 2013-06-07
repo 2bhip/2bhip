@@ -2264,7 +2264,7 @@ CART MODAL
 }
 
 .cartSummary {
-	height: 85px;
+	height: auto; /*85px;*/
 	width: 100%;
 	margin: 0px;
 	background-color: #eee;	
@@ -3031,6 +3031,62 @@ CHECKOUT
 	text-decoration: underline;
 }
 
+/*ORDER SUMMMARY*/
+.cartLeft {
+	height: auto;
+	width: 700px;
+}
+
+.orderSummaryDetails {
+	text-align: center;
+	color: #000000;
+	margin: 0 0 40px 0;
+}
+
+.orderSummaryDetails h2 {
+	font-family: Bangers; 
+	font-weight:normal;
+	font-size: 40px; 
+	margin: 0 0 10px 0;
+}
+
+.orderSummaryDetails h3 {
+	font-family: "Open Sans";
+	font-weight: bold;
+	margin: 0 0 10px 0;
+}
+.orderSummaryDetails h2 span {color: #006099;}
+
+.orderSummaryDetails .ztxt {margin: 10px 0 0 0;}
+
+.checkoutFormContainer .cartRight {
+	border: 2px solid #000000;
+	border-radius: 5px; 
+}
+
+.checkoutFormContainer .cartSummary h5 {
+	font-family: Bangers;
+	font-size: 22px;
+	font-weight: normal;
+	text-align: center;
+	margin: 0 0 10px 0;
+	padding: 10px 0 0 0; 
+}
+
+.cartRight .ocmThirdParty  {margin: 10px 0 0 0;}
+.cartRight .ocmThirdParty h2 {
+	font-family: Bangers; 
+	font-weight: normal;
+	text-align: center;
+	padding: 10px 0 0 0;
+	border-top: 2px solid #000000;
+}
+.cartRight .ocmThirdParty .ocm {
+	margin: 5px 0 5px 40px;}
+	
+.cartRight .hide4Print button {height: auto; width: 130px; margin: 0 0 0 41px;}
+.cartRight .hide4Print span:first-child {display: none;}
+.cartRight .cartSummaryContainer .hide4Print .ui-button-icon-only .ui-button-text {text-indent:0;}
 
 
 

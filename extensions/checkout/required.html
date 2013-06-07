@@ -416,97 +416,120 @@ do NOT change the input name or id or checkout will likely break.
 <!-- 2Bhip!! chkoutSteps chkoutSuccessSteps -->
 	<div class='chkoutSteps chkoutSuccess'></div>
 
-	<div class='floatRight ocmThirdParty'>
-		<h2>What next?</h2>
-<!-- the twitter and facebook actions are added post checkout. The order contents are included as part of the message -->
-		<div class='ocm ocmFacebookComment pointer zlink marginBottom'><img src='fb_comment-133x32.png' width='132' height='32' alt='Comment on Facebook' /></div>
-		<div class='ocm ocmTwitterComment pointer zlink marginBottom' ><img src='tweet-133x32.png' width='132' height='32' alt='Tweet about it!' /></div>
-		<div class='ocm ocmContinue pointer zlink marginBottom'><img src='continue_shopping-133x32.png' width='132' height='32' alt='continue shopping' /></div>
+	<div class='cartLeft floatLeft'>
+		<div class='orderSummaryDetails'>
+			<h2>Thank you for your purchase!</h2>
+			<h3 data-bind='var: order(orderid); format:text; <span>pretext:Sale Confirmation ID# </span>;'></h3>
+			<div class='pointer marginBottom' data-app-role='paymentMessaging'>
+				Click here to view/print your invoice.
+				<div class='zwarn' data-bind="var: order(payment_status_msg); format:text;"></div><!-- displays payment issues/errors -->
+			</div>
+			<div data-bind="var:order(payment_status_detail); format:text;" class='marginBottom'></div>
+			<div>A copy of this receipt has been sent to the e-mail address on the account</div>
+		
+			<div class='clearAll'></div>
+			<span id='BuySafeGuaranteeSpan'></span>
+			<div class='clearAll'></div>
 
-	</div>
-
-
-	<div class='orderSummaryDetails'>
-		<h2>Thank you! Your order has been placed.</h2>
-		<h3 data-bind='var: order(orderid); format:text; pretext:Your order id is ;'></h3>
-		<div class='pointer marginBottom' data-app-role='paymentMessaging'>
-			Click here to view/print your invoice.
-			<div class='zwarn' data-bind="var: order(payment_status_msg); format:text;"></div><!-- displays payment issues/errors -->
+			<div data-app-role='invoiceContainer'>
+				<table class='orderContentsTable fullWidth'>
+				<tr>
+					<td colspan='2'>
+				<!--<div class='floatRight hide4Print'>
+				<button data-app-event="orderCreate|execInvoicePrint">Print Invoice</button>
+				</div>-->
+				
+				<h3 data-bind='var:order(order/data/pool);format:text; pretext:Order Status: ;'></h3>
+				
+					</td>
+				</tr>
+				<tr>
+					<td>
+				<hgroup class='marginBottom'>
+				<!-- print icon -->
+				
+				
+				<!-- <h2 data-bind='var:order(bill/firstname);format:text; pretext:Shipping Status: ;'></h2> -->
+				</hgroup>
+				
+				<address class='marginBottom'>
+				<h4>
+					<span data-bind='var:order(order/bill/firstname);format:text; pretext:Bill To: ;'></span>
+					<span data-bind='var:order(order/bill/lastname);format:text;'></span>
+				</h4>
+				<div data-bind='var:order(order/bill/address1);format:text;'></div>
+				<div data-bind='var:order(order/bill/address2);format:text;'></div>
+				<div>
+					<span data-bind='var:order(order/bill/city);format:text;posttext:, ;'></span>
+					<span data-bind='var:order(order/bill/region);format:text;posttext:. ;'></span>
+					<span data-bind='var:order(order/bill/postal);format:text; defaultVar:order(data.bill_int_zip);'></span>
+				</div>
+				<div data-bind='var:order(order/bill/countrycode);format:text;'></div>
+				</address>
+				
+				<address>
+				<h4>
+					<span data-bind='var:order(order/ship/firstname);format:text; pretext:Ship To: ;'></span>
+					<span data-bind='var:order(order/ship/lastname);format:text;'></span>
+				</h4>
+				<div data-bind='var:order(order/ship/address1);format:text;'></div>
+				<div data-bind='var:order(order/ship/address2);format:text;'></div>
+				<div>
+					<span data-bind='var:order(order/ship/city);format:text;posttext:, ;'></span>
+					<span data-bind='var:order(order/ship/region);format:text;posttext:. ;'></span>
+					<span data-bind='var:order(order/ship/postal);format:text; defaultVar:order(data.ship_int_zip);'></span>
+				</div>
+				<div data-bind='var:order(order/ship/countrycode);format:text;'></div>
+				</address>
+				
+				
+					</td>
+					<td class='orderContentsProdlistContainer'>
+					<ul data-bind='var:order(order/tracking); format:orderTrackingLinks; extension:store_crm;before:<h4>Shipping:</h4>;' class='displayNone noListStyle marginBottom'></ul>
+					<table  class='listStyleNone lineItemProdlist'>
+					<tbody data-bind="var: order(order/@ITEMS); format:stuffList; loadsTemplate:chkoutInvoiceItemTemplate;"></tbody>
+					</table>
+					</td>
+				</tr>
+				</table>
+			</div>
 		</div>
-		<div data-bind="var:order(payment_status_detail); format:text;" class='marginBottom'></div>
-		<div>You will receive an order confirmation email with details of your order</div>
 	</div>
-
-
-	<div class='clearAll'></div>
-	<span id='BuySafeGuaranteeSpan'></span>
-	<div class='clearAll'></div>
-
-<div data-app-role='invoiceContainer'>
-	<table class='orderContentsTable fullWidth'>
-	<tr>
-		<td colspan='2'>
-	<div class='floatRight hide4Print'>
-	<button data-app-event="orderCreate|execInvoicePrint">Print Invoice</button>
+	<div class='cartRight floatRight'>
+		<h2 class='cartPriceHeader openSansBoldFont'>Total Cart Price</h2>
+		<div class='cartSummaryContainer cartSumCont'>
+			<section id='cartTemplateCostSummary' class='cartSummary clearfix'>
+				<h5 class='orderTotal' data-bind='var:order(order/sum/order_total);format:money; currencySign: $;  hideZero:false; pretext:Order Total: ;'></h5>
+				<h5 class='balanceDue' data-bind='var:order(order/sum/balance_due_total);format:money; currencySign: $;  hideZero:false; pretext:Balance Due: ;'></h5>
+				<!--<div class='youSaved openSansBoldFont'>Saved $XX(%XX)</div>-->
+				<div class='hide4Print'>
+					<button data-app-event="orderCreate|execInvoicePrint">Print Invoice</button>
+				</div>
+				<div class='ocmThirdParty'>
+					<h2>Share This Purchase!</h2>
+			<!-- the twitter and facebook actions are added post checkout. The order contents are included as part of the message -->
+					<div class='ocm ocmFacebookComment pointer zlink marginBottom'><img src='fb_comment-133x32.png' width='132' height='32' alt='Comment on Facebook' /></div>
+					<div class='ocm ocmTwitterComment pointer zlink marginBottom' ><img src='tweet-133x32.png' width='132' height='32' alt='Tweet about it!' /></div>
+					<div class='ocm ocmContinue pointer zlink marginBottom'><img src='continue_shopping-133x32.png' width='132' height='32' alt='continue shopping' /></div>
+				</div>
+			</section>
+			<section>
+				<div class='aboutNavBottom openSansBoldFont'>
+					<h1>NEED HELP? CALL US!</h1>
+					<h2 class='bangersFont'></h2>
+					<h3>Private Information is protected
+						<br>Satisfaction Guaranteed
+						<br>30-day return policy
+						<br>Friendly Customer Service
+					</h3>
+					<h4 class='bangersFont'>FREE SHIPPING!</h4>
+					<h5>Most orders ship within
+						<br>1-2 business days
+					</h5>
+				</div>
+			</section>
+		</div>
 	</div>
-	
-	<h3 data-bind='var:order(order/data/pool);format:text; pretext:Order Status: ;'></h3>
-	
-		</td>
-	</tr>
-	<tr>
-		<td>
-	<hgroup class='marginBottom'>
-	<!-- print icon -->
-	
-	
-	<!-- <h2 data-bind='var:order(bill/firstname);format:text; pretext:Shipping Status: ;'></h2> -->
-	
-	<h5 class='orderTotal' data-bind='var:order(order/sum/order_total);format:money; currencySign: $;  hideZero:false; pretext:Order Total: ;'></h5>
-	<h5 class='balanceDue' data-bind='var:order(order/sum/balance_due_total);format:money; currencySign: $;  hideZero:false; pretext:Balance Due: ;'></h5>
-	</hgroup>
-	
-	<address class='marginBottom'>
-	<h4>
-		<span data-bind='var:order(order/bill/firstname);format:text; pretext:Bill To: ;'></span>
-		<span data-bind='var:order(order/bill/lastname);format:text;'></span>
-	</h4>
-	<div data-bind='var:order(order/bill/address1);format:text;'></div>
-	<div data-bind='var:order(order/bill/address2);format:text;'></div>
-	<div>
-		<span data-bind='var:order(order/bill/city);format:text;posttext:, ;'></span>
-		<span data-bind='var:order(order/bill/region);format:text;posttext:. ;'></span>
-		<span data-bind='var:order(order/bill/postal);format:text; defaultVar:order(data.bill_int_zip);'></span>
-	</div>
-	<div data-bind='var:order(order/bill/countrycode);format:text;'></div>
-	</address>
-	
-	<address>
-	<h4>
-		<span data-bind='var:order(order/ship/firstname);format:text; pretext:Ship To: ;'></span>
-		<span data-bind='var:order(order/ship/lastname);format:text;'></span>
-	</h4>
-	<div data-bind='var:order(order/ship/address1);format:text;'></div>
-	<div data-bind='var:order(order/ship/address2);format:text;'></div>
-	<div>
-		<span data-bind='var:order(order/ship/city);format:text;posttext:, ;'></span>
-		<span data-bind='var:order(order/ship/region);format:text;posttext:. ;'></span>
-		<span data-bind='var:order(order/ship/postal);format:text; defaultVar:order(data.ship_int_zip);'></span>
-	</div>
-	<div data-bind='var:order(order/ship/countrycode);format:text;'></div>
-	</address>
-	
-	
-		</td>
-		<td class='orderContentsProdlistContainer'>
-		<ul data-bind='var:order(order/tracking); format:orderTrackingLinks; extension:store_crm;before:<h4>Shipping:</h4>;' class='displayNone noListStyle marginBottom'></ul>
-		<table  class='listStyleNone lineItemProdlist'>
-		<tbody data-bind="var: order(order/@ITEMS); format:stuffList; loadsTemplate:chkoutInvoiceItemTemplate;"></tbody>
-		</table>
-		</td>
-	</tr>
-	</table>
-</div>
 
 </div>
 
