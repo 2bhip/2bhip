@@ -1706,7 +1706,7 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 
 
 <!-- a template used for a quickview link off of a category page -->
-<div id='productTemplateQuickView'>
+<div id='productTemplateQuickView' class='productTemplateQuickView'>
 
 <table class='prodViewerContainer'>
 <tr>
@@ -1730,12 +1730,16 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 	<td class='prodSummaryContainer openSansFont marginBottom no_underline'>
         
         <h1 data-bind='var: product(zoovy:prod_name); format:text;'></h1>
+		<div class='prodPriceSelection'>
+			<h5 class='prodMSRP bangersFont' data-bind='var: product(zoovy:prod_msrp); format:money; currencySign: $;  hideZero:true;'></h5>
+			<h4 class='basePrice bangersFont' data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true;'></h4>
+		</div>
         	<!-- USE BEFORE INSTEAD OF PRETEXT TO FORMAT "SKU" SEPERATELY. EXAMPLE ON HOMEPAGE OF DEFAULT
             	TEMPLATE "FEATURED ITEMS -->
         <h5 class='stid openSansBoldFont' data-bind='var: product(zoovy:prod_mfg); format:text; extension:myRIA; pretext: <h4>Manufactured by: &nbsp</h4>;'></h5>
         <h6 class='stid openSansBoldFont' data-bind='var: product(pid); format:text; pretext: <h3>SKU Item Number: &nbsp</h3>;'></h6>
         <h5 data-bind='var: product(zoovy:prod_mfgid); format:text; pretext: Mfg ID: ;'></h5>
-    
+		
    <!-- <div class='priceContainer'>
             <span class='savings'>
                 <span class='savingsDifference' data-bind='var: product(pid); format:priceRetailSavingsDifference; extension:myRIA; pretext: You save: ;'></span>
@@ -1750,72 +1754,11 @@ It's done this way because ID's hard coded into template are bad mojo (templates
             <span data-bind='var: reviews(reviews.total); format:text;posttext: from ;posttext: reviews; className:numReviews;'></span>
         </section>
         <div class='prodDetailsDesc' data-bind='var: product(zoovy:prod_desc); format:wiki; wikiFormats:myRIA;'></div>
-   
+		<div data-bind='var: product(zoovy:ship_latency); format:text; pretext:PRODUCT SHIPS WITHIN ; posttext: DAYS;'></div>
         <span id="buySAFE_Kicker" name="buySAFE_Kicker" type="Kicker Guaranteed Transparent 33 175x30"></span>
         
 	</td>
     
-    <td>
-        <div  class='prodSelectionContainer borderRound'>
-            
-            <div class='openSansBoldFont productShips latency' data-bind='var: product(zoovy:ship_latency); format:text; pretext:PRODUCT SHIPS WITHIN ; posttext: DAYS;'></div>
-            
-            <div class='prodPriceSelection'>
-                <h5 class='prodMSRP bangersFont' data-bind='var: product(zoovy:prod_msrp); format:money; currencySign: $;  hideZero:true;'></h5>
-                <h4 class='basePrice bangersFont' data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true;'></h4>
-            </div>
-            
-        <!--<div class='prodSizeSelection'>
-            	<ul title='please choose' id='prodlistChildren' class='listStyleNone fluidList clearfix noPadOrMargin productList smallProdlist' data-bind="var: product(zoovy:grp_children); format:productList; extension:store_prodlist; loadsTemplate:productListTemplateChildren;hide_summary:true;"></ul>
-        		<ul class='sizeUL'>
-                	<li>
-                        <div class='sizeCheck border'></div>
-                        <div class='sizeText openSansBoldFont'>S &nbsp $1,049.99</div>
-                    </li>
-                    <li>
-                        <div class='sizeCheck border'></div>
-                        <div class='sizeText openSansBoldFont'>M &nbsp $1,049.99</div>
-                    </li>
-                    <li>
-                        <div class='sizeCheck border'></div>
-                        <div class='sizeText openSansBoldFont'>L &nbsp $1,049.99</div>
-                    </li>
-                    <li>
-                        <div class='sizeCheck border'></div>
-                        <div class='sizeText openSansBoldFont'>XL &nbsp $1,049.99</div>
-                    </li>
-                    <li>
-                        <div class='sizeCheck border'></div>
-                        <div class='sizeText openSansBoldFont'>XXL &nbsp $1,049.99</div>
-                    </li>
-                </ul>
-            </div> -->
-        <!--	<div data-bind='var: product(@inventory.inv); format:simpleInvDisplay; extension:store_product;' class='inventory'></div> -->
-        
-        	<div class='prodCartSelection'>
-
-                <form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodCartMarginRemove prodViewerAddToCartForm clearfix' action='#' onSubmit="app.ext.myRIA.u.handleAddToCart($(this),{'action':'modal'}); return false;">
-                    <div data-bind='var: product(pid); format:atcVariations; extension:store_product;' class='borderNone sizeSelector'></div>
-                    <div class='openSansBoldFont prodSelectionQty'>ITEM QUANTITY</div>
-                    <div data-bind='var: product(pid); format:atcQuantityInput; extension:store_product;' class='prodSelectItemField'></div>
-                    <input type='submit' value='Add to Cart' class='prodSelectAddCartButton bangersFont ui-button ui-button-text ui-corner-all ui-state-default addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;' id='addToCartBtn' />
-                </form>
-                
-                <div class='productSmallButtonContainer'>       
-                    <menu data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='CRMButtonMenu'>
-                        <button class='prodSelectShareButton prodSelectSmallButtons bangersFont borderRoundThin ui-button ui-corner-all' onClick=";">SHARE</button><!--!%!-->
-                        <button class='prodSelectWishlistButton prodSelectSmallButtons bangersFont borderRoundThin ui-button ui-corner-all' onClick="app.ext.myRIA.a.add2BuyerList({sku:$(this).parent().attr('data-pid'),'listid':'wishlist'}); return false;">ADD TO WISHLIST</button>
-                        <button class='prodSelectSeeReviewButton prodSelectSmallButtons bangersFont borderRoundThin ui-button ui-corner-all' onClick=';' data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>SEE PRODUCT REVIEWS</button>
-                        <button class='prodSelectWriteReviewButton prodSelectSmallButtons bangersFont borderRoundThin ui-button ui-corner-all' onClick='app.ext.store_crm.u.showReviewFrmInModal({"pid":$(this).attr("data-pid"),"templateID":"reviewFrmTemplate"});' data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>WRITE A PRODUCT REVIEW</button>
-                    </menu>
-                </div>
-                     
-                <!--<ul class='listStyleNone clearfix productReviewsList' id='prodViewerReviews' data-bind="var: reviews(reviews.@reviews); format:processList; loadsTemplate:productReviewsTemplateDetail;"></ul>-->
-        	 </div>
-             
-             <div class='productShips'></div>
-        </div>
-    </td>
 </tr>
 
 </table>

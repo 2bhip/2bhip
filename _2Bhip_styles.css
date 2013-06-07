@@ -1800,7 +1800,7 @@ a.thumbCarouselButtonPrev span, a.thumbCarouselButtonNext span {display: none;}
 	text-align: center;
 	/*text-decoration: line-through;*/
 	float: left;
-	background-image: url(images/StrikeThrough.png);	
+	background-image: url(images/strike-through_103x40.png);	
 	background-position: 0 26px;
 	background-repeat: no-repeat;
 }
@@ -2010,6 +2010,27 @@ END PRODUCT DETAILS PAGE
 /*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 QUICK VIEW MODAL
 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
+
+
+.productTemplateQuickView  {
+	height: auto;
+	width: 600px;
+	margin: 0 0 0 90px;
+}
+
+.productTemplateQuickView .prodViewerContainer {width: auto;}
+
+.productTemplateQuickView .prodPriceSelection {
+	height: 42px; 
+	background-color: none; 
+}
+
+.productTemplateQuickView .prodPriceSelection h5, .productTemplateQuickView .prodPriceSelection h4  {
+	height: auto; 
+	line-height: normal; 
+	border: none;
+	background-position: 0 -4px;
+}
 
 
 /*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
