@@ -444,51 +444,52 @@ do NOT change the input name or id or checkout will likely break.
 					</td>
 				</tr>
 				<tr>
-					<td>
-				<hgroup class='marginBottom'>
-				<!-- print icon -->
-				
-				
-				<!-- <h2 data-bind='var:order(bill/firstname);format:text; pretext:Shipping Status: ;'></h2> -->
-				</hgroup>
-				
-				<address class='marginBottom'>
-				<h4>
-					<span data-bind='var:order(order/bill/firstname);format:text; pretext:Bill To: ;'></span>
-					<span data-bind='var:order(order/bill/lastname);format:text;'></span>
-				</h4>
-				<div data-bind='var:order(order/bill/address1);format:text;'></div>
-				<div data-bind='var:order(order/bill/address2);format:text;'></div>
-				<div>
-					<span data-bind='var:order(order/bill/city);format:text;posttext:, ;'></span>
-					<span data-bind='var:order(order/bill/region);format:text;posttext:. ;'></span>
-					<span data-bind='var:order(order/bill/postal);format:text; defaultVar:order(data.bill_int_zip);'></span>
-				</div>
-				<div data-bind='var:order(order/bill/countrycode);format:text;'></div>
-				</address>
-				
-				<address>
-				<h4>
-					<span data-bind='var:order(order/ship/firstname);format:text; pretext:Ship To: ;'></span>
-					<span data-bind='var:order(order/ship/lastname);format:text;'></span>
-				</h4>
-				<div data-bind='var:order(order/ship/address1);format:text;'></div>
-				<div data-bind='var:order(order/ship/address2);format:text;'></div>
-				<div>
-					<span data-bind='var:order(order/ship/city);format:text;posttext:, ;'></span>
-					<span data-bind='var:order(order/ship/region);format:text;posttext:. ;'></span>
-					<span data-bind='var:order(order/ship/postal);format:text; defaultVar:order(data.ship_int_zip);'></span>
-				</div>
-				<div data-bind='var:order(order/ship/countrycode);format:text;'></div>
-				</address>
-				
-				
-					</td>
+					
 					<td class='orderContentsProdlistContainer'>
 					<ul data-bind='var:order(order/tracking); format:orderTrackingLinks; extension:store_crm;before:<h4>Shipping:</h4>;' class='displayNone noListStyle marginBottom'></ul>
 					<table  class='listStyleNone lineItemProdlist'>
 					<tbody data-bind="var: order(order/@ITEMS); format:stuffList; loadsTemplate:chkoutInvoiceItemTemplate;"></tbody>
 					</table>
+					</td>
+				</tr>
+				<tr>
+					<td colspan='3' class='checkoutAddressRow'>
+						<hgroup class='marginBottom floatRight shipPrice'>
+						<!-- print icon -->
+						<h5 class='orderTotal' data-bind='var:order(order/sum/order_total);format:money; currencySign: $;  hideZero:false; pretext:Order Total: ;'></h5>
+						<h5 class='balanceDue' data-bind='var:order(order/sum/balance_due_total);format:money; currencySign: $;  hideZero:false; pretext:Balance Due: ;'></h5>
+						<!-- <h2 data-bind='var:order(bill/firstname);format:text; pretext:Shipping Status: ;'></h2> -->
+						</hgroup>
+						
+						<address class='marginBottom billAddress floatLeft'>
+						<h4>
+							<span data-bind='var:order(order/bill/firstname);format:text; pretext:Bill To: ;'></span>
+							<span data-bind='var:order(order/bill/lastname);format:text;'></span>
+						</h4>
+						<div data-bind='var:order(order/bill/address1);format:text;'></div>
+						<div data-bind='var:order(order/bill/address2);format:text;'></div>
+						<div>
+							<span data-bind='var:order(order/bill/city);format:text;posttext:, ;'></span>
+							<span data-bind='var:order(order/bill/region);format:text;posttext:. ;'></span>
+							<span data-bind='var:order(order/bill/postal);format:text; defaultVar:order(data.bill_int_zip);'></span>
+						</div>
+						<div data-bind='var:order(order/bill/countrycode);format:text;'></div>
+						</address>
+						
+						<address class='shipAddress floatLeft'>
+						<h4>
+							<span data-bind='var:order(order/ship/firstname);format:text; pretext:Ship To: ;'></span>
+							<span data-bind='var:order(order/ship/lastname);format:text;'></span>
+						</h4>
+						<div data-bind='var:order(order/ship/address1);format:text;'></div>
+						<div data-bind='var:order(order/ship/address2);format:text;'></div>
+						<div>
+							<span data-bind='var:order(order/ship/city);format:text;posttext:, ;'></span>
+							<span data-bind='var:order(order/ship/region);format:text;posttext:. ;'></span>
+							<span data-bind='var:order(order/ship/postal);format:text; defaultVar:order(data.ship_int_zip);'></span>
+						</div>
+						<div data-bind='var:order(order/ship/countrycode);format:text;'></div>
+						</address>
 					</td>
 				</tr>
 				</table>
@@ -569,11 +570,11 @@ note - on the write review button, var:product(product) will use the pid, not th
 If this gets recycled, test in order history after making changes.
 -->
 <table>
-	<tr id='chkoutInvoiceItemTemplate' class='padMargBorderBottom'>
+	<tr id='chkoutInvoiceItemTemplate' class='padMargBorderBottom chkoutInvoiceItemTemplate'>
 	
 	<td>
 	<div class='prodThumbContainer marginRight'>
-	<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='55' height='55' />
+	<img src='blank.gif' class='prodThumb' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='115' height='115' />
 	</div>
 	</td>
 	
@@ -582,6 +583,7 @@ If this gets recycled, test in order history after making changes.
 <div class='infoContainer'>
 
 	<h3 data-bind='var: product(prod_name); format:text; '></h3>
+	<div class='stid cartManufact' data-bind='var: product(zoovy:prod_mfg); format:text; extension:myRIA; pretext: <h4>Manufactured by: &nbsp</h4>;'></div>
 	<div class='ztable_row_small stid' data-bind='var: product(sku); format:text; className: stid; pretext: Sku: ;'></div>
 
 	<div>
@@ -593,15 +595,15 @@ If this gets recycled, test in order history after making changes.
 	<div class='ztable_row_small prodOptions' data-bind='var: product(%options); format:selectedOptionsDisplay;'></div>
 
 
-
+	<button class='writeReview floatRight' data-app-event="store_crm|showWriteReview" data-bind='var:product(product);format:assignAttribute; attribute:data-pid;'>Write Review</button>	
 	
 </div>
 	</td>
-	
+	<!--
 	<td class='alignRight hide4Print'>
 	<button class='writeReview' data-app-event="store_crm|showWriteReview" data-bind='var:product(product);format:assignAttribute; attribute:data-pid;'>Write Review</button>	
 	</td>
-
+	-->
 
 	</tr>
 </table>

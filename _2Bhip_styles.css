@@ -2986,7 +2986,7 @@ CHECKOUT
 .checkoutFormContainer {
 	height: auto;
 	width: 940px;
-	margin: 10px auto;
+	margin: 60px auto;
 	padding: 0;
 }
 
@@ -3008,7 +3008,7 @@ CHECKOUT
 .ui-icon.ui-icon-help.creditCardCVVIcon {background-image: url("images/ui-icons_006099_256x240.png");}
 
 
-.checkoutSuccess {font-family: "Open Sans";}
+.checkoutSuccess {font-family: "Open Sans"; margin: -60px 0 0 0;}
 
 .checkoutFormContainer .chkoutSteps {
 	height: 50px;
@@ -3071,6 +3071,64 @@ CHECKOUT
 	text-align: center;
 	margin: 0 0 10px 0;
 	padding: 10px 0 0 0; 
+}
+
+.invoiceContainer .padMargBorderBottom {
+	
+	margin: 10px 0;
+}
+
+.chkoutInvoiceItemTemplate {
+	text-align: left;
+	border-bottom: 2px dotted #000000;
+}
+
+.chkoutInvoiceItemTemplate .prodThumbContainer {
+	width: 125px;
+	margin: 30px 0 0 0;
+}
+
+.chkoutInvoiceItemTemplate .prodThumbContainer img:hover {
+	height: 115px;
+	width: 115px;
+	margin: 5px 12px 0 0;
+	padding: 0 0 0 5px;
+}
+
+.chkoutInvoiceItemTemplate .infoContainer h3 {color: #006099; margin: 30px 0 0 0;}
+.chkoutInvoiceItemTemplate .infoContainer button.writeReview.ui-state-default {
+	width: 130px;
+	padding: 0;
+	margin: 0;
+}
+
+.checkoutAddressRow .shipPrice h5 {
+	font-family: Bangers;
+	font-size: 22px; 
+	font-weight: normal;
+	margin: 5px 0;
+}
+
+.checkoutAddressRow .shipPrice .cents {
+	font-size: 50%;
+	vertical-align: super;
+}
+
+.checkoutAddressRow .billAddress {
+	margin: 0 20px 0 0;
+	text-align: left;
+}
+
+.checkoutAddressRow .shipAddress {
+	padding: 0 20px;
+	border-left: 2px dotted #000000;
+	text-align: left;
+}
+
+.checkoutAddressRow .shipAddress h4, .checkoutAddressRow .billAddress h4 {
+	font-family: Bangers;
+	font-size: 22px; 
+	font-weight: normal;
 }
 
 .cartRight .ocmThirdParty  {margin: 10px 0 0 0;}
