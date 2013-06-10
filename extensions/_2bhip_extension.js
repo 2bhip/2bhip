@@ -261,6 +261,26 @@ var store_filter = function() {
 					$dropdown.stop().animate({"height":height+"px"}, 1000);
 				},
 				
+				showDropDownClick : function($tag){
+				app.u.dump('showClick');
+				if(this.showDropdown($tag)){
+					$('.dropdown',$tag).unbind('click');
+					$('.dropdown',$tag).click(function(event){event.stopPropagation()});
+					$tag.attr('onClick','').unbind('click');
+					setTimeout(function(){$('body').click(function(){
+						app.ext.cubworld.a.hideDropDownClick($tag);
+						});}, 500);
+					}
+				},
+				
+				hideDropDownClick : function($tag){
+				app.u.dump('hideClick');
+				if(this.hideDropdown($tag)){
+					$tag.click(function(){app.ext.cubworld.a.showDropDownClick($(this));});
+					$('body').unbind('click');
+					}
+				},
+				
 				//ANIMATE RETRACTION OF MAIN CATEGORY DROPDOWN MENU
 				hideDropdown : function ($tag) {
 					$(".dropdown", $tag).stop().animate({"height":"0px"}, 1000);
