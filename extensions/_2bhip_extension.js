@@ -253,37 +253,59 @@ var store_filter = function() {
 				
 				//SHOW MAIN CATEGORY DROPDOWN MENU
 				showDropdown : function ($tag) {
-					var $dropdown = $(".dropdown", $tag);
-					var height = 387;
-					$dropdown.children().each(function(){
-						$(this).outerHeight(true);
-					});
-					$dropdown.stop().animate({"height":height+"px"}, 1000);
+					if(!$tag.data('timeoutNoShow') || $tag.data('timeoutNoShow')=== "false") {
+						var $dropdown = $(".dropdown", $tag);
+						var height = 0;
+						$dropdown.show();
+						if($dropdown.data('height')) {
+							height = $dropdown.data('height');
+						} else {
+							$dropdown.children().each(function(){
+								height += $(this).outerHeight();
+							});
+						}
+						if($tag.data('timeout') && $tag.data('timeout') !== "false") {
+							clearTimeout($tag.data('timeout'));
+							$tag.data('timeout','false');
+						}
+						$dropdown.stop().animate({"height":height+"px"}, 1000);
+						return true;
+						}
+					return false;
 				},
 				
 				showDropDownClick : function($tag){
-				app.u.dump('showClick');
-				if(this.showDropdown($tag)){
-					$('.dropdown',$tag).unbind('click');
-					$('.dropdown',$tag).click(function(event){event.stopPropagation()});
-					$tag.attr('onClick','').unbind('click');
-					setTimeout(function(){$('body').click(function(){
-						app.ext.cubworld.a.hideDropDownClick($tag);
-						});}, 500);
-					}
+					app.u.dump('showClick');
+					if(this.showDropdown($tag)){
+						$('.dropdown',$tag).unbind('click');
+						$('.dropdown',$tag).click(function(event){event.stopPropagation()});
+						$tag.attr('onClick','').unbind('click');
+						setTimeout(function(){$('body').click(function(){
+						app.u.dump('set Hide...');
+							app.ext.store_filter.a.hideDropdownClick($tag);
+							});}, 500);
+						}
 				},
 				
-				hideDropDownClick : function($tag){
+				hideDropdownClick : function($tag){
 				app.u.dump('hideClick');
 				if(this.hideDropdown($tag)){
-					$tag.click(function(){app.ext.cubworld.a.showDropDownClick($(this));});
+					app.u.dump('set Show...');
+					$tag.click(function(){app.ext.store_filter.a.showDropdownClick($(this));});
 					$('body').unbind('click');
 					}
 				},
 				
 				//ANIMATE RETRACTION OF MAIN CATEGORY DROPDOWN MENU
 				hideDropdown : function ($tag) {
-					$(".dropdown", $tag).stop().animate({"height":"0px"}, 1000);
+					app.u.dump('hiding');
+					$(".dropdown", $tag).stop().animate({"height":"0px"}, 500);
+					if($tag.data('timeout') && $tag.data('timeout')!== "false"){
+						$tag.data('timeout')
+						$tag.data('timeout','false');
+					}
+					$tag.data('timeout',setTimeout(function(){$(".dropdown", $tag).hide();},500));
+					return true;
 				},
 				
 				//IMEDIATE RETRACTION OF MAIN CATEGORY DROPDOWN MENU WHEN HEADER IS CLICKED
