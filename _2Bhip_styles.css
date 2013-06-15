@@ -25,9 +25,9 @@ body {
 }
 
 .appPreviewImage {
-	border: 3px solid #000;
+	border: 3px solid #000000;
 	border-radius: 120px;
-	box-shadow: 0px 0px 15px #fff;
+	box-shadow: 0px 0px 15px #ffffff;
 	margin: 30px;
 }
 
@@ -47,17 +47,17 @@ a {
 }
 
 .border {
-	border: 2px solid #000;	
+	border: 2px solid #000000;	
 }
 
 .borderRound {
 	border-radius: 5px;
-	border: 2px solid #000;	
+	border: 2px solid #000000;	
 }
 
 .borderRoundThin {
 	border-radius: 5px;
-	border: 1px solid #000;	
+	border: 1px solid #000000;	
 }
 
 .borderRight {
@@ -65,7 +65,7 @@ a {
 	border-bottom-left-radius: 0px;
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
-	border: 2px solid #000;
+	border: 2px solid #000000;
 }
 
 .borderLeft {
@@ -73,7 +73,7 @@ a {
 	border-bottom-left-radius: 5px;
 	border-top-right-radius: 0px;
 	border-bottom-right-radius: 0px;
-	border: 2px solid #000;
+	border: 2px solid #000000;
 }
 
 .bangersFont {
@@ -88,10 +88,10 @@ a {
 	font-family: Bangers;
 	font-size: 22px;
 	text-shadow: 
-		-1px -1px 0 #000,
-    	1px -1px 0 #000,
-   		-1px 3px 0 #000,
-    	1px 1px 0 #000;  
+		-1px -1px 0 #000000,
+    	1px -1px 0 #000000,
+   		-1px 3px 0 #000000,
+    	1px 1px 0 #000000;  
 	text-align: left;
 	font-weight:normal;
 }
@@ -101,30 +101,30 @@ a {
 	font-family: Bangers;
 	font-size: 36px;
 	text-shadow: 
-		-1px -1px 0 #000,
-    	1px -1px 0 #000,
-   		-1px 4px 0 #000,
-    	1px 1px 0 #000;  
+		-1px -1px 0 #000000,
+    	1px -1px 0 #000000,
+   		-1px 4px 0 #000000,
+    	1px 1px 0 #000000;  
 	text-align: center;
 	font-weight:normal;
 }
 
 .openSansFont {
-	color: #000;
+	color: #000000;
 	font-family: "Open Sans";	
 	font-size: 15px;
 	font-weight:normal;
 }
 
 .openSansBoldFont {
-	color: #000;
+	color: #000000;
 	font-family: "Open Sans";	
 	font-size: 15px;
 	font-weight: bold;
 }
 
 .openSansXBoldFont {
-	color: #000;
+	color: #000000;
 	font-family: "Open Sans";	
 	font-size: 15px;
 	font-weight: 900;
@@ -132,10 +132,10 @@ a {
 
 .textShadow {
 	text-shadow: 
-		-1px -1px 0 #000,
-    	1px -1px 0 #000,
-   		-1px 3px 0 #000,
-    	1px 1px 0 #000;  	
+		-1px -1px 0 #000000,
+    	1px -1px 0 #000000,
+   		-1px 3px 0 #000000,
+    	1px 1px 0 #000000;  	
 }
 
 .indentText {
@@ -157,7 +157,7 @@ a {
 	font-family: "Open Sans";
 	font-weight: bold;
 	font-size: 15px;
-	color: #000;
+	color: #000000;
 }
 
 .button {
@@ -362,7 +362,7 @@ HEADER
 }
 
 .mainNavBarLinks:hover {
-	text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 4px 0 #fff, 1px 1px 0 #fff;
+	text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 4px 0 #fff, 1px 1px 0 #ffffff;
 	color: #006099;
 }
 
@@ -392,7 +392,7 @@ END HEADER
 
 .nav {
 	width: 85px;
-	color: #fff;
+	color: #ffffff;
 	float: left;
 	position:relative;
 	height: 48px;
@@ -402,7 +402,7 @@ END HEADER
 }
 
 .nav:hover {
-	border: 2px solid #000;	
+	border: 2px solid #000000;	
 	background-color: background: #00b7f5; /* Old browsers */
 	background: -moz-linear-gradient(top, #00093d 0%, #00b7f5 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#00093d), color-stop(100%,#00b7f5)); /* Chrome,Safari4+ */
@@ -461,7 +461,7 @@ END HEADER
 	left: 311px;
 	height: 287px;
 	width: 4px;
-	background-color: #000;
+	background-color: #000000;
 }
 
 .giantPipeBS3 {
@@ -470,7 +470,7 @@ END HEADER
 	left: 261px;
 	height: 287px;
 	width: 4px;
-	background-color: #000;
+	background-color: #000000;
 }
 
 .dropdownPopular2 {
@@ -530,7 +530,7 @@ END HEADER
 .dropdownViewAllButton.dropdownViewAllButton3 {right: 61px;}
 
 .ddListHead.dd {
-	color: #000;
+	color: #000000;
 	font-size: 18px;
 	line-height: 30px;
 	margin: 0px 10px 10px 0px;
@@ -551,7 +551,7 @@ END HEADER
 }
 
 .dropdown a {color: #006099;}
-.dropdown a:hover {color: #fff; text-shadow: -1px -1px 0 #006099, 1px -1px 0 #006099, -1px 2px 1px #006099, 1px 1px 0 #006099;}
+.dropdown a:hover {color: #ffffff; text-shadow: -1px -1px 0 #006099, 1px -1px 0 #006099, -1px 2px 1px #006099, 1px 1px 0 #006099;}
 .dropdown div:first-of-type {margin-top: 0px;}
 .dropdown div {margin-bottom: 10px;}
 
@@ -604,8 +604,8 @@ FOOTER
 	position: relative;
 	height: 70px;
 	width: 1020px;
-	border-top: 2px solid #000;
-	border-bottom: 2px solid #000;
+	border-top: 2px solid #000000;
+	border-bottom: 2px solid #000000;
 	clear: both;
 }
 
@@ -685,8 +685,8 @@ FOOTER
 .footerLinksContainer {
 	height: 350px;
 	width: 1020px;
-	border-top: 2px solid #000;
-	border-bottom: 2px solid #000;
+	border-top: 2px solid #000000;
+	border-bottom: 2px solid #000000;
 	background-color: #006099;	
 }
 
@@ -727,7 +727,7 @@ FOOTER
 	position: relative;
 	height: 60px;
 	width: 1020px;
-	background-color: #000;
+	background-color: #000000;
 }
 
 .creditContainer {
@@ -877,7 +877,7 @@ HOME PAGE
 	line-height: 50px;
 	text-align: center;
 	font-size: 20px;
-	background-color: #000;
+	background-color: #000000;
 	z-index: 2;
 }
 
@@ -888,7 +888,7 @@ HOME PAGE
 	height: 50px;
 	width: 220px;
 	line-height: 50px;
-	color: #000;
+	color: #000000;
 	text-align: center;
 	font-size: 30px;
 	z-index: 1;
@@ -903,7 +903,7 @@ HOME PAGE
 	line-height: 50px;
 	text-align: center;
 	font-size: 20px;
-	background-color: #000;
+	background-color: #000000;
 	z-index: 2;
 }
 
@@ -972,9 +972,9 @@ HOME PAGE
 	background-color: #006099;
 	text-align: center;
 	line-height: 26px;
-	border-top: 2px solid #000;
-	border-bottom: 2px solid #000;
-	border-left: 2px solid #000;
+	border-top: 2px solid #000000;
+	border-bottom: 2px solid #000000;
+	border-left: 2px solid #000000;
 	float: right;	
 	margin-top: 80px;
 	z-index: 3;
@@ -1009,7 +1009,7 @@ HOME PAGE
 }
 
 .miscLeft H2 {
-	color: #000;
+	color: #000000;
 	font-size: 32px;
 	margin-bottom: 8px;
 }
@@ -1024,7 +1024,7 @@ HOME PAGE
 }
 
 .miscLeft a {
-	color: #000;
+	color: #000000;
 	text-decoration: underline;
 }
      	
@@ -1036,7 +1036,7 @@ HOME PAGE
 }
 
 .miscRight H2 {
-	color: #000;
+	color: #000000;
 	font-size: 32px;
 	margin-bottom: 8px;
 	text-align: center;
@@ -1062,14 +1062,14 @@ HOME PAGE
 	height: 250px;
 	width: 190px;
 	font-size: 18px;
-	color: #fff;
+	color: #ffffff;
 	float: left;
 	margin: 0px;
 	padding-left: 36px;
 }
 
 .miscList a:hover {
-	color:#000;
+	color:#000000;
 	text-shadow: -1px -1px 0 #FFFFFF, 1px -1px 0 #FFFFFF, -1px 2px 1px #FFFFFF, 1px 1px 0 #FFFFFF;
 }
 
@@ -1087,7 +1087,7 @@ HOME PAGE
 	height: 50px;
 	width: 200px;
 	line-height: 50px;
-	color: #000;
+	color: #000000;
 	text-align: center;
 	font-size: 30px;
 	background-color: #FF0; 
@@ -1095,7 +1095,7 @@ HOME PAGE
 }
 
 .miscRight H3 {
-	color: #000;
+	color: #000000;
 	font-size: 32px;
 }
 
@@ -1170,7 +1170,7 @@ PRODUCT STYLES / CAROUSELS
 	height: 26px;
 	width: 226px;
 	line-height: 27px;
-	background-color: #000;
+	background-color: #000000;
 	float: left;
 	text-align: center;
 }
@@ -1236,7 +1236,7 @@ PRODUCT STYLES / CAROUSELS
 	height: 36px;
 	width: 90px;
 	padding-bottom: 2px;
-	color: #fff;
+	color: #ffffff;
 	background-color: #006099;
 	text-align: center;
 	font-size: 19px;
@@ -1271,7 +1271,7 @@ ul.sizeVariations li.soldout {
 	left: 127px;
 	height: 47px;
 	width: 90px;
-	color: #fff;
+	color: #ffffff;
 	text-align: center;
 	font-size: 19px;
 	line-height: 36px;
@@ -1288,7 +1288,7 @@ ul.sizeVariations li.soldout {
 	left: 127px;
 	height: 47px;
 	width: 90px;
-	color: #fff;
+	color: #ffffff;
 	text-align: center;
 	font-size: 19px;
 	line-height: 36px;
@@ -1364,14 +1364,14 @@ ul.sizeVariations li.soldout {
 	margin-top: 10px;
 	text-align: center;
 	font-size: 32px;
-	color: #000;
+	color: #000000;
 }
 
 .productPrice h4 {
 	height: 40px;
 	width: 101px;
 	margin:auto;
-	color: #000;
+	color: #000000;
 	font-size: 30px;
 	line-height: 21px;
 	text-align: center;
@@ -1405,9 +1405,9 @@ ul.sizeVariations li.soldout {
 	margin: 16px 5px 16px 5px;
 	font-size: 18px; 
 	text-align: center;
-	color: #000;
+	color: #000000;
 	line-height: 28px;
-	background-color: #666;
+	background-color: #666666;
 	float: left;
 }
 
@@ -1435,13 +1435,13 @@ CATAGORY PAGE
 	height: 784px;
 	width: 940px;
 	margin: auto;
-	background-color: #fff;
+	background-color: #ffffff;
 }
 
 .filterSearchContainerPlaceholder {
 	height: auto;
 	width: auto;
-	background-color: #fff;
+	background-color: #ffffff;
 	line-height: 30px;
 }
 
@@ -1450,7 +1450,7 @@ CATAGORY PAGE
 .filterResetContainer {
 	height: 30px;
 	width: 211px;
-	background:#ccc;
+	background:#cccccc;
 	margin: 5px 0 20px;
 }
 
@@ -1464,23 +1464,23 @@ CATAGORY PAGE
 	font-weight: normal; 
 	font-size: 20px;
 	margin: 0 35px;
-	border: 2px solid #000;
+	border: 2px solid #000000;
 }
 
 .layeredSearch {
 	height: auto; 
 	width: 211px; 
-	color: #000; 
-	background-color: #ccc;
+	color: #000000; 
+	background-color: #cccccc;
 	font-size: 14px;
 }
 
 .layeredLegend {
 	height: 30px;
 	width: 100%;
-	color: #fff;
+	color: #ffffff;
 	text-indent: 7px;
-	background-color: #000;
+	background-color: #000000;
 	margin-bottom: 10px;
 	font-family: "Open Sans";
 	font-weight: 900;
@@ -1507,7 +1507,7 @@ CATAGORY PAGE
     padding: 0;
     margin: 0px 0px 0px 0px;
 	text-align:center;
-	background-color:#ccc;
+	background-color:#cccccc;
 }
 
 label.break	{display:block; margin-bottom:2px;}
@@ -1520,16 +1520,16 @@ input[type='checkbox'] + label span {
 	width: 19px; 
 	margin: -1px 4px 0px 0px;
 	vertical-align: middle;
-	background-color: #fff;
+	background-color: #ffffff;
 	cursor: pointer;
-	border: 2px solid #000;
+	border: 2px solid #000000;
 }
 
 input[type='checkbox']:checked + label span {background-color:#006099;}
 
 .fliterCheckBox {
 	border: none;
-	background: #fff;
+	background: #ffffff;
 }
 
 .catContentContainer {
@@ -1540,7 +1540,7 @@ input[type='checkbox']:checked + label span {background-color:#006099;}
 .catContentContainer h1 {
 	margin-left: 14px;
 	margin-bottom: 11px;
-	color: #000;
+	color: #000000;
 	font-size: 30px;	
 }
 
@@ -1671,7 +1671,7 @@ PRODUCT DETAIL PAGE
 	width: 65px; 
 	float: left;
 	margin: 5px;
-	border: 1px solid #000;
+	border: 1px solid #000000;
 }
 
 .thumbCarouselButtonPrev {
@@ -1705,36 +1705,36 @@ a.thumbCarouselButtonPrev span, a.thumbCarouselButtonNext span {display: none;}
 .prodSummaryContainer {
 	font-size: 14px;
  	width: 420px; 
-	color: #000;
+	color: #000000;
 	padding-right: 22px;
 }
 
 .prodSummaryContainer h1 {
 	font-size: 18px;
 	margin: 5px 0px 13px 0px;
-	color: #000;
+	color: #000000;
 }
 
 .stid h3 {
 	float: left;
-	color: #000;
+	color: #000000;
 	line-height: 15px;
 }
 
 .stid h4 {
 	float: left;
-	color: #000;
+	color: #000000;
 	line-height: 15px;
 }
 
 .prodSummaryContainer h5 {
 	font-size: 12px;
-	color: #000;
+	color: #000000;
 }
 
 .prodSummaryContainer h6 {
 	font-size: 12px;
-	color: #000;
+	color: #000000;
 }
 
 .prodReviewContainer {
@@ -1755,34 +1755,34 @@ a.thumbCarouselButtonPrev span, a.thumbCarouselButtonNext span {display: none;}
 .prodReviewContainer h1 {
 	font-size: 18px;
 	margin: 5px 0px 13px 0px;
-	color: #000;
+	color: #000000;
 	font-family: "Open Sans";
 }
 
 .prodReviewContainer h5 {
 	font-size: 12px;
-	color: #000;
+	color: #000000;
 }
 
 .prodReviewContainer h6 {
 	font-size: 12px;
-	color: #000;
+	color: #000000;
 }
 
 .prodSelectionContainer {
 	height: auto; /*618px;*/
 	width: 218px;
-	background-color: #eee;
+	background-color: #eeeeee;
 }
 
 .productShips {
 	height: 30px;
 	width: 218px;
-	color: #fff;
+	color: #ffffff;
 	font-size: 12px;
 	text-align: center;
 	line-height: 28px;
-	background-color: #000;
+	background-color: #000000;
 }
 
 .prodPriceSelection {
@@ -1809,7 +1809,7 @@ a.thumbCarouselButtonPrev span, a.thumbCarouselButtonNext span {display: none;}
 	height: 72px;
 	/*width: 118px; 118px; TS593 BAG130*/
 	margin:auto;
-	color: #000;
+	color: #000000;
 	font-size: 30px;
 	line-height: 60px;
 	text-align: center;
@@ -1825,8 +1825,8 @@ a.thumbCarouselButtonPrev span, a.thumbCarouselButtonNext span {display: none;}
 	height: 180px;
 	width: 100%;
 	background-color: #cccccc;
-	border-top: 2px solid #000;
-	border-bottom: 2px solid #000;
+	border-top: 2px solid #000000;
+	border-bottom: 2px solid #000000;
 }
 
 .sizeUL {
@@ -1846,7 +1846,7 @@ a.thumbCarouselButtonPrev span, a.thumbCarouselButtonNext span {display: none;}
 	height: 16px;
 	width: 16px;
 	margin-right: 10px;
-	background-color: #fff;
+	background-color: #ffffff;
 	float: left;
 }
 
@@ -1883,10 +1883,10 @@ a.thumbCarouselButtonPrev span, a.thumbCarouselButtonNext span {display: none;}
 	font-size: 18px;
 	margin: 0px auto 0px auto;
 	text-align: center;
-	border-top: 2px solid #000;
-	border-bottom: 2px solid #000;
+	border-top: 2px solid #000000;
+	border-bottom: 2px solid #000000;
 	padding: 15px 0px 15px 0px;
-	background-color: #CCC;
+	background-color: #cccccc;
 	font-family: "Open Sans";
 	font-weight: bold;
 }
@@ -1909,7 +1909,7 @@ a.thumbCarouselButtonPrev span, a.thumbCarouselButtonNext span {display: none;}
 	width: 36px;
 	text-align: center;
 	margin: auto;
-	border: 2px solid #000;
+	border: 2px solid #000000;
 }
 
 .prodViewerContainer .notAvailableForPurchase {
@@ -1923,7 +1923,7 @@ a.thumbCarouselButtonPrev span, a.thumbCarouselButtonNext span {display: none;}
 	height: 50px;
 	width: 180px;
 	font-size: 30px;
-	color: #000;
+	color: #000000;
 	line-height: 10px;
 	margin: 16px 18px 10px 18px;
 	padding: 0px;
@@ -1938,12 +1938,12 @@ a.thumbCarouselButtonPrev span, a.thumbCarouselButtonNext span {display: none;}
 .prodSelectSmallButtons.ui-button {
 	height: 33px;
 	font-size: 15px;
-	color: #fff;
+	color: #ffffff;
 	text-shadow: 
-		-1px -1px 0 #000,
-    	1px -1px 0 #000,
-   		-1px 3px 0 #000,
-    	1px 1px 0 #000;
+		-1px -1px 0 #000000,
+    	1px -1px 0 #000000,
+   		-1px 3px 0 #000000,
+    	1px 1px 0 #000000;
 	margin: 0 0 10px 0;
 	background: #00b7f5; /* Old browsers */
 	background: -moz-linear-gradient(top, #00b7f5 0%, #00093d 100%); /* FF3.6+ */
@@ -2050,7 +2050,7 @@ CART MODAL
 
 
 #modalCart.ui-dialog-content {
-	background: #fff;
+	background: #ffffff;
 	padding: 0.5em 1em 0.5em 0; 
 }
 
@@ -2076,23 +2076,23 @@ CART MODAL
 	width: 381px;
 	margin: 0;
 	float: left;
-	border-right: 2px solid #000;
+	border-right: 2px solid #000000;
 	margin: 0 0 0 17px;
 	padding: 0 0 0 19px;
 	text-align: center;
 	background: #006099;
 	line-height: 40px;
-	color: #fff;
+	color: #ffffff;
 }
 
 .cartHeaderCountsBlocks {
 	height: 40px;
 	width: 77px;
-	border-right: 2px solid #000;
+	border-right: 2px solid #000000;
 	text-align: center;
 	background: #006099;
 	line-height: 40px;
-	color: #fff;
+	color: #ffffff;
 }
 
 #cartStuffList {
@@ -2105,7 +2105,7 @@ CART MODAL
 	width: 640px !important;
 	margin: 0 14px 5px 14px;
 	padding: 0 3px 5px 3px;
-	border-bottom: 3px dotted #777;
+	border-bottom: 3px dotted #777777;
 }
 
 #cartStuffList li {
@@ -2113,7 +2113,7 @@ CART MODAL
 	width: 640px !important;
 	margin: 5px 14px 5px 14px;
 	padding: 5px 3px 5px 3px;
-	border-bottom: 3px dotted #777;
+	border-bottom: 3px dotted #777777;
 }
 
 .cartSummaryTotalsContainer {
@@ -2139,7 +2139,7 @@ CART MODAL
 }
 
 .cartManufact h4 {
-	color: #000;
+	color: #000000;
 	font-weight: bold;
 	line-height: 27px;
 }
@@ -2148,14 +2148,14 @@ CART MODAL
 	width: 390px;
 	margin: 0;
 	float: left;
-	border-right: 2px solid #000;
+	border-right: 2px solid #000000;
 	padding: 10px 10px 0 0;
 }
 
 .cartCountsBlocks {
 	height: 100%;
 	width: 77px;
-	border-right: 2px solid #000;
+	border-right: 2px solid #000000;
 	padding: 10px 0 0 0;
 }
 
@@ -2164,7 +2164,7 @@ CART MODAL
 }
 
 .carItemsUnitPriceBlock span2 {
-	color: #ccc;
+	color: #cccccc;
 	font-size: 18px;
 }
 
@@ -2203,7 +2203,7 @@ CART MODAL
 .cartRemoveButtonContainer button:nth-child(1) {
 	height: 15px;
 	width: 95px;
-	color: #ccc;
+	color: #cccccc;
 	text-align: center;
 	line-height: 30px;
 	border: none;
@@ -2240,9 +2240,9 @@ CART MODAL
 
 .cartPriceHeader {
 	height: 20px;
-	background-color: #000;
+	background-color: #000000;
 	font-size: 12px;
-	color: #fff;
+	color: #ffffff;
 	text-align: center;
 }
 
@@ -2250,11 +2250,11 @@ CART MODAL
 	height: auto;
 	width: 216px;
 	margin: 1px 1px 1px 6px;	
-	background-color: #000;
+	background-color: #000000;
 }
 
 .cartSummaryContainer {
-	background-color: #000;
+	background-color: #000000;
 }
 
 .cartSummaryContainer.cartSumCont {
@@ -2267,7 +2267,7 @@ CART MODAL
 	height: auto; /*85px;*/
 	width: 100%;
 	margin: 0px;
-	background-color: #eee;	
+	background-color: #eeeeee;	
 }
 
 .cartShipMethods {
@@ -2275,7 +2275,7 @@ CART MODAL
 }
 
 .cartPrice {
-	color: #000;
+	color: #000000;
 	font-size: 48px;
 	text-align: center;
 	line-height: 50px;
@@ -2283,7 +2283,7 @@ CART MODAL
 }
 
 .youSaved  {
-	color: #000;
+	color: #000000;
 	text-align: center;
 	font-size: 14px;
 	line-height: 10px;
@@ -2292,15 +2292,15 @@ CART MODAL
 .discCodeContainer {
 	height: 40px;
 	width: 100%;
-	border-top: 2px solid #000;
+	border-top: 2px solid #000000;
 	background-color: #006099;
 	text-align: center;
 	font-size: 20px;
 }
 
 .shipOptions.shipOptCont {
-	border-top: 2px solid #000;
-	border-bottom: 2px solid #000;
+	border-top: 2px solid #000000;
+	border-bottom: 2px solid #000000;
 	background-color: #ffcc00;
 	padding: 0 0 5px 9px;
 }
@@ -2319,7 +2319,7 @@ CART MODAL
 .checkoutSection {
 	height: 70px;
 	width: 100%;
-	background-color: #eee;
+	background-color: #eeeeee;
 }
 
 .checkoutButtonsContainer.checkButtCont span {
@@ -2366,7 +2366,7 @@ ABOUT PAGE
 
 .aboutLeft h1 {
 	font-size: 30px;
-	color: #000;
+	color: #000000;
 	margin-bottom: 10px;
 }
 
@@ -2378,7 +2378,7 @@ ABOUT PAGE
 }
 
 .aboutLeft a {
-	color: #000;
+	color: #000000;
 	text-decoration: underline;
 }
 
@@ -2416,7 +2416,7 @@ ABOUT PAGE
 	width: 200px;
 	margin: auto;
 	font-size: 18px;
-	color: #000;
+	color: #000000;
 	text-align: center;
 }
 
@@ -2431,7 +2431,7 @@ ABOUT PAGE
 	margin: 5px 0px 5px 0px;
 	text-align: center;
 	font-size: 18px;
-	color: #000;
+	color: #000000;
 	line-height: 30px;
 }
 
@@ -2451,7 +2451,7 @@ ABOUT PAGE
 }
 
 .specialtyText h3 {
-	color: #000;
+	color: #000000;
 	font-size: 16px;
 	margin: 20px 0px 5px 0px;
 }
@@ -2483,7 +2483,7 @@ ABOUT PAGE
 }
 
 .sideline span {
-	color: #000;
+	color: #000000;
 }
 
 .aboutNav {
@@ -2511,8 +2511,8 @@ ABOUT PAGE
 .aboutNavBottom {
 	height: auto;
 	width: 216px;
-	background-color: #000;
-	color: #fff;
+	background-color: #000000;
+	color: #ffffff;
 	text-align: center;
 	font-size: 12px;
 	line-height: 20px;
@@ -2589,7 +2589,7 @@ CONTACT CONTENT
 
 .contactLegend {
 	font-size: 18px;
-	color: #000;
+	color: #000000;
 }
 
 .contForm, #contactForm input {
@@ -2601,7 +2601,7 @@ CONTACT CONTENT
 .contForm, #contactForm input[type="submit"] {
 	height: 30px;
 	width: 130px;
-	color: #000;
+	color: #000000;
 	font-size: 18px;
 }
 
@@ -2626,7 +2626,7 @@ SHIPPING CONTENT
 }
 
 .shippingArtic h1 {
-	color: #000;
+	color: #000000;
 	font-size: 30px;
 	margin-bottom: 15px;
 	padding-top: 30px;
@@ -2644,18 +2644,18 @@ SHIPPING CONTENT
 }
 
 .shippingArtic h2 {
-	color: #000;
+	color: #000000;
 	font-size: 18px;
 	margin-top: 12px;
 }
 
 .shippingArtic h3 {
-	color: #000;
+	color: #000000;
 	font-size: 18px;
 }
 
 .shippingArtic h4 {
-	color: #000;
+	color: #000000;
 	font-size: 22px;
 }
 
@@ -2677,7 +2677,7 @@ FAQ CONTENT
 }
 
 .faqArtic h1 {
-	color: #000;
+	color: #000000;
 	font-size: 30px;
 	margin-bottom: 15px;
 	padding-top: 16px;
@@ -2713,7 +2713,7 @@ NEWSLETTER SIGN UP CONTENT / FORM
 }
 
 .newsletterSubscribeFormCheckbox {
-	color: #000;
+	color: #000000;
 }
 
 .newsletterSubscribeFormSubmitContianer {
@@ -2738,7 +2738,7 @@ CHARACTERS AND TITLES CONTENT
 	height: 35px;
 	width: 97%;
 	font-family: Bangers;
-	color: #fff;
+	color: #ffffff;
 	text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 4px 0 #000000, 1px 1px 0 #000000;
 	border: 1px solid #000000;
 	border-radius: 5px; 
@@ -2826,7 +2826,7 @@ WISH LIST
 }
 
 .wishList h1 {
-	color: #000;
+	color: #000000;
 	font-size: 30px;
 	margin: 10px 0px 10px 0px;
 }
@@ -2899,8 +2899,8 @@ SEARCH RESULTS
 .resultsHeader.clearfix {
 	height: auto;
 	width: 928px;
-	background-color: #000;
-	color: #fff;
+	background-color: #000000;
+	color: #ffffff;
 	margin-left: -6px;
 	top: -1px;
 	text-align:center;
