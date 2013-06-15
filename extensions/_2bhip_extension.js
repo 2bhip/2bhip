@@ -251,7 +251,7 @@ var store_filter = function() {
 					}, 250);
 				}, //END showDescription
 				
-				//SHOW MAIN CATEGORY DROPDOWN MENU
+				//SHOW MAIN CATEGORY DROPDOWN MENU (HOVER ACTION TO BE USED W/ CLICK ACTION BELOW)
 				showDropdown : function ($tag) {
 					if(!$tag.data('timeoutNoShow') || $tag.data('timeoutNoShow')=== "false") {
 						var $dropdown = $(".dropdown", $tag);
@@ -274,28 +274,6 @@ var store_filter = function() {
 					return false;
 				},
 				
-				showDropDownClick : function($tag){
-					app.u.dump('showClick');
-					if(this.showDropdown($tag)){
-						$('.dropdown',$tag).unbind('click');
-						$('.dropdown',$tag).click(function(event){event.stopPropagation()});
-						$tag.attr('onClick','').unbind('click');
-						setTimeout(function(){$('body').click(function(){
-						app.u.dump('set Hide...');
-							app.ext.store_filter.a.hideDropdownClick($tag);
-							});}, 500);
-						}
-				},
-				
-				hideDropdownClick : function($tag){
-				app.u.dump('hideClick');
-				if(this.hideDropdown($tag)){
-					app.u.dump('set Show...');
-					$tag.click(function(){app.ext.store_filter.a.showDropdownClick($(this));});
-					$('body').unbind('click');
-					}
-				},
-				
 				//ANIMATE RETRACTION OF MAIN CATEGORY DROPDOWN MENU
 				hideDropdown : function ($tag) {
 					app.u.dump('hiding');
@@ -312,8 +290,31 @@ var store_filter = function() {
 				clickDropdown : function ($tag) {
 					$(".dropdown", $tag).stop().animate({"height":"0px"}, 0);
 				},
-		
-	
+				
+				//CONVERTS MAIN CATEGORY DROPDOWN MENU TO USE CLICK TO OPEN
+				showDropDownClick : function($tag){
+					app.u.dump('showClick');
+					if(this.showDropdown($tag)){
+						$('.dropdown',$tag).unbind('click');
+						$('.dropdown',$tag).click(function(event){event.stopPropagation()});
+						$tag.attr('onClick','').unbind('click');
+						setTimeout(function(){$('body').click(function(){
+						app.u.dump('set Hide...');
+							app.ext.store_filter.a.hideDropdownClick($tag);
+							});}, 500);
+						}
+				},
+				
+				//CONVERTS MAIN CATEGORY DROPDOWN MENU TO USE CLICK TO CLOSE
+				hideDropdownClick : function($tag){
+				app.u.dump('hideClick');
+				if(this.hideDropdown($tag)){
+					app.u.dump('set Show...');
+					$tag.click(function(){app.ext.store_filter.a.showDropdownClick($(this));});
+					$('body').unbind('click');
+					}
+				},
+				
 			execFilter : function($form,$page){
 
 app.u.dump("BEGIN store_filter.a.filter");
@@ -445,18 +446,12 @@ else	{
 			onlyBasePrice : function($tag,data) {
 				var msrp = data.value['%attribs']['zoovy:prod_msrp'];
 				//app.u.dump('*** '+msrp);
-				//$tag.text(msrp);
 				if (typeof msrp === 'undefined' || msrp <= 0) {
-					app.u.dump('*** comparison worked');
-					//$tag.removeClass('fixedBasePrice');
 					$tag.children('.basePrice').addClass('percentBasePrice');
 				}	
 				else {
-					//$tag.removeClass('percentBasePrice');
 					$tag.children('.basePrice').addClass('fixedBasePrice');
-					app.u.dump('*** comparison did not work');
 				}
-				//$tag.text(msrp);
 			},
 			
 			// used to display product image 1 thru X where X is the last image. checks spot 1 - 50 (30 maybe?)
@@ -595,6 +590,9 @@ return filters;
 				
 				
 //CAROUSEL FUNCTIONS
+						// THE CAROUSELS FOR THE HOMEPAGE SHOULD HAVE THE ONCOMPLETES MOVED TO THE INIT
+						// ONSUCCESS FUNCTION SO THAT THERE IS ONLY ONE FOR ALL. MUCH LIKE THE PRODUCT 
+						// PAGE CAROUSELS BELOW THE HOMEPAGE CAROUSELS ARE SET UP.
 			runCarousels : function() {
 				app.rq.push(['templateFunction','homepageTemplate','onCompletes',function(p){
 					//mainBanner Carousel horizontal sliders
@@ -644,11 +642,6 @@ return filters;
 							height 	 : 305,
 							items    : 4,
 							scroll   : 4,
-							/*auto     : {
-										delay : 1,
-										items : 4,
-										duration : 9
-							}*/
 							auto	 : false,
 							prev : {
 								button : "#homeCarButtonPrev1",
@@ -820,32 +813,7 @@ return filters;
 					setTimeout(carousel8, 2000); 
 					
 			}
-					
-				
-				
-					/*MOVED TO _2Bhip_extension.js
-					var description = $('.prodSummaryContainer');
-					var review = $('.prodReviewContainer');
-					var seeRevButton = $('.prodSelectSeeReviewButton');
-					var seeDescButton = $('.prodSelectSeeDescriptionButton');
-					$(review).hide();
-					$(seeDescButton).hide();
-					$(seeRevButton).click(function() {
-						$(description).hide();
-						$(review).show();
-						$(seeRevButton).hide();
-						$(seeDescButton).show();
-					});
-					$(seeDescButton).bind('click', function() {
-						$(review).hide();
-						$(description).show();
-						$(seeDescButton).hide();
-						$(seeRevButton).show();
-					});*/
-					
 
-			
-				
 			}, //u [utilities]
 
 //app-events are added to an element through data-app-event="extensionName|functionName"
