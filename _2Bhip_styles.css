@@ -1600,7 +1600,6 @@ input[type='checkbox']:checked + label span {background-color:#006099;}
 .expandButton {
 	height: 30px; 
 	width: 100px;
-	/*background-color: #FFCC00;*/
 	border: 2px solid #000000;
 	border-radius: 5px;
 	color: #000000;
@@ -1618,7 +1617,6 @@ input[type='checkbox']:checked + label span {background-color:#006099;}
 .collapseButton {
 	height: 30px; 
 	width: 100px;
-	/*background-color: #006099;*/
 	border: 2px solid #000000;
 	border-radius: 5px;
 	color: #ffffff;
@@ -1807,7 +1805,6 @@ a.thumbCarouselButtonPrev span, a.thumbCarouselButtonNext span {display: none;}
 
 .prodPriceSelection h4 {
 	height: 72px;
-	/*width: 118px; 118px; TS593 BAG130*/
 	margin:auto;
 	color: #000000;
 	font-size: 30px;
@@ -1861,7 +1858,7 @@ a.thumbCarouselButtonPrev span, a.thumbCarouselButtonNext span {display: none;}
 }
 
 .prodCartSelection {
-	height: auto; /*486px;*/
+	height: auto;
 	width: 100%;
 	background-color: #eeeeee;
 }
@@ -1973,17 +1970,7 @@ a.thumbCarouselButtonPrev span, a.thumbCarouselButtonNext span {display: none;}
 	width: 180px;
 }
 
-.prodSelectWriteReviewButton.ui-button {
-	width: 180px;
-	/*background: #666666; /* Old browsers */
-	/*background: -moz-linear-gradient(top, #666666 0%, #020202 100%); /* FF3.6+ */
-	/*background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#666666), color-stop(100%,#020202)); /* Chrome,Safari4+ */
-	/*background: -webkit-linear-gradient(top, #666666 0%,#020202 100%); /* Chrome10+,Safari5.1+ */
-	/*background: -o-linear-gradient(top, #666666 0%,#020202 100%); /* Opera 11.10+ */
-	/*background: -ms-linear-gradient(top, #666666 0%,#020202 100%); /* IE10+ */
-	/*background: linear-gradient(to bottom, #666666 0%,#020202 100%); /* W3C */
-	/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#666666', endColorstr='#020202',GradientType=0 ); /* IE6-9 */
-}
+.prodSelectWriteReviewButton.ui-button {width: 180px;}
 
 .ui-widget-anymessage {
 	position: relative;
@@ -1991,17 +1978,7 @@ a.thumbCarouselButtonPrev span, a.thumbCarouselButtonNext span {display: none;}
 	font-family: "Open Sans";
 	font-size: 14px;
 }
-/*
-.prodCartSelection span {
-	font-family: Bangers;
-	text-align: center;
-	margin: 0 0 0 5px;
-	width: 100%;
-	height: 100px;
-	font-size: 15px;
-	color: #BE0000;
-}
-*/
+
 
 /*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 END PRODUCT DETAILS PAGE
@@ -2850,17 +2827,6 @@ WISH LIST
 
 .wishlistLi h6 {}
 
-/*
-#wishListContents, .ui-tabs-panel.ui-widget-content.ui-corner-bottom {
-	height: auto;
-	width: 500px;
-}
-
-#listsContainer, .ui-tabs-nav.ui-helper-reset.ui-helper-clearfix.ui-widget-header.ui-corner-all {
-	height: 50px;
-	width: 680px;
-}
-*/
 #prodlistBuyerList_wishlist_container {
 	height: auto;
 	width: 680px;
@@ -2877,12 +2843,6 @@ WISH LIST
 .cartItemsLeftBlock .prodThumbContainer {
 	margin: 0 10px 0 0;
 }
-
-/*#prodlistBuyerList_wishlist, .listStyleNone.clearfix.noPadOrMargin.lineItemProdlist, .clearfix:after {
-	clear: none;
-	height: 200px;
-	width: 680px;
-}*/
 
 
 /**************************************************************************
@@ -2938,27 +2898,6 @@ SEARCH RESULTS
 }
 
 .productList .productListTemplateResults {height:215px;}
-/*
-.resultsProdList {height:100%; width:950px; margin:auto;}
-.resultsProductListContainer, .slider-range, .ui-slider, .ui-slider-horizontal, .ui-widget, .ui-widget-content, .ui-corner-all {
-	height: auto;
-	width: 80%;
-	margin: -1px 40px -5px 40px;
-}
-
-/*
-li[data-templateid="productListTemplateResults"]
-*/
-/*
-.resultsProductListContainer .ui-button .ui-widget .ui-state-default .ui-corner-all .ui-button-icon-only .prevPageButton, .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default .ui-widget .ui-widget  .resultsHeader {
-	position:relative;
-	left:0px;
-}
-
-.resultsProductListContainer .ui-button .ui-widget .ui-state-default .ui-corner-all .ui-button-icon-only .nextPageButton, .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{
-	position:relative;
-	left:120px;
-}*/
 
 
 /*************************************************************************************
