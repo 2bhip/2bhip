@@ -1,0 +1,19 @@
+1. product page sizes to radio button style
+2. product page magic zoom, zoom area bigger
+3. product image hover state? magic zoom
+4. product page previously viewed shouldn't show item on first page land.
+5. product page this item has no reviews be the first if no reviews
+6. product page addthis icons need to be cusomized
+7. search size feature
+8. Header drop downs to click
+9. header backgroung yellow more like yellow nav bar
+10. home page main banner carousel button needs to be applied to each banner
+11. home page "TOP SELLING TITLES" Adventure Time Link, View all Titles Link
+12. home page "ABOUT 2 BHIP" need info from customer
+13. Footer links check them all
+14. category description hiding/showing
+15. Category/product lists under filter: "Did you know" section
+16. cart savings calculation
+17. Need filter locations and what each filter should sort with
+18. Need final category list for All Characters and Titles page
+19. Need final category and item list for homepage dropdowns
