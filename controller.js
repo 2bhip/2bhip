@@ -1829,26 +1829,35 @@ app.u.makeImage({"name":"","w":150,"h":150,"b":"FFFFFF","class":"prodThumb","tag
 			var url, tag;
 			// alert(a.lib);		// uncomment then go into media library for some really wonky behavior 
 		
-		//default height and width to blank. setting it to zero or NaN is bad for IE.
+				//default height and width to blank. setting it to zero or NaN is bad for IE.
+// *** 201338 Added better handling for when no parameters are set, as well as a bug fix where a necessary '-' character was being removed
+// from a valid use case. -mc
 			if(a.h == null || a.h == 'undefined' || a.h == 0)
 				a.h = '';
 			if(a.w == null || a.w == 'undefined' || a.w == 0)
 				a.w = '';
+			if(a.b == null || a.b == 'undefined')
+				a.b = '';
 // *** 201318 -> new url for media library.			
 //			url = location.protocol === 'https:' ? 'https:' : 'http:';  //determine protocol
 //			url += '\/\/static.zoovy.com\/img\/'+a.lib+'\/';
 //In an admin session, the config.js isn't loaded. The secure domain is set as a global var when a domain is selected or can be retrieved from adminDomainList
 			if(app.vars.thisSessionIsAdmin)	{
-				url = 'https:\/\/'+(app.vars.https_domain || app.ext.admin.a.getDataForDomain(app.vars.domain,'https'))+"\/"
+				url = 'https:\/\/'+(app.vars.https_domain || app.data['adminDomainList']['media-host']);
+				//make sure domain ends in a /
+				if(url.charAt(url.length) != '/')	{
+					url+="\/"
+					}
 				url += "media\/img\/"+app.vars.username+"\/";
 				}
 			else	{
 				url = location.protocol === 'https:' ? zGlobals.appSettings.https_app_url : zGlobals.appSettings.http_app_url;
 				url += "media\/img\/"+app.vars.username+"\/";
 				}
-		
-			if((a.w == '') && (a.h == ''))
+				
+			if(!a.w && !a.h && !a.b && !a.m){
 				url += '-';
+				}
 			else	{
 				if(a.w)	{
 					url += 'W'+a.w+'-';
@@ -1860,12 +1869,13 @@ app.u.makeImage({"name":"","w":150,"h":150,"b":"FFFFFF","class":"prodThumb","tag
 					url += 'B'+a.b+'-';
 					}
 				url += a.m;
-				}
-			if(url.charAt(url.length-1) == '-')	{
-				url = url.slice(0,url.length-1); //strip trailing - because it isn't stricly 'compliant' with media lib specs.
+// *** 201338 Moved up into the else statement so that the valid case of no parameters produces the expected URL containing "/-/" instead of "//" -mc
+				if(url.charAt(url.length-1) == '-')	{
+					url = url.slice(0,url.length-1); //strip trailing - because it isn't stricly 'compliant' with media lib specs.
+					}
 				}
 			url += '\/'+a.name;
-		
+
 //			app.u.dump(" -> URL: "+url);
 			
 			if(a.tag == true)	{
