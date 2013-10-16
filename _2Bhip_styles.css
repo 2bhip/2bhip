@@ -391,7 +391,7 @@ END HEADER
 /*NAV BAR DROP DOWN**************************************************************/
 
 .nav {
-	width: 85px;
+	width: 81px;
 	color: #ffffff;
 	float: left;
 	position:relative;
@@ -399,6 +399,7 @@ END HEADER
 	overflow: show;
 	font-size: 13px;
 	text-align: center;
+	border: 2px solid transparent;
 }
 
 .nav:hover {
