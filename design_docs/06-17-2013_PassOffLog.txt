@@ -1,4 +1,4 @@
-1. product page sizes to radio button style
+1. product page sizes to radio button style  ***Done
 2. product page magic zoom, zoom area bigger
 3. product image hover state? magic zoom
 4. product page previously viewed shouldn't show item on first page land.
