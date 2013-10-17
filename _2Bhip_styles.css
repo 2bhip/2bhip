@@ -1768,6 +1768,14 @@ a.thumbCarouselButtonPrev span, a.thumbCarouselButtonNext span {display: none;}
 	color: #000000;
 }
 
+.prodReviewContainer .noReviewsButton {
+	padding: 7px;
+	margin:10px 0 0 0;
+	border: 1px solid #000000;
+	float: right;
+	clear: both;
+}
+
 .prodSelectionContainer {
 	height: auto; /*618px;*/
 	width: 218px;

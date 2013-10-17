@@ -1507,6 +1507,12 @@ this will likely become more flexible in the future. ###
         <h5 class='stid openSansBoldFont' data-bind='var: product(zoovy:prod_mfg); format:text; extension:myRIA; pretext: <h4>Manufactured by: &nbsp</h4>;'></h5>
         <h6 class='stid openSansBoldFont' data-bind='var: product(pid); format:text; pretext: <h3>SKU Item Number: &nbsp</h3>;'></h6>
         <h5 data-bind='var: product(zoovy:prod_mfgid); format:text; pretext: Mfg ID: ;'></h5>
+		<div data-bind="var: reviews(reviews.@reviews); format:hideIfSet;">
+			<div class='floatRight bangersMedFont'><br>No one has reveiwed this yet...<br></div>
+			<button class='noReviewsButton blueGradient bangersFont ui-button-text ui-button ui-corner-all' onClick='app.ext.store_crm.u.showReviewFrmInModal({"pid":$(this).attr("data-pid"),"templateID":"reviewFrmTemplate"});' data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>
+				...be the first
+			</button>
+		</div>
 		<ul class='listStyleNone clearfix productReviewsList' id='prodViewerReviews' data-bind="var: reviews(reviews.@reviews); format:processList; loadsTemplate:productReviewsTemplateDetail;"></ul>
     </td>
     	

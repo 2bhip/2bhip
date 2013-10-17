@@ -1,8 +1,8 @@
 1. product page sizes to radio button style  ***Done
 2. product page magic zoom, zoom area bigger
 3. product image hover state? magic zoom
-4. product page previously viewed shouldn't show item on first page land.
-5. product page this item has no reviews be the first if no reviews
+4. product page previously viewed shouldn't show item on first page land. ***Done
+5. product page this item has no reviews be the first if no reviews. ***Done
 6. product page addthis icons need to be cusomized
 7. search size feature
 8. Header drop downs to click
