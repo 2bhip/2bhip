@@ -1876,7 +1876,7 @@ a.thumbCarouselButtonPrev span, a.thumbCarouselButtonNext span {display: none;}
 }
 
 .sizeSelector {
-	height: 59px;
+	height: auto;
 	width: 100%;
 	font-size: 18px;
 	margin: 0px auto 0px auto;
@@ -1887,6 +1887,11 @@ a.thumbCarouselButtonPrev span, a.thumbCarouselButtonNext span {display: none;}
 	background-color: #cccccc;
 	font-family: "Open Sans";
 	font-weight: bold;
+}
+
+.radioContainer label {
+	display: block;
+	float: left;
 }
 
 .prodSelectItemField  input {

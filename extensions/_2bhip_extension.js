@@ -108,10 +108,14 @@ var store_filter = function() {
 				onSuccess : function() {
 					if(app.ext.myRIA && app.ext.myRIA.template){
 						app.u.dump("_2bhip Extension Started");
-						app.ext.myRIA.template.cartTemplate.onCompletes.push(function(P) {     
-							var $context =  $('#cartTemplate');
-							$('.qtyInput', $context).spinner();
-						});
+						
+						$.extend(handlePogs.prototype,app.ext.store_filter.variations);
+							app.u.dump('*** Extending Pogs');
+						
+						//app.ext.myRIA.template.cartTemplate.onCompletes.push(function(P) {     
+							//var $context =  $('#cartTemplate');
+							//$('.qtyInput', $context).spinner();
+						//});
 
 					} else	{
 						setTimeout(function(){app.ext.store_filter.callbacks.startExtension.onSuccess()},250);
@@ -822,7 +826,37 @@ return filters;
 //while no naming convention is stricly forced, 
 //when adding an event, be sure to do off('click.appEventName') and then on('click.appEventName') to ensure the same event is not double-added if app events were to get run again over the same template.
 		e : {
-			} //e [app Events]
+			}, //e [app Events]
+			
+			
+			
+		variations : {
+			
+			renderOptionSelectAsRADIO : function(pog) {
+				
+				var pogid = pog.id;
+
+				var $parentDiv = $("<span class='radioContainer' \/>");
+				
+			//display ? with hint in hidden div IF ghint is set
+				if(pog['ghint']) {$parentDiv.append(pogs.showHintIcon(pogid,pog['ghint']))}
+				var i = 0;
+				var len = pog['options'].length;
+				while (i < len) {
+					$parentDiv.append($("<label \/>").append($('<input>').attr({type: "radio", name: pogid, value: pog['options'][i]['v']}).after(pog['options'][i]['prompt'])));
+					i++;
+					}
+				return $parentDiv;
+			},
+			
+			xinit : function(){
+				this.addHandler("type","select","renderOptionSelectAsRADIO");
+				app.u.dump("--- RUNNING XINIT");
+			}
+			
+		} //variations
+			
+			
 		} //r object.
 	return r;
 	}
