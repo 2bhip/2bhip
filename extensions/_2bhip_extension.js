@@ -86,6 +86,7 @@ var store_filter = function() {
 					app.u.dump("_2bhip showDescription() run");
 				app.rq.push(['templateFunction','productTemplate','onCompletes',function(infoObj) {
 					var $context = $(app.u.jqSelector('#'+infoObj.parentID)); //grabs the currently loaded product page (to ignore previously loaded / invisible ones)
+					app.ext.store_filter.u.showRecentlyViewedItems($context);
 					app.ext.store_filter.u.runProductCarousel($context);
 				}]);
 				return true;
@@ -482,7 +483,25 @@ else	{
 //any functions that are recycled should be here.
 		u : {
 
-			
+			showRecentlyViewedItems : function($context) {
+				var $container = $('.templateCarouselContainer', $context);
+				
+				if(app.ext.myRIA.vars.session.recentlyViewedItems.length == 1) {
+					//$('.recentEmpty',$container).show();
+					//if(app.ext.myRIA.vars.session.recentlyViewedItems == ) {
+					
+					//}
+					app.u.dump('There aint nuthin in there ma!');
+				}
+					//otherwise, show them what they've seen
+				else {
+					//$('.recentEmpty',$container).hide();
+					$('ul',$container).empty(); //empty product list;
+					$($container.anycontent({data:app.ext.myRIA.vars.session})); //build product list
+					app.u.dump('SESSION VAR:'); app.u.dump(app.ext.myRIA.vars.session.recentlyViewedItems);
+					app.u.dump(app.ext.myRIA.vars.session.recentlyViewedItems.length);
+				}
+			},
 			
 			guessOptionSize : function (text) {
 //				app.u.dump('text: '+text);

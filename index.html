@@ -1673,8 +1673,9 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 		</div>
 		<div class='templateCarouselContainer border'>
 			<div>
-				<ul data-bind="var: session(session.recentlyViewedItems); format: productList; extension: store_prodlist; loadsTemplate: productListTemplate; hide_summary:1; hide_pagination:1; withReviews:1;  withVariations:1; withInventory:1;" class='prodDetailTempCarousel2 listStyleNone fluidList clearfix noPadOrMargin productList'</ul>
-		   <!-- <ul class='prodDetailTempCarousel2 listStyleNone fluidList clearfix noPadOrMargin productList' data-bind="var: product(zoovy:related_products); format:productList; extension:store_prodlist; loadsTemplate: productListTemplateCustom; hide_pagination:false; hide_summary:true; withReviews:1;"></ul> -->
+				<ul data-bind="var: session(recentlyViewedItems); format: productList; extension: store_prodlist; loadsTemplate: productListTemplate; hide_summary:1; hide_pagination:1; withReviews:1;  withVariations:1; withInventory:1;" class='prodDetailTempCarousel2 listStyleNone fluidList clearfix noPadOrMargin productList'</ul>
+			<!-- <ul data-bind="var: session(session.recentlyViewedItems); format: productList; extension: store_prodlist; loadsTemplate: productListTemplate; hide_summary:1; hide_pagination:1; withReviews:1;  withVariations:1; withInventory:1;" class='prodDetailTempCarousel2 listStyleNone fluidList clearfix noPadOrMargin productList'</ul>
+		    <ul class='prodDetailTempCarousel2 listStyleNone fluidList clearfix noPadOrMargin productList' data-bind="var: product(zoovy:related_products); format:productList; extension:store_prodlist; loadsTemplate: productListTemplateCustom; hide_pagination:false; hide_summary:true; withReviews:1;"></ul> -->
 			</div>
 		</div>
 	</div>
