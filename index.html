@@ -1673,6 +1673,7 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 			<div class='templateHeadAllProds border bangersMedFont'>VIEW ALL PRODUCTS</div>
 		</div>
 		<div class='templateCarouselContainer border'>
+			<div class='recentEmpty displayNone'>This list is empty,<br>check out some more items and fill it up!</div>
 			<div>
 				<ul data-bind="var: session(recentlyViewedItems); format: productList; extension: store_prodlist; loadsTemplate: productListTemplate; hide_summary:1; hide_pagination:1; withReviews:1;  withVariations:1; withInventory:1;" class='prodDetailTempCarousel2 listStyleNone fluidList clearfix noPadOrMargin productList'</ul>
 			<!-- <ul data-bind="var: session(session.recentlyViewedItems); format: productList; extension: store_prodlist; loadsTemplate: productListTemplate; hide_summary:1; hide_pagination:1; withReviews:1;  withVariations:1; withInventory:1;" class='prodDetailTempCarousel2 listStyleNone fluidList clearfix noPadOrMargin productList'</ul>

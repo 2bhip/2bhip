@@ -502,18 +502,16 @@ else	{
 			},
 
 			showRecentlyViewedItems : function($context) {
-				var $container = $('.templateCarouselContainer', $context);
+				var $container = $('.productRecentCarousel', $context);
 				
+					//if no recently viewed items, tell them the sky is blue
 				if(app.ext.myRIA.vars.session.recentlyViewedItems.length == 0) {
-					//$('.recentEmpty',$container).show();
-					//if(app.ext.myRIA.vars.session.recentlyViewedItems == ) {
-					
-					//}
+					$('.recentEmpty',$container).show();
 					app.u.dump('There aint nuthin in there ma!');
 				}
 					//otherwise, show them what they've seen
 				else {
-					//$('.recentEmpty',$container).hide();
+					$('.recentEmpty',$container).hide();
 					$('ul',$container).empty(); //empty product list;
 					$($container.anycontent({data:app.ext.myRIA.vars.session})); //build product list
 					app.u.dump('SESSION VAR:'); app.u.dump(app.ext.myRIA.vars.session.recentlyViewedItems);

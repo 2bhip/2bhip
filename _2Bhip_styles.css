@@ -1986,6 +1986,15 @@ a.thumbCarouselButtonPrev span, a.thumbCarouselButtonNext span {display: none;}
 	font-size: 14px;
 }
 
+.recentEmpty {
+	height: auto;
+	width: 100%;
+	font-family: bangers;
+	font-size: 2em;
+	margin:10% 0 0 0;
+	text-align: center;
+}
+
 
 /*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 END PRODUCT DETAILS PAGE
