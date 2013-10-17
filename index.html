@@ -1643,7 +1643,7 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 <!--PRODUCT DETAILS PAGE CAROUSELS-->
 <div class='seperator'></div>
 
-	<div class='displayNone'>
+	<div class='displayNone' data-bind="var: product(zoovy:related_products); format:showIfSet;">
 		<div class='templateHeadContainer'>
 			<div class='templateHeadDesc border bangersMedFont'>SIMILAR PRODUCTS...</div>
 			<div class='templateMiddleContainer'>
@@ -1655,7 +1655,7 @@ It's done this way because ID's hard coded into template are bad mojo (templates
 		</div>
 		<div class='templateCarouselContainer border'>
 			<div>									 
-				<ul class='prodDetailTempCarousel1 listStyleNone fluidList clearfix noPadOrMargin productList' data-bind="var: product(zoovy:related_products); format:productList; extension:store_prodlist; loadsTemplate: productListTemplateCustom; hide_pagination:false; hide_summary:true; withReviews:1;"></ul>
+				<ul class='prodDetailTempCarousel1 listStyleNone fluidList clearfix noPadOrMargin productList' data-bind="var: product(zoovy:related_products); format:productList; extension:store_prodlist; loadsTemplate: productListTemplateCustom; hide_pagination:true; hide_summary:true; withReviews:1;"></ul>
 			</div>
 		</div>
 	</div>

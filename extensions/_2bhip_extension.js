@@ -490,6 +490,8 @@ else	{
 //any functions that are recycled should be here.
 		u : {
 			
+	//called on depart from prod page to add item to recently viewed items list
+	//changed this from quickstart's addition at page load to prevent items from showing in list on first page visit
 			addRecentlyViewedItems : function($context, pid) {
 					//pid is infoObj.pid passed from onDeparts
 				if($.inArray(pid,app.ext.myRIA.vars.session.recentlyViewedItems) < 0)	{
@@ -499,25 +501,25 @@ else	{
 					//the item is already in the list. move it to the front.
 					app.ext.myRIA.vars.session.recentlyViewedItems.splice(0, 0, app.ext.myRIA.vars.session.recentlyViewedItems.splice(app.ext.myRIA.vars.session.recentlyViewedItems.indexOf(pid), 1)[0]);
 					}
-			},
-
+			},//addRecentlyViewedItems
+				
+				//populates carousel if items in recently viewed list, shows placeholder text if list empty
 			showRecentlyViewedItems : function($context) {
 				var $container = $('.productRecentCarousel', $context);
 				
 					//if no recently viewed items, tell them the sky is blue
 				if(app.ext.myRIA.vars.session.recentlyViewedItems.length == 0) {
 					$('.recentEmpty',$container).show();
-					app.u.dump('There aint nuthin in there ma!');
+					//app.u.dump('There aint nuthin in there ma!');
 				}
 					//otherwise, show them what they've seen
 				else {
 					$('.recentEmpty',$container).hide();
 					$('ul',$container).empty(); //empty product list;
 					$($container.anycontent({data:app.ext.myRIA.vars.session})); //build product list
-					app.u.dump('SESSION VAR:'); app.u.dump(app.ext.myRIA.vars.session.recentlyViewedItems);
-					app.u.dump(app.ext.myRIA.vars.session.recentlyViewedItems.length);
+					//app.u.dump('SESSION VAR:'); app.u.dump(app.ext.myRIA.vars.session.recentlyViewedItems);
 				}
-			},
+			},//showRecentlyViewedItems
 			
 			guessOptionSize : function (text) {
 //				app.u.dump('text: '+text);
