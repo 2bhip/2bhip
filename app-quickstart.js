@@ -882,14 +882,16 @@ for legacy browsers. That means old browsers will use the anchor to retain 'back
 				switch(pageType)	{
 
 					case 'product':
-	//add item to recently viewed list IF it is not already in the list.				
-						if($.inArray(infoObj.pid,app.ext.myRIA.vars.session.recentlyViewedItems) < 0)	{
-							app.ext.myRIA.vars.session.recentlyViewedItems.unshift(infoObj.pid);
-							}
-						else	{
-							//the item is already in the list. move it to the front.
-							app.ext.myRIA.vars.session.recentlyViewedItems.splice(0, 0, app.ext.myRIA.vars.session.recentlyViewedItems.splice(app.ext.myRIA.vars.session.recentlyViewedItems.indexOf(infoObj.pid), 1)[0]);
-							}
+	//add item to recently viewed list IF it is not already in the list.
+//THIS MOVED TO _2bhip_extension.js TO ALLOW ITEMS TO BE ADDED ON DEPART IN ORDER TO PREVENT AN ITEM 
+//FROM BEING SHOWN ON ITS OWN PAGE (UNLESS IT IS NOT THE FIRST VISIT TO THAT PRODUCT'S PAGE)	
+//						if($.inArray(infoObj.pid,app.ext.myRIA.vars.session.recentlyViewedItems) < 0)	{
+//							app.ext.myRIA.vars.session.recentlyViewedItems.unshift(infoObj.pid);
+//							}
+//						else	{
+//							//the item is already in the list. move it to the front.
+//							app.ext.myRIA.vars.session.recentlyViewedItems.splice(0, 0, app.ext.myRIA.vars.session.recentlyViewedItems.splice(app.ext.myRIA.vars.session.recentlyViewedItems.indexOf(infoObj.pid), 1)[0]);
+//							}
 						infoObj.parentID = app.ext.myRIA.u.showProd(infoObj);
 						break;
 	

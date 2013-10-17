@@ -89,6 +89,13 @@ var store_filter = function() {
 					app.ext.store_filter.u.showRecentlyViewedItems($context);
 					app.ext.store_filter.u.runProductCarousel($context);
 				}]);
+				
+				app.rq.push(['templateFunction','productTemplate','onDeparts',function(infoObj) {
+					var $context = $(app.u.jqSelector('#'+infoObj.parentID));
+					var pid = infoObj.pid;
+					app.ext.store_filter.u.addRecentlyViewedItems($context, pid);
+				}]);
+				
 				return true;
 				/*var r = false; //return false if extension won't load for some reason (account config, dependencies, etc).
 
@@ -482,11 +489,22 @@ else	{
 //utilities are typically functions that are exected by an event or action.
 //any functions that are recycled should be here.
 		u : {
+			
+			addRecentlyViewedItems : function($context, pid) {
+					//pid is infoObj.pid passed from onDeparts
+				if($.inArray(pid,app.ext.myRIA.vars.session.recentlyViewedItems) < 0)	{
+					app.ext.myRIA.vars.session.recentlyViewedItems.unshift(pid);
+					}
+				else	{
+					//the item is already in the list. move it to the front.
+					app.ext.myRIA.vars.session.recentlyViewedItems.splice(0, 0, app.ext.myRIA.vars.session.recentlyViewedItems.splice(app.ext.myRIA.vars.session.recentlyViewedItems.indexOf(pid), 1)[0]);
+					}
+			},
 
 			showRecentlyViewedItems : function($context) {
 				var $container = $('.templateCarouselContainer', $context);
 				
-				if(app.ext.myRIA.vars.session.recentlyViewedItems.length == 1) {
+				if(app.ext.myRIA.vars.session.recentlyViewedItems.length == 0) {
 					//$('.recentEmpty',$container).show();
 					//if(app.ext.myRIA.vars.session.recentlyViewedItems == ) {
 					
