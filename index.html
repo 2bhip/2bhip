@@ -1453,9 +1453,9 @@ this will likely become more flexible in the future. ###
 	<td class='imageContainer'>
         <!--	<img src='blank.gif' id='bobWasHere' class='prodBigImage' data-bind='var: product(zoovy:prod_image1); format: magicZoomPlus; extension: magicToolBox_mzp;' width='340' height='340' /> -->
         
-		<div data-bind="useParentData:true; format:imageZoom; extension:tools_zoom;" data-mainimage='main'; height='296' width='296' zheight='800' zwidth='800' theight='50' twidth='50'>
-			
-
+		<div data-bind="useParentData:true; format:imageZoom; extension:tools_zoom;" data-thumbclass='thumbCarousel'; height='296' width='296' zheight='800' zwidth='800' theight='50' twidth='50'>
+			<a href='#' class='thumbCarouselButtonPrev displayNone'><span>prev</span></a>
+			<a href='#' class='thumbCarouselButtonNext displayNone'><span>next</span></a>
 		</div>
 		
 <!--        <div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).attr("data-pid")});' class='pointer clearfix'  data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>        
@@ -1466,8 +1466,7 @@ this will likely become more flexible in the future. ###
 			<div>
 				<ul class='thumbCarousel' data-bind='var: product(pid); format: productImages; extension: store_filter;'></ul>    
 			</div>
-			<a href='#' class='thumbCarouselButtonPrev displayNone'><span>prev</span></a>
-			<a href='#' class='thumbCarouselButtonNext displayNone'><span>next</span></a>
+			
 		</div>
 -->
 		<div class="socialLinks">

@@ -1665,12 +1665,16 @@ PRODUCT DETAIL PAGE
 	list-style: none;
 }
 
-.thumbCarousel li {
+.thumbCarousel li, .thumbImageCont div {
 	height: 65px;
 	width: 65px; 
 	float: left;
 	margin: 5px;
 	border: 1px solid #000000;
+}
+
+.thumbImageCont div img {
+	padding: 7px;
 }
 
 .thumbCarouselButtonPrev {
