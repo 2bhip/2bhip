@@ -1452,15 +1452,15 @@ this will likely become more flexible in the future. ###
 <tr>
 	<td class='imageContainer'>
         <!--	<img src='blank.gif' id='bobWasHere' class='prodBigImage' data-bind='var: product(zoovy:prod_image1); format: magicZoomPlus; extension: magicToolBox_mzp;' width='340' height='340' /> -->
-<!--        
-		<div data-bind="useParentData:true; format:imageZoom; extension:tools_zoom;">
+        
+		<div data-bind="useParentData:true; format:imageZoom; extension:tools_zoom;" data-mainimage='main'; height='296' width='296' zheight='800' zwidth='800' theight='50' twidth='50'>
 			
-			<div data-mainimage></div>
+
 		</div>
--->		
-        <div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).attr("data-pid")});' class='pointer clearfix'  data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>        
+		
+<!--        <div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).attr("data-pid")});' class='pointer clearfix'  data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>        
            <!-- <img src='blank.gif' class='prodBigImage border' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='296' height='296' /> -->
-            <img src='blank.gif' class='prodBigImage border MagicZoomPlus' data-bind='var: product(zoovy:prod_image1); format: magicZoomPlus; extension: magicToolBox_mzp;' width='296' height='296' />
+<!--            <img src='blank.gif' class='prodBigImage border MagicZoomPlus' data-bind='var: product(zoovy:prod_image1); format: magicZoomPlus; extension: magicToolBox_mzp;' width='296' height='296' />
         </div>
 		<div class='additionalImageContainer'>
 			<div>
@@ -1469,7 +1469,7 @@ this will likely become more flexible in the future. ###
 			<a href='#' class='thumbCarouselButtonPrev displayNone'><span>prev</span></a>
 			<a href='#' class='thumbCarouselButtonNext displayNone'><span>next</span></a>
 		</div>
-
+-->
 		<div class="socialLinks">
 			<div class="addthis_toolbox addthis_default_style alignRight">
 				<a class="addthis_button_facebook_like" fb:like:layout="button_count">	</a>

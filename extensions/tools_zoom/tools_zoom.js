@@ -53,20 +53,58 @@ var tools_zoom = function() {
 		renderFormats : {
 		
 			imageZoom : function($tag, data) {
-				app.u.dump('data.value:'); app.u.dump(data.value); 
-				var image = data.value['zoovy:prod_image1'];
+				app.u.dump('data.value:'); app.u.dump(data.value);
+
+					//create containers for image & thumbnails
+				var $mainImageCont = ('<div class="mainImageCont"></div>');
+				var $thumbImageCont = ('<div class="thumbImageCont"></div>');
+				$tag.append($mainImageCont).append($thumbImageCont);
+				$mainImageCont = $('.mainImageCont',$tag);
+				$thumbImageCont = $('.thumbImageCont',$tag);
+				
+				
+					//get bgcolor and image path, create main product image
+				var bgcolor = data.bindData.bgcolor ? data.bindData.bgcolor : 'ffffff'
+				var image = data.value['%attribs']['zoovy:prod_image1'];
 				var imageURL = app.u.makeImage({
 					"name" : image,
-					"w" : 296,
-					"h" : 296,
-					"b" : "FFFFFF"
+					"w" : $tag.attr('width'),
+					"h" : $tag.attr('height'),
+					"b" : bgcolor
 				}); 
-			
-				$mainImage = $('div', $tag).hasAttr('data-mainimage');
-				app.u.dump('mainImage'); app.u.dump($mainImage); 
-				//$($mainImage, $tag).append(imageURL);
-			
-			}
+				$mainImageCont.append('<img src="'+imageURL+'" />');
+				
+				
+					//create zoom image
+				var zoomURL = app.u.makeImage({
+					"name" : image,
+					"w" : $tag.attr('zwidth'),
+					"h" : $tag.attr('zheight'),
+					"b" : bgcolor
+				});
+					//enable zoom on main image
+				$mainImageCont.zoom(
+					{
+						url	:	zoomURL,
+						on:'mouseover'
+					}
+				);
+				
+				
+					//get product images, up to 6, and create thumbnails. Skip first image (it's head is already big enough)
+				var thumbName; //recycled in loop
+				var tImages = ''; 
+				for (var i = 2; i < 8; i +=1) {
+					thumbName = data.value['%attribs']['zoovy:prod_image'+i];
+					
+					if(app.u.isSet(thumbName)) {
+						app.u.dump(" -> "+i+": "+thumbName);
+						//tImages += ('<li><img src="'+app.u.makeImage({'tag':0,'name':thumbName,'w':$tag.attr('twidth'),'h':$tag.attr('theight'),'b':bgcolor})+'" /></li>');
+						$thumbImageCont.append('<img src="'+app.u.makeImage({'tag':0,'name':thumbName,'w':$tag.attr('twidth'),'h':$tag.attr('theight'),'b':bgcolor})+'" />');
+					}
+				}
+
+			} //imageZoom
 		
 			}, //renderFormats
 ////////////////////////////////////   UTIL [u]   \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
