@@ -57,8 +57,10 @@ var tools_zoom = function() {
 
 					//create containers for image & thumbnails
 				var $mainImageCont = ('<div class="mainImageCont"></div>');
+				var $zoomImageCont = $tag.data('zoomclass') ? ('<div class="'+$tag.data('zoomclass')+'"></div>') : $mainImageCont;
+				var $zoomImageClass = $tag.data('zoomclass') ? '.'+$tag.data('zoomclass') : '.mainImageCont';
 				var $thumbImageCont = ('<div class="thumbImageCont '+$tag.data('thumbclass')+'"></div>');
-				$tag.append($mainImageCont).append($thumbImageCont);
+				$tag.append($mainImageCont).append($thumbImageCont).append($zoomImageCont);
 				$mainImageCont = $('.mainImageCont',$tag);
 				$thumbImageCont = $('.thumbImageCont',$tag);
 				
@@ -89,7 +91,8 @@ var tools_zoom = function() {
 					{
 						url			: zoomURL,
 						on			: 'mouseover',
-						duration	: 500
+						duration	: 500,
+						target		: ''+$zoomImageClass
 					}
 				);
 				

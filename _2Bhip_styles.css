@@ -1350,7 +1350,7 @@ ul.sizeVariations li.soldout {
 	padding: 0;
 	margin: 0;
 }
-*/
+*/.resultsZoom {width:210px; height:360px; position:absolute; border:1px solid #000;}
 .productDesc {
 	text-align: center;
 	font-size: 10px;
