@@ -322,7 +322,7 @@ var store_filter = function() {
 				app.u.dump('hideClick');
 				if(this.hideDropdown($tag)){
 					app.u.dump('set Show...');
-					$tag.click(function(){app.ext.store_filter.a.showDropdownClick($(this));});
+					$tag.click(function(){app.ext.store_filter.a.showDropDownClick($(this));});
 					$('body').unbind('click');
 					}
 				},
