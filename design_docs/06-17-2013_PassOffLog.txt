@@ -3,10 +3,10 @@
 3. product image hover state? magic zoom
 4. product page previously viewed shouldn't show item on first page land. ***Done
 5. product page this item has no reviews be the first if no reviews. ***Done
-6. product page addthis icons need to be cusomized
+6. product page addthis icons need to be cusomized *** Done (pinterest may not work)
 7. search size feature
 8. Header drop downs to click
-9. header backgroung yellow more like yellow nav bar
+9. header backgroung yellow more like yellow nav bar ***Done
 10. home page main banner carousel button needs to be applied to each banner
 11. home page "TOP SELLING TITLES" Adventure Time Link, View all Titles Link
 12. home page "ABOUT 2 BHIP" need info from customer
