@@ -1694,6 +1694,13 @@ PRODUCT DETAIL PAGE
 	padding: 7px;
 }
 
+.thumbCarouselButtonCont {
+	position: relative;
+	top: 300px;
+	left: 0;
+	z-index: 1;
+}
+
 .thumbCarouselButtonPrev {
 	height: 75px;
 	width: 35px; 

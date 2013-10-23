@@ -831,7 +831,7 @@ return filters;
 					//Thumbnail Carousel on Product Details page under main product image
 					var carousel8;
 						function foo8(){ $(".thumbCarousel").carouFredSel({
-							width    : 225,
+							width    : 296,
 							height 	 : 75,
 							items    : 3,
 							scroll   : 1,

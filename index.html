@@ -1408,7 +1408,6 @@ remember to NOT put the button inside the 'onclick' container or two events will
 <button class='productQuickviewButton borderRound bangersMedFont pointer quickView displayNone' onClick="quickView('product',{'templateID':'productTemplateQuickView','pid':$(this).closest('[data-pid]').attr('data-pid')});">Quickview</button>   
         <div class='prodThumbContainer'>
 		<div data-bind="useParentData:true; format:imageZoom; extension:tools_zoom; isElastic:1;" data-zoomclass='resultsZoom'; height='105' width='180' zheight='210' zwidth='360'></div>
-		
 		<!-- <img src='blank.gif' class='prodThumb' data-bind='var: product(images); format:imageURL;isElastic:1;bgcolor:ffffff;' width='180' height='105' /> -->
 		</div>
 
@@ -1466,9 +1465,11 @@ this will likely become more flexible in the future. ###
 	<td class='imageContainer'>
         <!--	<img src='blank.gif' id='bobWasHere' class='prodBigImage' data-bind='var: product(zoovy:prod_image1); format: magicZoomPlus; extension: magicToolBox_mzp;' width='340' height='340' /> -->
         
-		<div data-bind="useParentData:true; format:imageZoom; extension:tools_zoom; isThumbs:1;" data-thumbclass='thumbCarousel'; height='296' width='296' zheight='800' zwidth='800' theight='50' twidth='50'>
-			<a href='#' class='thumbCarouselButtonPrev displayNone'><span>prev</span></a>
-			<a href='#' class='thumbCarouselButtonNext displayNone'><span>next</span></a>
+		<div data-bind="useParentData:true; format:imageZoom; extension:tools_zoom; isThumbs:1;" data-thumbclass='thumbCarousel' height='296' width='296' zheight='800' zwidth='800' theight='50' twidth='50'>
+			<div class='thumbCarouselButtonCont'>
+				<a href='#' class='thumbCarouselButtonPrev displayNone'><span>prev</span></a>
+				<a href='#' class='thumbCarouselButtonNext displayNone'><span>next</span></a>
+			</div>
 		</div>
 		
 <!--        <div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).attr("data-pid")});' class='pointer clearfix'  data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>        
