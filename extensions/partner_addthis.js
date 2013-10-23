@@ -70,7 +70,7 @@ var partner_addthis = function() {
 /*2BHIP*/					$(app.ext.partner_addthis.vars.selector, $('#productTemplate_'+app.u.makeSafeHTMLId(P.pid))).append(
 								//	'<div id="socialLinks" class="addthis_toolbox addthis_default_style">'
 									'<div id="socialLinks" class="addthis_toolbox">'
-								+		'<div class="custom_images"'
+								+		'<div class="custom_images">'
 								+			'<a class="addthis_button_facebook_like" fb:like:layout="button_count">'
 								+				'<img src="images/facebook-icon_36x39.png" width="36" height="39" alt="Share to Facebook" />'
 								+			'</a>'
