@@ -68,17 +68,20 @@ var partner_addthis = function() {
 							//To Customize the look and feel of the share icons, see here: http://support.addthis.com/customer/portal/articles/381238-addthis-toolbox
 							//Note: this also includes using custom share icons.
 /*2BHIP*/					$(app.ext.partner_addthis.vars.selector, $('#productTemplate_'+app.u.makeSafeHTMLId(P.pid))).append(
-									'<div id="socialLinks" class="addthis_toolbox addthis_default_style">'
-								+		'<a class="addthis_button_facebook_like" fb:like:layout="button_count">'
-								+			'<img src="images/facebook-icon_36x39.png" />'
-								+		'</a>'
-								+		'<a class="addthis_button_tweet">'
-								+			'<img src="images/twitter-icon_36x39.png" />'
-								+		'</a>'
-								+		'<a class="addthis_button_pinterest_pinit">'
-								+			'<img src="images/pintrest-icon_36x39.png" />'
-								+		'</a>'
-								+		'<a class="addthis_counter addthis_pill_style"></a>'
+								//	'<div id="socialLinks" class="addthis_toolbox addthis_default_style">'
+									'<div id="socialLinks" class="addthis_toolbox">'
+								+		'<div class="custom_images"'
+								+			'<a class="addthis_button_facebook_like" fb:like:layout="button_count">'
+								+				'<img src="images/facebook-icon_36x39.png" width="36" height="39" alt="Share to Facebook" />'
+								+			'</a>'
+								+			'<a class="addthis_button_tweet">'
+								+				'<img src="images/twitter-icon_36x39.png" width="36" height="39" alt="Share to Twitter" />'
+								+			'</a>'
+								+			'<a class="addthis_button_pinterest_pinit">'
+								+				'<img src="images/pintrest-icon_36x39.png" width="36" height="39" alt="Share to Pinterest" />'
+								+			'</a>'
+								+			'<a class="addthis_counter addthis_pill_style"></a>'
+								+		'</div>'
 								+	'</div>');
 							
 							//Set URL+title for most sharing code
