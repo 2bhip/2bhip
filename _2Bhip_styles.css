@@ -1710,6 +1710,13 @@ a.thumbCarouselButtonPrev span, a.thumbCarouselButtonNext span {display: none;}
 	margin: 0 10px;
 }
 
+.socialLinks a.addthis_button_pinterest_pinit.at300b span.at_PinItButton {
+	height: 39px;
+	width: 36px;
+	background-image: url(images/pintrest-icon_36x39.png) !important;
+	margin: 0 10px;
+}
+
 .prodSummaryContainer {
 	font-size: 14px;
  	width: 420px; 
