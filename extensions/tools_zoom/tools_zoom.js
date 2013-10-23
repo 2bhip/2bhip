@@ -65,7 +65,8 @@ var tools_zoom = function() {
 				
 					//get bgcolor and image path, create main product image
 				var bgcolor = data.bindData.bgcolor ? data.bindData.bgcolor : 'ffffff'
-				var image = data.value['%attribs']['zoovy:prod_image1'];
+				app.u.dump('data.bindData'); app.u.dump(data.bindData);
+				var image = data.bindData.isElastic ? data.value.images[0] : data.value['%attribs']['zoovy:prod_image1'];
 				//$tag.attr('data-imgsrc',image);
 				var imageURL = app.u.makeImage({
 					"name" 	: image,
@@ -92,54 +93,56 @@ var tools_zoom = function() {
 					}
 				);
 				
-				
-					//get product images, up to 6, and create thumbnails.
-				var thumbName; //recycled in loop
-				var tImages = ''; 
-				for (var i = 1; i < 7; i +=1) {
-					thumbName = data.value['%attribs']['zoovy:prod_image'+i];
-					
-					if(app.u.isSet(thumbName)) {
-						app.u.dump(" -> "+i+": "+thumbName);
-							//make thumb and assign path as attr for use in swaping later
-						$thumbImageCont.append('<div><img src="'+app.u.makeImage({'tag':0,'name':thumbName,'w':$tag.attr('twidth'),'h':$tag.attr('theight'),'b':bgcolor})+'" data-imgsrc="'+thumbName+'"/></div>');
+					//if isThumbs is set then add thumbnails, if not... don't.
+				if(data.bindData.isThumbs == 1) {
+						//get product images, up to 6, and create thumbnails.
+					var thumbName; //recycled in loop
+					var tImages = ''; 
+					for (var i = 1; i < 7; i +=1) {
+						thumbName = data.value['%attribs']['zoovy:prod_image'+i];
+						
+						if(app.u.isSet(thumbName)) {
+							app.u.dump(" -> "+i+": "+thumbName);
+								//make thumb and assign path as attr for use in swaping later
+							$thumbImageCont.append('<div><img src="'+app.u.makeImage({'tag':0,'name':thumbName,'w':$tag.attr('twidth'),'h':$tag.attr('theight'),'b':bgcolor})+'" data-imgsrc="'+thumbName+'"/></div>');
+						}
 					}
+					
+					
+						//add mouseenter to each thumb to show it in the main image area
+					$('img',$thumbImageCont).each(function() { 
+						$(this).on('mouseenter', function() {
+							$mainImageCont.trigger('zoom.destroy');		//kill zoom on main image
+							var newImage = $(this).attr('data-imgsrc');	//get path for thumb image
+							
+								//change image source for main image
+							$('img:first-child',$mainImageCont).attr('src', app.u.makeImage({
+								"name" 	: newImage,
+								"w" 	: $tag.attr('width'),
+								"h" 	: $tag.attr('height'),
+								"b" 	: bgcolor
+							}));
+								
+								//make new zoom image
+							var newImageURL = app.u.makeImage({
+								"name" 	: newImage,
+								"w" 	: $tag.attr('zwidth'),
+								"h" 	: $tag.attr('zheight'),
+								"b" 	: bgcolor
+							});
+							
+								//start zoom on main image again
+							$mainImageCont.zoom(
+								{
+									url			: newImageURL,
+									on			: 'mouseover',
+									duration	: 500
+								}
+							);
+						}); //mouseenter
+					}); //thumbnails
 				}
 				
-				
-					//add mouseenter to each thumb to show it in the main image area
-				$('img',$thumbImageCont).each(function() { 
-					$(this).on('mouseenter', function() {
-						$mainImageCont.trigger('zoom.destroy');		//kill zoom on main image
-						var newImage = $(this).attr('data-imgsrc');	//get path for thumb image
-						
-							//change image source for main image
-						$('img:first-child',$mainImageCont).attr('src', app.u.makeImage({
-							"name" 	: newImage,
-							"w" 	: $tag.attr('width'),
-							"h" 	: $tag.attr('height'),
-							"b" 	: bgcolor
-						}));
-							
-							//make new zoom image
-						var newImageURL = app.u.makeImage({
-							"name" 	: newImage,
-							"w" 	: $tag.attr('zwidth'),
-							"h" 	: $tag.attr('zheight'),
-							"b" 	: bgcolor
-						});
-						
-							//start zoom on main image again
-						$mainImageCont.zoom(
-							{
-								url			: newImageURL,
-								on			: 'mouseover',
-								duration	: 500
-							}
-						);
-					}); //mouseenter
-				}); //thumbnails
-
 			} //imageZoom
 		
 		}, //renderFormats

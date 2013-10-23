@@ -1343,14 +1343,14 @@ ul.sizeVariations li.soldout {
 	margin: 5px 0 0 0;
 	padding: 0 0 0 5px;
 }
-
+/*
 .prodThumbContainer img:hover {
 	height: 120px;
 	width: 190px;
 	padding: 0;
 	margin: 0;
 }
-
+*/
 .productDesc {
 	text-align: center;
 	font-size: 10px;
