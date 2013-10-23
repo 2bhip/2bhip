@@ -77,10 +77,13 @@ var partner_addthis = function() {
 								+			'<a class="addthis_button_twitter">'
 								+				'<img src="images/twitter-icon_36x39.png" width="36" height="39" alt="Share to Twitter" />'
 								+			'</a>'
-								+			'<a class="addthis_button_pinterest">'
+								+			'<a class="addthis_button_pinterest_pinit">'
 								+				'<img src="images/pintrest-icon_36x39.png" width="36" height="39" alt="Share to Pinterest" />'
 								+			'</a>'
-								+			//'<a class="addthis_counter addthis_pill_style"></a>'
+								+			'<a class="addthis_button_youtube_follow" addthis:userid="2beltbuckles">'
+								+				'<img src="images/youtube-icon_36x39.png" width="36" height="39" alt="Follow on Youtube" />'
+								+			'</a>'
+								+			'<a class="addthis_counter addthis_pill_style"></a>'
 								+		'</div>'
 								+	'</div>');
 							

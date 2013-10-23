@@ -1705,6 +1705,11 @@ a.thumbCarouselButtonPrev span, a.thumbCarouselButtonNext span {display: none;}
 	margin: 0px 2px 1px 2px;
 }
 
+.socialLinks a {
+	float: left;
+	margin: 0 10px;
+}
+
 .prodSummaryContainer {
 	font-size: 14px;
  	width: 420px; 
