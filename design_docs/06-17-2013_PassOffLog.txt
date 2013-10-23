@@ -7,13 +7,13 @@
 7. search size feature
 8. Header drop downs to click
 9. header backgroung yellow more like yellow nav bar ***Done
-10. home page main banner carousel button needs to be applied to each banner
-11. home page "TOP SELLING TITLES" Adventure Time Link, View all Titles Link
-12. home page "ABOUT 2 BHIP" need info from customer
+10. each home page main banner carousel button needs link ---Tim
+11. home page "TOP SELLING TITLES" Adventure Time Link ---Tim
+12. home page "ABOUT 2 BHIP" need info from customer ---Tim
 13. Footer links check them all
-14. category description hiding/showing
+14. category description hiding/showing ---Tim
 15. Category/product lists under filter: "Did you know" section
 16. cart savings calculation
-17. Need filter locations and what each filter should sort with
-18. Need final category list for All Characters and Titles page
-19. Need final category and item list for homepage dropdowns
+17. Need filter locations and what each filter should sort with ---Tim
+18. Need final category list for All Characters and Titles page ---Tim
+19. Need final category and item list for homepage dropdowns ---Tim
