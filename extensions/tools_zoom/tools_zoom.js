@@ -55,12 +55,24 @@ var tools_zoom = function() {
 			imageZoom : function($tag, data) {
 				app.u.dump('data.value:'); app.u.dump(data.value); app.u.dump($tag.data('thumbclass'));
 
-					//create containers for image & thumbnails
+					//create containers & classes for image & thumbnails
 				var $mainImageCont = ('<div class="mainImageCont"></div>');
-				var $zoomImageCont = $tag.data('zoomclass') ? ('<div class="'+$tag.data('zoomclass')+'"></div>') : $mainImageCont;
-				var $zoomImageClass = $tag.data('zoomclass') ? '.'+$tag.data('zoomclass') : '.mainImageCont';
 				var $thumbImageCont = ('<div class="thumbImageCont '+$tag.data('thumbclass')+'"></div>');
-				$tag.append($mainImageCont).append($thumbImageCont).append($zoomImageCont);
+				if($tag.data('zoomclass')) {
+					var $zoomImageCont = ('<div class="displayNone '+$tag.data('zoomclass')+' '+$tag.data('zoomclass')+'_'+data.value.pid+'"></div>');
+					var zoomImageClass = '.'+$tag.data('zoomclass')+'_'+data.value.pid;
+					var seperateZoomIn = function() {$(zoomImageClass).show();};
+					var seperateZoomOut = function() {$(zoomImageClass).hide();};
+					$tag.append($mainImageCont).append($thumbImageCont).append($zoomImageCont);
+				}
+				else {
+					var $zoomImageCont = $mainImageCont;
+					var zoomImageClass = '.mainImageCont';
+					var seperateZoom = function() {};
+					var seperateZoomOut = function() {};
+					$tag.append($mainImageCont).append($thumbImageCont);
+				}
+				
 				$mainImageCont = $('.mainImageCont',$tag);
 				$thumbImageCont = $('.thumbImageCont',$tag);
 				
@@ -92,7 +104,9 @@ var tools_zoom = function() {
 						url			: zoomURL,
 						on			: 'mouseover',
 						duration	: 500,
-						target		: ''+$zoomImageClass
+						target		: ''+zoomImageClass,
+						onZoomIn	: seperateZoomIn,
+						onZoomOut	: seperateZoomOut
 					}
 				);
 				
@@ -113,7 +127,7 @@ var tools_zoom = function() {
 					
 					
 						//add mouseenter to each thumb to show it in the main image area
-					$('img',$thumbImageCont).each(function() { 
+					$('img',$thumbImageCont).each(function() {
 						$(this).on('mouseenter', function() {
 							$mainImageCont.trigger('zoom.destroy');		//kill zoom on main image
 							var newImage = $(this).attr('data-imgsrc');	//get path for thumb image
