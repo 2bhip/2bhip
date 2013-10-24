@@ -1,14 +1,14 @@
 1. product page sizes to radio button style  ***Done
-2. product page magic zoom, zoom area bigger
-3. product image hover state? magic zoom
+2. product page magic zoom, zoom area bigger 
+3. product image hover state? magic zoom ***Done
 4. product page previously viewed shouldn't show item on first page land. ***Done
 5. product page this item has no reviews be the first if no reviews. ***Done
-6. product page addthis icons need to be cusomized *** Done (pinterest may not work)
+6. product page addthis icons need to be cusomized *** Done
 7. search size feature
-8. Header drop downs to click
+8. Header drop downs to click ***Done
 9. header backgroung yellow more like yellow nav bar ***Done
 10. each home page main banner carousel button needs link ---Tim
-11. home page "TOP SELLING TITLES" Adventure Time Link ---Tim
+11. home page "TOP SELLING TITLES" & Adventure Time Link ***Done
 12. home page "ABOUT 2 BHIP" need info from customer ---Tim
 13. Footer links check them all
 14. category description hiding/showing ---Tim
