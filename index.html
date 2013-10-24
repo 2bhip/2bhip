@@ -19,7 +19,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"201314.20131023103900",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"201314.20131023182600",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"checkoutAuthMode" : "required",//can be passive, active or required
@@ -1407,7 +1407,7 @@ remember to NOT put the button inside the 'onclick' container or two events will
 	<div onClick="showContent('product',{'pid':$(this).attr('data-pid')})" data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='pointer'>
 <button class='productQuickviewButton borderRound bangersMedFont pointer quickView displayNone' onClick="quickView('product',{'templateID':'productTemplateQuickView','pid':$(this).closest('[data-pid]').attr('data-pid')});">Quickview</button>   
         <div class='prodThumbContainer'>
-		<div data-bind="useParentData:true; format:imageZoom; extension:tools_zoom; isElastic:1;" data-zoomclass='resultsZoom'; height='105' width='180' zheight='210' zwidth='360'></div>
+		<div data-bind="useParentData:true; format:imageZoom; extension:tools_zoom; isElastic:1;" data-zoomclass='resultsZoom'; height='105' width='180' zheight='315' zwidth='540'></div>
 		<!-- <img src='blank.gif' class='prodThumb' data-bind='var: product(images); format:imageURL;isElastic:1;bgcolor:ffffff;' width='180' height='105' /> -->
 		</div>
 

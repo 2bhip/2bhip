@@ -52,12 +52,50 @@ var tools_zoom = function() {
 
 		renderFormats : {
 		
-			imageZoom : function($tag, data) {
-				app.u.dump('data.value:'); app.u.dump(data.value); app.u.dump($tag.data('thumbclass'));
+/****************************************
 
-					//create containers & classes for image & thumbnails
-				var $mainImageCont = ('<div class="mainImageCont"></div>');
+A renderformat for creating a magnified image of a product, and the ability to switch an image out 
+with thumbnails of up to 6 of it's alternate images. The images will be based on the product container
+which renderformat element resides.
+
+This renderformat is intended to be on a stand-alone element such as a div.
+ex: 
+<div data-bind="useParentData:true; format:imageZoom; extension:tools_zoom; isThumbs:1;" data-thumbclass='thumbCarousel' height='296' width='296' zheight='800' zwidth='800' theight='50' twidth='50'>
+
+Do not specify a var, ALWAYS set useParentData to true.
+
+bindData params:
+required:
+	none
+optional:
+	isThumbs - An indicator that thumbnail images should be created. 1 = true.
+	bgcolor - A background color to be passed to the app.u.makeImage call for all images.
+	isElastic - An indicator that the renderformat will be run on elastic results. 1 = true.
+
+data attributes:
+required:
+		none
+optional:
+	data-thumbclass - A class that will be added to the container that holds the thumbnails.
+	data-zoomclass - Indicates that the zoomed image should be created in a separate container. 
+					 It's value is added as a class to that container.
+	height - A height to be passed to the app.u.makeImage call for the main, standard size image.
+	width -	A width to be passed to the app.u.makeImage call for the main, standard size image.
+	theight - A height to be passed to the app.u.makeImage call for the thumbnail image(s).
+	twidth - A width to be passed to the app.u.makeImage call for the thumbnail image(s).
+	zheight - A height to be passed to the app.u.makeImage call for the larger, zoom size image.
+	zwidth - TA width to be passed to the app.u.makeImage call for the larger, zoom size image.
+	
+					 
+****************************************/
+		
+			imageZoom : function($tag, data) {
+		//		app.u.dump('data.value:'); app.u.dump(data.value); app.u.dump('thumbclass'); app.u.dump($tag.data('thumbclass'));
+
+					//create containers & classes for images & thumbnails
+				var $mainImageCont = ('<div class="mainImageCont_'+data.value.pid+'"></div>');
 				var $thumbImageCont = ('<div class="thumbImageCont '+$tag.data('thumbclass')+'"></div>');
+					//if the zoom will not be in the original image container, different properties are needed
 				if($tag.data('zoomclass')) {
 					var $zoomImageCont = ('<div class="displayNone '+$tag.data('zoomclass')+' '+$tag.data('zoomclass')+'_'+data.value.pid+'"></div>');
 					var zoomImageClass = '.'+$tag.data('zoomclass')+'_'+data.value.pid;
@@ -66,22 +104,17 @@ var tools_zoom = function() {
 					$tag.append($mainImageCont).append($thumbImageCont).append($zoomImageCont);
 				}
 				else {
-					var $zoomImageCont = $mainImageCont;
-					var zoomImageClass = '.mainImageCont';
-					var seperateZoom = function() {};
-					var seperateZoomOut = function() {};
+					var zoomImageClass = '.mainImageCont_'+data.value.pid;
 					$tag.append($mainImageCont).append($thumbImageCont);
 				}
-				
-				$mainImageCont = $('.mainImageCont',$tag);
+				$mainImageCont = $('.mainImageCont_'+data.value.pid,$tag);
 				$thumbImageCont = $('.thumbImageCont',$tag);
 				
 				
 					//get bgcolor and image path, create main product image
 				var bgcolor = data.bindData.bgcolor ? data.bindData.bgcolor : 'ffffff'
-				app.u.dump('data.bindData'); app.u.dump(data.bindData);
+		//		app.u.dump('data.bindData'); app.u.dump(data.bindData);
 				var image = data.bindData.isElastic ? data.value.images[0] : data.value['%attribs']['zoovy:prod_image1'];
-				//$tag.attr('data-imgsrc',image);
 				var imageURL = app.u.makeImage({
 					"name" 	: image,
 					"w" 	: $tag.attr('width'),
@@ -98,17 +131,33 @@ var tools_zoom = function() {
 					"h" 	: $tag.attr('zheight'),
 					"b"		: bgcolor
 				});
-					//enable zoom on main image
-				$mainImageCont.zoom(
-					{
-						url			: zoomURL,
-						on			: 'mouseover',
-						duration	: 500,
-						target		: ''+zoomImageClass,
-						onZoomIn	: seperateZoomIn,
-						onZoomOut	: seperateZoomOut
-					}
-				);
+				
+				
+					//enable zoom on main image, 
+					//if a separate container is used for the zoom it is the target, 
+					//and must be shown and hidden on mouseenter & mouseleave
+				if($tag.data('zoomclass')) {
+					$mainImageCont.zoom(
+						{
+							url			: zoomURL,
+							on			: 'mouseover',
+							duration	: 500,
+							target		: zoomImageClass,
+							onZoomIn	: seperateZoomIn,
+							onZoomOut	: seperateZoomOut
+						}
+					);
+				}
+					//no separate container, no target or show/hide needed
+				else {
+					$mainImageCont.zoom(
+						{
+							url			: zoomURL,
+							on			: 'mouseover',
+							duration	: 500
+						}
+					);
+				}
 				
 					//if isThumbs is set then add thumbnails, if not... don't.
 				if(data.bindData.isThumbs == 1) {
