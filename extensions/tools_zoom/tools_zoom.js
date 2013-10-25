@@ -92,24 +92,23 @@ optional:
 			imageZoom : function($tag, data) {
 		//		app.u.dump('data.value:'); app.u.dump(data.value); app.u.dump('thumbclass'); app.u.dump($tag.data('thumbclass'));
 
-					//create containers & classes for images & thumbnails
+					//create containers & classes for images
 				var $mainImageCont = ('<div class="mainImageCont_'+data.value.pid+'"></div>');
-				var $thumbImageCont = ('<div class="thumbImageCont '+$tag.data('thumbclass')+'"></div>');
+
 					//if the zoom will not be in the original image container, different properties are needed
 				if($tag.data('zoomclass')) {
 					var $zoomImageCont = ('<div class="displayNone '+$tag.data('zoomclass')+' '+$tag.data('zoomclass')+'_'+data.value.pid+'"></div>');
 					var zoomImageClass = '.'+$tag.data('zoomclass')+'_'+data.value.pid;
 					var seperateZoomIn = function() {$(zoomImageClass).show();};
 					var seperateZoomOut = function() {$(zoomImageClass).hide();};
-					$tag.append($mainImageCont).append($thumbImageCont).append($zoomImageCont);
+					$tag.append($mainImageCont).append($zoomImageCont);
 				}
 				else {
 					var zoomImageClass = '.mainImageCont_'+data.value.pid;
-					$tag.append($mainImageCont).append($thumbImageCont);
+					$tag.append($mainImageCont)
 				}
 				$mainImageCont = $('.mainImageCont_'+data.value.pid,$tag);
-				$thumbImageCont = $('.thumbImageCont',$tag);
-				
+								
 				
 					//get bgcolor and image path, create main product image
 				var bgcolor = data.bindData.bgcolor ? data.bindData.bgcolor : 'ffffff'
@@ -160,7 +159,14 @@ optional:
 				}
 				
 					//if isThumbs is set then add thumbnails, if not... don't.
-				if(data.bindData.isThumbs == 1) {
+					//if no prod_image2, likely there are no thumbnails, don't create the container as
+					//and fill it w/ a redundant image (may need a better check form the same image later).
+				if(data.bindData.isThumbs == 1 && data.value['%attribs']['zoovy:prod_image2']) {
+				
+					var $thumbImageCont = ('<div class="thumbImageCont '+$tag.data('thumbclass')+'"></div>');
+					$tag.append($mainImageCont).append($thumbImageCont)
+					$thumbImageCont = $('.thumbImageCont',$tag);
+					
 						//get product images, up to 6, and create thumbnails.
 					var thumbName; //recycled in loop
 					var tImages = ''; 
