@@ -833,7 +833,10 @@ return filters;
 						function foo8(){ $(".thumbCarousel").carouFredSel({
 							width    : 296,
 							height 	 : 75,
-							items    : 3,
+							items	 : {
+								visible  : 3,
+								minimum  : 2
+							},
 							scroll   : 1,
 							auto	 : false,
 							prev : {

@@ -1704,6 +1704,7 @@ PRODUCT DETAIL PAGE
 .thumbCarouselButtonPrev {
 	height: 75px;
 	width: 35px; 
+	background-color: #ffffff;
 	background-image: url(images/thumb-arrow-left_17x41.png);
 	background-repeat: no-repeat;
 	background-position: 9px 16px;
@@ -1715,6 +1716,7 @@ PRODUCT DETAIL PAGE
 .thumbCarouselButtonNext {
 	height: 75px;
 	width: 35px; 
+	background-color: #ffffff;
 	background-image: url(images/thumb-arrow-right_17x41.png);
 	background-repeat: no-repeat;
 	background-position: 9px 16px;
