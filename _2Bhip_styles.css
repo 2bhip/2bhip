@@ -1862,6 +1862,7 @@ a.thumbCarouselButtonPrev span, a.thumbCarouselButtonNext span {display: none;}
 	background-image: url(images/strike-through_103x40.png);	
 	background-position: 0 26px;
 	background-repeat: no-repeat;
+	border-bottom: 2px solid #000000;
 }
 
 .prodPriceSelection h4 {
