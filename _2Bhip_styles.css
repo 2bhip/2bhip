@@ -1749,7 +1749,6 @@ a.thumbCarouselButtonPrev span, a.thumbCarouselButtonNext span {display: none;}
 	width: 36px;
 	background-image: url(images/pintrest-icon_36x39.png) !important;
 	background-position: 0 0;
-	margin: 0 10px;
 }
 
 .socialLinks a.addthis_pill_style {
