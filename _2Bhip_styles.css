@@ -300,9 +300,28 @@ HEADER
 	margin-left: 25px;	
 }
 
-.headerSearchBar {height: 29px; width:200px;}
+.productSearchForm {
+	height: 35px;
+	width: 250px;
+	border: 2px solid #000000;
+	border-radius: 5px;
+}
 
-.headerSearchButton {border-left:0;}
+.headerSearchBar {
+	height: auto;
+	width:200px;
+	padding: 6px 0 0 0;
+	border: none;
+	border-radius: 5px 0 0 5px;
+}
+
+.headerSearchButton {
+	border-left: 2px solid #000000;
+	border-right: none;
+	border-top: none;
+	border-bottom: none;
+	border-radius: 0 2px 2px 0;
+}
 
 #headerPhone {
 	height:44px;

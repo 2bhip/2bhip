@@ -19,7 +19,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"201314.20131025131900",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"201314.20131030152200",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"checkoutAuthMode" : "required",//can be passive, active or required
@@ -123,8 +123,8 @@ app.u.loadScript(app.vars.baseURL+"_2Bhip_init.js");
 	<div class='headerBranding'><img src='images/logo_213x102.png' onClick="return showContent('homepage',{});" class='pointer 2bhipLogo'></div>
     <div class='headerBranding search'>
     	<form name='headerSearchFrm' action='#' class='productSearchForm' method="get" id="searchFunc">
-			<input type='search' name='KEYWORDS' class="productSearchKeyword handleDefault form headerSearchBar borderLeft floatLeft" placeholder="  Find it here..." />
-			<input class="search pointer button headerSearchButton borderRight bangersMedFont floatLeft" type="submit" value="GO!" />
+			<input type='search' name='KEYWORDS' class="productSearchKeyword handleDefault form headerSearchBar floatLeft" placeholder="  Find it here..." />
+			<input class="search pointer button headerSearchButton bangersMedFont floatLeft" type="submit" value="GO!" />
    		</form>
     </div>
     <div class='headerBranding'>
