@@ -19,7 +19,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"201314.20131030152200",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"201314.20131105115700",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"",
 	"checkoutAuthMode" : "required",//can be passive, active or required
@@ -1463,15 +1463,14 @@ this will likely become more flexible in the future. ###
 <tr>
 	<td class='imageContainer'>
         <!--	<img src='blank.gif' id='bobWasHere' class='prodBigImage' data-bind='var: product(zoovy:prod_image1); format: magicZoomPlus; extension: magicToolBox_mzp;' width='340' height='340' /> -->
-        
-		<div data-bind="useParentData:true; format:imageZoom; extension:tools_zoom; isThumbs:1;" data-thumbclass='thumbCarousel' height='296' width='296' zheight='800' zwidth='800' theight='50' twidth='50'>
-			<div class='thumbCarouselButtonCont'>
-				<a href='#' class='thumbCarouselButtonPrev displayNone'><span>prev</span></a>
-				<a href='#' class='thumbCarouselButtonNext displayNone'><span>next</span></a>
-			</div>
+      
+		<a data-bind="useParentData:true; format:imageZoom; extension:tools_zoom; isThumbs:1; hrefAttr:%attribs.zoovy:prod_image1; w:500; h:500;" data-thumbclass='thumbCarousel' height='296' width='296' zheight='800' zwidth='800' theight='50' twidth='50'></a>
+		<div class='thumbCarouselButtonCont'>
+			<a href='#' class='thumbCarouselButtonPrev displayNone'><span>prev</span></a>
+			<a href='#' class='thumbCarouselButtonNext displayNone'><span>next</span></a>
 		</div>
 		
-<!--        <div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).attr("data-pid")});' class='pointer clearfix'  data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>        
+        <div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).attr("data-pid")});' class='pointer clearfix'  data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>        
            <!-- <img src='blank.gif' class='prodBigImage border' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='296' height='296' /> -->
 <!--            <img src='blank.gif' class='prodBigImage border MagicZoomPlus' data-bind='var: product(zoovy:prod_image1); format: magicZoomPlus; extension: magicToolBox_mzp;' width='296' height='296' />
         </div>

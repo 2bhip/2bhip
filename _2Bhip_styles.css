@@ -1702,7 +1702,7 @@ PRODUCT DETAIL PAGE
 	list-style: none;
 }
 
-.thumbCarousel li, .thumbImageCont div {
+.thumbCarousel li, .thumbImageCont div, .thumbImageCont a {
 	height: 65px;
 	width: 65px; 
 	float: left;
@@ -1710,13 +1710,13 @@ PRODUCT DETAIL PAGE
 	border: 1px solid #000000;
 }
 
-.thumbImageCont div img {
+.thumbImageCont div img, .thumbImageCont a img {
 	padding: 7px;
 }
 
 .thumbCarouselButtonCont {
 	position: relative;
-	top: 300px;
+	bottom: 74px;
 	left: 0;
 	z-index: 1;
 }

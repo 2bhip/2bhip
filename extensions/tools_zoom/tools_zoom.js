@@ -42,7 +42,7 @@ var tools_zoom = function() {
 				app.u.dump('BEGIN tools_zoom.callbacks.init.onError');
 				}
 			}
-		}, //callbacks
+		}, //callbacks 
 
 ////////////////////////////////////   ACTION    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
@@ -86,12 +86,17 @@ optional:
 	zheight - A height to be passed to the app.u.makeImage call for the larger, zoom size image.
 	zwidth - TA width to be passed to the app.u.makeImage call for the larger, zoom size image.
 	
+!!This extension will work with the tools_lightbox extension using the bindData params: hrefAttr, w, & h.
+	(doesn't actually use the extension for anything but to load the lightbox plugin, which could be done
+		independently of the extension this will be changed later)
+	
 					 
 ****************************************/
 		
 			imageZoom : function($tag, data) {
 		//		app.u.dump('data.value:'); app.u.dump(data.value); app.u.dump('thumbclass'); app.u.dump($tag.data('thumbclass'));
-
+				var pid = app.u.makeSafeHTMLId(data.value.pid);
+				
 					//create containers & classes for images
 				var $mainImageCont = ('<div class="mainImageCont_'+data.value.pid+'"></div>');
 
@@ -121,7 +126,10 @@ optional:
 					"b" 	: bgcolor
 				}); 
 				$mainImageCont.append('<img src="'+imageURL+'" />');
-				
+					//if lightbox is being used at href to main image (main images based on thumbs are done later)
+				if(data.bindData.hrefAttr) {
+					$tag.attr({'href':app.u.makeImage({'name':image,'w':data.bindData.w,'h':data.bindData.h,'b':data.bindData.b}),'rel':'lightbox[prodPageMain_'+pid+']'})
+				}
 				
 					//create zoom image
 				var zoomURL = app.u.makeImage({
@@ -159,13 +167,13 @@ optional:
 				}
 				
 					//if isThumbs is set then add thumbnails, if not... don't.
-					//if no prod_image2, likely there are no thumbnails, don't create the container as
+					//if no prod_image2, likely there are no thumbnails, don't create the container
 					//and fill it w/ a redundant image (may need a better check form the same image later).
 				if(data.bindData.isThumbs == 1 && data.value['%attribs']['zoovy:prod_image2']) {
 				
 					var $thumbImageCont = ('<div class="thumbImageCont '+$tag.data('thumbclass')+'"></div>');
-					$tag.append($mainImageCont).append($thumbImageCont)
-					$thumbImageCont = $('.thumbImageCont',$tag);
+					$tag.after($thumbImageCont)
+					$thumbImageCont = $('.thumbImageCont','#productTemplate_'+pid);
 					
 						//get product images, up to 6, and create thumbnails.
 					var thumbName; //recycled in loop
@@ -174,9 +182,40 @@ optional:
 						thumbName = data.value['%attribs']['zoovy:prod_image'+i];
 						
 						if(app.u.isSet(thumbName)) {
-							app.u.dump(" -> "+i+": "+thumbName);
+//							app.u.dump(" -> "+i+": "+thumbName);
 								//make thumb and assign path as attr for use in swaping later
-							$thumbImageCont.append('<div><img src="'+app.u.makeImage({'tag':0,'name':thumbName,'w':$tag.attr('twidth'),'h':$tag.attr('theight'),'b':bgcolor})+'" data-imgsrc="'+thumbName+'"/></div>');
+							if(!data.bindData.hrefAttr) {	//if lightbox isn't being used make thumb container an empty div
+								$thumbImageCont.append('<div><img src="'+app.u.makeImage({'tag':0,'name':thumbName,'w':$tag.attr('twidth'),'h':$tag.attr('theight'),'b':bgcolor})+'" data-imgsrc="'+thumbName+'"/></div>');
+							}
+							else { //if lightbox is being used, make thumb container a anchor w/ lightbox attributes
+								var thumbImgObj = {
+									name : thumbName
+									};
+								if(data.bindData.w){ thumbImgObj.w = data.bindData.w; }
+								if(data.bindData.h){ thumbImgObj.h = data.bindData.h; }
+								if(data.bindData.b){ thumbImgObj.b = data.bindData.b; }
+								
+								var thumbHREF = app.u.makeImage(thumbImgObj);
+								$thumbImageCont.append('<a href="'+thumbHREF+'" rel="lightbox[prodPageThumb_'+pid+']"><img src="'+app.u.makeImage({'tag':0,'name':thumbName,'w':$tag.attr('twidth'),'h':$tag.attr('theight'),'b':bgcolor})+'" data-imgsrc="'+thumbName+'"/></a>');
+							}
+						}
+					}
+					if(data.bindData.hrefAttr) {
+						var mainName = '';
+						for(i=2;i<6;i++) {
+							mainName = data.value['%attribs']['zoovy:prod_image'+i];
+							if(app.u.isSet(mainName)){
+//								app.u.dump("main name -> "+i+": "+mainName);
+								var mainImgObj = {
+								name : mainName
+								};
+								if(data.bindData.w){ mainImgObj.w = data.bindData.w; }
+								if(data.bindData.h){ mainImgObj.h = data.bindData.h; }
+								if(data.bindData.b){ mainImgObj.b = data.bindData.b; }
+								
+								var mainHREF = app.u.makeImage(mainImgObj);
+								$tag.append('<a class=displayNone href="'+mainHREF+'" rel="lightbox[prodPageMain_'+pid+']"><img src="'+mainHREF+'" /></a>');
+							}
 						}
 					}
 					
@@ -186,14 +225,17 @@ optional:
 						$(this).on('mouseenter', function() {
 							$mainImageCont.trigger('zoom.destroy');		//kill zoom on main image
 							var newImage = $(this).attr('data-imgsrc');	//get path for thumb image
-							
+//							app.u.dump('newImage');	app.u.dump(newImage);			
 								//change image source for main image
-							$('img:first-child',$mainImageCont).attr('src', app.u.makeImage({
+							 var newHREF = app.u.makeImage({
 								"name" 	: newImage,
 								"w" 	: $tag.attr('width'),
 								"h" 	: $tag.attr('height'),
 								"b" 	: bgcolor
-							}));
+							});
+							
+							$('img:first-child',$mainImageCont).attr('src', newHREF);
+						//	$tag.attr({'href':newHREF,'rel':'lightbox[prodPage_'+pid+']'});
 								
 								//make new zoom image
 							var newImageURL = app.u.makeImage({
@@ -214,7 +256,7 @@ optional:
 						}); //mouseenter
 					}); //thumbnails
 				}
-				
+
 			} //imageZoom
 		
 		}, //renderFormats
