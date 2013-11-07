@@ -16,11 +16,6 @@
 
 ************************************************************** */
 
-/*
-An extension for managing the media library in addition to ALL other file uploads,including, but not limited to: csv and zip.
-*/
-
-
 
 var admin_support = function() {
 	var theseTemplates = new Array('supportFileUploadTemplate','supportPageTemplate','supportTicketRowTemplate','supportTicketCreateTemplate','supportTicketDetailTemplate','supportTicketFollowupTemplate','helpPageTemplate','helpDocumentTemplate','helpSearchResultsTemplate');
@@ -102,6 +97,43 @@ var admin_support = function() {
 				},
 
 
+			showPlatformInfo : function()	{
+				//if the current release has a video, give it a special pointer so that it can be loaded inline.
+				if(app.ext.admin.vars.versionMetaData.youtubeVideoIDs[app.model.release])	{
+					app.ext.admin.vars.versionMetaData.youtubeVideoID = app.ext.admin.vars.versionMetaData.youtubeVideoIDs[app.model.release];
+					}
+					
+				var $D = app.ext.admin.i.dialogCreate({
+					'title':'Platform Information',
+					'templateID':'platformInfoTemplate',
+					'data' : app.ext.admin.vars.versionMetaData
+					}).addClass('objectInspector');
+				$D.attr('id','platformInformation');
+				var $platInfo = $("[data-app-role='platformInfoContainer']",$D);
+				$platInfo.showLoading({'message':'Fetching platform data'});
+				app.model.addDispatchToQ({'_cmd':'platformInfo','_tag':	{'datapointer' : 'info','callback':function(rd){
+					$platInfo.hideLoading();
+					if(app.model.responseHasErrors(rd)){
+						$D.anymessage({'message':rd});
+						}
+					else	{
+						
+						$platInfo.append("<h3>Platform Information<\/h3>");
+						$platInfo.append(app.ext.admin_tools.u.objExplore($.extend({},app.u.getBlacklistedObject(app.data[rd.datapointer],['ts','_uuid','_rtag','_rcmd']),{'app release':app.vars.release})));
+						$platInfo.append("<h3>Video History<\/h3>");
+						for(index in app.ext.admin.vars.versionMetaData.youtubeVideoIDs)	{
+							$platInfo.append($("<div class='lookLikeLink'> &#187; "+index+"<\/div>").on('click',function(){
+								linkOffSite('http://www.youtube.com/watch?v='+app.ext.admin.vars.versionMetaData.youtubeVideoIDs[index]);
+								}));
+							}
+						app.u.handleAppEvents($D);
+						}
+					}}},'mutable');
+				app.model.dispatchThis('mutable');
+				$D.dialog('option','modal',false);
+				$D.dialog('open');
+				},
+
 			showHelpInterfaceInDialog : function()	{
 				var $container = $('#helpDialog');
 				if($container.length)	{
@@ -141,18 +173,20 @@ var admin_support = function() {
 						$target.effect("highlight", {}, 1500);
 						}
 					else	{
-						$target = $("<div \/>",{'id':targetID,'title':'help doc: '+docid}).addClass('helpDoc').appendTo('body');
+						$target = $("<div \/>",{'id':targetID,'title':'help doc: '+docid}).attr('docid',docid).addClass('helpDoc').appendTo('body');
 						$target.dialog({width:500, height:500});
-						$target.anycontent({'templateID':'helpDocumentTemplate','showLoadingMessage':'Fetching help documentation...'});
+						$target.showLoading({'message':'Fetching help documentation...'});
 
 						app.ext.admin.calls.helpDocumentGet.init(docid,{'callback':function(rd){
+							app.u.dump(" -> RD: "); app.u.dump(rd);
+							$target.hideLoading();
 							if(app.model.responseHasErrors(rd)){
-								$('#globalMessaging').anymessage({'message':rd});
+								$target.anymessage({'message':rd});
 								}
 							else	{
-								$target.anycontent({'datapointer':rd.datapointer});
-								app.u.handleAppEvents($panel);
-								app.ext.admin_support.u.handleHelpDocOverwrites($panel);
+								$target.anycontent({'templateID':'helpDocumentTemplate','datapointer':rd.datapointer});
+								app.u.handleAppEvents($target);
+								app.ext.admin_support.u.handleHelpDocOverwrites($target);
 								}
 							}},'mutable');
 						app.model.dispatchThis('mutable');
@@ -222,7 +256,6 @@ var admin_support = function() {
 			gatherIntel : function()	{
 				var r = "" //what is returned.
 				r += "\n\n ##### The following information is for the admin interface and user computer, not necessarily what was used in the issue of the ticket\n";
-				
 				r += "MVC version: "+app.model.version;
 				r += "\nMVC release: "+app.vars.release;
 				r += "\ndevice id: "+app.vars.deviceid;
@@ -234,6 +267,10 @@ var admin_support = function() {
 				r += "\noscpu: "+navigator.oscpu;
 				r += "\nscreen size: "+screen.width+" X "+screen.height;
 				r += "\nbrowser size: "+$('body').width()+" X "+$('body').height();
+				
+				var info = app.u.getBlacklistedObject(app.data.info,['server-time','ts','_uuid','_rtag','_rcmd']);
+				for(var index in info)	{r+= index+": "+info[index]}
+				
 				return r;
 				},
 
@@ -285,7 +322,7 @@ var admin_support = function() {
 			execTicketCreate : function($btn,vars)	{
 				$btn.button({icons: {primary: "ui-icon-circle-arrow-e"}});
 //					app.u.dump("-> vars: "); app.u.dump(vars)
-				$btn.off('click.showTicketCreate').on('click.showTicketCreate',function(event){
+				$btn.off('click.execTicketCreate').on('click.execTicketCreate',function(event){
 					event.preventDefault();
 					var $form = $btn.closest('form');
 					
@@ -293,8 +330,8 @@ var admin_support = function() {
 						$form.showLoading({'message':'Creating a new ticket'});
 						var sfo = $form.serializeJSON(),
 						uuid = $btn.closest('.ui-dialog-content').data('uuid'),
-						messageBody = sfo.description; //NOTE -> the user inputted message body should always be first. That way it's at the top of a high priority SMS/page.
-						for(index in sfo)	{
+						messageBody = sfo.description+"\n"; //NOTE -> the user inputted message body should always be first. That way it's at the top of a high priority SMS/page.
+						for(var index in sfo)	{
 							//only pass populated fields and don't pass description again (see above).
 							if(sfo[index] && index != 'description'){messageBody += "\n"+index+": "+sfo[index]}
 							}
@@ -352,13 +389,22 @@ var admin_support = function() {
 					$btn.off('click.execTicketClose').on('click.execTicketClose',function(event){
 						event.preventDefault();
 						
-						var $tbody = $btn.closest("[data-app-role='dualModeList']").find("[data-app-role='dualModeListContents']"),
-						ticketID = $btn.closest('tr').data('id');
+						var $D = app.ext.admin.i.dialogConfirmRemove({
+							'message':'Are you sure you want to close this ticket?',
+							'removeButtonText' : 'Close Ticket',
+							'removeFunction':function(rd){
+								var
+									$tbody = $btn.closest("[data-app-role='dualModeList']").find("[data-app-role='dualModeListContents']"),
+									ticketID = $btn.closest('tr').data('id');
+								app.model.destroy('adminTicketList');
+								app.ext.admin.calls.adminTicketMacro.init(ticketID,new Array('CLOSE'),{},'immutable');
+								app.ext.admin_support.u.reloadTicketList($tbody,$btn.closest("[data-app-role='dualModeList']").find("[name='disposition']").val(),'immutable'); //handles showloading
+								app.model.dispatchThis('immutable');
+								$D.dialog('close');
+								}
+							});
 						
-						app.model.destroy('adminTicketList');
-						app.ext.admin.calls.adminTicketMacro.init(ticketID,new Array('CLOSE'),{},'immutable');
-						app.ext.admin_support.u.reloadTicketList($tbody,$btn.closest("[data-app-role='dualModeList']").find("[name='disposition']").val(),'immutable'); //handles showloading
-						app.model.dispatchThis('immutable');
+
 						});
 					}
 				}, //execTicketClose
@@ -380,7 +426,7 @@ var admin_support = function() {
 					$panelContents = $btn.closest('.ui-widget-content');
 					
 					if(app.u.validateForm($form))	{
-						$panelContents.showLoading({'message':'Updateing ticket'});
+						$panelContents.showLoading({'message':'Updating ticket'});
 						app.ext.admin.calls.adminTicketMacro.init($panelContents.data('ticketid'),['APPEND?note='+encodeURIComponent($("[name='note']",$form).val())],{'callback':function(rd){
 							$panelContents.hideLoading();
 							if(app.model.responseHasErrors(rd)){
@@ -395,6 +441,28 @@ var admin_support = function() {
 					else	{} //validateForm handles displaying errors.
 					});
 				}, //execTicketUpdate
+
+//executed when the download button for a file is clicked.
+			adminTicketFileGetExec : function($btn)	{
+				$btn.button({icons: {primary: "ui-icon-circle-arrow-s"},text: false});
+				$btn.off('click.helpSearch').on('click.helpSearch',function(event){
+					event.preventDefault();
+					$('#supportContent').showLoading({'message':'Fetching Download'});
+					app.model.addDispatchToQ({
+						'_cmd':'adminTicketFileGet',
+						'ticketid' : $btn.closest("[data-ticketid]").data('ticketid'),
+						'remote' : $btn.closest('tr').data('remote'),
+						'base64' : 1,
+						'_tag':	{
+							'callback':'fileDownloadInModal',
+							'datapointer':'adminTicketFileGet',
+							'extension':'admin',
+							'jqObj' : $('#supportContent')
+							}
+						},'mutable');
+					app.model.dispatchThis('mutable');
+					})
+				},
 
 			execHelpDetailEdit : function($btn)	{
 				$btn.button();
@@ -430,10 +498,10 @@ var admin_support = function() {
 					$form = $("[data-app-role='helpSearch']",$parent).first(),
 					keywords = $("[name='keywords']",$parent).val();
 
-					app.u.dump(" -> $parent.length: "+$parent.length);
-					app.u.dump(" -> $form.length: "+$form.length);
+//					app.u.dump(" -> $parent.length: "+$parent.length);
+//					app.u.dump(" -> $form.length: "+$form.length);
 //					app.u.dump(" -> formObj: "); app.u.dump(formObj);
-					app.u.dump(" -> keywords: "+keywords);
+//					app.u.dump(" -> keywords: "+keywords);
 
 					if(keywords)	{
 						$('.dualModeListMessaging',$parent).first().empty().hide();
@@ -442,7 +510,6 @@ var admin_support = function() {
 						$contentArea.showLoading({"message":"Searching for help files"});
 						app.ext.admin.calls.helpSearch.init(keywords,{'callback':'anycontent','jqObj':$contentArea},'mutable');
 						app.model.dispatchThis('mutable');
-
 						}
 					else	{
 						$('.dualModeListMessaging',$parent).first().empty().show().anymessage({'message':'Please enter some keywords into the form input above to search for.'});
@@ -469,6 +536,18 @@ var admin_support = function() {
 						}
 					});
 				}, //showFileAttachmentModal
+
+//uses new delegated events model.
+			showHelpDocInDialog : function($ele,p)	{
+				var docID = $ele.data('docid');
+				if(docID)	{
+					app.ext.admin_support.a.showHelpDocInDialog(docID);
+					}
+				else	{
+					$('#globalMessaging').anymessage({'message':'In admin_support.e.showHelpDetailInDialog, unable to determine docID.','gMessage':true});
+					}
+				},
+
 
 //used on a button in the search interface. allows merchant to open the doc in a dialog, for portability.
 //button should be hidden when webdoc itself opened in dialog.
@@ -533,26 +612,33 @@ app.model.dispatchThis('mutable');
 			showTicketLastUpdate : function($ele)	{
 				if($ele.text().charAt(0) == '0')	{} //value will be 00:00: etc if no update has occured.
 				else	{
+					$ele.addClass('lookLikeLink');
 					$ele.off('click.showTicketLastUpdate').on('click.showTicketLastUpdate',function(){
 						var $tr = $ele.closest('tr'),
 						ticketID = $tr.data('id');
-						
-						$ele.addClass('lookLikeLink');
+
 						$tr.closest('tbody').showLoading({'message':'Retrieving last message for ticket '+ticketID});
-						app.ext.admin.calls.adminTicketDetail.init(ticketID,{'callback':function(rd){
-							$tr.closest('tbody').hideLoading();
-							if(app.model.responseHasErrors(rd)){
-								$('#globalMessaging').anymessage({'message':rd});
-								}
-							else	{
-								$ele.off('click.showTicketLastUpdate').removeClass('lookLikeLink');
-								if(app.data[rd.datapointer] && app.data[rd.datapointer]['@FOLLOWUPS'] && app.data[rd.datapointer]['@FOLLOWUPS'].length)	{
-									$tr.after("<tr class='hideInMinimalMode'><td class='alignRight'><span class='ui-icon ui-icon-arrowreturnthick-1-e'><\/span><\/td><td colspan='7'><pre class='preformatted'>"+app.data[rd.datapointer]['@FOLLOWUPS'][(app.data[rd.datapointer]['@FOLLOWUPS'].length - 1)].txt+"<\/pre><\/td><\/tr>"); //responses are in chronological order, so zero is always the first post.
-									}
-								else	{} //no followups. "shouldn't" get here cuz link won't appear if there an update hasn't occured.
-								}
-							}},'mutable');
-						app.model.dispatchThis('mutable');
+app.model.addDispatchToQ({
+	'_cmd':'adminTicketDetail',
+	'ticketid':ticketID,
+	'_tag':	{
+		'datapointer' : 'adminTicketDetail|'+ticketID,
+		'callback':function(rd){
+			$tr.closest('tbody').hideLoading();
+			if(app.model.responseHasErrors(rd)){
+				$('#globalMessaging').anymessage({'message':rd});
+				}
+			else	{
+				$ele.off('click.showTicketLastUpdate').removeClass('lookLikeLink');
+				if(app.data[rd.datapointer] && app.data[rd.datapointer]['@FOLLOWUPS'] && app.data[rd.datapointer]['@FOLLOWUPS'].length)	{
+					$tr.after("<tr class='hideInMinimalMode'><td class='alignRight'><span class='ui-icon ui-icon-arrowreturnthick-1-e'><\/span><\/td><td colspan='7'><pre class='preformatted'>"+app.data[rd.datapointer]['@FOLLOWUPS'][(app.data[rd.datapointer]['@FOLLOWUPS'].length - 1)].txt+"<\/pre><\/td><\/tr>"); //responses are in chronological order, so zero is always the first post.
+					}
+				else	{} //no followups. "shouldn't" get here cuz link won't appear if there an update hasn't occured.
+				}
+			}
+		}
+	},'mutable');
+app.model.dispatchThis('mutable');
 						});
 					}
 				}, //showTicketLastUpdate
@@ -565,6 +651,7 @@ app.model.dispatchThis('mutable');
 					$target.anycontent({data:{},'templateID':'supportTicketCreateTemplate'});
 					$target.data({'ticketid':'0','uuid':app.u.guidGenerator()}); //necessary for file attachment.
 					$target.dialog({'width':'75%','height':500});
+					
 					app.u.handleAppEvents($target,{'$context':$btn.closest("[data-app-role='dualModeList']")});
 					});
 				}, //showTicketCreate
@@ -595,19 +682,25 @@ app.model.dispatchThis('mutable');
 						
 						app.ext.admin.u.toggleDualMode($btn.closest("[data-app-role='dualModeContainer']"),'detail');
 						
-						app.ext.admin.calls.adminTicketDetail.init(ticketID,{
-							'callback':function(rd){
-								if(app.model.responseHasErrors(rd)){
-									app.u.throwMessage(rd);
-									}
-								else	{		
-									$panel.anycontent({'datapointer':rd.datapointer});
-									app.u.handleAppEvents($panel);
+						app.model.addDispatchToQ({'_cmd':'adminTicketFileList','ticketid':ticketID,'_tag':	{'datapointer' : 'adminTicketFileList|'+ticketID}},'mutable');
+						app.model.addDispatchToQ({
+							'_cmd':'adminTicketDetail',
+							'ticketid':ticketID,
+							'_tag':	{
+								'datapointer' : 'adminTicketDetail|'+ticketID,
+								'callback':function(rd){
+									if(app.model.responseHasErrors(rd)){
+										app.u.throwMessage(rd);
+										}
+									else	{		
+										$panel.anycontent({'data':$.extend(true,{},app.data[rd.datapointer],app.data['adminTicketFileList|'+ticketID])});
+										app.u.handleAppEvents($panel);
+										}
 									}
 								}
 							},'mutable');
-							$panel.slideDown('fast',function(){$panel.showLoading({'message':'Fetching Ticket Details.'});});
-							app.model.dispatchThis('mutable');
+						app.model.dispatchThis('mutable');
+						$panel.slideDown('fast',function(){$panel.showLoading({'message':'Fetching Ticket Details.'});});
 
 
 						}
@@ -631,6 +724,28 @@ app.model.dispatchThis('mutable');
 					});
 				
 				}, //showTopicInputs
+
+			ping : function($btn)	{
+				$btn.button();
+				$btn.off('click.ping').on('click.ping',function(){
+					var start = new Date().getTime();
+app.model.addDispatchToQ({
+	'_cmd':'ping',
+	'_tag':	{
+		'callback':function(rd){
+if(app.model.responseHasErrors(rd)){
+	$('#platformInformation').anymessage({'message':rd});
+	}
+else	{
+	var end = new Date().getTime();
+	alert("Pong! took "+(end - start) / 1000+" seconds")
+	}
+			}
+		}
+	},'mutable');
+app.model.dispatchThis('mutable');
+					});
+				},
 
 			tagAsPriority : function($ele)	{
 

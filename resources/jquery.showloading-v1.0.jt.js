@@ -51,7 +51,7 @@
 				$loadingDiv.addClass(settings.addClass);
 				}
 			if(settings.message)	{
-				$loadingDiv.addClass('ui-widget ui-widget-content ui-corner-all stdPadding alignCenter').text(settings.message);
+				$loadingDiv.addClass('ui-widget ui-widget-content ui-corner-all stdPadding alignCenter').html($("<div \/>").addClass('ui-loading-message').text(settings.message));
 				}
 	
 			$loadingDiv.prepend("<div class='loadingBG'></div>"); //add gfx before txt.
@@ -144,16 +144,22 @@
 			var indicatorLeft = overlay_left_pos;
 			
 			if ( settings.marginLeft ) {
-				indicatorLeft += parseInt(settings.marginTop);
-			}
+				indicatorLeft += parseInt(settings.marginLeft);
+				}
 			
 			
 			//
 			// set horizontal position
 			//
-	
+//	app.u.dump(" -> settings:"); app.u.dump(settings);
+//app.u.dump("$overlayDiv.outerWidth(): "+$overlayDiv.outerWidth());
+//app.u.dump("$loadingDiv.outerWidth(): "+$loadingDiv.outerWidth());
+//app.u.dump("indicatorLeft: "+indicatorLeft);
+//app.u.dump("jt left: "+(parseInt(($overlayDiv.outerWidth() - $loadingDiv.outerWidth()) / 2)))
+
 			if ( settings.hPos.toString().toLowerCase() == 'center' ) {
-				$loadingDiv.css('left', (indicatorLeft + (($overlayDiv.outerWidth() - parseInt($loadingDiv.outerWidth())) / 2)).toString()  + 'px');
+//				$loadingDiv.css('left', (indicatorLeft + (($overlayDiv.outerWidth() - parseInt($loadingDiv.outerWidth())) / 2)).toString()  + 'px');
+				$loadingDiv.css('left', (parseInt(($overlayDiv.outerWidth() - $loadingDiv.outerWidth()) / 2)).toString()  + 'px');
 				}
 			else if ( settings.hPos.toString().toLowerCase() == 'left' ) {
 				$loadingDiv.css('left',0);
@@ -232,7 +238,7 @@
 
 
 	jQuery.fn.hideLoading = function(options) {
-	
+		var indicatorID;
 		var settings = {};
 		jQuery.extend(settings, options);
 
@@ -242,9 +248,11 @@
 		else {
 			indicatorID = $(this).attr('id');
 			}
-       	
-   		$(this).find('#loading-indicator-' + indicatorID ).remove();
-		$(this).find('#loading-indicator-' + indicatorID + '-overlay' ).remove();
+// ** 201318 -> better method for selector
+		$(app.u.jqSelector('#','loading-indicator-'+indicatorID),$(this)).remove();
+		$(app.u.jqSelector('#','loading-indicator-'+indicatorID+'-overlay'),$(this)).remove();
+//		$(this).find('#loading-indicator-' + indicatorID ).remove();
+//		$(this).find('#loading-indicator-' + indicatorID + '-overlay' ).remove();
 		
 		return this;
      	};

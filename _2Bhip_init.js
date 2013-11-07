@@ -14,12 +14,18 @@ app.rq.push(['extension',0,'store_product','extensions/store_product.js']);
 app.rq.push(['extension',0,'store_cart','extensions/store_cart.js']);
 app.rq.push(['extension',0,'store_crm','extensions/store_crm.js']);
 app.rq.push(['extension',0,'myRIA','app-quickstart.js','startMyProgram']);
+
+app.rq.push(['extension',0,'entomologist','extensions/entomologist/extension.js']);
+
+app.rq.push(['extension',0,'tools_animation','extensions/tools_animation.js']);
+
 app.rq.push(['extension',0,'store_filter','extensions/_2bhip_extension.js','startExtension']);
 app.rq.push(['extension',0,'tools_zoom','extensions/tools_zoom/tools_zoom.js']);
 app.rq.push(['extension',0,'tools_lightbox','extensions/tools_lightbox/tools_lightbox.js']);
 
 //app.rq.push(['extension',1,'google_analytics','extensions/partner_google_analytics.js','startExtension']);
-app.rq.push(['extension',0,'partner_addthis','extensions/partner_addthis.js','startExtension']);
+app.rq.push(['extension',1,'tools_ABtesting','extensions/tools_ABtesting.js']);
+//app.rq.push(['extension',0,'partner_addthis','extensions/partner_addthis.js']);
 //app.rq.push(['extension',1,'resellerratings_survey','extensions/partner_buysafe_guarantee.js','startExtension']); /// !!! needs testing.
 //app.rq.push(['extension',1,'buysafe_guarantee','extensions/partner_buysafe_guarantee.js','startExtension']);
 //app.rq.push(['extension',1,'powerReviews_reviews','extensions/partner_powerreviews_reviews.js','startExtension']);
@@ -84,14 +90,6 @@ app.u.howManyPassZeroResourcesAreLoaded = function(debug)	{
 		}
 	return r;
 	}
-	
-//PREVIOUSLY VIEWED ITEMS	
-//app.rq.push(['templateFunction','productTemplate','onDeparts',function(P) {
-//		var $container = $('.recentlyViewedItemsContainer');
-//		$container.show();
-//		$("ul",$container).empty(); //empty product list
-//		$container.anycontent({data:app.ext.myRIA.vars.session}); //build product list
-//}]);
 
 
 //Filter Search:
@@ -168,7 +166,8 @@ app.u.initMVC = function(attempts){
 			app.u.loadApp();
 			}
 		}
-	else if(attempts > 50)	{
+// *** 201324 -> increase # of attempts to reduce pre-timeout error reporting. will help to load app on slow connection/computer.
+	else if(attempts > 250)	{
 		app.u.dump("WARNING! something went wrong in init.js");
 		//this is 10 seconds of trying. something isn't going well.
 		$('#appPreView').empty().append("<h2>Uh Oh. Something seems to have gone wrong. </h2><p>Several attempts were made to load the store but some necessary files were not found or could not load. We apologize for the inconvenience. Please try 'refresh' and see if that helps.<br><b>If the error persists, please contact the site administrator</b><br> - dev: see console.</p>");

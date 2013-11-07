@@ -118,7 +118,8 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 				
 				var $list = _rtag.list;
 				if($list && $list.length)	{
-					$list.empty().removeClass('loadingBG').attr('data-app-role','searchResults');
+//*** 201336 -> setting data-app-role on the element was a bad idea. it may have already been set and it doesn't appear to get used at all.
+					$list.empty().removeClass('loadingBG'); //.attr('data-app-role','searchResults');
 					$list.closest('.previewListContainer').find('.resultsHeader').empty().remove(); //remove any previous results multipage headers
 
 					if(L == 0)	{
@@ -148,7 +149,7 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 							$pageMenu = app.ext.store_search.u.buildPagination($list,_tag), //pagination as ul
 							$multipage = app.ext.store_search.u.buildPaginationButtons($list,_tag), //next/prev buttons
 							$menuContainer = $("<div \/>").addClass('resultsMenuContainer'), //used to hold menus. imp for abs. positioning.
-							$controlsContainer = $("<div \/>").addClass('resultsHeader clearfix'); //used to hold menus and buttons.
+/*2BHIP?*/							$controlsContainer = $("<div \/>").addClass('resultsHeader clearfix'); //used to hold menus and buttons.
 							
 //							$menuContainer.append($sortMenu); //sorting not working. commented out for now. !!!
 							$header.prependTo($parent);
@@ -175,7 +176,8 @@ P.query = { 'and':{ 'filters':[ {'term':{'profile':'E31'}},{'term':{'tags':'IS_S
 						}
 					}
 				else	{
-					$('#globalMessaging').anymessage({'message':'In store_search.callbacks.handleElasticResults, $list was not defined, not a jquery objet or empty (not on DOM).',gMessage:true});
+					$('#globalMessaging').anymessage({'message':'In store_search.callbacks.handleElasticResults, $list ['+typeof _rtag.list+'] was not defined, not a jquery object ['+(_rtag.list instanceof jQuery)+'] or does not exist ['+_rtag.list.length+'].',gMessage:true});
+					app.u.dump("handleElasticResults _rtag.list: "); app.u.dump(_rtag.list);
 					}
 				}
 			}
@@ -239,11 +241,11 @@ app.u.dump(" -> pageInFocus: "+pageInFocus);
 					$controls = $("<div \/>").addClass('');
 
 //SANITY -> the classes on these buttons are used in quickstart. 					
-					var $prevPageBtn = $("<button \/>").text("Previous Page").button({icons: {primary: "ui-icon-circle-triangle-w"},text: false}).addClass('prevPageButton prevMove').on('click.multipagePrev',function(event){
+/*2HIP*/				var $prevPageBtn = $("<button \/>").text("Previous Page").button({icons: {primary: "ui-icon-circle-triangle-w"},text: false}).addClass('prevPageButton prevMove').on('click.multipagePrev',function(event){
 						event.preventDefault();
 						app.ext.store_search.u.changePage($list,(pageInFocus - 1),_rtag);
 						});
-					var $nextPageBtn = $("<button \/>").text("Next Page").button({icons: {primary: "ui-icon-circle-triangle-e"},text: false}).addClass('nextPageButton nextMove').on('click.multipageNext',function(event){
+/*2HIP*/				var $nextPageBtn = $("<button \/>").text("Next Page").button({icons: {primary: "ui-icon-circle-triangle-e"},text: false}).addClass('nextPageButton nextMove').on('click.multipageNext',function(event){
 						event.preventDefault();
 						app.ext.store_search.u.changePage($list,(pageInFocus + 1),_rtag);
 						});
