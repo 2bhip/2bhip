@@ -62,7 +62,7 @@ a typical 'fetchData' is done for a quick determination on whether or not ANY da
 if not, we're obviously missing what's needed.  If some data is local, check for the presence of the attributes
 requested and if even one isn't present, get all.
 datapointer needs to be defined early in the process so that it can be used in the handlecallback, which happens in INIT.
-obj.PATH = .cat.safe.id
+obj.PATH = .cat.safe.path
 */
 		appPageGet : {
 			init : function(obj,tagObj,Q)	{
@@ -420,10 +420,10 @@ templateID - the template id used (from app.templates)
 							}
 						for(var i = 0; i < L; i += 1)	{
 							if(data.value[i].pretty[0] != '!')	{
-								var parentID = data.value[i].id+"_catgid+"+(app.u.guidGenerator().substring(10));
+								var parentID = data.value[i].path+"_catgid+"+(app.u.guidGenerator().substring(10));
 // ** 201336+ appNavcatDetail id param changed to path -mc
 								$tag.append(app.renderFunctions.createTemplateInstance(data.bindData.loadsTemplate,{'id':parentID,'catsafeid':data.value[i].path}));
-								numRequests += app.ext.store_navcats.calls[call].init(data.value[i].id,{'parentID':parentID,'callback':'translateTemplate'});
+								numRequests += app.ext.store_navcats.calls[call].init(data.value[i].path,{'parentID':parentID,'callback':'translateTemplate'});
 								}
 							}
 						if(numRequests)	{app.model.dispatchThis()}
@@ -431,9 +431,9 @@ templateID - the template id used (from app.templates)
 //if no detail level is specified, only what is in the actual value (typically, id, pretty and @products) will be available. Considerably less data, but no request per category.
 					else	{
 						for(var i = 0; i < L; i += 1)	{
-							var parentID = data.value[i].id+"_catgid+"+(app.u.guidGenerator().substring(10));
+							var parentID = data.value[i].path+"_catgid+"+(app.u.guidGenerator().substring(10));
 							if(data.value[i].pretty[0] != '!')	{
-								$tag.append(app.renderFunctions.transmogrify({'id':parentID,'catsafeid':data.value[i].id},data.bindData.loadsTemplate,data.value[i]));
+								$tag.append(app.renderFunctions.transmogrify({'id':parentID,'catsafeid':data.value[i].path},data.bindData.loadsTemplate,data.value[i]));
 								}
 							}
 						}
@@ -458,7 +458,7 @@ templateID - the template id used (from app.templates)
 //!!! hhhmm.. needs fixin. need to compensate 'i' for hidden categories.
 					for(var i = 0; i < size; i +=1)	{
 						if(subcatDetail[i].pretty[0] != '!')	{
-							catSafeID = subcatDetail[i].id;
+							catSafeID = subcatDetail[i].path;
 							o += "<li><a href='#' onClick=\"showContent('category',{'navcat':'"+catSafeID+"'}); return false;\">"+subcatDetail[i].pretty+ "<\/a><\/li>";
 							}
 						}
@@ -646,7 +646,7 @@ note - there is NO error checking in here to make sure the subcats aren't alread
 				var catsArray = new Array(); //what is returned. incremented with each dispatch created.
 				var L = app.data['appNavcatDetail|'+catSafeID]['@subcategoryDetail'].length
 				for(var i = 0; i < L; i += 1)	{
-					catsArray.push(app.data['appNavcatDetail|'+catSafeID]['@subcategoryDetail'][i].id);
+					catsArray.push(app.data['appNavcatDetail|'+catSafeID]['@subcategoryDetail'][i].path);
 					}
 				//app.u.dump(catsArray);
 				return catsArray;			
