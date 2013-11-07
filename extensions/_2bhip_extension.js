@@ -83,7 +83,7 @@ var store_filter = function() {
 			
 				app.ext.store_filter.u.runCarousels();
 				app.ext.store_filter.a.showDescription();
-					app.u.dump("_2bhip showDescription() run");
+					//app.u.dump("_2bhip showDescription() run");
 				app.rq.push(['templateFunction','productTemplate','onCompletes',function(infoObj) {
 					var $context = $(app.u.jqSelector('#'+infoObj.parentID)); //grabs the currently loaded product page (to ignore previously loaded / invisible ones)
 					app.ext.store_filter.u.showRecentlyViewedItems($context);
@@ -386,6 +386,10 @@ $('html, body').animate({scrollTop : 0},200); //new page content loading. scroll
 //on a data-bind, format: is equal to a renderformat. extension: tells the rendering engine where to look for the renderFormat.
 //that way, two render formats named the same (but in different extensions) don't overwrite each other.
 		renderFormats : {
+		
+		 cat : function($tag, data) {
+			app.u.dump('category Pretty'); app.u.dump(data.value);
+		 },
 
 		
 			sizeDisplay : function($tag,data) {
@@ -881,9 +885,9 @@ return filters;
 			//display ? with hint in hidden div IF ghint is set
 				if(pog['ghint']) {$parentDiv.append(pogs.showHintIcon(pogid,pog['ghint']))}
 				var i = 0;
-				var len = pog['options'].length;
+				var len = pog['@options'].length;
 				while (i < len) {
-					$parentDiv.append($("<label \/>").append($('<input>').attr({type: "radio", name: pogid, value: pog['options'][i]['v']}).after(pog['options'][i]['prompt'])));
+					$parentDiv.append($("<label \/>").append($('<input>').attr({type: "radio", name: pogid, value: pog['@options'][i]['v']}).after(pog['@options'][i]['prompt'])));
 					i++;
 					}
 				return $parentDiv;
