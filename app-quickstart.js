@@ -2457,6 +2457,7 @@ elasticsearch.size = 50;
 								$article.showLoading({'message':'Fetching newsletter list'});
 								app.calls.appNewsletterList.init({callback : function(rd){
 									$article.hideLoading();
+									$('#mainContentArea_customer').removeClass('loadingBG');
 									if(app.model.responseHasErrors(rd)){
 										$article.anymessage({'message':rd});
 										}
@@ -2472,6 +2473,7 @@ elasticsearch.size = 50;
 								app.calls.buyerNewsletters.init({},'mutable');
 								app.calls.appNewsletterList.init({callback : function(rd){
 									$article.hideLoading();
+									$('#mainContentArea_customer').removeClass('loadingBG');
 									if(app.model.responseHasErrors(rd)){
 										$article.anymessage({'message':rd});
 										}
@@ -2490,6 +2492,7 @@ elasticsearch.size = 50;
 									$article.showLoading({'message':'Retrieving order information'});
 									app.ext.store_crm.calls.buyerOrderGet.init({'orderid':orderID,'cartid':cartID},{'callback': function(rd){
 										$article.hideLoading();
+										$('#mainContentArea_customer').removeClass('loadingBG');
 										if(app.model.responseHasErrors(rd)){
 											$article.anymessage({'message':rd});
 											}
@@ -2509,18 +2512,21 @@ elasticsearch.size = 50;
 								app.calls.buyerPurchaseHistory.init({'callback':function(rd){
 									$("[data-app-role='orderList']",'#ordersArticle').empty().anycontent({'datapointer':rd.datapointer});
 									}},'mutable');
+								$('#mainContentArea_customer').removeClass('loadingBG');
 								break;
 							case 'lists':
-	
 								app.calls.buyerProductLists.init({'parentID':'listsContainer','callback':'showBuyerLists','extension':'myRIA'});
+								$('#mainContentArea_customer').removeClass('loadingBG');
 								break;
 							case 'myaccount':
 	//							app.u.dump(" -> myaccount article loaded. now show addresses...");
 								app.ext.cco.calls.appCheckoutDestinations.init({},'mutable'); //needed for country list in address editor.
 								app.calls.buyerAddressList.init({'callback':'showAddresses','extension':'myRIA'},'mutable');
+								$('#mainContentArea_customer').removeClass('loadingBG');
 								break;
 							case 'createaccount':
 								app.ext.cco.calls.appCheckoutDestinations.init({},'mutable'); //needed for country list in address entry.
+								$('#mainContentArea_customer').removeClass('loadingBG');
 								break;
 							default:
 								app.u.dump("WARNING - unknown article/show ["+infoObj.show+" in showCustomer. ");
