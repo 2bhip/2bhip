@@ -2956,6 +2956,8 @@ LOGIN MODAL / INLINE LOGIN
 #gotAccount input[type='submit'], #gotAccountInline input[type='submit']{
 	width: auto;
 	padding: 5px 10px;
+	font-family: bangers;
+	font-size: 1em;
 }
 
 #gotAccount a, #gotAccountInline a {
