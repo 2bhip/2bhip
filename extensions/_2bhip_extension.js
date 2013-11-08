@@ -96,6 +96,16 @@ var store_filter = function() {
 					app.ext.store_filter.u.addRecentlyViewedItems($context, pid);
 				}]);
 				
+				app.rq.push(["templateFunction","customerTemplate","onCompletes",function(infoObj){
+					var $sideline = $('.customerSideline', $(app.u.jqSelector('#',infoObj.parentID)));
+					if(infoObj.show == "createaccount"){
+						$sideline.hide();
+						}
+					else {
+						$sideline.show();
+						}
+				}]);
+				
 				return true;
 				/*var r = false; //return false if extension won't load for some reason (account config, dependencies, etc).
 

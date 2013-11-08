@@ -20,7 +20,7 @@ var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPL
 var myCreole;
 
 var app = {vars:{
-	"release":"201336.20131106222500",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"201336.20131108084000",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"_clientid":"zmvc",
 	"baseURL":"", //used in non-local mode.
 	"checkoutAuthMode" : "required",//can be passive, active or required
@@ -2362,7 +2362,7 @@ if you change these, you should move them above this comment so that when you (o
 <!-- loadingBG needed on this for app init (content may take a moment to load) -->
 <div id='customerTemplate' class='clearfix loadingBG'>
 
-	<div class='sideline borderRound openSansBoldFont' >
+	<div class='sideline borderRound openSansBoldFont customerSideline' >
     	<div class='productShips'>QUICK LINKS</div>
         <nav class='aboutNav aboutQuickNav openSansBoldFont' id='customerNav'>
             <ul class='listStyleNone noPadOrMargin'>
@@ -2435,7 +2435,7 @@ subscribeListsArticle is used for authenticated buyers
 		<div id='createaccountArticle' class="displayNone textContentArea">
 			<p id='loginMessagingInline' class='marginBottom appMessaging'></p>
 			<div class="creatAccount">
-				<div id="gotAccount1"> 
+				<div id="gotAccountInline"> 
 					<h1>WELCOME BACK</h1>
 					<!-- Third parameter is id of message destination -->
 					<form action='#' onSubmit='app.ext.store_filter.a.loginFrmSubmit($("input[name=login]",$(this)).val(),$("input[name=password]",$(this)).val(),$("#loginMessagingInline")); return false;' id='modalLoginForm1'>
@@ -2443,7 +2443,7 @@ subscribeListsArticle is used for authenticated buyers
 						<fieldset>
 							<input type='email' class='zform_textbox zform_email' name='login' id='modalLoginLogin' value='' size='39' placeholder='E-mail address' />
 							<input type='password' class='zform_textbox zform_password' name='password' id='modalLoginpassword' value='' size='39' placeholder='Password' />
-							<input type='submit' value='SIGN IN' class='ui-button-text ui-button ui-corner-all ' />
+							<input type='submit' value='SIGN IN' class='yellowGradient borderRound ui-button-text ui-button ui-corner-all ' />
 						</fieldset>
 					</form>
 					<a href="#" onClick="app.calls.appBuyerPasswordRecover.init($('input[name=login]', $(this).parent()).val(),{'callback':'showMessaging','message':'Thank you, you will receive an email shortly','targetID':'loginMessagingInline'}); app.model.dispatchThis('immutable'); return false;">Forgot your password?<br> Enter your username and click hear to retrieve it!</a>
@@ -2526,7 +2526,7 @@ subscribeListsArticle is used for authenticated buyers
 						</div>
 						<div class="fieldM"><span class="field">E-mail</span> <input name='email' type='email' size='30' class='textfmail' placeholder='E-mail Address' required='required' /> <b>Phone Number</b> <input name='phone' type='tel' size='12' placeholder='Phone Number' class='textfphone' required='required'/> </div>
 						<div class="fieldM"><span class="field">Password</span> <input name='pass' type='password' size='30' class='textfpass' placeholder='7-18 Characters' required='required' /> <b>Confirm Password</b> <input name='pass2' type='password' size='12' placeholder='Must be a match' class='textfphone' required='required'/> </div>
-						<input type="submit" value="Create an Account" class="createButton"></input>
+						<input type="submit" value="Create an Account" class="createButton yellowGradient borderRound"></input>
 					</form>
 				</div>
 			</div>

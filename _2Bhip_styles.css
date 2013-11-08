@@ -2882,7 +2882,7 @@ PRODUCT REVIEWS TEMPLATE
 
 
 /*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-LOGIN MODAL
+LOGIN MODAL / INLINE LOGIN
 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
 
 
@@ -2916,7 +2916,7 @@ LOGIN MODAL
 	width: auto;
 }
 
-#gotAccount {
+#gotAccount, #gotAccountInline {
 	height: 270px;
 	width: 300px;
 	float: right;
@@ -2926,11 +2926,25 @@ LOGIN MODAL
 	box-shadow: 1px 1px 2px 2px;
 }
 
-#gotAccount h1 {margin: 29px 0 0 0;}
+#gotAccountInline {
+	padding: 10px;
+	float: left;
+	background: #cccccc url(images/modal-bkgrnd_660x63.png) no-repeat center bottom;
+}
 
-#gotAccount fieldset {padding:0;}
+#gotAccount h1, #gotAccountInline h1 {
+	margin: 29px 0 0 0;
+	font-family: bangers;
+	font-size: 35px;
+	font-weight: normal;
+}
 
-#gotAccount input {
+#gotAccount fieldset, #gotAccountInline fieldset {
+	padding: 0;
+	border: none;
+}
+
+#gotAccount input, #gotAccountInline input {
 	height: auto;
 	width: 200px; 
 	display: block;
@@ -2939,12 +2953,12 @@ LOGIN MODAL
 	border-radius: 5px;
 }
 
-#gotAccount input[type='submit']{
-	width:auto;
+#gotAccount input[type='submit'], #gotAccountInline input[type='submit']{
+	width: auto;
 	padding: 5px 10px;
 }
 
-#gotAccount a {
+#gotAccount a, #gotAccountInline a {
 	color: #be0000;
     display: block;
     font-family: "Open Sans";
@@ -2954,6 +2968,124 @@ LOGIN MODAL
     text-decoration: underline;
 }
 
+/*END LOGIN*/
+
+/*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+ACCT CREATION
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
+
+
+.creatAccount {
+	height: auto;
+	width: 940px;
+	margin: 20px 0 0 7%;
+}
+
+.Account {
+	height: auto;
+	width: 580px; 
+	float: right;
+	font-family: "Open Sans";
+	font-size: 0.8em; 
+	font-weight: bold;
+	margin: 0 0 10px 0;
+}
+
+.Account h1 {
+	font-family: bangers;
+	font-size: 35px; 
+	margin: 0 0 30px 0;
+	font-weight: normal;
+}
+
+.fieldM {
+	height: auto;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 0 0 10px;
+    width: 570px;
+}
+
+.field {
+	display: inline-block;
+    height: auto;
+    text-align: right;
+    width: 72px;
+}
+
+.field.mname {width:82px;}
+.fieldM input, .fieldM select {
+	height:30px; 
+	width:154px; 
+	margin:0 7px; 
+	padding:0 9px; 
+	border-radius:0; 
+	font-family:montserrat; 
+	border:2px solid #000000;
+}
+
+.fieldM option {height:20px; padding:5px 0 0 5px;}
+.fieldM input.textflast {width:177px;}
+.fieldM input.textfmname {width:15px;}
+.fieldM input.textfadd {width:250px;}
+.fieldM input.textfadd1 {width:150px;}
+.fieldM input.textfcity {width:170px;}
+.fieldM.stateFix {position:relative; top:-6px;}
+
+.selectWrapperS {	
+	height:30px; 
+	width:60px; 
+	display:inline-block; 
+	overflow:hidden; 
+	border:2px solid #000000; 
+	margin:0 7px; 
+	position:relative; 
+	bottom:-13px;
+}
+
+.fieldM select.textfstate {
+	height:30px; 
+	width:80px; 
+	padding:6px 0px 3px 2px; 
+	border:none; 
+	background: url(images/drop-down-arrow_30x30.jpg) no-repeat 30px 0px; margin:0;
+}
+	
+.fieldM input.textfzip {height:30px; width:92px;}
+.fieldM .selectField {position:relative; bottom:10px;}
+
+.selectWrapperC {
+	height:30px; 
+	width:245px; 
+	display:inline-block; 
+	overflow:hidden; 
+	border:2px solid #000000; 
+	margin:0 7px;
+}
+
+.fieldM select.textfcountry {
+	width:285px; 
+	padding:7px 3px 3px 3px; 
+	background: url(images/drop-down-arrow_30x30.jpg) no-repeat 215px 0px; 
+	border:none; 
+	margin:0;
+}
+
+.fieldM input.textfmail {width:140px; margin:0 26px 0 7px;}
+.fieldM input.textfpass {width:140px;}
+.fieldM input.textfphone {width:143px;}
+
+.Account .createButton {
+	color:#000000; 
+	padding:5px 15px; 
+	margin:10px auto; 
+	display:block; 
+	font-family:bangers; 
+	font-weight:normal; 
+	font-size:1.8em;
+}
+
+/*END ACCT CREATION*/
 
 /*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 WISH LIST
