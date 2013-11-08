@@ -177,6 +177,29 @@ var store_filter = function() {
 //actions are functions triggered by a user interaction, such as a click/tap.
 //these are going the way of the do do, in favor of app events. new extensions should have few (if any) actions.
 		a : {
+		
+			//copied from app-quickstart.js so additional parameter could be used to assign the error location (for diff. login screens)
+			loginFrmSubmit : function(email,password,errorDiv)	{
+				var errors = '';
+				$errorDiv = errorDiv.empty(); //make sure error screen is empty. do not hide or callback errors won't show up.
+
+				if(app.u.isValidEmail(email) == false){
+					errors += "Please provide a valid email address<br \/>";
+					}
+				if(!password)	{
+					errors += "Please provide your password<br \/>";
+					}
+				if(errors == ''){
+					app.calls.appBuyerLogin.init({"login":email,"password":password},{'callback':'authenticateBuyer','extension':'myRIA'});
+					app.calls.refreshCart.init({},'immutable'); //cart needs to be updated as part of authentication process.
+//					app.calls.buyerProductLists.init('forgetme',{'callback':'handleForgetmeList','extension':'store_prodlist'},'immutable');
+					app.model.dispatchThis('immutable');
+					}
+				else {
+					$errorDiv.anymessage({'message':errors});
+					}
+				showContent('customer',{'show':'myaccount'})
+			}, //loginFrmSubmit
 				
 				//CHANGES DISPLAYED LIST ON ALPHABET CLICK IN CHARACTERS AND TITLES ARTICLE
 				switchAllCharacters : function($this) {
@@ -493,6 +516,36 @@ else	{
 //utilities are typically functions that are exected by an event or action.
 //any functions that are recycled should be here.
 		u : {
+		
+			handleAppLoginCreate : function($form)	{
+				if($form)	{
+					var formObj = $form.serializeJSON();
+					
+					if(formObj.pass !== formObj.pass2) {
+						app.u.throwMessage('Sorry, your passwords do not match! Please re-enter your password');
+						return;
+					}
+					
+					var tagObj = {
+						'callback':function(rd) {
+							if(app.model.responseHasErrors(rd)) {
+								$form.anymessage({'message':rd});
+							}
+							else {
+								showContent('customer',{'show':'myaccount'});
+								app.u.throwMessage(app.u.successMsgObject("Your account has been created!"));
+							}
+						}
+					}
+					
+					formObj._vendor = "2bhip";
+					app.calls.appBuyerCreate.init(formObj,tagObj,'immutable');
+					app.model.dispatchThis('immutable');
+				}
+				else {
+					$('#globalMessaging').anymessage({'message':'$form not passed into store_filter.u.handleBuyerAccountCreate','gMessage':true});
+				}
+			},
 			
 	//called on depart from prod page to add item to recently viewed items list
 	//changed this from quickstart's addition at page load to prevent items from showing in list on first page visit

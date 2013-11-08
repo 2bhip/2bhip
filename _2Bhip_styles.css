@@ -2886,8 +2886,72 @@ LOGIN MODAL
 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&*/
 
 
-.modalLogin.loginOption.displayNone {
-	background-image: url(images/modal-bkgrnd_555x375.png);
+#loginFormForModal.loginOption.displayNone {
+	/*background: #cccccc url(images/modal-bkgrnd_555x375.png) no-repeat center bottom;*/
+	background: #cccccc url(images/modal-bkgrnd_660x63.png) no-repeat center bottom;
+	border: 2px groove white;
+	border-radius: 5px;
+}
+
+.createAccount {
+	height:270px; 
+	width:300px; 
+	float:left; 
+	font-family:"Open Sans"; 
+	text-align:center;
+	padding: 0;
+}
+
+.createAccount h1 {
+    color: #000000;
+    font-family: Bangers;
+    font-size: 35px;
+    margin: 33px 0 8px;
+    text-align: center;
+}
+
+.modalCreateButton.button {
+	padding: 5px; 
+	margin: 10px;
+	width: auto;
+}
+
+#gotAccount {
+	height: 270px;
+	width: 300px;
+	float: right;
+	margin: 0 0 10px 0;
+	text-align: center;
+	border-radius: 5px;
+	box-shadow: 1px 1px 2px 2px;
+}
+
+#gotAccount h1 {margin: 29px 0 0 0;}
+
+#gotAccount fieldset {padding:0;}
+
+#gotAccount input {
+	height: auto;
+	width: 200px; 
+	display: block;
+	margin: 10px auto;
+	padding: 5px 0 5px 5px;
+	border-radius: 5px;
+}
+
+#gotAccount input[type='submit']{
+	width:auto;
+	padding: 5px 10px;
+}
+
+#gotAccount a {
+	color: #be0000;
+    display: block;
+    font-family: "Open Sans";
+    font-size: 12px;
+    margin: auto;
+    text-align: center;
+    text-decoration: underline;
 }
 
 
